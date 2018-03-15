@@ -1,0 +1,54 @@
+\documentclass[12pt,openright,twoside,a4paper,
+	chapter=TITLE,section=TITLE,
+	english,brazil]{abntex2}
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
+\usepackage[alf]{abntex2cite} % Referências a bibliografia no padrão ABNT, como (<autor>, <ano>)
+\usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
+\usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
+\usepackage{abntUCS}
+\includeonly{PreTexto}
+
+\titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
+\autor{Henrique Baron}
+\data{2018}
+\instituicao{Universidade de Caxias do Sul}
+\local{Caxias do Sul}
+\preambulo{Trabalho desenvolvido para obtenção do grau no curso de Bacharelado em Engenharia Mecânica.}
+\orientador{Me. Paulo Roberto Linzmaier}
+
+% Configuração do pacote hyperref, que é chamado pela classe abntex2
+\makeatletter
+\hypersetup{
+	pdftitle={\@title},
+	pdfauthor={\@author},
+	pdfsubject={\imprimirpreambulo},
+	pdfkeywords={PALAVRAS}{CHAVE},
+	pdfcreator={LaTeX with abnTeX2},
+	colorlinks=true,
+	linkcolor=black,
+	citecolor=black,
+}
+\makeatother
+
+\begin{document}
+	\include{PreTexto}
+	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
+	
+
+	\chapter{Introdução}
+	
+	O capítulo a seguir situa o leitor em relação aos fatores técnicos e econômicos que motivaram a elaboração deste trabalho. Também são apresentados o ambiente onde foi realizado, seguido por seus objetivos. A disposição do conteúdo deste documento também é incluída nesta parte.
+	
+	\section{Justificativa}
+	Nos últimos anos, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilitou à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições de equipamentos. 
+	
+	
+	\postextual
+	
+	\bibliography{Bibliografia}
+		
+\end{document}
