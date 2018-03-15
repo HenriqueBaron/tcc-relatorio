@@ -1,13 +1,15 @@
 \providecommand{\abntreprintinfo}[1]{%
  \citeonline{#1}}
-\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\begin{thebibliography}{}
 \providecommand{\abntrefinfo}[3]{}
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{v-1.9.6 }
 
-\bibitem[Rao 2008]{bib:rao}
-\abntrefinfo{Rao}{RAO}{2008}
-{RAO, S.~S. \emph{Vibrações Mecânicas}. 4. ed. São Paulo: Pearson Prentice
-  Hall, 2008.}
+\bibitem{bib:al-najjar}
+\abntrefinfo{Al-Najjar}{AL-NAJJAR}{2003}
+{AL-NAJJAR, B. Enhancing a company's profitability and competitiveness using
+  integrated vibration-based maintenance: A case study.
+\emph{European Journal of Operational Research}, n.~157, p. 643--657, Agosto
+  2003.}
 
 \end{thebibliography}
