@@ -3,3 +3,5 @@
 *.dvi
 *.ps
 *.gz
+*.aux
+*.toc
