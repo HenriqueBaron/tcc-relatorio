@@ -8,6 +8,7 @@
 \usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
+\usepackage{textcomp}
 \usepackage{abntUCS}
 \includeonly{PreTexto}
 
@@ -54,6 +55,20 @@
 	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul. A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
 	
 	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo em mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas mecânicos, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inclusão da empresa em um mercado ainda pouco atendido.
+	
+	\section{Objetivos}
+	
+	Em linhas gerais, o objetivo do presente trabalho é validar o protótipo de uma bancada didática para análise de vibrações em máquinas rotativas. Portanto, a primeira etapa consiste no desenvolvimento de um modelo numérico no MATLAB\textsuperscript\textregistered\ que estabeleça como deve ser o comportamento do sistema quando em funcionamento. Uma vez aprovado o modelo, o protótipo deve ser construído e testado. Para isso, o conjunto mecânico será instrumentado e uma aplicação será construída no LabVIEW\textsuperscript\textregistered\ para fazer a coleta e análise dos dados. Por fim, objetiva-se comparar os valores retornados pelo modelo matemático com os dados de medição do sistema real para validação do protótipo.
+	
+	As três fases que compõem os objetivos do trabalho -- modelo numérico, coleta e análise de dados, e comparação de resultados -- pretendem validar especificamente alguns dos experimentos que poderão ser executados no produto final. Estes experimentos avaliam a resposta de vibração do sistema em relação à mudança em alguma variável. São elas:
+	\begin{itemize}
+		\setlength{\itemsep}{2pt plus 2pt minus 1pt}
+		\item Desalinhamento entre o motor e o eixo acoplado;
+		\item Desbalanceamento de um componente montado ao eixo;
+		\item Dano no rolamento do mancal.
+	\end{itemize}
+
+	Embora o conceito final do produto tenha uma gama maior de experimentos em vista, a experimentação destes foge ao escopo deste trabalho.
 	
 	\postextual
 	
