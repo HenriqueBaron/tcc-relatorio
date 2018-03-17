@@ -1,2 +1,5 @@
 *.pdf
 *.log
+*.dvi
+*.ps
+*.gz
