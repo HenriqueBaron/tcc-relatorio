@@ -1,6 +1,8 @@
 \documentclass[12pt,openright,twoside,a4paper,
 	chapter=TITLE,section=TITLE,
 	english,brazil]{abntex2}
+% Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
+\usepackage[num, overcite, abnt-etal-list=2, abnt-etal-text=it]{abntex2cite}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -10,6 +12,7 @@
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
 \usepackage{textcomp}
 \usepackage{abntUCS}
+\citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
 \includeonly{PreTexto}
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
@@ -38,28 +41,26 @@
 	\include{PreTexto}
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
 	
-
 	\chapter{Introdução}
 	O capítulo a seguir situa o leitor em relação aos fatores técnicos e econômicos que motivaram a elaboração deste trabalho. Também são apresentados o ambiente onde foi realizado, seguido por seus objetivos. A disposição do conteúdo deste documento também é incluída nesta parte.
 	
 	\section{Justificativa}
-	
-	Em todo o tipo de sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada, necessitando-se encontrar um balanço entre o custo de repetidas paradas para inspeção e o custo de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\%\ do PIB nacional, correspondendo a um valor de R\$\ 206,5 bilhões\cite{bib:seleme}.
+	Em todo o tipo de sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada, buscando-se encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondendo a um valor de R\$ 206,5 bilhões\cite{bib:seleme}.
 	
 	Nos últimos anos, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilitou à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. Entre as técnicas existentes, o monitoramento baseado em vibrações confere a vantagem de indicar mudanças nas condições de uma máquina em um estágio inicial de uma falha ou desgaste\cite{bib:al-najjar}, permitindo otimizar a frequência e assertividade das intervenções de manutenção, provocando redução de custos.
 	
-	Dada a importância do tema no meio industrial, é necessária a formação de profissionais competentes no assunto, em ambos os níveis técnico e acadêmico. E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula. Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
+	Como exemplo, dados do Laboratório Nacional de Energia Renovável dos Estados Unidos (\textit{National Renewable Energy Laboratory} ou NREL) apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada devido à diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos\cite{bib:peeters}. Isso demonstra que, neste caso, um plano de manutenção baseado no monitoramento de condições do sistema é a melhor maneira de minimizar o tempo de parada por falha. Levando em conta ainda o componente em questão, a análise de vibrações se demonstra como o melhor método de investigação de falhas prematuras.
+	
+	Dada a relevância do tema, é necessária a formação de profissionais competentes no campo da análise de vibrações em máquinas, em ambos os níveis técnico e acadêmico. E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula. Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
 	
 	Considerando a escassez da oferta de um equipamento para estudo de vibrações no mercado brasileiro, enxergou-se a possibilidade de desenvolvimento de uma bancada didática que trouxesse os conceitos de análise de vibrações em máquinas para escolas técnicas e universidades. No entanto, para o desenvolvimento de um produto para o mercado de ensino, é vital que exista uma fidelidade entre o equipamento construído e a teoria que ele demonstra. Portanto, a fabricação de um protótipo e a validação deste com um modelo teórico fundamentado são etapas importantes na concepção do produto.
 	
-	\section{Ambiente de Desenvolvimento}
-	
+	\section{Ambiente de Desenvolvimento}	
 	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul. A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
 	
-	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo em mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas mecânicos, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inclusão da empresa em um mercado ainda pouco atendido.
+	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas mecânicos, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inclusão da empresa em um mercado ainda pouco explorado.
 	
 	\section{Objetivos}
-	
 	Em linhas gerais, o objetivo do presente trabalho é validar o protótipo de uma bancada didática para análise de vibrações em máquinas rotativas. Portanto, a primeira etapa consiste no desenvolvimento de um modelo numérico no MATLAB\textsuperscript\textregistered\ que estabeleça como deve ser o comportamento do sistema quando em funcionamento. Uma vez aprovado o modelo, o protótipo deve ser construído e testado. Para isso, o conjunto mecânico será instrumentado e uma aplicação será construída no LabVIEW\textsuperscript\textregistered\ para fazer a coleta e análise dos dados. Por fim, objetiva-se comparar os valores retornados pelo modelo matemático com os dados de medição do sistema real para validação do protótipo.
 	
 	As três fases que compõem os objetivos do trabalho -- modelo numérico, coleta e análise de dados, e comparação de resultados -- pretendem validar especificamente alguns dos experimentos que poderão ser executados no produto final. Tais experimentos avaliam a resposta de vibração do sistema em relação à mudança em alguma variável. São elas:
