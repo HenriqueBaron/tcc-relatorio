@@ -44,7 +44,9 @@
 	
 	\section{Justificativa}
 	
-	Nos últimos anos, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilitou à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. Entre as técnicas existentes, o monitoramento baseado em vibrações confere a vantagem de indicar mudanças nas condições de uma máquina em um estágio inicial de uma falha ou desgaste\cite{bib:al-najjar}.
+	Em todo o tipo de sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada, necessitando-se encontrar um balanço entre o custo de repetidas paradas para inspeção e o custo de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\%\ do PIB nacional, correspondendo a um valor de R\$\ 206,5 bilhões\cite{bib:seleme}.
+	
+	Nos últimos anos, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilitou à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. Entre as técnicas existentes, o monitoramento baseado em vibrações confere a vantagem de indicar mudanças nas condições de uma máquina em um estágio inicial de uma falha ou desgaste\cite{bib:al-najjar}, permitindo otimizar a frequência e assertividade das intervenções de manutenção, provocando redução de custos.
 	
 	Dada a importância do tema no meio industrial, é necessária a formação de profissionais competentes no assunto, em ambos os níveis técnico e acadêmico. E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula. Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
 	
@@ -60,9 +62,9 @@
 	
 	Em linhas gerais, o objetivo do presente trabalho é validar o protótipo de uma bancada didática para análise de vibrações em máquinas rotativas. Portanto, a primeira etapa consiste no desenvolvimento de um modelo numérico no MATLAB\textsuperscript\textregistered\ que estabeleça como deve ser o comportamento do sistema quando em funcionamento. Uma vez aprovado o modelo, o protótipo deve ser construído e testado. Para isso, o conjunto mecânico será instrumentado e uma aplicação será construída no LabVIEW\textsuperscript\textregistered\ para fazer a coleta e análise dos dados. Por fim, objetiva-se comparar os valores retornados pelo modelo matemático com os dados de medição do sistema real para validação do protótipo.
 	
-	As três fases que compõem os objetivos do trabalho -- modelo numérico, coleta e análise de dados, e comparação de resultados -- pretendem validar especificamente alguns dos experimentos que poderão ser executados no produto final. Estes experimentos avaliam a resposta de vibração do sistema em relação à mudança em alguma variável. São elas:
+	As três fases que compõem os objetivos do trabalho -- modelo numérico, coleta e análise de dados, e comparação de resultados -- pretendem validar especificamente alguns dos experimentos que poderão ser executados no produto final. Tais experimentos avaliam a resposta de vibração do sistema em relação à mudança em alguma variável. São elas:
 	\begin{itemize}
-		\setlength{\itemsep}{2pt plus 2pt minus 1pt}
+		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item Desalinhamento entre o motor e o eixo acoplado;
 		\item Desbalanceamento de um componente montado ao eixo;
 		\item Dano no rolamento do mancal.
