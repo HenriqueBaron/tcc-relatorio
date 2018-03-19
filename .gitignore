@@ -1,3 +1,4 @@
+# LaTeX generated files
 *.pdf
 *.log
 *.dvi
@@ -6,3 +7,6 @@
 *.aux
 *.toc
 *.bbl
+*.blg
+*.lof
+*.lot
