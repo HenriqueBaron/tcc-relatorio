@@ -1,8 +1,8 @@
-\documentclass[12pt,openright,twoside,a4paper,
+\documentclass[12pt,openright,oneside,a4paper,
 	chapter=TITLE,section=TITLE,
 	english,brazil]{abntex2}
 % Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
-\usepackage[num, overcite, abnt-etal-list=2, abnt-etal-text=it]{abntex2cite}
+\usepackage[num, abnt-etal-list=2, abnt-etal-text=it]{abntex2cite}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -21,8 +21,8 @@
 \data{2018}
 \instituicao{Universidade de Caxias do Sul}
 \local{Caxias do Sul}
-\preambulo{Trabalho apresentado como requisito parcial para obtenção do grau no curso de Bacharelado em Engenharia Mecânica da Universidade de Caxias do Sul.}
-\orientador{Me. Paulo Roberto Linzmaier}
+\preambulo{Trabalho de conclusão de curso apresentado à Universidade de Caxias do Sul como requisito parcial à obtenção do grau de Engenheiro Mecânico. Área de concentração: Projetos de Máquinas: Estática e Dinâmica Aplicada.}
+\orientador{prof. Me. Paulo Roberto Linzmaier}
 
 % Configuração do pacote hyperref, que é chamado pela classe abntex2
 \makeatletter
@@ -43,15 +43,15 @@
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
 	
 	\chapter{Introdução}
-	Em todo o tipo de sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada, buscando-se encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões\cite{bib:seleme}.
+	Em todo o tipo de sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada, buscando-se encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{bib:seleme}.
 	
-	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme Hashemian e Bean. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas\cite{bib:hashemian}. 
+	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme Hashemian e Bean. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{bib:hashemian}. 
 	
-	Da mesma forma, dados do Laboratório Nacional de Energia Renovável dos Estados Unidos (\textit{\foreignlanguage{english}{National Renewable Energy Laboratory}} ou NREL) apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada devido à diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos\cite{bib:peeters}. Isso demonstra que, mesmo com uma expectativa de vida estimada para componentes de uma máquina, é impossível determinar de maneira exata qual será a sua durabilidade, corroborando portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
+	Da mesma forma, dados do Laboratório Nacional de Energia Renovável dos Estados Unidos (\textit{\foreignlanguage{english}{National Renewable Energy Laboratory}} ou NREL) apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada devido à diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{bib:peeters}. Isso demonstra que, mesmo com uma expectativa de vida estimada para componentes de uma máquina, é impossível determinar de maneira exata qual será a sua durabilidade, corroborando portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
-	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema\cite{bib:al-najjar}.
+	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{bib:al-najjar}.
 	
-	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas. Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento\cite{bib:carden}. Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo. Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados\cite{bib:qiao}, permitindo identificar a origem da variação no sinal analisado. Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
+	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas. Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento \cite{bib:carden}. Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo. Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados \cite{bib:qiao}, permitindo identificar a origem da variação no sinal analisado. Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
 	
 	\section{Justificativa}
 	Dada a relevância do conhecimento em vibrações nas aplicações de engenharia, é necessária a formação de profissionais competentes no campo da análise de vibrações em máquinas, em ambos os níveis técnico e acadêmico. E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula. Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
@@ -79,14 +79,6 @@
 		\item Comparação dos resultados obtidos no modelo numérico e no protótipo construído.
 	\end{enumerate}
 
-	Em detalhe, os itens \ref{obj:modelo} e \ref{obj:teste} envolvem a experimentação do comportamento do sistema em três experimentos. Estes consistem em quantificar a resposta vibratória do conjunto mediante a alteração em cada uma das três variáveis abaixo:
-	\begin{enumerate}
-		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
-		\item Desalinhamento entre o motor e o eixo acoplado;
-		\item Desbalanceamento de um componente montado ao eixo;
-		\item Desgaste no rolamento do mancal.
-	\end{enumerate}
-	
 	\postextual
 	
 	\bibliography{Bibliografia}
