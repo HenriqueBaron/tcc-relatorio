@@ -14,6 +14,7 @@
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{abntUCS}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
+\allowdisplaybreaks % Permite quebras de página em displays, como conjuntos de equações.
 \includeonly{PreTexto}
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
@@ -61,7 +62,7 @@
 	\section{Ambiente de desenvolvimento}	
 	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul. A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
 	
-	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas mecânicos, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inclusão da empresa em um mercado ainda pouco explorado.
+	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inserção da empresa em um mercado ainda pouco explorado.
 	
 	\section{Objetivos}
 	
@@ -81,44 +82,65 @@
 
 	\chapter{Desenvolvimento}
 	
-%	\section{Vibração de sistemas discretos}
-%	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
-%	\begin{equation} \label{eqn:discreto:movimento}
-%		[m]\,\ddot{\vec{x}} + [c]\,\dot{\vec{x}} + [k]\,\vec{x} = \vec{F}
-%	\end{equation}
-%	onde $ [m] $, $ [c] $ e $ [k] $ representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
-%	\begin{gather} \label{discr:matriz:massa}
-%		[m] = 
-%		\begin{bmatrix}
-%			m_1 & 0 & 0 & \dots & 0 & 0\\
-%			0 & m_2 & 0 & \dots & 0 & 0\\
-%			0 & 0 & m_3 & \dots & 0 & 0\\
-%			\vdots\\
-%			0 & 0 & 0 & \dots & 0 & m_n\\
-%		\end{bmatrix}\\		
-%		[c] = 
-%		\begin{bmatrix}
-%			(c_1 + c_2) & -c_2 &  0 & \dots & 0 & 0\\
-%			-c_2 & (c_2 + c_3) & -c_3 & \dots & 0 & 0\\
-%			0 & -c_3 & (c_3 + c_4) & \dots & 0 & 0\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			0 & 0 & 0 & \dots & -c_n & (c_n + c_{n+1})\\
-%		\end{bmatrix}\\
-%		[k] = 
-%		\begin{bmatrix}
-%			(k_1 + k_2) & -k_2 &  0 & \dots & 0 & 0\\
-%			-k_2 & (k_2 + k_3) & -k_3 & \dots & 0 & 0\\
-%			0 & -k_3 & (k_3 + k_4) & \dots & 0 & 0\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			\cdot & \cdot & \cdot & \dots & \cdot & \cdot\\
-%			0 & 0 & 0 & \dots & -k_n & (k_n + k_{n+1})\\
-%		\end{bmatrix}
-%	\end{gather}
-
-
+	\section{Vibração de sistemas discretos}
+	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
+	
+	\subsection{Equação geral de movimento}
+	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
+	\begin{equation} \label{eqn:discreto:movimento}
+		[m]\,\ddot{\vec{x}} + [c]\,\dot{\vec{x}} + [k]\,\vec{x} = \vec{F}
+	\end{equation}
+	onde $ [m] $, $ [c] $ e $ [k] $ representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
+	\begin{gather} \label{discr:matriz:massa}
+		[m] = 
+		\begin{bmatrix}
+			m_{11} & m_{12} & m_{13} & \dots & m_{1n}\\
+			m_{21} & m_{22} & m_{23} & \dots & m_{2n}\\
+			\vdots\\
+			m_{n1} & m_{n2} & m_{n3} & \dots & m_{nn}\\
+		\end{bmatrix}\\		
+		[c] = 
+		\begin{bmatrix}
+			c_{11} & c_{12} & c_{13} & \dots & c_{1n}\\
+			c_{21} & c_{22} & c_{23} & \dots & c_{2n}\\
+			\vdots\\
+			c_{n1} & c_{n2} & c_{n3} & \dots & c_{nn}\\
+		\end{bmatrix}\\
+		[k] = 
+		\begin{bmatrix}
+			k_{11} & k_{12} & k_{13} & \dots & k_{1n}\\
+			k_{21} & k_{22} & k_{23} & \dots & k_{2n}\\
+			\vdots\\
+			k_{n1} & k_{n2} & k_{n3} & \dots & k_{nn}\\
+		\end{bmatrix}
+	\end{gather}
+	enquanto $\vec{x}$, $\dot{\vec{x}}$, $\ddot{\vec{x}}$ e $\vec{F}$ são os vetores de deslocamento, velocidade, aceleração e força, definidos por
+	\begin{align}
+		\vec{x} =
+		\begin{Bmatrix}
+			x_1(t)\\ x_2(t)\\ \vdots\\ x_n(t)\\
+		\end{Bmatrix},\qquad &
+		\dot{\vec{x}} = 
+		\begin{Bmatrix}
+			\dot{x}_1(t)\\ \dot{x}_2(t)\\ \vdots\\ \dot{x}_n(t)\\
+		\end{Bmatrix}, \notag\\
+		\ddot{\vec{x}} = 
+		\begin{Bmatrix}
+			\ddot{x}_1(t)\\ \ddot{x}_2(t)\\ \vdots \\ \ddot{x}_n(t)\\  
+		\end{Bmatrix},\qquad &
+		\vec{F} = 
+		\begin{Bmatrix}
+			F_1(t)\\ F_2(t)\\ \vdots\\ F_n(t)\\
+		\end{Bmatrix}
+	\end{align}
+	
+	\subsection{Coordenadas e forças generalizadas}
+	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
+	
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, define-se a força generalizada correspondente $Q_j$ como
+	\begin{equation}
+		Q_j = \frac{U_j}{\delta q_j},\qquad j = 1, 2, \dots, n
+	\end{equation}
 	
 	\postextual
 	
