@@ -2,7 +2,7 @@
 	chapter=TITLE,section=TITLE,
 	english,brazil]{abntex2}
 % Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
-\usepackage[num, abnt-etal-list=2, abnt-etal-text=it]{abntex2cite}
+\usepackage[num,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -74,9 +74,9 @@
 	\setenumerate[0]{label=\alph*)}
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
-		\item Desenvolvimento de um modelo numérico da bancada no MATLAB\textsuperscript{\textregistered}; \label{obj:modelo}
+		\item Desenvolvimento de um modelo numérico da bancada no MATLAB\textsuperscript{\textregistered};
 		\item Montagem do protótipo e instalação de um sistema de aquisição de dados;
-		\item Desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise dos dados; \label{obj:teste}
+		\item Desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise dos dados;
 		\item Comparação dos resultados obtidos no modelo numérico e no protótipo construído.
 	\end{enumerate}
 
@@ -87,27 +87,27 @@
 	
 	\subsection{Equação geral de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
-	\begin{equation} \label{eqn:discreto:movimento}
+	\begin{equation} \label{eqn:discr:movimento}
 		[m]\,\ddot{\vec{x}} + [c]\,\dot{\vec{x}} + [k]\,\vec{x} = \vec{F}
 	\end{equation}
 	onde $ [m] $, $ [c] $ e $ [k] $ representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
-	\begin{gather} \label{discr:matriz:massa}
+	\begin{gather} 
 		[m] = 
-		\begin{bmatrix}
+		\begin{bmatrix} \label{eqn:matr:massa}
 			m_{11} & m_{12} & m_{13} & \dots & m_{1n}\\
 			m_{21} & m_{22} & m_{23} & \dots & m_{2n}\\
 			\vdots\\
 			m_{n1} & m_{n2} & m_{n3} & \dots & m_{nn}\\
 		\end{bmatrix}\\		
 		[c] = 
-		\begin{bmatrix}
+		\begin{bmatrix} \label{eqn:matr:amort}
 			c_{11} & c_{12} & c_{13} & \dots & c_{1n}\\
 			c_{21} & c_{22} & c_{23} & \dots & c_{2n}\\
 			\vdots\\
 			c_{n1} & c_{n2} & c_{n3} & \dots & c_{nn}\\
 		\end{bmatrix}\\
 		[k] = 
-		\begin{bmatrix}
+		\begin{bmatrix} \label{eqn:matr:rigid}
 			k_{11} & k_{12} & k_{13} & \dots & k_{1n}\\
 			k_{21} & k_{22} & k_{23} & \dots & k_{2n}\\
 			\vdots\\
@@ -115,7 +115,7 @@
 		\end{bmatrix}
 	\end{gather}
 	enquanto $\vec{x}$, $\dot{\vec{x}}$, $\ddot{\vec{x}}$ e $\vec{F}$ são os vetores de deslocamento, velocidade, aceleração e força, definidos por
-	\begin{align}
+	\begin{align} \label{eqn:vetores}
 		\vec{x} =
 		\begin{Bmatrix}
 			x_1(t)\\ x_2(t)\\ \vdots\\ x_n(t)\\
@@ -141,6 +141,31 @@
 	\begin{equation}
 		Q_j = \frac{U_j}{\delta q_j},\qquad j = 1, 2, \dots, n
 	\end{equation}
+	
+	\subsection{Equação de Lagrange}
+	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das grandezas vetoriais torna a resolução difícil \cite{savi:2017}.
+	
+	Considerando como $x_i$ o deslocamento de uma massa $m_i$ e seja $F_i$ a força aplicada nessa massa, a energia de deformação da i-ésima mola ou elemento elástico de um sistema com $n$ graus de liberdade é dada por \cite{rao:2008}
+	\begin{equation}
+		V_i = \frac{1}{2}F_i x_i
+	\end{equation}
+	A energia potencial total é, então
+	\begin{equation} \label{eqn:discr:energia:deformacao}
+		V = \sum_{i-1}^{n}V_i = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
+	\end{equation}
+	Fazendo a substituição
+	\begin{equation}
+		F_i = \sum_{j=1}^{n}k_{ij} x_j
+	\end{equation}
+	onde $k_{ij}$ representa o coeficiente de rigidez da i-ésima linha e j-ésima coluna na matriz de rigidez da Equação (\ref{eqn:matr:rigid}), a Equação (\ref{eqn:discr:energia:deformacao}) fornece
+	\begin{equation}
+		V = \frac{1}{2}\sum_{i=1}^{n}\left(\sum_{j=1}^{n}k_{ij} x_j\right)x_i = \frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}k_{ij} x_i x_j
+	\end{equation}
+	que pode ser expressa na forma matricial como
+	\begin{equation}
+		V = \frac{1}{2}\vec{x}^T [k] \vec{x}
+	\end{equation}
+	de modo que $[k]$ e $\vec{x}$ denotam respectivamente a matriz de rigidez da Equação (\ref{eqn:matr:rigid}) e o vetor de deslocamentos da Equação (\ref{eqn:vetores}).
 	
 	\postextual
 	
