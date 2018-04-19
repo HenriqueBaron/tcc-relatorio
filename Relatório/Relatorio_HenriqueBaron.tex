@@ -3,14 +3,19 @@
 	english,brazil]{abntex2}
 % Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
 \usepackage[num,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
+\usepackage{ifluatex} % Verificação do compilador utilizado
+\ifluatex
+	\usepackage{fontspec}
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+\fi
+
 \usepackage[brazil]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
-\usepackage{textcomp}
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{abntUCS}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
@@ -43,7 +48,7 @@
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
 	
 	\chapter{Introdução}
-	Em todo o sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada. Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
+	Em todo sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada. Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
 	
 	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme Hashemian e Bean. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
@@ -136,7 +141,7 @@
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, define-se a força generalizada correspondente $Q_j$ como
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde \textit{n} $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, define-se a força generalizada correspondente $Q_j$ como
 	\begin{equation}
 		Q_j = \frac{U_j}{\delta q_j},\qquad j = 1, 2, \dots, n
 	\end{equation}
