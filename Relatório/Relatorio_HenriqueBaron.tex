@@ -14,7 +14,6 @@
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{abntUCS}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
-\allowdisplaybreaks % Permite quebras de página em displays, como conjuntos de equações.
 \includeonly{PreTexto}
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
@@ -134,7 +133,7 @@
 		\end{Bmatrix}
 	\end{align}
 	
-	\subsection{Coordenadas e forças generalizadas}
+	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
 	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, define-se a força generalizada correspondente $Q_j$ como
@@ -143,13 +142,13 @@
 	\end{equation}
 	
 	\subsection{Equação de Lagrange}
-	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das grandezas vetoriais torna a resolução difícil \cite{savi:2017}.
+	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das dimensões vetoriais torna a resolução difícil \cite{savi:2017}.
 	
-	Considerando como $x_i$ o deslocamento de uma massa $m_i$ e seja $F_i$ a força aplicada nessa massa, a energia de deformação da i-ésima mola ou elemento elástico de um sistema com $n$ graus de liberdade é dada por \cite{rao:2008}
+	Considerando como $x_i$ o deslocamento de uma massa $m_i$ e seja $F_i$ a força nela aplicada, a energia de deformação $V_i$ da i-ésima mola ou elemento elástico de um sistema com $n$ graus de liberdade é dada por \cite{rao:2008}
 	\begin{equation}
 		V_i = \frac{1}{2}F_i x_i
 	\end{equation}
-	A energia potencial total é, então
+	A energia potencial total $V$ é, então
 	\begin{equation} \label{eqn:discr:energia:deformacao}
 		V = \sum_{i-1}^{n}V_i = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
 	\end{equation}
@@ -166,6 +165,50 @@
 		V = \frac{1}{2}\vec{x}^T [k] \vec{x}
 	\end{equation}
 	de modo que $[k]$ e $\vec{x}$ denotam respectivamente a matriz de rigidez da Equação (\ref{eqn:matr:rigid}) e o vetor de deslocamentos da Equação (\ref{eqn:vetores}).
+	
+	Para a mesma massa $m_i$, a energia cinética associada é denotada por $T_i$ e definida como \cite{rao:2008}
+	\begin{equation}
+		T_i = \frac{1}{2}m_i\dot{x}_i^2
+	\end{equation}
+	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, $T$, é obtida realizando o somatório para todos os $n$ elementos do sistema, resultando em \cite{savi:2017}
+	\begin{equation}\label{eqn:discr:energia:cinetica}
+		T = \frac{1}{2}\dot{\vec{x}}^T[m_d]\dot{\vec{x}}
+	\end{equation}
+	onde $\dot{\vec{x}}$ corresponde ao vetor de velocidades da Equação (\ref{eqn:vetores}) e $m_d$ é uma matriz de massa diagonal
+	\begin{equation}
+		[m_d] =
+		\begin{bmatrix}
+			m_1 & & & 0\\
+			& m_2\\
+			& & \ddots\\
+			0 & & & m_n\\
+		\end{bmatrix}
+	\end{equation}
+	
+	Se, na Equação (\ref{eqn:discr:energia:cinetica}) forem utilizadas as coordenadas generalizadas $q_i$ descritas na Seção \ref{sec:coord-generalizadas}, arranjadas em um vetor de velocidades generalizadas $\dot{\vec{q}}$ dado por
+	\begin{equation}
+		\dot{\vec{q}} = 
+		\begin{Bmatrix}
+			\dot{q_1}\\ \dot{q_2}\\ \vdots\\ \dot{q_n}\\
+		\end{Bmatrix}
+	\end{equation}
+	então essa mesma equação pode ser expressa como \cite{rao:2008}
+	\begin{equation}
+		T = \frac{1}{2}\dot{\vec{q}}^T[m]\dot{\vec{q}}
+	\end{equation}
+	sendo agora $[m]$ a matriz de massa da Equação (\ref{eqn:matr:massa}).
+	
+	Uma vez determinadas as expressões em termos das energias potencial e cinética, é possível definir as equações de Lagrange como \cite{savi:2017}
+	\begin{equation} \label{eqn:lagrange}
+		\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_j^{(n)}, \qquad j = 1, 2, \dots, n
+	\end{equation}
+	onde $L$ é o lagrangiano
+	\begin{equation}
+		L = T-V
+	\end{equation}
+	e $ Q_j^{(n)} $ é a força generalizada não-conservativa correspondente à coordenada generalizada $q_j$. Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
+	
+	\section{Vibração de sistemas contínuos}
 	
 	\postextual
 	
