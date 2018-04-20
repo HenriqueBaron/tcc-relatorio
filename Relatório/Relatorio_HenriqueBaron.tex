@@ -32,6 +32,7 @@
 % Configuração do pacote hyperref, que é chamado pela classe abntex2
 \makeatletter
 \hypersetup{
+	unicode=true,
 	pdftitle={\@title},
 	pdfauthor={\@author},
 	pdfsubject={\imprimirpreambulo},
@@ -89,10 +90,10 @@
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
 	
-	\subsection{Equação geral de movimento}
+	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
 	\begin{equation} \label{eqn:discr:movimento}
-		[m]\,\ddot{\vec{x}} + [c]\,\dot{\vec{x}} + [k]\,\vec{x} = \vec{F}
+		[m]\ddot{\vec{x}} + [c]\dot{\vec{x}} + [k]\vec{x} = \vec{F}
 	\end{equation}
 	onde $ [m] $, $ [c] $ e $ [k] $ representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
 	\begin{gather} 
@@ -177,7 +178,7 @@
 	\end{equation}
 	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, $T$, é obtida realizando o somatório para todos os $n$ elementos do sistema, resultando em \cite{savi:2017}
 	\begin{equation}\label{eqn:discr:energia:cinetica}
-		T = \frac{1}{2}\dot{\vec{x}}^T[m_d]\dot{\vec{x}}
+		T = \frac{1}{2}\dot{\vec{x}^T}[m_d]\dot{\vec{x}}
 	\end{equation}
 	onde $\dot{\vec{x}}$ corresponde ao vetor de velocidades da Equação (\ref{eqn:vetores}) e $m_d$ é uma matriz de massa diagonal
 	\begin{equation}
@@ -199,7 +200,7 @@
 	\end{equation}
 	então essa mesma equação pode ser expressa como \cite{rao:2008}
 	\begin{equation}
-		T = \frac{1}{2}\dot{\vec{q}}^T[m]\dot{\vec{q}}
+		T = \frac{1}{2}\dot{\vec{q}^T}[m]\dot{\vec{q}}
 	\end{equation}
 	sendo agora $[m]$ a matriz de massa da Equação (\ref{eqn:matr:massa}).
 	
@@ -214,6 +215,12 @@
 	e $ Q_j^{(n)} $ é a força generalizada não-conservativa correspondente à coordenada generalizada $q_j$. Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
 	
 	\section{Vibração de sistemas contínuos}
+	Em contraste aos sistemas discretos, os sistemas contínuos são aqueles em que não se consegue identificar massas, molas e amortecedores pontuais na vibração de um corpo \cite{rao:2008}. Para estes casos, é possível determinar o comportamento vibratório de maneira analítica e sem discretização. Através dessa abordagem podem ser modeladas barras, eixos, cabos, vigas e outros elementos \cite{timoshenko:1974}. 
+	
+	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
+	
+	\subsection{Equação de movimento}
+	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. 
 	
 	\postextual
 	
