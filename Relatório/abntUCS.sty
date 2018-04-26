@@ -15,8 +15,10 @@
 \usepackage{amsmath}
 \allowdisplaybreaks % Permite quebras de página em displays, como conjuntos de equações.
 \usepackage{xparse} % Permite a criação de comandos com mais de um parâmetro opcional.
-\usepackage{graphicx}
-\usepackage{float}
+\usepackage{graphicx} % Inserção de imagens
+\usepackage{float} % Posicionamento de caixas flutuantes com a opção "h" (Here)
+\usepackage{chngcntr} % Alteração dos parâmetros de contadores de equações, figuras etc.
+\counterwithout{equation}{chapter} % Contagem das equações contínua ao longo do documento
 
 \setlength{\parindent}{1.5cm} % Define o recuo (indentação) da primeira linha do parágrafo.
 \setlength{\parskip}{0pt plus 5pt} % Define o espaçamento entre parágrafos.
