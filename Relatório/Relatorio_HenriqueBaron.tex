@@ -220,10 +220,10 @@
 	
 	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
-	\subsection{Equação de movimento}
+	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
 	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a $\rho$, sujeita a uma força transversal $f$ que é função do tempo $t$ e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $A$ e $B$. Nele também são esquematizados o deslocamento $w$ na direção $z$, a força de tração $P$, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por $\theta$ e, por fim, a força $f(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
 	\begin{figure}[t] 
-		\incluirimagem[150mm]{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: adaptado de Rao (2008)} \label{fig:vibracao-corda}
+	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: adaptado de Rao (2008)} \label{fig:vibracao-corda}
 	\end{figure}
 
 	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração. Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
@@ -237,7 +237,7 @@
 	
 	Considerando que a massa linear específica $\rho$ é uniforme, que a tensão $P$ é constante e que a corda esteja em vibração livre -- isto é, $f(x,t = 0)$ -- chega-se a \cite{rao:2008}
 	\begin{equation}\label{eqn:cont:livre-geral}
-		c^2\:\frac{\partial^2 w}{\partial x^2} = \frac{\partial^2 w}{\partial t^2}
+		c^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
 	
 	onde
@@ -246,6 +246,9 @@
 	\end{equation}
 	
 	A Equação (\ref{eqn:cont:livre-geral}) também é conhecida como equação de onda. 
+	
+	\subsection{Vibração de vigas}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. 
 
 	\postextual
 	

@@ -17,6 +17,8 @@
 \usepackage{xparse} % Permite a criação de comandos com mais de um parâmetro opcional.
 \usepackage{graphicx} % Inserção de imagens
 \usepackage{float} % Posicionamento de caixas flutuantes com a opção "h" (Here)
+\usepackage{adjustbox}
+\newlength\larguraimagem
 \usepackage{chngcntr} % Alteração dos parâmetros de contadores de equações, figuras etc.
 \counterwithout{equation}{chapter} % Contagem das equações contínua ao longo do documento
 
@@ -162,14 +164,11 @@
 % 2 - Caminho para o arquivo de imagem
 % 3 - Título da figura
 % 4 - Fonte e ano da figura (texto que fica abaixo)
-%\NewDocumentCommand{\incluirimagem}{m m m O{.5\linewidth}}
-\newcommand{\incluirimagem}[4][.5\linewidth]{
-	\caption{#3}
+\newcommand{\incluirimagem}[3]{
+	\caption{#2}
 	\vspace*{6pt}
-	\centering \includegraphics{#2} \par
-	\begin{minipage}{#1}
-		\footnotesize #4
-	\end{minipage}
+	\adjustimage{gstore width=\larguraimagem, center}{#1} \par
+	\adjustbox{minipage=\larguraimagem, center}{\raggedleft\footnotesize #3}
 }
 
 % Código apenas copiado do TeX Stack Exchange: faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
