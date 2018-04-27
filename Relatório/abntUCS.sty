@@ -158,20 +158,18 @@
 
 % Inserção de uma figura com descrição e fonte, atendendo aos requisitos de formatação
 % PARÂMETROS, NA ORDEM:
-% 1 - Caminho para o arquivo de imagem
-% 2 - Título da figura
-% 3 - Fonte e ano da figura (texto que fica abaixo)
-% 4 - Largura da figura - VALOR PADRÃO: metade da largura da linha.
-% 5 - Posição de inserção - VALOR PADRÃO "h" (here)
-\NewDocumentCommand{\incluirimagem}{m m m O{.5\linewidth} O{h}}{
-	\begin{figure}[#5]
-		\caption{#2}
-		\vspace*{6pt}
-		\centering \includegraphics{#1} \par
-		\begin{minipage}{#4}
-			\footnotesize #3
-		\end{minipage}
-	\end{figure}
+% 1 - Largura da figura - VALOR PADRÃO: metade da largura da linha.
+% 2 - Caminho para o arquivo de imagem
+% 3 - Título da figura
+% 4 - Fonte e ano da figura (texto que fica abaixo)
+%\NewDocumentCommand{\incluirimagem}{m m m O{.5\linewidth}}
+\newcommand{\incluirimagem}[4][.5\linewidth]{
+	\caption{#3}
+	\vspace*{6pt}
+	\centering \includegraphics{#2} \par
+	\begin{minipage}{#1}
+		\footnotesize #4
+	\end{minipage}
 }
 
 % Código apenas copiado do TeX Stack Exchange: faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
@@ -196,12 +194,10 @@
 
 % Edição de nomes de títulos e tamanhos de fonte dos capítulos e seções. Manter para adequar ao padrão da UCS.
 %-------------------------------------------------------------------------------------------------
-% Nomes de elementos pré-textuais
-\renewcommand{\resumoname}{\normalsize\bfseries RESUMO}
-\renewcommand{\listfigurename}{\normalsize\bfseries LISTA DE FIGURAS}
-\renewcommand{\listtablename}{\normalsize\bfseries LISTA DE TABELAS}
-\renewcommand{\listadesiglasname}{\normalsize\bfseries LISTA DE ABREVIATURAS E SIGLAS}
-\renewcommand{\contentsname}{\normalsize\bfseries SUMÁRIO}
+% Nomes de elementos pré-textuais que precisam ser alterados
+\addto\captionsbrazil{
+	\renewcommand{\listfigurename}{Lista de Figuras}
+}
 
 % Redefinição de fontes e tamanhos para os capítulos e seções, NO TEXTO
 \renewcommand{\ABNTEXchapterfont}{\bfseries}

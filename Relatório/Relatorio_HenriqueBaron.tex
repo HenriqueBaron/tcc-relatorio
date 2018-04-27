@@ -221,9 +221,32 @@
 	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
 	\subsection{Equação de movimento}
-	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão.
-	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: o autor(2018)}[6cm]
+	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a $\rho$, sujeita a uma força transversal $f$ que é função do tempo $t$ e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $A$ e $B$. Nele também são esquematizados o deslocamento $w$ na direção $z$, a força de tração $P$, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por $\theta$ e, por fim, a força $f(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
+	\begin{figure}[t] 
+		\incluirimagem[150mm]{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: adaptado de Rao (2008)} \label{fig:vibracao-corda}
+	\end{figure}
+
+	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração. Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
 	
+	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal $f$ e da componente vertical da força de tração $P$ \cite{rao:2008}. A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
+	\begin{equation} \label{eqn:cont:balanco}
+		(P + dP)\;sen(\theta + d\theta) + f\:dx - P\;sen\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
+	\end{equation}
+	
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, sabe-se que o ângulo $\theta$ é pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + f(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t:2} \]
+	
+	Considerando que a massa linear específica $\rho$ é uniforme, que a tensão $P$ é constante e que a corda esteja em vibração livre -- isto é, $f(x,t = 0)$ -- chega-se a \cite{rao:2008}
+	\begin{equation}\label{eqn:cont:livre-geral}
+		c^2\:\frac{\partial^2 w}{\partial x^2} = \frac{\partial^2 w}{\partial t^2}
+	\end{equation}
+	
+	onde
+	\begin{equation}
+		c = \left(\frac{P}{\rho}\right)^{1/2}
+	\end{equation}
+	
+	A Equação (\ref{eqn:cont:livre-geral}) também é conhecida como equação de onda. 
+
 	\postextual
 	
 	\bibliography{Bibliografia}
