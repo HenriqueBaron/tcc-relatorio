@@ -13,6 +13,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inclusão e configuração de pacotes
+\usepackage{nomencl} % Criação automatizada da lista de síbolos
 \usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
 \usepackage[absolute]{textpos}
 \usepackage{calc}
@@ -55,6 +56,8 @@
 \addto\captionsbrazil{
 	\renewcommand{\listfigurename}{Lista de figuras}
 }
+
+\renewcommand{\nomname}{\listadesimbolosname}
 
 % Redefinição de fontes e tamanhos para os capítulos e seções, NO TEXTO
 \renewcommand{\ABNTEXchapterfont}{\bfseries}

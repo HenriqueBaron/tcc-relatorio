@@ -1,0 +1,34 @@
+\begin{thenomenclature} 
+
+ \nomgroup{A}
+
+  \item [{$ [k] $}]\begingroup matriz de rigidez \unidaderigidez\nomeqref {0}
+		\nompageref{9}
+  \item [{$ \ddot{\vec{x}} $}]\begingroup vetor de acelerações \unidadeaceleracao\nomeqref {0}
+		\nompageref{9}
+  \item [{$ \ddot{x}_n $}]\begingroup aceleração \unidadeaceleracao\nomeqref {4}
+		\nompageref{9}
+  \item [{$ \dot{\vec{x}} $}]\begingroup vetor de velocidades \unidadevelocidade\nomeqref {0}
+		\nompageref{9}
+  \item [{$ \dot{x}_n $}]\begingroup velocidade \unidadevelocidade\nomeqref {4}
+		\nompageref{9}
+  \item [{$ \vec{F} $}]\begingroup vetor de forças externas \unidadeforca\nomeqref {0}
+		\nompageref{9}
+  \item [{$ \vec{x} $}]\begingroup vetor de posições \unidadeposicao\nomeqref {0}
+		\nompageref{9}
+  \item [{$ c $}]\begingroup matriz de amortecimento \unidadeamortecimento\nomeqref {0}
+		\nompageref{9}
+  \item [{$ F_n $}]\begingroup força \unidadeforca\nomeqref {4}
+		\nompageref{9}
+  \item [{$ m $}]\begingroup matriz de massa \unidademassa\nomeqref {0}
+		\nompageref{9}
+  \item [{$ x_n $}]\begingroup posição \unidadeposicao\nomeqref {4}
+		\nompageref{9}
+  \item [{$c_{nn}$}]\begingroup coeficiente de amortecimento \unidadeamortecimento\nomeqref {1}
+		\nompageref{9}
+  \item [{$k_{nn}$}]\begingroup coeficiente de rigidez \unidaderigidez\nomeqref {1}
+		\nompageref{9}
+  \item [{$m_{nn}$}]\begingroup coeficiente de massa \unidademassa\nomeqref {1}
+		\nompageref{9}
+
+\end{thenomenclature}

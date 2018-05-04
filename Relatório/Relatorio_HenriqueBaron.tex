@@ -12,15 +12,17 @@
 \fi
 
 \usepackage[brazil]{babel}
-\usepackage{graphicx}
-\graphicspath{{./Imagens/}}
+\usepackage{nomencl} % Permite a criação da lista de símbolos
+\usepackage{graphicx} % Inclusão de imagens
+\graphicspath{{./Imagens/}} % Definição do caminho para as imagens
 \usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{abntUCS}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
-\includeonly{PreTexto}
+\includeonly{PreTexto,Macros}
+\makenomenclature % Habilita a criação do arquivo de índices da lista de símbolos
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
 \autor{Henrique Baron}
@@ -46,6 +48,7 @@
 \makeatother
 
 \begin{document}
+	\include{Macros}
 	\include{PreTexto}
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
 	
@@ -93,10 +96,20 @@
 	
 	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
+	\nomenclature{$ m $}{matriz de massa \unidademassa}
+	\nomenclature{$ c $}{matriz de amortecimento \unidadeamortecimento}
+	\nomenclature{$ [k] $}{matriz de rigidez \unidaderigidez}
+	\nomenclature{$ \vec{x} $}{vetor de posições \unidadeposicao}
+	\nomenclature{$ \dot{\vec{x}} $}{vetor de velocidades \unidadevelocidade}
+	\nomenclature{$ \ddot{\vec{x}} $}{vetor de acelerações \unidadeaceleracao}
+	\nomenclature{$ \vec{F} $}{vetor de forças externas \unidadeforca}
 	\begin{equation} \label{eqn:discr:movimento}
 		[m]\ddot{\vec{x}} + [c]\dot{\vec{x}} + [k]\vec{x} = \vec{F}
 	\end{equation}
 	onde $ [m] $, $ [c] $ e $ [k] $ representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
+	\nomenclature{$m_{nn}$}{coeficiente de massa \unidademassa}
+	\nomenclature{$c_{nn}$}{coeficiente de amortecimento \unidadeamortecimento}
+	\nomenclature{$k_{nn}$}{coeficiente de rigidez \unidaderigidez}
 	\begin{gather} 
 		[m] = 
 		\begin{bmatrix} \label{eqn:matr:massa}
@@ -104,7 +117,7 @@
 			m_{21} & m_{22} & m_{23} & \dots & m_{2n}\\
 			\vdots\\
 			m_{n1} & m_{n2} & m_{n3} & \dots & m_{nn}\\
-		\end{bmatrix}\\		
+		\end{bmatrix}\\
 		[c] = 
 		\begin{bmatrix} \label{eqn:matr:amort}
 			c_{11} & c_{12} & c_{13} & \dots & c_{1n}\\
@@ -112,7 +125,7 @@
 			\vdots\\
 			c_{n1} & c_{n2} & c_{n3} & \dots & c_{nn}\\
 		\end{bmatrix}\\
-		[k] = 
+		[k] =
 		\begin{bmatrix} \label{eqn:matr:rigid}
 			k_{11} & k_{12} & k_{13} & \dots & k_{1n}\\
 			k_{21} & k_{22} & k_{23} & \dots & k_{2n}\\
@@ -121,6 +134,10 @@
 		\end{bmatrix}
 	\end{gather}
 	enquanto $\vec{x}$, $\dot{\vec{x}}$, $\ddot{\vec{x}}$ e $\vec{F}$ são os vetores de deslocamento, velocidade, aceleração e força, definidos por
+	\nomenclature{$ x_n $}{posição \unidadeposicao}
+	\nomenclature{$ \dot{x}_n $}{velocidade \unidadevelocidade}
+	\nomenclature{$ \ddot{x}_n $}{aceleração \unidadeaceleracao}
+	\nomenclature{$ F_n $}{força \unidadeforca}
 	\begin{align} \label{eqn:vetores}
 		\vec{x} =
 		\begin{Bmatrix}
@@ -143,7 +160,7 @@
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, define-se a força generalizada correspondente $Q_j$ como
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas $q_j$ de um incremento $\delta q_j$, $ j = 1, 2, \dots, n $, onde $n$ denota o número de graus de liberdade do sistema. Seja $U_j$ o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente $Q_j$ é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
 	\begin{equation}
 		Q_j = \frac{U_j}{\delta q_j},\qquad j = 1, 2, \dots, n
 	\end{equation}
@@ -233,27 +250,21 @@
 		(P + dP)\;sen(\theta + d\theta) + f\:dx - P\;sen\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, sabe-se que o ângulo $\theta$ é pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + f(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $\theta$ seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + f(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
 	
 	Considerando que a massa linear específica $\rho$ é uniforme, que a tensão $P$ é constante e que a corda esteja em vibração livre -- isto é, $f(x,t = 0)$ -- chega-se a \cite{rao:2008}
-	\begin{equation}\label{eqn:cont:onda}
-		c^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2}
-	\end{equation}
-	
-	onde
-	\begin{equation}
+	\begin{align}
+		c^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2} \label{eqn:cont:onda}\\
 		c = \left(\frac{P}{\rho}\right)^{1/2}
-	\end{equation}
+	\end{align}
 	
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
-	\subsection{Vibração de vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade $E$ e momento de inércia de área $I$, que vibra com deslocamento $w$ na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a vibração da viga a rigidez $EI$ deve ser levada em conta \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor $M$ e a uma força de cisalhamento $V$, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica e área de seção transversal constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a constante $c$ valendo
+	\subsection{Vibração de vigas} \label{sec:vigas}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade $E$ e momento de inércia de área $I$, que vibra com deslocamento $w$ na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor $M$ e a uma força de cisalhamento $V$, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica $\rho$ e área de seção transversal $A$ constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a constante $c$ valendo \cite{rao:2008}
 	\begin{equation}
 		c = \sqrt{\frac{EI}{\rho A}}
-	\end{equation}
-	de modo que $\rho$ representa a massa específica por unidade de comprimento e $A$ é a área da seção transversal da viga \cite{rao:2008}.
-	
+	\end{equation}		
 	\begin{figure}[b]
 		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{Fonte: adaptado de Timoshenko (1974)}
 		\label{fig:elemento-viga}
@@ -291,7 +302,8 @@
 	\end{equation}
 	onde o índice $i$ representa o $i$-ésimo modo normal de vibração.
 	
-	
+	\section{Dinâmica de rotores}
+	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
 
 	\postextual
 	
