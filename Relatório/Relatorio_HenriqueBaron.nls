@@ -1,34 +1,60 @@
 \begin{thenomenclature} 
 
- \nomgroup{A}
+ \nomgroup{Symbols}
 
-  \item [{$ [k] $}]\begingroup matriz de rigidez \unidaderigidez\nomeqref {0}
+  \item [{$ [m] $}] \begingroup matriz de massa \unidademassa\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \ddot{\vec{x}} $}]\begingroup vetor de acelerações \unidadeaceleracao\nomeqref {0}
+  \item [{$ [c] $}] \begingroup matriz de amortecimento \unidadeamortecimento\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \ddot{x}_n $}]\begingroup aceleração \unidadeaceleracao\nomeqref {4}
+  \item [{$ [k] $}] \begingroup matriz de rigidez \unidaderigidez\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \dot{\vec{x}} $}]\begingroup vetor de velocidades \unidadevelocidade\nomeqref {0}
+  \item [{$ \vec{x} $}] \begingroup vetor de posições \unidadeposicao\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \dot{x}_n $}]\begingroup velocidade \unidadevelocidade\nomeqref {4}
+  \item [{$ \dot{\vec{x}} $}] \begingroup vetor de velocidades \unidadevelocidade\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \vec{F} $}]\begingroup vetor de forças externas \unidadeforca\nomeqref {0}
+  \item [{$ \ddot{\vec{x}} $}] \begingroup vetor de acelerações \unidadeaceleracao\nomeqref {0}
 		\nompageref{9}
-  \item [{$ \vec{x} $}]\begingroup vetor de posições \unidadeposicao\nomeqref {0}
+  \item [{$ \vec{F} $}] \begingroup vetor de forças externas \unidadeforca\nomeqref {0}
 		\nompageref{9}
-  \item [{$ c $}]\begingroup matriz de amortecimento \unidadeamortecimento\nomeqref {0}
+  \item [{$m$}] \begingroup coeficiente de massa \unidademassa\nomeqref {1}
 		\nompageref{9}
-  \item [{$ F_n $}]\begingroup força \unidadeforca\nomeqref {4}
+  \item [{$c$}] \begingroup coeficiente de amortecimento \unidadeamortecimento\nomeqref {1}
 		\nompageref{9}
-  \item [{$ m $}]\begingroup matriz de massa \unidademassa\nomeqref {0}
+  \item [{$k$}] \begingroup coeficiente de rigidez \unidaderigidez\nomeqref {1}
 		\nompageref{9}
-  \item [{$ x_n $}]\begingroup posição \unidadeposicao\nomeqref {4}
+  \item [{$ n $}] \begingroup número de graus de liberdade [-]\nomeqref {1}
 		\nompageref{9}
-  \item [{$c_{nn}$}]\begingroup coeficiente de amortecimento \unidadeamortecimento\nomeqref {1}
+  \item [{$ x $}] \begingroup posição \unidadeposicao\nomeqref {4}
 		\nompageref{9}
-  \item [{$k_{nn}$}]\begingroup coeficiente de rigidez \unidaderigidez\nomeqref {1}
+  \item [{$ \dot{x} $}] \begingroup velocidade \unidadevelocidade\nomeqref {4}
 		\nompageref{9}
-  \item [{$m_{nn}$}]\begingroup coeficiente de massa \unidademassa\nomeqref {1}
+  \item [{$ \ddot{x} $}] \begingroup aceleração \unidadeaceleracao\nomeqref {4}
 		\nompageref{9}
+  \item [{$ F $}] \begingroup força \unidadeforca\nomeqref {4}
+		\nompageref{9}
+  \item [{$ q $}] \begingroup posição em coordenadas generalizadas \unidadeposicao\nomeqref {5}
+		\nompageref{10}
+  \item [{$ U $}] \begingroup trabalho \unidadeenergia\nomeqref {5}
+		\nompageref{10}
+  \item [{$ Q $}] \begingroup força generalizada \unidadeforca\nomeqref {5}
+		\nompageref{10}
+  \item [{$ V_i $}] \begingroup energia de deformação do i-ésimo elemento do sistema \unidadeenergia\nomeqref {6}
+		\nompageref{10}
+  \item [{$ V $}] \begingroup energia potencial total \unidadeenergia\nomeqref {7}
+		\nompageref{10}
+  \item [{$ T_i $}] \begingroup energia cinética do i-ésimo elemento do sistema \unidadeenergia\nomeqref {11}
+		\nompageref{11}
+  \item [{$ T $}] \begingroup energia cinética total \unidadeenergia\nomeqref {12}
+		\nompageref{11}
+  \item [{$ [m_d] $}] \begingroup matriz diagonal de massa \unidademassa\nomeqref {13}
+		\nompageref{11}
+  \item [{$ \dot{q} $}] \begingroup velocidade generalizada \unidadevelocidade\nomeqref {14}
+		\nompageref{11}
+  \item [{$ \dot{\vec{q}} $}] \begingroup vetor de velocidades generalizadas \unidadevelocidade\nomeqref {14}
+		\nompageref{11}
+  \item [{$ Q_j^{(n)} $}] \begingroup força generalizada não-conservativa \unidadeforca\nomeqref {16}
+		\nompageref{12}
+  \item [{$ L $}] \begingroup lagrangiano \unidadeenergia\nomeqref {16}
+		\nompageref{12}
 
 \end{thenomenclature}

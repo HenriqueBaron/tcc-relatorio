@@ -13,6 +13,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inclusão e configuração de pacotes
+\usepackage{etoolbox} % Recursos de programação para LaTeX
 \usepackage{nomencl} % Criação automatizada da lista de síbolos
 \usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
 \usepackage[absolute]{textpos}
@@ -142,6 +143,8 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Outros comandos %%%
+
 % Código apenas copiado do TeX Stack Exchange: faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
 \let\oldcontentsline\contentsline
 \def\contentsline#1#2{%
@@ -156,6 +159,25 @@
 		\oldcontentsline{#1}{#2}%
 	}%
 }
+
+% Ordenar a lista de símbolos por ordem de utilização
+\providetoggle{nomsort}
+\settoggle{nomsort}{true}
+
+\iftoggle{nomsort}{
+	\let\old@@@nomenclature=\@@@nomenclature
+		\newcounter{@nomcount} \setcounter{@nomcount}{0}
+		\renewcommand\the@nomcount{\two@digits{\value{@nomcount}}}
+		\def\@@@nomenclature[#1]#2#3{
+			\addtocounter{@nomcount}{1}
+			\def\@tempa{#2}\def\@tempb{#3}
+			\protected@write\@nomenclaturefile{}
+			{\string\nomenclatureentry{\the@nomcount\nom@verb\@tempa @[{\nom@verb\@tempa}]
+			\begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}|nompageref}
+			{\thepage}}
+			\endgroup
+			\@esphack}
+}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comandos e ambientes específicos deste pacote
