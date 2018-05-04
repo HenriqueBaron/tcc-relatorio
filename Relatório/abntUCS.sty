@@ -29,19 +29,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuração das medidas padrão utilizadas no documento
 \setlength{\parindent}{1.5cm} % Define o recuo (indentação) da primeira linha do parágrafo.
-\setlength{\parskip}{0pt plus 5pt} % Define o espaçamento entre parágrafos.
+\setlength{\parskip}{0pt plus 2pt} % Define o espaçamento entre parágrafos.
 
 % Correção do espaçamento após títulos de capítulos
-\setlength\afterchapskip{1.5\onelineskip plus 0.5\onelineskip minus 0.5\onelineskip}
+\setlength\afterchapskip{1.5\onelineskip plus 2pt minus 2pt}
 
 % Ajuste do espaçamento para ilustrações
 \setlength\belowcaptionskip{6pt} % Espaço abaixo do título da figura/quadro/tabela
-\setlength\textfloatsep{12pt plus 4pt minus 2pt} % Espaço entre a ilustração e o texto, acima ou abaixo
+\setlength\textfloatsep{14pt plus 4pt minus 2pt} % Espaço entre a ilustração e o texto, acima ou abaixo
 
 % Ajuste do espaçamento antes, depois e entre equações
-\AtBeginDocument{\setlength\abovedisplayskip{16pt plus 2pt minus 2pt}}
-\AtBeginDocument{\setlength\belowdisplayskip{16pt plus 2pt minus 2pt}}
-\setlength\jot{10pt plus 2pt} % Espaço entre equações dos ambientes do pacote amsmath
+\AtBeginDocument{\setlength\abovedisplayskip{14pt plus 4pt minus 1pt}}
+\AtBeginDocument{\setlength\belowdisplayskip{14pt plus 4pt minus 1pt}}
+\setlength\jot{10pt plus 2pt minus 2pt} % Espaço entre equações dos ambientes do pacote amsmath
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modificações de comandos específicos da classe abnTeX2 para adequar ao padrão da UCS
@@ -53,7 +53,7 @@
 
 % Nomes de elementos pré-textuais que precisam ser alterados
 \addto\captionsbrazil{
-	\renewcommand{\listfigurename}{Lista de Figuras}
+	\renewcommand{\listfigurename}{Lista de figuras}
 }
 
 % Redefinição de fontes e tamanhos para os capítulos e seções, NO TEXTO
