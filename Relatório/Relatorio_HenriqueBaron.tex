@@ -23,6 +23,7 @@
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
+\usepackage{bigints}
 \usepackage{abntUCS}
 \usepackage{glossaries}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
@@ -97,7 +98,31 @@
 	\end{enumerate}
 
 	\chapter{Desenvolvimento}
+	\section{Análise harmônica}
+	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}. Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
+	\begin{equation}
+		x(t) = a\ cos\,\omega t + b\ sen\,\omega t
+	\end{equation}
+	onde \gls{smb:posicao} indica a posição ou deslocamento, \gls{smb:freq} é a frequência da oscilação, \gls{smb:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
+	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
+	
+	\subsection{Série de Fourier}
+	Seja \gls{smb:posicao}$ (t) $ uma função periódica com período \gls{smb:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
+	\begin{equation}\label{eqn:fourier:serie}
+		x(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
+	\end{equation}
+	sendo a frequência \gls{smb:freq} relacionada ao período \gls{smb:periodo} por \cite{dimarogonas:1995}
+	\begin{equation}\label{eqn:fourier:periodo}
+		\omega = \frac{2\pi}{\tau}
+	\end{equation}
+	e \glsexpansao{smb:coef-fourier} representam os coeficientes de Fourier, que valem \cite{spiegel:1977}
+	\begin{align}\label{eqn:fourier:coefs}
+		a_0 = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t) dt \notag\\
+		a_n = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t)\ cos\,n\omega t\,dt \\
+		b_n = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t)\ sen\,n\omega t\,dt \notag
+	\end{align}
+		
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
 	
@@ -254,7 +279,7 @@
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
 	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{smb:modulo-elast} e momento de inércia de área \gls{smb:segundo-momento-area}, que vibra com deslocamento \gls{smb:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{smb:momento-fletor} e a uma força de cisalhamento \gls{smb:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{smb:massa-espec} e área de seção transversal \gls{smb:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a constante da onda \gls{smb:constante-onda} valendo \cite{rao:2008}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{smb:modulo-elast} e momento de inércia de área \gls{smb:segundo-momento-area}, que vibra com deslocamento \gls{smb:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{smb:momento-fletor} e a uma força de cisalhamento \gls{smb:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{smb:massa-espec} e área de seção transversal \gls{smb:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{smb:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
 		\textit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
@@ -275,16 +300,16 @@
 	\end{equation}
 	o que permite \cite{clark:1972} igualar cada parte da equação a uma constante, de modo que
 	\begin{align*}
-		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega^2 \\
-		\frac{\textit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega^2
+		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega_n^2 \\
+		\frac{\textit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
 	\end{align*}
 	onde a constante \gls{smb:freq-natural} acrescentada é a frequência natural. 
 	
 	Para a equação diferencial de \gls{smb:sol-parcial-tempo}$(t)$, a solução é uma oscilação harmônica simples 
 	\begin{equation} \label{eqn:cont:sep-T}
-		T(t) = X\,cos\,\omega t + Y\,sen\,\omega t
+		T(t) = X\,cos\,\omega_n t + Y\,sen\,\omega_n t
 	\end{equation}
-	com as constantes \glsexpansao{smb:const-dif-tempo} para a devida solução particular. Para a função \gls{smb:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes \glsexpansao{smb:const-dif-tempo} para a devida solução particular. Para a função \gls{smb:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
@@ -294,7 +319,7 @@
 	\begin{equation}
 		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(X_i\,cos\,\omega_i t + Y_i\,sen\,\omega_i t)
 	\end{equation}
-	onde o índice $i$ representa o $i$-ésimo modo normal de vibração.
+	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e \gls{smb:freq-natural-modo}, por conseguinte, a respectiva frequência natural.
 	
 	\section{Dinâmica de rotores}
 	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
