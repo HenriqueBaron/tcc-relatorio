@@ -253,9 +253,9 @@
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
 	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{smb:modulo-elast} e momento de inércia de área \gls{smb:segundo-momento-area}, que vibra com deslocamento \gls{smb:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{smb:momento-fletor} e a uma força de cisalhamento \gls{smb:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{smb:massa-espec} e área de seção transversal \gls{smb:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a constante da onda \gls{smb:constante-corda} valendo \cite{rao:2008}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{smb:modulo-elast} e momento de inércia de área \gls{smb:segundo-momento-area}, que vibra com deslocamento \gls{smb:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{smb:momento-fletor} e a uma força de cisalhamento \gls{smb:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{smb:massa-espec} e área de seção transversal \gls{smb:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a constante da onda \gls{smb:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
-		c = \sqrt{\frac{EI}{\rho A}}
+		\textit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
 	\begin{figure}[b]
 		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{Fonte: adaptado de Timoshenko (1974)}
@@ -270,12 +270,12 @@
 	
 	Substituindo a Equação (\ref{eqn:cont:sep-variaveis}) na Equação (\ref{eqn:cont:onda}) e rearranjando os termos, obtém-se 
 	\begin{equation} \label{eqn:cont:geral-vigas}
-		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{c^2}{X}\,\frac{d^4W}{dx^4} = 0
+		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\textit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
 	\end{equation}
 	o que permite \cite{clark:1972} igualar cada parte da equação a uma constante, de modo que
 	\begin{align*}
 		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega^2 \\
-		\frac{c^2}{W}\,\frac{d^4W}{dx^2} = \omega^2
+		\frac{\textit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega^2
 	\end{align*}
 	onde a constante \gls{smb:freq-natural} acrescentada é a frequência natural. 
 	
@@ -283,7 +283,7 @@
 	\begin{equation} \label{eqn:cont:sep-T}
 		T(t) = X\,cos\,\omega t + Y\,sen\,\omega t
 	\end{equation}
-	com as constantes \glsexpansao{smb:const-dif-tempo} para a devida solução particular. Para a função \gls{smb:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega^2}{c^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes \glsexpansao{smb:const-dif-tempo} para a devida solução particular. Para a função \gls{smb:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
