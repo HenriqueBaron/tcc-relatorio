@@ -12,3 +12,6 @@
 *.lot
 *.synctex(busy)
 *.ilg
+
+# Glossaries log
+*.glg
