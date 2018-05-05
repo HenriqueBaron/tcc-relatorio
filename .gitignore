@@ -11,7 +11,14 @@
 *.lof
 *.lot
 *.synctex(busy)
-*.ilg
 
-# Glossaries log
+# Makeindex and Makeglossaries generated files
+*.ilg
 *.glg
+*.gls
+*.glo
+*.fls
+*.ist
+
+# Latexmk generated files
+*.fdb_latexmk
