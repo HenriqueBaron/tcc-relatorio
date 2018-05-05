@@ -54,14 +54,15 @@
 \newglossaryentry{smb:freq-natural}{name={$ \omega $},description={frequência natural \unidadevelocidadeangular}}
 \newglossaryentry{smb:area}{name={$ A $},description={área \unidadearea}}
 
-% Elementos agrupados
-\newglossaryentry{smb:const-dif-tempo-parent}{name={$ X, Y $},description={constantes da solução particular da equação diferencial para T \semunidade}}
-\newglossaryentry{smb:const-dif-tempo-1}{name={$ X $},description={\nopostdesc},parent={smb:const-dif-tempo-parent}}
-\newglossaryentry{smb:const-dif-tempo-2}{name={$ Y $},description={\nopostdesc},parent={smb:const-dif-tempo-parent}}
+% Elementos agrupados: criação de uma nova chave para o glossaries que possibilitará exibir na lista de símbolos as variáveis separadas por vírgula e no texto, separadas com a palavra "e" no último termo.
+\glsaddkey{expansao}
+{\glsentrytext}
+{\glsentryexpansao}
+{\Glsentryexpansao}
+{\glsexpansao}
+{\Glsexpansao}
+{\GLSexpansao}
 
-\newglossaryentry{smb:const-dif-desloc-parent}{name={$ C_1, C_2, C_3, C_4 $},description={constantes da solução particular da equação diferencial para W \semunidade}}
-\newglossaryentry{smb:const-dif-desloc-1}{name={$ C_1 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
-\newglossaryentry{smb:const-dif-desloc-2}{name={$ C_2 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
-\newglossaryentry{smb:const-dif-desloc-3}{name={$ C_3 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
-\newglossaryentry{smb:const-dif-desloc-4}{name={$ C_4 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
-\newglossaryentry{smb:const-dif-desloc-agrup}{name={$ C_1, C_2, C_3 $ e $ C_4 $},description={\nopostdesc},parent={smb:const-dif-desloc-parent}}
+\newglossaryentry{smb:const-dif-tempo}{name={$ X, Y $},description={constantes da solução particular da equação diferencial para T \semunidade},expansao={$ X $ e $ Y $}}
+
+\newglossaryentry{smb:const-dif-desloc}{name={$ C_1, C_2, C_3, C_4 $},description={constantes da solução particular da equação diferencial para W \semunidade},expansao={$ C_1, C_2, C_3 $ e $ C_4 $}}

@@ -88,12 +88,8 @@
 		\setentrycounter[]{page}\glsnumberformat{15\delimN 16}}}%
 \glossentry{smb:freq-natural}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{16}}}%
-\glossentry{smb:const-dif-tempo-parent}\relax \glsresetentrylist
-\subglossentry{1}{smb:const-dif-tempo-1}{\glossaryentrynumbers{\relax 
+\glossentry{smb:const-dif-tempo}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{16}}}%
-\subglossentry{1}{smb:const-dif-tempo-2}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{16}}}%
-\glossentry{smb:const-dif-desloc-parent}\relax \glsresetentrylist
-\subglossentry{1}{smb:const-dif-desloc-agrup}{\glossaryentrynumbers{\relax 
+\glossentry{smb:const-dif-desloc}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{16}}}%
 \end{theglossary}\glossarypostamble
