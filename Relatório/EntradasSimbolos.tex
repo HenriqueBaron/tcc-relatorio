@@ -13,46 +13,68 @@
 \newcommand{\unidadearea}{[m\textsuperscript{2}]}
 \newcommand{\semunidade}{[-]}
 
-\newglossaryentry{smb:tempo}{name={$ t $},description={tempo \unidadetempo}}
+% Medidas elementares e propriedades
 \newglossaryentry{smb:graus-liberdade}{name={$ n $},description={número de graus de liberdade do sistema \semunidade}}
-\newglossaryentry{smb:matriz-massa}{name={$ [m] $},description={matriz de massa \unidademassa}}
-\newglossaryentry{smb:matriz-amort}{name={$ [c] $},description={matriz de amortecimento \unidadeamortecimento}}
-\newglossaryentry{smb:matriz-rigidez}{name={$ [k] $},description={matriz de rigidez \unidaderigidez}}
+\newglossaryentry{smb:tempo}{name={$ t $},description={tempo \unidadetempo}}
+\newglossaryentry{smb:periodo}{name={$ \tau $},description={período \unidadetempo}}
+\newglossaryentry{smb:area}{name={$ A $},description={área \unidadearea}}
+\newglossaryentry{smb:modulo-elast}{name={$ E $},description={módulo de elasticidade [Pa] }}
+\newglossaryentry{smb:segundo-momento-area}{name={$ I $},description={segundo momento de área [m\textsuperscript{4}]}}
+
+% Massa
+\newglossaryentry{smb:massa-espec}{name={$ \rho $},description={massa específica por unidade de comprimento $ [kg/m] $}}
+\newglossaryentry{smb:massa-elemento}{name={$ m_i $},description={massa de um elemento do sistema \unidademassa}}
+
+% Posição, deslocamento, velocidade
+\newglossaryentry{smb:posicao}{name={$ x $},description={posição ou deslocamento \unidadeposicao}}
+\newglossaryentry{smb:coord-general}{name={$ q_i $},description={posição em coordenadas generalizadas \semunidade}}
+\newglossaryentry{smb:desloc-elemento}{name={$ x_i $},description={deslocamento de um elemento do sistema \unidadeposicao}}
+\newglossaryentry{smb:desloc-vertical}{name={$ w $},description={deslocamento vertical do corpo elástico \unidadeposicao}}
+\newglossaryentry{smb:constante-onda}{name={$ \textit{c} $},description={velocidade de propagação da onda \unidadevelocidade}}
+
+% Frequência
+\newglossaryentry{smb:freq}{name={$ \omega $},description={frequêcia \unidadevelocidadeangular}}
+\newglossaryentry{smb:freq-natural}{name={$ \omega_n $},description={frequência natural \unidadevelocidadeangular}}
+\newglossaryentry{smb:freq-natural-modo}{name={$ \omega_i $},description={frequência natural do i-ésimo modo normal \unidadevelocidadeangular}}
+
+% Vetores
 \newglossaryentry{smb:vetor-desloc}{name={$ \vec{x} $},description={vetor de deslocamentos \unidadeposicao}}
 \newglossaryentry{smb:vetor-vel}{name={$ \dot{\vec{x}} $},description={vetor de velocidades \unidadevelocidade}}
 \newglossaryentry{smb:vetor-acel}{name={$ \ddot{\vec{x}} $},description={vetor de acelerações \unidadeaceleracao}}
 \newglossaryentry{smb:vetor-forcas}{name={$ \vec{F} $},description={vetor de forças externas \unidadeforca}}
+\newglossaryentry{smb:vetor-veloc-general}{name={$ \dot{\vec{q}} $},description={vetor de velocidades generalizadas \unidadevelocidade}}
+
+% Matrizes e seus componentes
+\newglossaryentry{smb:matriz-massa}{name={$ [m] $},description={matriz de massa \unidademassa}}
+\newglossaryentry{smb:matriz-massa-diag}{name={$ [m_d] $},description={matriz diagonal de massa \unidademassa}}
+\newglossaryentry{smb:matriz-amort}{name={$ [c] $},description={matriz de amortecimento \unidadeamortecimento}}
+\newglossaryentry{smb:matriz-rigidez}{name={$ [k] $},description={matriz de rigidez \unidaderigidez}}
 \newglossaryentry{smb:coef-massa}{name={$ m_{ij} $},description={coeficiente de massa \unidademassa}}
 \newglossaryentry{smb:coef-amortecimento}{name={$ c_{ij} $},description={coeficiente de amortecimento \unidadeamortecimento}}
 \newglossaryentry{smb:coef-rigidez}{name={$ k_{ij} $},description={coeficiente de rigidez \unidaderigidez}}
-\newglossaryentry{smb:coord-general}{name={$ q_i $},description={posição em coordenadas generalizadas \semunidade}}
-\newglossaryentry{smb:forca-general}{name={$ Q $},description={força generalizada \unidadeforca}}
-\newglossaryentry{smb:trabalho-coord-general}{name={$ U $},description={trabalho \unidadeenergia}}
-\newglossaryentry{smb:desloc-elemento}{name={$ x_i $},description={deslocamento de um elemento do sistema \unidadeposicao}}
-\newglossaryentry{smb:massa-elemento}{name={$ m_i $},description={massa de um elemento do sistema \unidademassa}}
-\newglossaryentry{smb:forca-elemento}{name={$ F_i $},description={força aplicada sobre um elemento do sistema \unidadeforca}}
-\newglossaryentry{smb:energ-pot-elem}{name={$ V_i $},description={energia de deformação de um elemento elástico \unidadeenergia}}
-\newglossaryentry{smb:energ-pot-total}{name={$ V $},description={energia potencial total \unidadeenergia}}
-\newglossaryentry{smb:energ-cin-elem}{name={$ K_i $},description={energia cinética do elemento \unidadeenergia}}
-\newglossaryentry{smb:energ-cin-total}{name={$ K $},description={energia cinética total \unidadeenergia}}
+
+% Força e momento
 \newglossaryentry{smb:forca}{name={$ F $},description={força \unidadeforca}}
-\newglossaryentry{smb:matriz-massa-diag}{name={$ [m_d] $},description={matriz diagonal de massa \unidademassa}}
-\newglossaryentry{smb:vetor-veloc-general}{name={$ \dot{\vec{q}} $},description={vetor de velocidades generalizadas \unidadevelocidade}}
-\newglossaryentry{smb:lagrangiano}{name={$ L $},description={lagrangiano \unidadeenergia}}
+\newglossaryentry{smb:forca-elemento}{name={$ F_i $},description={força aplicada sobre um elemento do sistema \unidadeforca}}
+\newglossaryentry{smb:forca-general}{name={$ Q $},description={força generalizada \unidadeforca}}
 \newglossaryentry{smb:forca-naoconserv}{name={$ Q_i^{(n)} $},description={força generalizada não-conservativa do i-ésimo grau de liberdade \unidadeforca}}
+\newglossaryentry{smb:forca-cisalhamento}{name={$ C $},description={força de cisalhamento \unidadeforca}}
+\newglossaryentry{smb:momento-fletor}{name={$ M $},description={momento fletor \unidadetorque}}
 \newglossaryentry{smb:tensao-corda}{name={$ P $},description={força tensora \unidadeforca}}
 \newglossaryentry{smb:angulo-tensao}{name={$ \theta $},description={ângulo da corda \unidadeangulo}}
-\newglossaryentry{smb:desloc-vertical}{name={$ w $},description={deslocamento vertical do corpo elástico \unidadeposicao}}
-\newglossaryentry{smb:massa-espec}{name={$ \rho $},description={massa específica por unidade de comprimento $ [kg/m] $}}
-\newglossaryentry{smb:constante-onda}{name={$ \textit{c} $},description={constante da onda \unidadevelocidade}}
-\newglossaryentry{smb:modulo-elast}{name={$ E $},description={módulo de elasticidade [Pa] }}
-\newglossaryentry{smb:segundo-momento-area}{name={$ I $},description={segundo momento de área [m\textsuperscript{4}]}}
-\newglossaryentry{smb:momento-fletor}{name={$ M $},description={momento fletor \unidadetorque}}
-\newglossaryentry{smb:forca-cisalhamento}{name={$ C $},description={força de cisalhamento \unidadeforca}}
+
+% Energia e trabalho
+\newglossaryentry{smb:energ-pot-total}{name={$ V $},description={energia potencial total \unidadeenergia}}
+\newglossaryentry{smb:energ-cin-total}{name={$ K $},description={energia cinética total \unidadeenergia}}
+\newglossaryentry{smb:energ-pot-elem}{name={$ V_i $},description={energia de deformação de um elemento elástico \unidadeenergia}}
+\newglossaryentry{smb:energ-cin-elem}{name={$ K_i $},description={energia cinética do elemento \unidadeenergia}}
+\newglossaryentry{smb:lagrangiano}{name={$ L $},description={lagrangiano \unidadeenergia}}
+\newglossaryentry{smb:trabalho-coord-general}{name={$ U $},description={trabalho \unidadeenergia}}
+
+% Auxiliares em cálculos
 \newglossaryentry{smb:sol-parcial-pos}{name={$ W $},description={solução parcial, dependente da posição x [m\textsuperscript{1/2}]}}
 \newglossaryentry{smb:sol-parcial-tempo}{name={$ T $},description={solução parcial, dependente do tempo [m\textsuperscript{1/2}]}}
-\newglossaryentry{smb:freq-natural}{name={$ \omega $},description={frequência natural \unidadevelocidadeangular}}
-\newglossaryentry{smb:area}{name={$ A $},description={área \unidadearea}}
+
 
 % Elementos agrupados: criação de uma nova chave para o glossaries que possibilitará exibir na lista de símbolos as variáveis separadas por vírgula e no texto, separadas com a palavra "e" no último termo.
 \glsaddkey{expansao}
@@ -66,3 +88,5 @@
 \newglossaryentry{smb:const-dif-tempo}{name={$ X, Y $},description={constantes da solução particular da equação diferencial para T \semunidade},expansao={$ X $ e $ Y $}}
 
 \newglossaryentry{smb:const-dif-desloc}{name={$ C_1, C_2, C_3, C_4 $},description={constantes da solução particular da equação diferencial para W \semunidade},expansao={$ C_1, C_2, C_3 $ e $ C_4 $}}
+
+\newglossaryentry{smb:coef-fourier}{name={$ a_0, a_n, b_n $},description={coeficientes de Fourier},expansao={$ a_0, a_n $ e $ b_n $}}
