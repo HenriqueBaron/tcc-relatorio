@@ -20,5 +20,10 @@
 *.fls
 *.ist
 
+# Makeglossaries generated files for acronyms
+*.alg
+*.acr
+*.acn
+
 # Latexmk generated files
 *.fdb_latexmk
