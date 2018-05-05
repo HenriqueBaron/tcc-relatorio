@@ -13,8 +13,14 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Inclusão e configuração de pacotes
+
+% Código necessário para evitar conflito no pacote substr pelo uso dele por ambos os pacotes abntex2cite e glossaries
+\let\su@ExpandTwoArgs\relax 
+\let\IfSubStringInString\relax 
+\let\su@IfSubStringInString\relax
+
+\usepackage[style=list*,nonumberlist,nopostdot,sort=use]{glossaries}
 \usepackage{etoolbox} % Recursos de programação para LaTeX
-\usepackage{nomencl} % Criação automatizada da lista de síbolos
 \usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
 \usepackage[absolute]{textpos}
 \usepackage{calc}
@@ -58,7 +64,7 @@
 	\renewcommand{\listfigurename}{Lista de figuras}
 }
 
-\renewcommand{\nomname}{\listadesimbolosname}
+%\renewcommand{\nomname}{\listadesimbolosname}
 
 % Redefinição de fontes e tamanhos para os capítulos e seções, NO TEXTO
 \renewcommand{\ABNTEXchapterfont}{\bfseries}
@@ -159,25 +165,6 @@
 		\oldcontentsline{#1}{#2}%
 	}%
 }
-
-% Ordenar a lista de símbolos por ordem de utilização
-\providetoggle{nomsort}
-\settoggle{nomsort}{true}
-
-\iftoggle{nomsort}{
-	\let\old@@@nomenclature=\@@@nomenclature
-		\newcounter{@nomcount} \setcounter{@nomcount}{0}
-		\renewcommand\the@nomcount{\two@digits{\value{@nomcount}}}
-		\def\@@@nomenclature[#1]#2#3{
-			\addtocounter{@nomcount}{1}
-			\def\@tempa{#2}\def\@tempb{#3}
-			\protected@write\@nomenclaturefile{}
-			{\string\nomenclatureentry{\the@nomcount\nom@verb\@tempa @[{\nom@verb\@tempa}]
-			\begingroup\nom@verb\@tempb\protect\nomeqref{\theequation}|nompageref}
-			{\thepage}}
-			\endgroup
-			\@esphack}
-}{}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comandos e ambientes específicos deste pacote

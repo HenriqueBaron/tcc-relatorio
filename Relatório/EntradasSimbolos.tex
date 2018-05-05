@@ -1,0 +1,67 @@
+\newcommand{\unidademassa}{[kg]}
+\newcommand{\unidadeamortecimento}{[N\cdot s/m]}
+\newcommand{\unidaderigidez}{[N/m]}
+\newcommand{\unidadeforca}{[N]}
+\newcommand{\unidadeposicao}{[m]}
+\newcommand{\unidadevelocidade}{[m/s]}
+\newcommand{\unidadeaceleracao}{[m/s\textsuperscript{2}]}
+\newcommand{\unidadetempo}{[s]}
+\newcommand{\unidadeenergia}{[J]}
+\newcommand{\unidadeangulo}{[rad]}
+\newcommand{\unidadevelocidadeangular}{[rad/s]}
+\newcommand{\unidadetorque}{[N\cdot m]}
+\newcommand{\unidadearea}{[m\textsuperscript{2}]}
+\newcommand{\semunidade}{[-]}
+
+\newglossaryentry{smb:tempo}{name={$ t $},description={tempo \unidadetempo}}
+\newglossaryentry{smb:graus-liberdade}{name={$ n $},description={número de graus de liberdade do sistema \semunidade}}
+\newglossaryentry{smb:matriz-massa}{name={$ [m] $},description={matriz de massa \unidademassa}}
+\newglossaryentry{smb:matriz-amort}{name={$ [c] $},description={matriz de amortecimento \unidadeamortecimento}}
+\newglossaryentry{smb:matriz-rigidez}{name={$ [k] $},description={matriz de rigidez \unidaderigidez}}
+\newglossaryentry{smb:vetor-desloc}{name={$ \vec{x} $},description={vetor de deslocamentos \unidadeposicao}}
+\newglossaryentry{smb:vetor-vel}{name={$ \dot{\vec{x}} $},description={vetor de velocidades \unidadevelocidade}}
+\newglossaryentry{smb:vetor-acel}{name={$ \ddot{\vec{x}} $},description={vetor de acelerações \unidadeaceleracao}}
+\newglossaryentry{smb:vetor-forcas}{name={$ \vec{F} $},description={vetor de forças externas \unidadeforca}}
+\newglossaryentry{smb:coef-massa}{name={$ m_{ij} $},description={coeficiente de massa \unidademassa}}
+\newglossaryentry{smb:coef-amortecimento}{name={$ c_{ij} $},description={coeficiente de amortecimento \unidadeamortecimento}}
+\newglossaryentry{smb:coef-rigidez}{name={$ k_{ij} $},description={coeficiente de rigidez \unidaderigidez}}
+\newglossaryentry{smb:coord-general}{name={$ q_i $},description={posição em coordenadas generalizadas \semunidade}}
+\newglossaryentry{smb:forca-general}{name={$ Q $},description={força generalizada \unidadeforca}}
+\newglossaryentry{smb:trabalho-coord-general}{name={$ U $},description={trabalho \unidadeenergia}}
+\newglossaryentry{smb:desloc-elemento}{name={$ x_i $},description={deslocamento de um elemento do sistema \unidadeposicao}}
+\newglossaryentry{smb:massa-elemento}{name={$ m_i $},description={massa de um elemento do sistema \unidademassa}}
+\newglossaryentry{smb:forca-elemento}{name={$ F_i $},description={força aplicada sobre um elemento do sistema \unidadeforca}}
+\newglossaryentry{smb:energ-pot-elem}{name={$ V_i $},description={energia de deformação de um elemento elástico \unidadeenergia}}
+\newglossaryentry{smb:energ-pot-total}{name={$ V $},description={energia potencial total \unidadeenergia}}
+\newglossaryentry{smb:energ-cin-elem}{name={$ K_i $},description={energia cinética do elemento \unidadeenergia}}
+\newglossaryentry{smb:energ-cin-total}{name={$ K $},description={energia cinética total \unidadeenergia}}
+\newglossaryentry{smb:forca}{name={$ F $},description={força \unidadeforca}}
+\newglossaryentry{smb:matriz-massa-diag}{name={$ [m_d] $},description={matriz diagonal de massa \unidademassa}}
+\newglossaryentry{smb:vetor-veloc-general}{name={$ \dot{\vec{q}} $},description={vetor de velocidades generalizadas \unidadevelocidade}}
+\newglossaryentry{smb:lagrangiano}{name={$ L $},description={lagrangiano \unidadeenergia}}
+\newglossaryentry{smb:forca-naoconserv}{name={$ Q_i^{(n)} $},description={força generalizada não-conservativa do i-ésimo grau de liberdade \unidadeforca}}
+\newglossaryentry{smb:tensao-corda}{name={$ P $},description={força tensora \unidadeforca}}
+\newglossaryentry{smb:angulo-tensao}{name={$ \theta $},description={ângulo da corda \unidadeangulo}}
+\newglossaryentry{smb:desloc-vertical}{name={$ w $},description={deslocamento vertical do corpo elástico \unidadeposicao}}
+\newglossaryentry{smb:massa-espec}{name={$ \rho $},description={massa específica por unidade de comprimento $ [kg/m] $}}
+\newglossaryentry{smb:constante-corda}{name={$ \textit{c} $},description={constante da corda \unidadevelocidade}}
+\newglossaryentry{smb:modulo-elast}{name={$ E $},description={módulo de elasticidade [Pa] }}
+\newglossaryentry{smb:segundo-momento-area}{name={$ I $},description={segundo momento de área [m\textsuperscript{4}]}}
+\newglossaryentry{smb:momento-fletor}{name={$ M $},description={momento fletor \unidadetorque}}
+\newglossaryentry{smb:forca-cisalhamento}{name={$ C $},description={força de cisalhamento \unidadeforca}}
+\newglossaryentry{smb:sol-parcial-pos}{name={$ W $},description={solução parcial, dependente da posição x [m\textsuperscript{1/2}]}}
+\newglossaryentry{smb:sol-parcial-tempo}{name={$ T $},description={solução parcial, dependente do tempo [m\textsuperscript{1/2}]}}
+\newglossaryentry{smb:freq-natural}{name={$ \omega $},description={frequência natural \unidadevelocidadeangular}}
+\newglossaryentry{smb:area}{name={$ A $},description={área \unidadearea}}
+
+% Elementos agrupados
+\newglossaryentry{smb:const-dif-tempo-parent}{name={$ X, Y $},description={constantes da solução particular da equação diferencial para T \semunidade}}
+\newglossaryentry{smb:const-dif-tempo-1}{name={$ X $},description={\nopostdesc},parent={smb:const-dif-tempo-parent}}
+\newglossaryentry{smb:const-dif-tempo-2}{name={$ Y $},description={\nopostdesc},parent={smb:const-dif-tempo-parent}}
+
+\newglossaryentry{smb:const-dif-desloc-parent}{name={$ C_1, C_2, C_3, C_4 $},description={constantes da solução particular da equação diferencial para W \semunidade}}
+\newglossaryentry{smb:const-dif-desloc-1}{name={$ C_1 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
+\newglossaryentry{smb:const-dif-desloc-2}{name={$ C_2 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
+\newglossaryentry{smb:const-dif-desloc-3}{name={$ C_3 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
+\newglossaryentry{smb:const-dif-desloc-4}{name={$ C_4 $},description={\nopostdesc}, parent={smb:const-dif-desloc-parent}}
+\newglossaryentry{smb:const-dif-desloc-agrup}{name={$ C_1, C_2, C_3 $ e $ C_4 $},description={\nopostdesc},parent={smb:const-dif-desloc-parent}}
