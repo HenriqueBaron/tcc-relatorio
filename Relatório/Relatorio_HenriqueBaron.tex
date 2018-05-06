@@ -100,12 +100,12 @@
 	\begin{equation}
 		x(t) = a\ cos\,\omega t + b\ sen\,\omega t
 	\end{equation}
-	onde \gls{s:posicao} indica a posição ou deslocamento, \gls{s:freq} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
+	onde \gls{s:posicao-tempo} indica a posição ou deslocamento, \gls{s:freq} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
 	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
 	
 	\subsection{Série de Fourier}
-	Seja \gls{s:posicao}$ (t) $ uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
+	Seja \gls{s:posicao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
 		x(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
 	\end{equation}
@@ -120,7 +120,7 @@
 		b_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ sen\,n\omega t\ dt \notag
 	\end{align}
 	
-	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao}$ (t) $, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia em geral.
+	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia em geral.
 	
 	\subsubsection{Notação complexa da série de Fourier} \label{sec:fourier:serie-complexa}
 	Utilizando as identidades de Euler
@@ -136,10 +136,8 @@
 		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-i\omega t}\ dt
 	\end{equation}
 	
-	Segundo \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}), a representação de uma função através de uma série de Fourier como nas Equações (\ref{eqn:fourier:serie}) e (\ref{eqn:fourier:serie-compl}) é chamada de \glsdesctraduzida{sig:DFT}.
-	
 	\subsection{Integral de Fourier}
-	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:posicao}$ (t) $ uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
+	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:posicao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
 	\begin{equation}\label{eqn:fourier:integral}
 		x(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
 	\end{equation}
@@ -150,11 +148,17 @@
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier}
-	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier $ \mathcal{F}\{x(t)\} $ \cite{savi:2017}
-	\begin{equation}
-		\hat{x}(\omega) = \mathcal{F}\{x(t)\} = \int_{-\infty}^{\infty}x(t)\ e^{-i\omega t}\:dt
+	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:posicao-tempo}, denotada por \gls{s:posicao-freq}
+	\begin{equation} \label{eqn:fourier:transform}
+		X(\omega) = \mathcal{F}\{x(t)\} = \int_{-\infty}^{\infty}x(t)\ e^{-i\omega t}\:dt
 	\end{equation}
-	que também é denominada por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como transformada contínua de Fourier.
+	que também é denominada por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como transformada contínua de Fourier. A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
+	\begin{equation}
+		x(t) = \mathcal{F}^{-1}\{X(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\ e^{i\omega t}\:d\omega
+	\end{equation}
+	
+	\subsection{Métodos numéricos}
+	
 	
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
@@ -305,8 +309,8 @@
 	
 	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
 	\begin{align}
-		\textit{c}^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2} \label{eqn:cont:onda}\\
-		\textit{c} = \left(\frac{P}{\rho}\right)^{1/2}
+		\mathit{c}^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2} \label{eqn:cont:onda}\\
+		\mathit{c} = \left(\frac{P}{\rho}\right)^{1/2}
 	\end{align}
 	
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
@@ -314,7 +318,7 @@
 	\subsection{Vibração de vigas} \label{sec:vigas}
 	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
-		\textit{c} = \sqrt{\frac{EI}{\rho A}}
+		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
 	\begin{figure}[b]
 		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{Fonte: adaptado de Timoshenko (1974)}
@@ -329,20 +333,20 @@
 	
 	Substituindo a Equação (\ref{eqn:cont:sep-variaveis}) na Equação (\ref{eqn:cont:onda}) e rearranjando os termos, obtém-se 
 	\begin{equation} \label{eqn:cont:geral-vigas}
-		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\textit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
+		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\mathit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
 	\end{equation}
 	o que permite \cite{clark:1972} igualar cada parte da equação a uma constante, de modo que
 	\begin{align*}
 		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega_n^2 \\
-		\frac{\textit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
+		\frac{\mathit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
 	\end{align*}
 	onde a constante \gls{s:freq-natural} acrescentada é a frequência natural. 
 	
 	Para a equação diferencial de \gls{s:sol-parcial-tempo}$(t)$, a solução é uma oscilação harmônica simples 
 	\begin{equation} \label{eqn:cont:sep-T}
-		T(t) = X\,cos\,\omega_n t + Y\,sen\,\omega_n t
+		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
 	\end{equation}
-	com as constantes \glsexpansao{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes \glsexpansao{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
@@ -350,7 +354,7 @@
 	
 	Visto que solução total de cada uma das Equações (\ref{eqn:cont:sep-T}) e (\ref{eqn:cont:sep-W}) é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
 	\begin{equation}
-		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(X_i\,cos\,\omega_i t + Y_i\,sen\,\omega_i t)
+		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(\mathit{A}_i\,cos\,\omega_i t + \mathit{B}_i\,sen\,\omega_i t)
 	\end{equation}
 	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e \gls{s:freq-natural-modo}, por conseguinte, a respectiva frequência natural.
 	
