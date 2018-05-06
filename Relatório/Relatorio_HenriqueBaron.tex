@@ -3,6 +3,8 @@
 	english,brazil]{abntex2}
 % Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
 \usepackage[num,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
+\citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
+
 \usepackage{ifluatex} % Verificação do compilador utilizado
 \ifluatex
 	\usepackage{fontspec}
@@ -12,25 +14,19 @@
 \fi
 
 \usepackage[brazil]{babel}
-
-\makeatletter
-
-\makeatother
-
-\usepackage{graphicx}
+\usepackage{graphicx} % Inserção de imagens
 \graphicspath{{./Imagens/}} % Definição do caminho para as imagens
 \usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
-\usepackage{bigints}
+\usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
 \usepackage{abntUCS}
-\usepackage{glossaries}
-\citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
+\usepackage{glossaries} % Inclusão apenas para a IDE reconhecer os comandos do pacote glossaries
 \includeonly{PreTexto} % Inclusão do arquivo de elementos pré-textuais sem deixar páginas em branco
 
 \makeglossaries % Habilita a criação dos arquivos adicionais necessários à lista de símbolos.
-\input{EntradasSiglas}
+\input{EntradasSiglas} % Arquivo que contém as siglas
 \input{EntradasSimbolos} % Arquivo que contém os símbolos.
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
@@ -63,7 +59,7 @@
 	\chapter{Introdução}
 	Em todo sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada. Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
 	
-	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme Hashemian e Bean. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
+	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme \citeauthoronline{hashemian:2011} (\citeyear{hashemian:2011}). Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
 	Da mesma forma, dados do \glsdesctraduzida{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
@@ -103,26 +99,62 @@
 	\begin{equation}
 		x(t) = a\ cos\,\omega t + b\ sen\,\omega t
 	\end{equation}
-	onde \gls{smb:posicao} indica a posição ou deslocamento, \gls{smb:freq} é a frequência da oscilação, \gls{smb:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
+	onde \gls{s:posicao} indica a posição ou deslocamento, \gls{s:freq} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
 	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
 	
 	\subsection{Série de Fourier}
-	Seja \gls{smb:posicao}$ (t) $ uma função periódica com período \gls{smb:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
+	Seja \gls{s:posicao}$ (t) $ uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
 		x(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
 	\end{equation}
-	sendo a frequência \gls{smb:freq} relacionada ao período \gls{smb:periodo} por \cite{dimarogonas:1995}
+	sendo a frequência \gls{s:freq} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:periodo}
 		\omega = \frac{2\pi}{\tau}
 	\end{equation}
-	e \glsexpansao{smb:coef-fourier} representam os coeficientes de Fourier, que valem \cite{spiegel:1977}
+	e \glsexpansao{s:coef-fourier} representam os coeficientes de Fourier, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
-		a_0 = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t) dt \notag\\
-		a_n = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t)\ cos\,n\omega t\,dt \\
-		b_n = \frac{2}{\tau}\bigintssss_{\,0}^{\tau}x(t)\ sen\,n\omega t\,dt \notag
+		a_0 = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ dt \notag\\
+		a_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ cos\,n\omega t\ dt \\
+		b_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ sen\,n\omega t\ dt \notag
 	\end{align}
-		
+	
+	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao}$ (t) $, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia em geral.
+	
+	\subsubsection{Notação complexa da série de Fourier} \label{sec:fourier:serie-complexa}
+	Utilizando as identidades de Euler
+	\begin{equation}\label{eqn:fourier:ident-euler}
+		e^{i\omega} = cos\,\omega + i\ sen\,\omega\, , \quad e^{-i\omega} = cos\,\omega - i\ sen\,\omega
+	\end{equation}
+	a série de Fourier da Equação (\ref{eqn:fourier:serie}) também pode ser representada por \cite{spiegel:1977}
+	\begin{equation}\label{eqn:fourier:serie-compl}
+		x(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\omega t}
+	\end{equation}
+	onde o coeficiente complexo de Fourier \gls{s:coef-fourier-compl} é calculado por \cite{dimarogonas:1995}
+	\begin{equation}\label{eqn:fourier:coefs-compl}
+		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-i\omega t}\ dt
+	\end{equation}
+	
+	Segundo \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}), a representação de uma função através de uma série de Fourier como nas Equações (\ref{eqn:fourier:serie}) e (\ref{eqn:fourier:serie-compl}) é chamada de \glsdesctraduzida{sig:DFT}.
+	
+	\subsection{Integral de Fourier}
+	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:posicao}$ (t) $ uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
+	\begin{equation}\label{eqn:fourier:integral}
+		x(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
+	\end{equation}
+	tal que os coeficientes \glsexpansao{s:coef-fourier-int} são determinados por
+	\begin{align}
+		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}x(t)\ cos\,\omega t\ dt \notag\\
+		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}x(t)\ sen\,\omega t\ dt
+	\end{align}
+	
+	\subsubsection{Transformada de Fourier}
+	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier $ \mathcal{F}\{x(t)\} $ \cite{savi:2017}
+	\begin{equation}
+		\hat{x}(\omega) = \mathcal{F}\{x(t)\} = \int_{-\infty}^{\infty}x(t)\ e^{-i\omega t}\:dt
+	\end{equation}
+	que também é denominada por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como transformada contínua de Fourier.
+	
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
 	
@@ -131,7 +163,7 @@
 	\begin{equation} \label{eqn:discr:movimento}
 		[m]\ddot{\vec{x}} + [c]\dot{\vec{x}} + [k]\vec{x} = \vec{F}
 	\end{equation}
-	onde \gls{smb:matriz-massa}, \gls{smb:matriz-amort} e \gls{smb:matriz-rigidez} representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
+	onde \gls{s:matriz-massa}, \gls{s:matriz-amort} e \gls{s:matriz-rigidez} representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
 	\begin{gather} 
 		[m] = 
 		\begin{bmatrix} \label{eqn:matr:massa}
@@ -155,7 +187,7 @@
 			k_{n1} & k_{n2} & k_{n3} & \dots & k_{nn}\\
 		\end{bmatrix}
 	\end{gather}
-	onde \gls{smb:coef-massa}, \gls{smb:coef-amortecimento} e \gls{smb:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{smb:vetor-desloc}, \gls{smb:vetor-vel}, \gls{smb:vetor-acel} e \gls{smb:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por
+	onde \gls{s:coef-massa}, \gls{s:coef-amortecimento} e \gls{s:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{s:vetor-desloc}, \gls{s:vetor-vel}, \gls{s:vetor-acel} e \gls{s:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por
 	\begin{align} \label{eqn:vetores}
 		\vec{x} =
 		\begin{Bmatrix}
@@ -178,7 +210,7 @@
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{smb:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde \gls{smb:graus-liberdade} denota o número de graus de liberdade do sistema. Seja \gls{smb:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{smb:forca-general} é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde \gls{s:graus-liberdade} denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
 	\begin{equation}
 		Q_i = \frac{U_i}{\delta q_i},\qquad i = 1, 2, \dots, n
 	\end{equation}
@@ -186,11 +218,11 @@
 	\subsection{Equação de Lagrange}
 	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das dimensões vetoriais torna a resolução difícil \cite{savi:2017}.
 	
-	Considerando como \gls{smb:desloc-elemento} o deslocamento de uma massa \gls{smb:massa-elemento} e seja \gls{smb:forca-elemento} a força nela aplicada, a energia de deformação \gls{smb:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com \gls{smb:graus-liberdade} graus de liberdade é dada por \cite{rao:2008}
+	Considerando como \gls{s:desloc-elemento} o deslocamento de uma massa \gls{s:massa-elemento} e seja \gls{s:forca-elemento} a força nela aplicada, a energia de deformação \gls{s:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com \gls{s:graus-liberdade} graus de liberdade é dada por \cite{rao:2008}
 	\begin{equation}
 		V_i = \frac{1}{2}F_i x_i
 	\end{equation}
-	A energia potencial total \gls{smb:energ-pot-total} é, então
+	A energia potencial total \gls{s:energ-pot-total} é, então
 	\begin{equation} \label{eqn:discr:energia:deformacao}
 		V = \sum_{i-1}^{n}V_i = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
 	\end{equation}
@@ -198,7 +230,7 @@
 	\begin{equation}
 		F_i = \sum_{j=1}^{n}k_{ij} x_j
 	\end{equation}
-	onde \gls{smb:coef-rigidez} representa o coeficiente de rigidez da i-ésima linha e j-ésima coluna na matriz de rigidez da Equação (\ref{eqn:matr:rigid}), a Equação (\ref{eqn:discr:energia:deformacao}) fornece
+	onde \gls{s:coef-rigidez} representa o coeficiente de rigidez da i-ésima linha e j-ésima coluna na matriz de rigidez da Equação (\ref{eqn:matr:rigid}), a Equação (\ref{eqn:discr:energia:deformacao}) fornece
 	\begin{equation}
 		V = \frac{1}{2}\sum_{i=1}^{n}\left(\sum_{j=1}^{n}k_{ij} x_j\right)x_i = \frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}k_{ij} x_i x_j
 	\end{equation}
@@ -206,17 +238,17 @@
 	\begin{equation}
 		V = \frac{1}{2}\vec{x}^T [k] \vec{x}
 	\end{equation}
-	de modo que \gls{smb:matriz-rigidez} e \gls{smb:vetor-desloc} denotam respectivamente a matriz de rigidez da Equação (\ref{eqn:matr:rigid}) e o vetor de deslocamentos da Equação (\ref{eqn:vetores}).
+	de modo que \gls{s:matriz-rigidez} e \gls{s:vetor-desloc} denotam respectivamente a matriz de rigidez da Equação (\ref{eqn:matr:rigid}) e o vetor de deslocamentos da Equação (\ref{eqn:vetores}).
 	
-	Para a mesma massa \gls{smb:massa-elemento}, a energia cinética associada é denotada por \gls{smb:energ-cin-elem} e definida como \cite{rao:2008}
+	Para a mesma massa \gls{s:massa-elemento}, a energia cinética associada é denotada por \gls{s:energ-cin-elem} e definida como \cite{rao:2008}
 	\begin{equation}
 		K_i = \frac{1}{2}m_i\dot{x}_i^2
 	\end{equation}
-	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, \gls{smb:energ-cin-total}, é obtida realizando o somatório para todos os \gls{smb:graus-liberdade} elementos, resultando em \cite{savi:2017}
+	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, \gls{s:energ-cin-total}, é obtida realizando o somatório para todos os \gls{s:graus-liberdade} elementos, resultando em \cite{savi:2017}
 	\begin{equation}\label{eqn:discr:energia:cinetica}
 		K = \frac{1}{2}\dot{\vec{x}^T}[m_d]\dot{\vec{x}}
 	\end{equation}
-	onde \gls{smb:vetor-vel} corresponde ao vetor de velocidades da Equação (\ref{eqn:vetores}) e \gls{smb:matriz-massa-diag} é uma matriz de massa diagonal
+	onde \gls{s:vetor-vel} corresponde ao vetor de velocidades da Equação (\ref{eqn:vetores}) e \gls{s:matriz-massa-diag} é uma matriz de massa diagonal
 	\begin{equation}
 		[m_d] =
 		\begin{bmatrix}
@@ -227,7 +259,7 @@
 		\end{bmatrix}
 	\end{equation}
 	
-	Se, na Equação (\ref{eqn:discr:energia:cinetica}) forem utilizadas as coordenadas generalizadas \gls{smb:coord-general} descritas na Seção \ref{sec:coord-generalizadas}, arranjadas em um vetor de velocidades generalizadas \gls{smb:vetor-veloc-general} dado por
+	Se, na Equação (\ref{eqn:discr:energia:cinetica}) forem utilizadas as coordenadas generalizadas \gls{s:coord-general} descritas na Seção \ref{sec:coord-generalizadas}, arranjadas em um vetor de velocidades generalizadas \gls{s:vetor-veloc-general} dado por
 	\begin{equation}
 		\dot{\vec{q}} = 
 		\begin{Bmatrix}
@@ -238,17 +270,17 @@
 	\begin{equation}
 		K = \frac{1}{2}\dot{\vec{q}^T}[m]\dot{\vec{q}}
 	\end{equation}
-	sendo agora \gls{smb:matriz-massa} a matriz de massa da Equação (\ref{eqn:matr:massa}).
+	sendo agora \gls{s:matriz-massa} a matriz de massa da Equação (\ref{eqn:matr:massa}).
 	
 	Uma vez determinadas as expressões em termos das energias potencial e cinética, é possível definir as equações de Lagrange como \cite{savi:2017}
 	\begin{equation} \label{eqn:lagrange}
 		\frac{d}{dt}\left(\frac{\partial L}{\partial \dot{q}_i}\right) - \frac{\partial L}{\partial q_i} = Q_i^{(n)}, \qquad i = 1, 2, \dots, n
 	\end{equation}
-	onde \gls{smb:lagrangiano} é o lagrangiano
+	onde \gls{s:lagrangiano} é o lagrangiano
 	\begin{equation}
 		L = K-V
 	\end{equation}
-	e \gls{smb:forca-naoconserv} é a força generalizada não-conservativa correspondente à coordenada generalizada \gls{smb:coord-general} Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
+	e \gls{s:forca-naoconserv} é a força generalizada não-conservativa correspondente à coordenada generalizada \gls{s:coord-general} Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
 	
 	\section{Vibração de sistemas contínuos}
 	Em contraste aos sistemas discretos, os sistemas contínuos são aqueles em que não se consegue identificar massas, molas e amortecedores pontuais na vibração de um corpo \cite{rao:2008}. Para estes casos, é possível determinar o comportamento vibratório de maneira analítica e sem discretização. Através dessa abordagem podem ser modeladas barras, eixos, cabos, vigas e outros elementos \cite{timoshenko:1974}. 
@@ -256,21 +288,21 @@
 	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
 	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
-	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{smb:massa-espec}, sujeita a uma força transversal \gls{smb:forca} que é função do tempo \gls{smb:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{smb:desloc-vertical} na direção $z$, a força de tração \gls{smb:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por \gls{smb:angulo-tensao} e, por fim, a força \gls{smb:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
+	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{s:desloc-vertical} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por \gls{s:angulo-tensao} e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
 	\begin{figure}[t] 
 	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: adaptado de Rao (2008)} \label{fig:vibracao-corda}
 	\end{figure}
 
 	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração. Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
 	
-	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{smb:forca} e da componente vertical da força de tração \gls{smb:tensao-corda} \cite{rao:2008}. A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
+	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{s:forca} e da componente vertical da força de tração \gls{s:tensao-corda} \cite{rao:2008}. A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
 	\begin{equation} \label{eqn:cont:balanco}
 		(P + dP)\;sen(\theta + d\theta) + F\:dx - P\;sen\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo \gls{smb:angulo-tensao} seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo \gls{s:angulo-tensao} seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
 	
-	Considerando que a massa linear específica \gls{smb:massa-espec} é uniforme, que a tensão \gls{smb:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{smb:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
+	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
 	\begin{align}
 		\textit{c}^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2} \label{eqn:cont:onda}\\
 		\textit{c} = \left(\frac{P}{\rho}\right)^{1/2}
@@ -279,7 +311,7 @@
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
 	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{smb:modulo-elast} e momento de inércia de área \gls{smb:segundo-momento-area}, que vibra com deslocamento \gls{smb:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{smb:momento-fletor} e a uma força de cisalhamento \gls{smb:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{smb:massa-espec} e área de seção transversal \gls{smb:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{smb:constante-onda} valendo \cite{rao:2008}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
 		\textit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
@@ -288,11 +320,11 @@
 		\label{fig:elemento-viga}
 	\end{figure}
 
-	A Equação (\ref{eqn:cont:onda}) pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{smb:desloc-vertical}$(x,t)$ é descrito como
+	A Equação (\ref{eqn:cont:onda}) pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{s:desloc-vertical}$(x,t)$ é descrito como
 	\begin{equation} \label{eqn:cont:sep-variaveis}
 		w(x,t) = W(x)\cdot T(t)
 	\end{equation}
-	que mostra que \gls{smb:sol-parcial-pos} é uma função dependente somente da posição em $x$ e \gls{smb:sol-parcial-tempo} depende unicamente do tempo \gls{smb:tempo}.
+	que mostra que \gls{s:sol-parcial-pos} é uma função dependente somente da posição em $x$ e \gls{s:sol-parcial-tempo} depende unicamente do tempo \gls{s:tempo}.
 	
 	Substituindo a Equação (\ref{eqn:cont:sep-variaveis}) na Equação (\ref{eqn:cont:onda}) e rearranjando os termos, obtém-se 
 	\begin{equation} \label{eqn:cont:geral-vigas}
@@ -303,23 +335,23 @@
 		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega_n^2 \\
 		\frac{\textit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
 	\end{align*}
-	onde a constante \gls{smb:freq-natural} acrescentada é a frequência natural. 
+	onde a constante \gls{s:freq-natural} acrescentada é a frequência natural. 
 	
-	Para a equação diferencial de \gls{smb:sol-parcial-tempo}$(t)$, a solução é uma oscilação harmônica simples 
+	Para a equação diferencial de \gls{s:sol-parcial-tempo}$(t)$, a solução é uma oscilação harmônica simples 
 	\begin{equation} \label{eqn:cont:sep-T}
 		T(t) = X\,cos\,\omega_n t + Y\,sen\,\omega_n t
 	\end{equation}
-	com as constantes \glsexpansao{smb:const-dif-tempo} para a devida solução particular. Para a função \gls{smb:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes \glsexpansao{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\textit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
-	onde as constantes \glsexpansao{smb:const-dif-desloc} definem a respectiva solução particular.
+	onde as constantes \glsexpansao{s:const-dif-desloc} definem a respectiva solução particular.
 	
 	Visto que solução total de cada uma das Equações (\ref{eqn:cont:sep-T}) e (\ref{eqn:cont:sep-W}) é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
 	\begin{equation}
 		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(X_i\,cos\,\omega_i t + Y_i\,sen\,\omega_i t)
 	\end{equation}
-	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e \gls{smb:freq-natural-modo}, por conseguinte, a respectiva frequência natural.
+	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e \gls{s:freq-natural-modo}, por conseguinte, a respectiva frequência natural.
 	
 	\section{Dinâmica de rotores}
 	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
