@@ -240,9 +240,9 @@
 % 3 - Fonte e ano da figura (texto que fica abaixo)
 \newcommand{\incluirimagem}[3]{
 	\caption{#2}
-	\adjustimage{fbox=1.5pt,gstore width=\larguraimagem, center}{#1} \par
+	\adjustimage{fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem, center}{#1} \par
 	\centering
 	\begin{minipage}[h]{\larguraimagem}
-		\raggedright\footnotesize\hspace{4pt} Fonte: #3
+		\raggedright\footnotesize\hspace{3pt} Fonte: #3
 	\end{minipage}
 }

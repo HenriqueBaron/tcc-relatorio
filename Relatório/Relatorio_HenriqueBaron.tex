@@ -133,14 +133,24 @@
 	\end{equation}
 	onde a harmônica \gls{s:coef-fourier-compl} é calculada por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:coefs-compl}
-		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-i\omega t}\ dt
+		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-in\omega t}\ dt
 	\end{equation}
 	
 	\subsection{Representação no domínio da frequência}
-	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ x(t) = sen\,2\pi t + 0,\!7\:cos\,4\pi t + 2 $ no domínio do tempo.
-	\begin{figure}[t]
+	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ x(t) = sen\,2\pi t + 0,\!7\:cos\,4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação (\ref{eqn:fourier:coefs-compl}) um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq} utilizada na Equação (\ref{eqn:fourier:coefs-compl}), e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
+	\begin{figure}[b]
 		\incluirimagem{FourierFuncao.png}{Função periódica no domínio do tempo}{o autor (\thedate)}
 		\label{fig:funcao-periodica}
+	\end{figure}
+	\begin{figure}[t]
+		\incluirimagem{FourierEspectro2sided.png}{Espectro de dois lados de uma função periódica}{o autor (\thedate)}
+		\label{fig:espectro-2sided}
+	\end{figure}
+	
+	De maneira semelhante, o espectro de frequência da Figura \ref{fig:espectro-2sided} pode ser representado por um espectro de frequências de um lado \cite{randall:1987} como mostra a Figura \ref{fig:espectro-1sided}, onde a harmônica \gls{s:coef-fourier-compl} de ordem $ n $ é somada com a harmônica de ordem $ -n $. É importante observar que a componente constante, isto é, $ n=0 $ permanece com o mesmo valor do espectro de dois lados.
+	\begin{figure}[t]
+		\incluirimagem{FourierEspectro1sided.png}{Espectro de um lado de uma função periódica}{o autor (\thedate)}
+		\label{fig:espectro-1sided}
 	\end{figure}
 	
 	\subsection{Integral de Fourier}
@@ -225,7 +235,7 @@
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde \gls{s:graus-liberdade} denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde $ n $ denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
 	\begin{equation}
 		Q_i = \frac{U_i}{\delta q_i},\qquad i = 1, 2, \dots, n
 	\end{equation}
@@ -233,7 +243,7 @@
 	\subsection{Equação de Lagrange}
 	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das dimensões vetoriais torna a resolução difícil \cite{savi:2017}.
 	
-	Considerando como \gls{s:desloc-elemento} o deslocamento de uma massa \gls{s:massa-elemento} e seja \gls{s:forca-elemento} a força nela aplicada, a energia de deformação \gls{s:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com \gls{s:graus-liberdade} graus de liberdade é dada por \cite{rao:2008}
+	Considerando como \gls{s:desloc-elemento} o deslocamento de uma massa \gls{s:massa-elemento} e seja \gls{s:forca-elemento} a força nela aplicada, a energia de deformação \gls{s:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com $ n $ graus de liberdade é dada por \cite{rao:2008}
 	\begin{equation}
 		V_i = \frac{1}{2}F_i x_i
 	\end{equation}
@@ -259,7 +269,7 @@
 	\begin{equation}
 		K_i = \frac{1}{2}m_i\dot{x}_i^2
 	\end{equation}
-	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, \gls{s:energ-cin-total}, é obtida realizando o somatório para todos os \gls{s:graus-liberdade} elementos, resultando em \cite{savi:2017}
+	e, de maneira análoga à Equação (\ref{eqn:discr:energia:deformacao}), a energia cinética total do sistema, \gls{s:energ-cin-total}, é obtida realizando o somatório para todos os $ n $ elementos, resultando em \cite{savi:2017}
 	\begin{equation}\label{eqn:discr:energia:cinetica}
 		K = \frac{1}{2}\dot{\vec{x}^T}[m_d]\dot{\vec{x}}
 	\end{equation}
