@@ -113,14 +113,14 @@
 	\begin{equation}\label{eqn:fourier:periodo}
 		\omega = \frac{2\pi}{\tau}
 	\end{equation}
-	e \glsexpansao{s:coef-fourier} representam os coeficientes de Fourier, que valem \cite{spiegel:1977}
+	e os coeficientes \glsexpansao{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
 		a_0 = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ dt \notag\\
 		a_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ cos\,n\omega t\ dt \\
 		b_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ sen\,n\omega t\ dt \notag
 	\end{align}
 	
-	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia em geral.
+	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral.
 	
 	\subsubsection{Notação complexa da série de Fourier} \label{sec:fourier:serie-complexa}
 	Utilizando as identidades de Euler
@@ -131,10 +131,17 @@
 	\begin{equation}\label{eqn:fourier:serie-compl}
 		x(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\omega t}
 	\end{equation}
-	onde o coeficiente complexo de Fourier \gls{s:coef-fourier-compl} é calculado por \cite{dimarogonas:1995}
+	onde a harmônica \gls{s:coef-fourier-compl} é calculada por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:coefs-compl}
 		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-i\omega t}\ dt
 	\end{equation}
+	
+	\subsection{Representação no domínio da frequência}
+	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico da função periódica $ x(t) = sen\,2\pi t + 0,7\:cos\,4\pi t + 2 $ no domínio do tempo.
+	\begin{figure}[t]
+		\incluirimagem{FourierFuncao.png}{Função periódica no domínio do tempo}{o autor (2018)}
+		\label{fig:funcao-periodica}
+	\end{figure}
 	
 	\subsection{Integral de Fourier}
 	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:posicao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
@@ -147,7 +154,7 @@
 		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}x(t)\ sen\,\omega t\ dt
 	\end{align}
 	
-	\subsubsection{Transformada de Fourier}
+	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
 	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:posicao-tempo}, denotada por \gls{s:posicao-freq}
 	\begin{equation} \label{eqn:fourier:transform}
 		X(\omega) = \mathcal{F}\{x(t)\} = \int_{-\infty}^{\infty}x(t)\ e^{-i\omega t}\:dt
@@ -158,7 +165,10 @@
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
+	Na transformada de Fourier apresentada na Seção \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
 	
+	\subsubsection{Transformada Discreta de Fourier}
+	A \glsdesctraduzida{sig:DFT}
 	
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
@@ -295,7 +305,7 @@
 	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
 	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{s:desloc-vertical} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por \gls{s:angulo-tensao} e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
 	\begin{figure}[t] 
-	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{Fonte: adaptado de Rao (2008)} \label{fig:vibracao-corda}
+	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{adaptado de \citeauthoronline{rao:2008} \citeyear{rao:2008}} \label{fig:vibracao-corda}
 	\end{figure}
 
 	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração. Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
@@ -321,7 +331,7 @@
 		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
 	\begin{figure}[b]
-		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{Fonte: adaptado de Timoshenko (1974)}
+		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{adaptado de \citeauthoronline{timoshenko:1974} \citeyear{timoshenko:1974}}
 		\label{fig:elemento-viga}
 	\end{figure}
 
