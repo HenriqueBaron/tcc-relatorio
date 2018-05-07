@@ -65,8 +65,6 @@
 	\renewcommand{\listfigurename}{Lista de figuras}
 }
 
-%\renewcommand{\nomname}{\listadesimbolosname}
-
 % Redefinição de fontes e tamanhos para os capítulos e seções, NO TEXTO
 \renewcommand{\ABNTEXchapterfont}{\bfseries}
 \renewcommand{\ABNTEXchapterfontsize}{\normalsize}
@@ -242,9 +240,9 @@
 % 3 - Fonte e ano da figura (texto que fica abaixo)
 \newcommand{\incluirimagem}[3]{
 	\caption{#2}
-	\adjustimage{gstore width=\larguraimagem, center}{#1} \par
+	\adjustimage{fbox=1.5pt,gstore width=\larguraimagem, center}{#1} \par
 	\centering
 	\begin{minipage}[h]{\larguraimagem}
-		\raggedright\footnotesize\hspace{2pt}Fonte: #3
+		\raggedright\footnotesize\hspace{4pt} Fonte: #3
 	\end{minipage}
 }
