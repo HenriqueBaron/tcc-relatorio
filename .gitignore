@@ -25,5 +25,8 @@
 *.acr
 *.acn
 
+# bib2gls generated files
+*.glstex
+
 # Latexmk generated files
 *.fdb_latexmk

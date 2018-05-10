@@ -22,11 +22,8 @@
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
 \usepackage{abntUCS}
-\usepackage{glossaries} % Inclusão apenas para a IDE reconhecer os comandos do pacote glossaries
 \includeonly{PreTexto} % Inclusão do arquivo de elementos pré-textuais sem deixar páginas em branco
 
-\makeglossaries % Habilita a criação dos arquivos adicionais necessários à lista de símbolos.
-\input{EntradasSiglas} % Arquivo que contém as siglas
 \input{EntradasSimbolos} % Arquivo que contém os símbolos.
 
 \titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
@@ -53,6 +50,38 @@
 \makeatother
 
 
+\setabbreviationstyle[acronym]{long-short}
+\setabbreviationstyle[foreignabbreviation]{long-short-user}
+
+\renewcommand{\glsxtruserparen}[2]{%
+	\glsxtrfullsep{#2}%
+	\glsxtrparen
+	{#1\ifglshasfield{\glsxtruserfield}{#2}{, \emph{\glscurrentfieldvalue}}{}}%
+}
+\renewcommand{\glsuserdescription}[2]{%
+	\ifglshasfield{\glsxtruserfield}{#2}{\emph{\glscurrentfieldvalue}}{#1}%
+}
+
+
+\GlsXtrLoadResources[
+	src  = {Siglas},
+	sort = {pt-BR},
+	type = {acronym},
+	entry-type-aliases={% make @foreignabbreviation act like @abbreviation
+		foreignabbreviation=abbreviation},
+	field-aliases={
+		foreignlong=user1,
+		nativelong=long},
+	category={same as original entry}% requires bib2gls v1.4+
+]
+
+\GlsXtrLoadResources[
+	src = {Simbolos},
+	sort = {use},
+	type = {symbols}
+]
+
+
 \begin{document}
 	\include{PreTexto}
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
@@ -62,7 +91,7 @@
 	
 	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme \citeauthoronline{hashemian:2011} (\citeyear{hashemian:2011}). Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
-	Da mesma forma, dados do \glsdesctraduzida{sig:nrel} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
+	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
 	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2003}.
 	
@@ -113,7 +142,7 @@
 	\begin{equation}\label{eqn:fourier:periodo}
 		\omega = \frac{2\pi}{\tau}
 	\end{equation}
-	e os coeficientes \glsexpansao{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
+	e os coeficientes \glspl{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
 		a_0 &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ dt \notag\\
 		a_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ cos\,n\omega t\ dt \\
@@ -158,7 +187,7 @@
 	\begin{equation}\label{eqn:fourier:integral}
 		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
 	\end{equation}
-	tal que os coeficientes \glsexpansao{s:coef-fourier-int} são determinados por
+	tal que os coeficientes \glspl{s:coef-fourier-int} são determinados por
 	\begin{align}
 		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ cos\,\omega t\ dt \notag\\
 		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ sen\,\omega t\ dt
@@ -201,16 +230,24 @@
 		G_k &= \frac{1}{N}\sum_{n=0}^{N-1}g_n e^{-i 2\pi k n/N} \label{eqn:fourier:dft}\\
 		g_n &= \sum_{k=0}^{N-1}G_k e^{i 2\pi k n/N} \label{eqn:fourier:dft-inv}
 	\end{align}
-	que é chamada de \glsdesctraduzida{sig:dft} e, por substituir as integrais contínuas e infinitas das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) por somas finitas, é muito mais adaptada à computação digital, segundo \citeauthoronline{randall:1987} (\citeyear{randall:1987}). Adicionalmente, a Equação (\ref{eqn:fourier:dft}) pode ser representada como \cite{dimarogonas:1995}
+	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) por somas finitas, é muito mais adaptada à computação digital, segundo \citeauthoronline{randall:1987} (\citeyear{randall:1987}). Adicionalmente, a Equação (\ref{eqn:fourier:dft}) pode ser representada como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:dft-matricial}
 		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
 	\end{equation}
-	onde $ [G] $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ [g] $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada \gls{s:numero-amostras} $ \times $ \gls{s:numero-amostras}	contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
+	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ [g] $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada \gls{s:numero-amostras} $ \times $ \gls{s:numero-amostras}	contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
 	\begin{equation}
 		\textbf{a}_{kn} = e^{-i2\pi kn/N}
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
+	First time mentioning the \gls{sig:FFT} and the \gls{sig:DFT}.
+	And \gls{ABNT}.
+	
+	Now I'm mentioning \gls{sig:FFT} and \gls{sig:DFT} once again.
+	And \gls{ABNT} again.
+	
+	Explicit long form: \glsxtrlong{sig:FFT}.
+	Explicit full form: \glsxtrfull{sig:FFT}.
 	
 	
 	\section{Vibração de sistemas discretos}
@@ -399,11 +436,11 @@
 	\begin{equation} \label{eqn:cont:sep-T}
 		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
 	\end{equation}
-	com as constantes \glsexpansao{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes \glspl{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
-	onde as constantes \glsexpansao{s:const-dif-desloc} definem a respectiva solução particular.
+	onde as constantes \glspl{s:const-dif-desloc} definem a respectiva solução particular.
 	
 	Visto que solução total de cada uma das Equações (\ref{eqn:cont:sep-T}) e (\ref{eqn:cont:sep-W}) é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
 	\begin{equation}
