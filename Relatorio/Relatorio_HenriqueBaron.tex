@@ -62,7 +62,7 @@
 	
 	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme \citeauthoronline{hashemian:2011} (\citeyear{hashemian:2011}). Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
-	Da mesma forma, dados do \glsdesctraduzida{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
+	Da mesma forma, dados do \glsdesctraduzida{sig:nrel} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
 	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2003}.
 	
@@ -98,29 +98,29 @@
 	\section{Análise harmônica}
 	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}. Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
 	\begin{equation}
-		x(t) = a\ cos\,\omega t + b\ sen\,\omega t
+		g(t) = a\ cos\,\omega t + b\ sen\,\omega t
 	\end{equation}
-	onde \gls{s:posicao-tempo} indica a posição ou deslocamento, \gls{s:freq} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
+	onde \gls{s:funcao-tempo} indica a posição ou deslocamento, \gls{s:freq-rad} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
 	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
 	
 	\subsection{Série de Fourier}
-	Seja \gls{s:posicao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
+	Seja \gls{s:funcao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
-		x(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
+		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
 	\end{equation}
-	sendo a frequência \gls{s:freq} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
+	sendo a frequência \gls{s:freq-rad} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:periodo}
 		\omega = \frac{2\pi}{\tau}
 	\end{equation}
 	e os coeficientes \glsexpansao{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
-		a_0 = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ dt \notag\\
-		a_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ cos\,n\omega t\ dt \\
-		b_n = \frac{2}{\tau}\int_{0}^{\tau}x(t)\ sen\,n\omega t\ dt \notag
+		a_0 &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ dt \notag\\
+		a_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ cos\,n\omega t\ dt \\
+		b_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ sen\,n\omega t\ dt \notag
 	\end{align}
 	
-	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:posicao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral.
+	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:funcao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral.
 	
 	\subsubsection{Notação complexa da série de Fourier} \label{sec:fourier:serie-complexa}
 	Utilizando as identidades de Euler
@@ -129,15 +129,15 @@
 	\end{equation}
 	a série de Fourier da Equação (\ref{eqn:fourier:serie}) também pode ser representada por \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie-compl}
-		x(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\omega t}
+		g(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\omega t}
 	\end{equation}
 	onde a harmônica \gls{s:coef-fourier-compl} é calculada por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:coefs-compl}
-		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}x(t)\,e^{-in\omega t}\ dt
+		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}g(t)\,e^{-in\omega t}\ dt
 	\end{equation}
 	
-	\subsection{Representação no domínio da frequência}
-	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ x(t) = sen\,2\pi t + 0,\!7\:cos\,4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação (\ref{eqn:fourier:coefs-compl}) um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq} utilizada na Equação (\ref{eqn:fourier:coefs-compl}), e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
+	\subsection{Representação no domínio da frequência} \label{sec:espectros-frequencia}
+	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ g(t) = sen\,2\pi t + 0,\!7\:cos\,4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação (\ref{eqn:fourier:coefs-compl}) um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq-rad} utilizada na Equação (\ref{eqn:fourier:coefs-compl}), e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
 	\begin{figure}[b]
 		\incluirimagem{FourierFuncao.png}{Função periódica no domínio do tempo}{o autor (\thedate)}
 		\label{fig:funcao-periodica}
@@ -154,31 +154,64 @@
 	\end{figure}
 	
 	\subsection{Integral de Fourier}
-	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:posicao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
+	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
 	\begin{equation}\label{eqn:fourier:integral}
-		x(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
+		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
 	\end{equation}
 	tal que os coeficientes \glsexpansao{s:coef-fourier-int} são determinados por
 	\begin{align}
-		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}x(t)\ cos\,\omega t\ dt \notag\\
-		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}x(t)\ sen\,\omega t\ dt
+		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ cos\,\omega t\ dt \notag\\
+		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ sen\,\omega t\ dt
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
-	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:posicao-tempo}, denotada por \gls{s:posicao-freq}
+	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:funcao-tempo}, denotada por \gls{s:funcao-freq}
 	\begin{equation} \label{eqn:fourier:transform}
-		X(\omega) = \mathcal{F}\{x(t)\} = \int_{-\infty}^{\infty}x(t)\ e^{-i\omega t}\:dt
+		G(\omega) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\omega t}\:dt
 	\end{equation}
 	que também é denominada por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como transformada contínua de Fourier. A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
-	\begin{equation}
-		x(t) = \mathcal{F}^{-1}\{X(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}X(\omega)\ e^{i\omega t}\:d\omega
+	\begin{equation} \label{eqn:fourier:transform-inv}
+		g(t) = \mathcal{F}^{-1}\{G(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\omega)\ e^{i\omega t}\:d\omega
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
-	Na transformada de Fourier apresentada na Seção \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
+	Na transformada de Fourier apresentada na Seção \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes, sendo chamada também por função amostrada no tempo \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
+	
+	\subsubsection{Funções amostradas no tempo}
+	O par de transformadas integrais das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica. Um intervalo $ (-\tau /2,\:\tau /2) $ é empregado, assumindo que a função \gls{s:funcao-tempo} se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq:hz} que corresponde a \cite{dimarogonas:1995}
+	\begin{equation} \label{eqn:fourier:freq-fundam}
+		\mathit{f} = \frac{1}{\tau}
+	\end{equation}
+	
+	Considerando que a amostragem da função \gls{s:funcao-tempo} seja feita em intervalos $ \Delta $\gls{s:tempo}, a frequência de amostragem \gls{s:freq-amostra} é definida por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como
+	\begin{equation} \label{eqn:fourier:freq-amostra}
+		\mathit{f}_s = \frac{1}{\Delta t}
+	\end{equation}
+	
+	Considerando ainda que alguma perturbação aconteça a cada \[\Delta t = \frac{\tau}{N} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
 	
 	\subsubsection{Transformada Discreta de Fourier}
-	A \glsdesctraduzida{sig:DFT}
+	Considerando que a função \gls{s:funcao-tempo} seja discretizada e truncada tanto no domínio como na frequência de modo que
+	\begin{align*}
+		t_n &= n\Delta t\: ,\quad n = 0, 1, \dots , N\\
+		\mathit{f} &= k\Delta\mathit{f} = \frac{k}{N\Delta t}\: ,\quad k = 0, 1, \dots , N
+	\end{align*}
+	a transformada de Fourier (direta e inversa) torna-se \cite{randall:1987}
+	\begin{align}
+		G_k &= \frac{1}{N}\sum_{n=0}^{N-1}g_n e^{-i 2\pi k n/N} \label{eqn:fourier:dft}\\
+		g_n &= \sum_{k=0}^{N-1}G_k e^{i 2\pi k n/N} \label{eqn:fourier:dft-inv}
+	\end{align}
+	que é chamada de \glsdesctraduzida{sig:dft} e, por substituir as integrais contínuas e infinitas das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) por somas finitas, é muito mais adaptada à computação digital, segundo \citeauthoronline{randall:1987} (\citeyear{randall:1987}). Adicionalmente, a Equação (\ref{eqn:fourier:dft}) pode ser representada como \cite{dimarogonas:1995}
+	\begin{equation} \label{eqn:fourier:dft-matricial}
+		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
+	\end{equation}
+	onde $ [G] $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ [g] $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada \gls{s:numero-amostras} $ \times $ \gls{s:numero-amostras}	contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
+	\begin{equation}
+		\textbf{a}_{kn} = e^{-i2\pi kn/N}
+	\end{equation}
+	
+	\subsubsection{Transformada Rápida de Fourier}
+	
 	
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 

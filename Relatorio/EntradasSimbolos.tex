@@ -1,4 +1,5 @@
 \newcommand{\unidademassa}{[kg]}
+\newcommand{\unidademassalinear}{[kg/m]}
 \newcommand{\unidadeamortecimento}{[N\cdot s/m]}
 \newcommand{\unidaderigidez}{[N/m]}
 \newcommand{\unidadeforca}{[N]}
@@ -9,33 +10,45 @@
 \newcommand{\unidadeenergia}{[J]}
 \newcommand{\unidadeangulo}{[rad]}
 \newcommand{\unidadevelocidadeangular}{[rad/s]}
+\newcommand{\unidadefrequencia}{[Hz]}
 \newcommand{\unidadetorque}{[N\cdot m]}
 \newcommand{\unidadearea}{[m\textsuperscript{2}]}
 \newcommand{\semunidade}{[-]}
+\newcommand{\unidadepressao}{[Pa]}
+\newcommand{\unidadesegundomomento}{[m\textsuperscript{4}]}
 
 % Medidas elementares e propriedades
 \newglossaryentry{s:tempo}{name={\ensuremath{t}},description={tempo \unidadetempo}}
 \newglossaryentry{s:periodo}{name={\ensuremath{\tau}},description={período \unidadetempo}}
 \newglossaryentry{s:area}{name={\ensuremath{A}},description={área \unidadearea}}
-\newglossaryentry{s:modulo-elast}{name={\ensuremath{E}},description={módulo de elasticidade [Pa] }}
-\newglossaryentry{s:segundo-momento-area}{name={\ensuremath{I}},description={segundo momento de área [m\textsuperscript{4}]}}
+\newglossaryentry{s:modulo-elast}{name={\ensuremath{E}},description={módulo de elasticidade \unidadepressao }}
+\newglossaryentry{s:segundo-momento-area}{name={\ensuremath{I}},description={segundo momento de área \unidadesegundomomento}}
+\newglossaryentry{s:numero-amostras}{name={\ensuremath{N}},description={número de amostras de dados coletadas \semunidade}}
+
+% Fourier
+\newglossaryentry{s:funcao-tempo}{name={\ensuremath{g(t)}},description={função no domínio do tempo \semunidade}}
+\newglossaryentry{s:funcao-freq}{name={\ensuremath{G(\omega)}},description={função no domínio da frequência \semunidade}}
+\newglossaryentry{s:matriz-unitarios-dft}{name={\ensuremath{[\mathbf{A}]}},description={matriz quadrada de vetores unitários \semunidade}}
+\newglossaryentry{s:vetor-matriz-unit-dft}{name={\ensuremath{\mathbf{a}_{kn}}},description={vetores unitários da matriz \glsentrytext{s:matriz-unitarios-dft}}}
+\newglossaryentry{s:coef-fourier-compl}{name={\ensuremath{\alpha_n}},description={coeficiente complexo de Fourier \semunidade}}
 
 % Massa
-\newglossaryentry{s:massa-espec}{name={\ensuremath{\rho}},description={massa específica por unidade de comprimento $ [kg/m] $}}
+\newglossaryentry{s:massa-espec}{name={\ensuremath{\rho}},description={massa específica por unidade de comprimento \unidademassalinear}}
 \newglossaryentry{s:massa-elemento}{name={\ensuremath{m_i}},description={massa de um elemento do sistema \unidademassa}}
 
 % Posição, deslocamento, velocidade
-\newglossaryentry{s:posicao-tempo}{name={\ensuremath{x(t)}},description={posição em função do tempo \unidadeposicao}}
-\newglossaryentry{s:posicao-freq}{name={\ensuremath{X(\omega)}},description={posição em função da frequência \unidadeposicao}}
 \newglossaryentry{s:coord-general}{name={\ensuremath{q_i}},description={posição em coordenadas generalizadas \semunidade}}
 \newglossaryentry{s:desloc-elemento}{name={\ensuremath{x_i}},description={deslocamento de um elemento do sistema \unidadeposicao}}
 \newglossaryentry{s:desloc-vertical}{name={\ensuremath{w}},description={deslocamento vertical do corpo elástico \unidadeposicao}}
 \newglossaryentry{s:constante-onda}{name={\ensuremath{\mathit{c}}},description={velocidade de propagação da onda \unidadevelocidade}}
 
 % Frequência
-\newglossaryentry{s:freq}{name={\ensuremath{\omega}},description={frequêcia \unidadevelocidadeangular}}
+\newglossaryentry{s:freq-rad}{name={\ensuremath{\omega}},description={frequêcia \unidadevelocidadeangular}}
+\newglossaryentry{s:freq:hz}{name={\ensuremath{\mathit{f}}},description={frequência \unidadefrequencia}}
+\newglossaryentry{s:freq-amostra}{name={\ensuremath{\mathit{f}_s}},description={frequência de amostragem \unidadefrequencia}}
 \newglossaryentry{s:freq-natural}{name={\ensuremath{\omega_n}},description={frequência natural \unidadevelocidadeangular}}
 \newglossaryentry{s:freq-natural-modo}{name={\ensuremath{\omega_i}},description={frequência natural do i-ésimo modo normal \unidadevelocidadeangular}}
+
 
 % Vetores
 \newglossaryentry{s:vetor-desloc}{name={\ensuremath{\vec{x}}},description={vetor de deslocamentos \unidadeposicao}}
@@ -72,9 +85,8 @@
 \newglossaryentry{s:trabalho-coord-general}{name={\ensuremath{U}},description={trabalho \unidadeenergia}}
 
 % Auxiliares em cálculos
-\newglossaryentry{s:sol-parcial-pos}{name={\ensuremath{W}},description={solução parcial, dependente da posição x [m\textsuperscript{1/2}]}}
-\newglossaryentry{s:sol-parcial-tempo}{name={\ensuremath{T}},description={solução parcial, dependente do tempo [m\textsuperscript{1/2}]}}
-\newglossaryentry{s:coef-fourier-compl}{name={\ensuremath{\alpha_n}},description={harmônica da série de Fourier em notação complexa \semunidade}}
+\newglossaryentry{s:sol-parcial-pos}{name={\ensuremath{W}},description={solução parcial, dependente da posição x \semunidade}}
+\newglossaryentry{s:sol-parcial-tempo}{name={\ensuremath{T}},description={solução parcial, dependente do tempo \semunidade}}
 
 
 % Elementos agrupados: criação de uma nova chave para o glossaries que possibilitará exibir na lista de símbolos as variáveis separadas por vírgula e no texto, separadas com a palavra "e" no último termo.
@@ -92,4 +104,4 @@
 
 \newglossaryentry{s:coef-fourier}{name={\ensuremath{a_0, a_n, b_n}},description={harmônicas da série de Fourier \semunidade},expansao={\ensuremath{a_0, a_n} e \ensuremath{b_n}}}
 
-\newglossaryentry{s:coef-fourier-int}{name={\ensuremath{a_\omega, b_\omega}},description={harmônicas da integral de Fourier \semunidade},expansao={\ensuremath{a_\omega} e \ensuremath{b_\omega}}}
+\newglossaryentry{s:coef-fourier-int}{name={\ensuremath{a_\omega, b_\omega}},description={coeficientes de Fourier \semunidade},expansao={\ensuremath{a_\omega} e \ensuremath{b_\omega}}}
