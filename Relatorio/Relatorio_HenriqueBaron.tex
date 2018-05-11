@@ -49,38 +49,8 @@
 }
 \makeatother
 
-
-\setabbreviationstyle[acronym]{long-short}
-\setabbreviationstyle[foreignabbreviation]{long-short-user}
-
-\renewcommand{\glsxtruserparen}[2]{%
-	\glsxtrfullsep{#2}%
-	\glsxtrparen
-	{#1\ifglshasfield{\glsxtruserfield}{#2}{, \emph{\glscurrentfieldvalue}}{}}%
-}
-\renewcommand{\glsuserdescription}[2]{%
-	\ifglshasfield{\glsxtruserfield}{#2}{\emph{\glscurrentfieldvalue}}{#1}%
-}
-
-
-\GlsXtrLoadResources[
-	src  = {Siglas},
-	sort = {pt-BR},
-	type = {acronym},
-	entry-type-aliases={% make @foreignabbreviation act like @abbreviation
-		foreignabbreviation=abbreviation},
-	field-aliases={
-		foreignlong=user1,
-		nativelong=long},
-	category={same as original entry}% requires bib2gls v1.4+
-]
-
-\GlsXtrLoadResources[
-	src = {Simbolos},
-	sort = {use},
-	type = {symbols}
-]
-
+\incluirsiglas{Siglas}
+\incluirsimbolos{Simbolos}
 
 \begin{document}
 	\include{PreTexto}
