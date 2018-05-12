@@ -260,19 +260,18 @@
 
 % Inserção de uma figura com descrição e fonte, atendendo aos requisitos de formatação
 % PARÂMETROS, NA ORDEM:
-% 1 - Caminho para o arquivo de imagem
-% 2 - Título da figura
-% 3 - Fonte e ano da figura (texto que fica abaixo)
-\newcommand{\incluirimagem}[3]{%
-	\caption{#2}
-	\adjustimage{fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem, center}{#1} \par %
+% 1, opcional - Escala da imagem, padrão = 1
+% 2 - Caminho para o arquivo de imagem
+% 3 - Título da figura
+% 4 - Fonte e ano da figura (texto que fica abaixo)
+\newcommand{\incluirimagem}[4][1]{%
+	\caption{#3}
+	\adjustimage{scale=#1,fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem,center}{#2} \par %
 	\centering%
 	\begin{minipage}[h]{\larguraimagem-14pt}
-%		\raggedright\footnotesize\hspace{3pt} Fonte: #3
-		\raggedright\footnotesize Fonte: #3
+		\raggedright\footnotesize Fonte: #4
 	\end{minipage}
 }
-
 
 % Inclusão do arquivo para a lista de siglas
 \newcommand{\incluirsiglas}[1]{
