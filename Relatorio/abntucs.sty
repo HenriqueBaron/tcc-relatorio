@@ -167,6 +167,11 @@
 	\ifglshasfield{\glsxtruserfield}{#2}{\emph{\glscurrentfieldvalue}}{#1}%
 }
 
+% Redefinido o comando \citeauthor para que seja incluído, ao lado do nome do autor, o ano entre parênteses.
+\renewcommand{\citeauthor}[1]{%
+	\citeauthoronline{#1} (\citeyear{#1})%
+}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Outros comandos %%%
 
@@ -258,12 +263,13 @@
 % 1 - Caminho para o arquivo de imagem
 % 2 - Título da figura
 % 3 - Fonte e ano da figura (texto que fica abaixo)
-\newcommand{\incluirimagem}[3]{
+\newcommand{\incluirimagem}[3]{%
 	\caption{#2}
-	\adjustimage{fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem, center}{#1} \par
-	\centering
-	\begin{minipage}[h]{\larguraimagem}
-		\raggedright\footnotesize\hspace{3pt} Fonte: #3
+	\adjustimage{fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem, center}{#1} \par %
+	\centering%
+	\begin{minipage}[h]{\larguraimagem-14pt}
+%		\raggedright\footnotesize\hspace{3pt} Fonte: #3
+		\raggedright\footnotesize Fonte: #3
 	\end{minipage}
 }
 

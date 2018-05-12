@@ -2,7 +2,7 @@
 	chapter=TITLE,section=TITLE,
 	english,brazil]{abntex2}
 % Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
-\usepackage[num,abnt-etal-list=2,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
+\usepackage[num,abnt-etal-list=3,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
 \citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
 
 \usepackage{ifluatex} % Verificação do compilador utilizado
@@ -26,7 +26,7 @@
 
 \input{UnidadesSimbolos} % Arquivo que contém os símbolos.
 
-\titulo{Desenvolvimento de uma Bancada Didática para Análise de Vibrações em Máquinas}
+\titulo{Desenvolvimento de uma bancada didática para análise de vibrações em máquinas}
 \autor{Henrique Baron}
 \data{2018}
 \instituicao{Universidade de Caxias do Sul}
@@ -204,21 +204,15 @@
 	\begin{equation} \label{eqn:fourier:dft-matricial}
 		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
 	\end{equation}
-	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ [g] $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada \gls{s:numero-amostras} $ \times $ \gls{s:numero-amostras}	contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
+	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ \vec{g} $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada $ \gls{s:numero-amostras}\! \times\!	\gls{s:numero-amostras} $ contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
 	\begin{equation}
 		\textbf{a}_{kn} = e^{-i2\pi kn/N}
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
-	First time mentioning the \gls{sig:FFT} and the \gls{sig:DFT}.
-	And \gls{ABNT}.
+	Com larga aplicação nos instrumentos de análise atuais, a \gls{sig:FFT} é um algoritmo para obtenção da \gls{sig:DFT} que reduz consideravelmente o número de operações em relação ao método tradicional \cite{randall:1987}. Especificamente, \citeauthor{cooley:1965} afirmam que, ao passo de que a resolução da Equação (\ref{eqn:fourier:dft-inv}) -- que obtém as componentes de frequência da \gls{sig:DFT} -- precisa de um total de $ \gls{s:numero-amostras}^2 $ computações aritméticas, o método da \gls{sig:FFT} fornece o resultado em menos de $ 2\gls{s:numero-amostras} \log_2\! \gls{s:numero-amostras} $ operações. Para um caso em que \gls{s:numero-amostras} representa 1024 amostras, essa redução é da ordem de 100 vezes \cite{randall:1987}.	
 	
-	Now I'm mentioning \gls{sig:FFT} and \gls{sig:DFT} once again.
-	And \gls{ABNT} again.
-	
-	Explicit long form: \glsxtrlong{sig:FFT}.
-	Explicit full form: \glsxtrfull{sig:FFT}.
-	
+	O algoritmo envolve o reordenamento e fatoração da matriz complexa \gls{s:matriz-unitarios-dft} em matrizes que produzem rotações progressivamente menores nos vetores unitários \cite{randall:1987}, e oferece grandes vantagens quando aplicado amostras cuja quantidade é uma potência inteira de dois, devido à natureza binária das operações computacionais \cite{cooley:1965}. Embora a abordagem completa do procedimento fuja do escopo deste texto, cabe ressaltar que o resultado obtido e as limitações envolvidas são os mesmos relativos ao cálculo da \gls{sig:DFT} \cite{randall:1987}.
 	
 	\section{Vibração de sistemas discretos}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema. 
