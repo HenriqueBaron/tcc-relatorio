@@ -94,62 +94,55 @@
 \renewcommand{\cftparagraphfont}{\ABNTEXsubsubsubsectionfont}
 
 % Redefinição do comando que monta a capa, para adequar ao padrão solicitado pela UCS
-\renewcommand{\imprimircapa}{
-	\pdfbookmark[0]{Capa}{Capa}
-	\begin{capa}
+\renewcommand{\imprimircapa}{%
+	\pdfbookmark[0]{Capa}{Capa}%
+	\begin{capa}%
 		% Para colocar em letra maiúscula as informações de autor, título e data, é preciso utilizar o comando nativo do LaTeX - e não os comandos do abnTeX2, porque eles apenas encapsulam comandos nativos do LaTeX, o que faz com que a expansão adiantada pelo \expandafter não funcione.
-		\centering
-		\expandafter\uppercase\expandafter{\imprimirinstituicao}
+		\centering%
+		\expandafter\uppercase\expandafter{\imprimirinstituicao}%
 		\vfill
-		
 		% Nome em uma caixa de texto, posicionada da seguinte maneira:
 		% largura: largura A4 - margens = 210-30-20 = 160mm
 		% posição horizontal: começo da margem esquerda = 30mm
 		% posição vertical: altura A4/4 + margem superior / 2 = 294mm/4 + 15mm
-		\begin{textblock*}{160mm}(30mm, 297mm/4+15mm)
-			\expandafter\uppercase\expandafter{\theauthor}
-		\end{textblock*}
-		
+		\begin{textblock*}{160mm}(30mm, 297mm/4+15mm)%
+			\expandafter\uppercase\expandafter{\theauthor}%
+		\end{textblock*}%
 		% Título em uma caixa de texto, posicionada no centro vertical da folha (297mm/2)
-		\begin{textblock*}{160mm}(30mm, 297mm/2)
-			\expandafter\uppercase\expandafter{\thetitle}
-		\end{textblock*}
-		
+		\begin{textblock*}{160mm}(30mm, 297mm/2)%
+			\expandafter\uppercase\expandafter{\thetitle}%
+		\end{textblock*}%
 		\vfill
-		
 		\expandafter\uppercase\expandafter{\imprimirlocal}\\
-		\expandafter\uppercase\expandafter{\thedate}
-	\end{capa}
+		\expandafter\uppercase\expandafter{\thedate}%
+	\end{capa}%
 }
 
 % Redefinição do comando que gera o conteúdo da folha de rosto, para adequar ao padrão solicitado pela UCS
-\renewcommand{\folhaderostocontent}{
-	\centering
-	\expandafter\uppercase\expandafter{\theauthor}
+\renewcommand{\folhaderostocontent}{%
+	\centering%
+	\expandafter\uppercase\expandafter{\theauthor}%
 	\vfill
 	\vfill
-	
 	% Título em uma caixa de texto, posicionada no centro vertical da folha (297mm/2)
-	\begin{textblock*}{160mm}(30mm, 297mm/2)
-		\expandafter\uppercase\expandafter{\thetitle}
-	\end{textblock*}
+	\begin{textblock*}{160mm}(30mm, 297mm/2)%
+		\expandafter\uppercase\expandafter{\thetitle}%
+	\end{textblock*}%
 	\vspace{10mm}
-	
-	\abntex@ifnotempty{\imprimirpreambulo}{
-		\hspace{.45\textwidth}
-		\begin{minipage}{.5\textwidth}
-			\mdseries
-			\SingleSpacing
-			\imprimirpreambulo
-			\begin{flushright}
-				\imprimirorientadorRotulo~\imprimirorientador
-			\end{flushright}
-		\end{minipage}
-	}
+	\abntex@ifnotempty{\imprimirpreambulo}{%
+		\hspace{.45\textwidth}%
+		\begin{minipage}{.5\textwidth}%
+			\mdseries%
+			\SingleSpacing%
+			\imprimirpreambulo%
+			\begin{flushright}%
+				\imprimirorientadorRotulo~\imprimirorientador%
+			\end{flushright}%
+		\end{minipage}%
+	}%
 	\vfill
-	
 	\expandafter\uppercase\expandafter{\imprimirlocal}\\
-	\expandafter\uppercase\expandafter{\thedate}	
+	\expandafter\uppercase\expandafter{\thedate}%
 }
 
 
@@ -200,47 +193,44 @@
 % 3 - Nome do primeiro professor da banca (sem ser o orientador)
 % 4 - Nome do segundo professor da banca (sem ser o orientador)
 % 5 - Nome do professor/convidado externo
-\newcommand{\imprimirfolhadeaprovacaoUCS}[5][Universidade de Caxias do Sul - UCS]{
-	\begin{folhadeaprovacao}
-		\begin{center}
-			\bfseries
-			\ABNTEXchapterfont
-			\expandafter\uppercase\expandafter{\theauthor}
-			\vspace{1.5cm}
-			
-			\expandafter\uppercase\expandafter{\thetitle}
+\newcommand{\imprimirfolhadeaprovacaoUCS}[5][Universidade de Caxias do Sul - UCS]{%
+	\begin{folhadeaprovacao}%
+		\begin{center}%
+			\bfseries %
+			\ABNTEXchapterfont %
+			\expandafter\uppercase\expandafter{\theauthor} %
+			\vspace{1.5cm} \par
+			\expandafter\uppercase\expandafter{\thetitle} %
 			\vspace{0.5cm}
 		\end{center}
 		
-		\abntex@ifnotempty{\imprimirpreambulo}{
-			\hspace{.45\textwidth}
-			\begin{minipage}{.5\textwidth}
-				\mdseries
-				\SingleSpacing
-				\imprimirpreambulo
-				\begin{flushright}
-					\imprimirorientadorRotulo~\imprimirorientador
-				\end{flushright}
-			\end{minipage}
+		\abntex@ifnotempty{\imprimirpreambulo}{%
+			\hspace{.45\textwidth} %
+			\begin{minipage}{.5\textwidth}%
+				\mdseries%
+				\SingleSpacing%
+				\imprimirpreambulo%
+				\begin{flushright}%
+					\imprimirorientadorRotulo~\imprimirorientador%
+				\end{flushright}%
+			\end{minipage}%
 		}
-		\vspace{24pt}
-		
-		\hspace{.45\textwidth}
-		\begin{minipage}{.5\textwidth}
-			\bfseries
-			Aprovado(a) em #2
-		\end{minipage}
-		\vspace{3cm}
-		
-		\noindent\textbf{Banca Examinadora}
-		\begin{SingleSpace}
-			\vspace*{\ABNTEXsignskip}
-			\noindent
+		\vspace{24pt} \par %
+		\hspace{.45\textwidth}%
+		\begin{minipage}{.5\textwidth}%
+			\bfseries%
+			Aprovado(a) em #2 %
+		\end{minipage}%
+		\vspace{3cm} \par %		
+		\noindent\textbf{Banca Examinadora} %
+		\begin{SingleSpace} %
+			\vspace*{\ABNTEXsignskip}%
+			\noindent%
 			\rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\
 			Prof. \imprimirorientador\\
 			Universidade de Caxias do Sul - UCS \par
-			\vspace*{\ABNTEXsignskip}
-			\noindent
+			\vspace*{\ABNTEXsignskip}%
+			\noindent%
 			\rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\
 			Prof. #3\\
 			Universidade de Caxias do Sul - UCS \par
@@ -250,12 +240,12 @@
 			Prof. #4\\
 			Universidade de Caxias do Sul - UCS \par
 			\vspace*{\ABNTEXsignskip}
-			\noindent
+			\noindent %
 			\rule{\ABNTEXsignwidth}{\ABNTEXsignthickness}\\
 			#5\\
-			#1
-		\end{SingleSpace}
-	\end{folhadeaprovacao}
+			#1 %
+		\end{SingleSpace} %
+	\end{folhadeaprovacao} %
 }
 
 % Inserção de uma figura com descrição e fonte, atendendo aos requisitos de formatação
@@ -265,34 +255,34 @@
 % 3 - Título da figura
 % 4 - Fonte e ano da figura (texto que fica abaixo)
 \newcommand{\incluirimagem}[4][1]{%
-	\caption{#3}
+	\caption{#3}%
 	\adjustimage{scale=#1,fbox=1.5pt {\fboxsep} 1pt,gstore width=\larguraimagem,center}{#2} \par %
 	\centering%
-	\begin{minipage}[h]{\larguraimagem-14pt}
-		\raggedright\footnotesize Fonte: #4
+	\begin{minipage}[h]{\larguraimagem-14pt}%
+		\raggedright\footnotesize Fonte: #4 %
 	\end{minipage}
 }
 
 % Inclusão do arquivo para a lista de siglas
-\newcommand{\incluirsiglas}[1]{
-\GlsXtrLoadResources[
+\newcommand{\incluirsiglas}[1]{%
+\GlsXtrLoadResources[%
 	src  = {#1},
 	sort = {pt-BR},
 	type = {acronym},
 	entry-type-aliases={% make @foreignabbreviation act like @abbreviation
 		foreignabbreviation=abbreviation},
-	field-aliases={
+	field-aliases={%
 		foreignlong=user1,
 		nativelong=long},
 	category={same as original entry}% requires bib2gls v1.4+
 	]
 }
 
-% Incluasão do arquivo para a lista de símbolos
-\newcommand{\incluirsimbolos}[1]{
-	\GlsXtrLoadResources[
+% Inclusão do arquivo para a lista de símbolos
+\newcommand{\incluirsimbolos}[1]{%
+	\GlsXtrLoadResources[%
 	src = {#1},
 	sort = {use},
 	type = {symbols}
-	]
+	]%
 }
