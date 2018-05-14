@@ -383,9 +383,9 @@
 	\begin{equation} \label{eqn:cont:sep-variaveis}
 		w(x,t) = W(x)\cdot T(t)
 	\end{equation}
-	que mostra que \gls{s:sol-parcial-pos} é uma função dependente somente da posição em $x$ e \gls{s:sol-parcial-tempo} depende unicamente do tempo \gls{s:tempo}.
+	que mostra que $ W $ é uma função dependente somente da posição em $x$ e $ T $ depende unicamente do tempo \gls{s:tempo}.
 	
-	Substituindo a Equação (\ref{eqn:cont:sep-variaveis}) na Equação (\ref{eqn:cont:onda}) e rearranjando os termos, obtém-se 
+	Substituindo a Equação (\ref{eqn:cont:sep-variaveis}) na Equação (\ref{eqn:cont:onda}) e rearranjando os termos, obtém-se
 	\begin{equation} \label{eqn:cont:geral-vigas}
 		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\mathit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
 	\end{equation}
@@ -396,15 +396,15 @@
 	\end{align*}
 	onde a constante \gls{s:freq-natural} acrescentada é a frequência natural. 
 	
-	Para a equação diferencial de \gls{s:sol-parcial-tempo}$(t)$, a solução é uma oscilação harmônica simples 
+	Para a equação diferencial de $T(t)$, a solução é uma oscilação harmônica simples 
 	\begin{equation} \label{eqn:cont:sep-T}
 		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
 	\end{equation}
-	com as constantes \glspl{s:const-dif-tempo} para a devida solução particular. Para a função \gls{s:sol-parcial-pos}$(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+	com as constantes $ A $ e $ B $ para a devida solução particular. Para a função $W(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 	\begin{equation} \label{eqn:cont:sep-W}
 		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 	\end{equation}
-	onde as constantes \glspl{s:const-dif-desloc} definem a respectiva solução particular.
+	onde as constantes $ C_1, C_2, C_3 $ e $ C_4 $ definem a respectiva solução particular.
 	
 	Visto que solução total de cada uma das Equações (\ref{eqn:cont:sep-T}) e (\ref{eqn:cont:sep-W}) é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
 	\begin{equation}
@@ -415,6 +415,13 @@
 	\section{Dinâmica de rotores}
 	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
 
+	\subsection{Rodopio de eixos}
+	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível. O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}. O efeito de rodopio -- também chamado de \foreignlanguage{english}{whirling}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
+	\begin{figure}[b]
+		\incluirimagem[0.15]{WhirlEixo.png}{Eixo em rodopio}{\citeauthor{dimarogonas:1995}}
+		\label{fig:whirl-eixo}
+	\end{figure}
+	
 	\postextual
 	
 	\bibliography{Bibliografia}
