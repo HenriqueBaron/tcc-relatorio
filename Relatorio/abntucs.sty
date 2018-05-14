@@ -21,21 +21,23 @@
 \let\IfSubStringInString\relax 
 \let\su@IfSubStringInString\relax
 
+\usepackage[top=3cm,left=3cm,bottom=2cm,right=2cm]{geometry} % Redefine e corrige as margens da página
+\flushbottom % Garante que o LaTeX utilize a margem inferior e faça o conteúdo se estender até ela
 \usepackage[record,toc=false,nonumberlist,style=long,acronyms,symbols]{glossaries-extra} % Criação da lista de símbolos
 \setabbreviationstyle[acronym]{long-short} % Define o estilo de exibição (no texto) das siglas em português
 \setabbreviationstyle[foreignabbreviation]{long-short-user} % Define o estilo de exibição (no texto) das siglas em outros idiomas.
 \setlength{\glsdescwidth}{\linewidth} % Ajusta a largura da tabela interna da lista de símbolos
 \usepackage{etoolbox} % Recursos de programação para LaTeX
 \usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
-\usepackage[absolute]{textpos}
+\usepackage[absolute]{textpos} % Para a criação de quadros com posição absolua (para a capa e folha de rosto)
 \usepackage{calc}
 \usepackage{amsmath}
 \allowdisplaybreaks % Permite quebras de página em displays, como conjuntos de equações.
 \usepackage{xparse} % Permite a criação de comandos com mais de um parâmetro opcional.
 \usepackage{graphicx} % Inserção de imagens
 \usepackage{float} % Posicionamento de caixas flutuantes com a opção "h" (Here)
-\usepackage{adjustbox}
-\newlength\larguraimagem
+\usepackage{adjustbox} % Utilizado na inserção de imagens, permite a criação de caixas ajustáveis.
+\newlength\larguraimagem % Cria uma nova medida a ser utilizada no comando \incluirimagem deste pacote.
 \usepackage{chngcntr} % Alteração dos parâmetros de contadores de equações, figuras etc.
 \counterwithout{equation}{chapter} % Contagem das equações contínua ao longo do documento
 
