@@ -30,3 +30,6 @@
 
 # Latexmk generated files
 *.fdb_latexmk
+
+# TODO list generated files
+*.tdo
