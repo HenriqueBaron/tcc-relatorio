@@ -423,7 +423,7 @@
 		\label{fig:whirl-eixo}
 	\end{figure}
 
-	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância $\epsilon$ do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
+	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância $\varepsilon$ do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[t]
 		\incluirimagem[0.15]{WhirlEixo.png}{Diagrama de rotor excêntrico}{\citeauthor{rao:2008}}
 		\label{fig:rotor-excentrico}
@@ -435,8 +435,17 @@
 		\vec{F}_i = \vec{F}_e + \vec{F}_{di} + \vec{F}_{de}
 	\end{equation}
 	que representam, na ordem, as forças de inércia, elástica, de amortecimento interno, e de amortecimento externo. Inicialmente, a força de inércia é calculada por \cite{rao:2008}
-	\begin{equation}
+	\begin{equation} \label{eqn:rotores:forca-inercia}
 		\vec{F}_i = m\ddot{\vec{R}}
+	\end{equation}
+	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido como
+	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
+		\vec{R} = (x + \varepsilon\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \varepsilon\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
+	\end{equation}
+	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $. Calculando a segunda derivada da Equação (\ref{eqn:rotores:vetor-centro-massa}) e substituindo na Equação (\ref{eqn:rotores:forca-inercia}) fornece
+	\begin{equation}
+		\vec{F}_i = m\left[ (\ddot{x} - \varepsilon\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
+		(\ddot{y} - \varepsilon\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
 	
 	\postextual
