@@ -447,7 +447,7 @@
 		(\ddot{y} - \varepsilon\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
 	
-	A força elástica relativa à rigidez do eixo resulta em \cite{rao:2008}
+	A força elástica relativa à rigidez do eixo \gls{s:rigidez} resulta em \cite{rao:2008}
 	\begin{equation}
 		\vec{F}_e = -k(x\gls{s:vetor-unitario-x} + y\gls{s:vetor-unitario-y})
 	\end{equation}
@@ -457,9 +457,15 @@
 		(\dot{y} + \omega x)\gls{s:vetor-unitario-y} \right]\\
 		\vec{F}_{de} = -c(\dot{x}\gls{s:vetor-unitario-x} + \dot{y}\gls{s:vetor-unitario-y})
 	\end{gather}
-	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e os seus efeitos serão desconsiderados nas análises posteriores deste documento, visto que as análises abordarão o comportamento em regime permanente.
+	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
 	
-	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçando estes valores durante os ciclos em um diagrama cartesiano 
+	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material. 
+	\begin{figure}
+		\incluirimagem{Histerese.png}{Ciclo de histerese para tensão-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
+		\label{fig:histerese}
+	\end{figure}
+
+	A energia dissipada por conta do amortecimento histerético é praticamente indepentente da frequência, e é proporcional ao quadrado da amplitude de vibração $ X $ e à rigidez \gls{s:rigidez} \cite{dimarogonas:1995}. Representando
 	
 	\postextual
 	
