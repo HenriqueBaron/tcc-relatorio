@@ -425,7 +425,7 @@
 
 	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância $\varepsilon$ do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[t]
-		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{\citeauthor{rao:2008}}
+		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthor{rao:2008}}
 		\label{fig:rotor-excentrico}
 	\end{figure}
 	
@@ -437,7 +437,7 @@
 	\begin{equation} \label{eqn:rotores:forca-inercia}
 		\vec{F}_i = m\ddot{\vec{R}}
 	\end{equation}
-	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido como
+	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido também por \citeauthor{rao:2008} como
 	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
 		\vec{R} = (x + \varepsilon\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \varepsilon\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
@@ -446,6 +446,20 @@
 		\vec{F}_i = m\left[ (\ddot{x} - \varepsilon\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
 		(\ddot{y} - \varepsilon\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
+	
+	A força elástica relativa à rigidez do eixo resulta em \cite{rao:2008}
+	\begin{equation}
+		\vec{F}_e = -k(x\gls{s:vetor-unitario-x} + y\gls{s:vetor-unitario-y})
+	\end{equation}
+	As forças de amortecimento interno e externo são definidas, respectivamente, por \cite{rao:2008}
+	\begin{gather}
+		\vec{F}_{di} = -c_i\left[(\dot{x} + \omega y)\gls{s:vetor-unitario-x} +
+		(\dot{y} + \omega x)\gls{s:vetor-unitario-y} \right]\\
+		\vec{F}_{de} = -c(\dot{x}\gls{s:vetor-unitario-x} + \dot{y}\gls{s:vetor-unitario-y})
+	\end{gather}
+	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e os seus efeitos serão desconsiderados nas análises posteriores deste documento, visto que as análises abordarão o comportamento em regime permanente.
+	
+	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçando estes valores durante os ciclos em um diagrama cartesiano 
 	
 	\postextual
 	
