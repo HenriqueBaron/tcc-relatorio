@@ -423,6 +423,7 @@
 		\label{fig:whirl-eixo}
 	\end{figure}
 
+	\subsubsection{Equações de movimento}
 	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância $\varepsilon$ do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[t]
 		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthor{rao:2008}}
@@ -430,7 +431,7 @@
 	\end{figure}
 	
 	As equações de movimento para o rotor podem ser descritas, portanto, pela soma de forças \cite{rao:2008}
-	\begin{equation}
+	\begin{equation} \label{eqn:rotores:forcas}
 		\vec{F}_i = \vec{F}_e + \vec{F}_{di} + \vec{F}_{de}
 	\end{equation}
 	que representam, na ordem, as forças de inércia, elástica, de amortecimento interno, e de amortecimento externo. Inicialmente, a força de inércia é calculada por \cite{rao:2008}
@@ -442,30 +443,48 @@
 		\vec{R} = (x + \varepsilon\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \varepsilon\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
 	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $. Calculando a segunda derivada da Equação (\ref{eqn:rotores:vetor-centro-massa}) e substituindo na Equação (\ref{eqn:rotores:forca-inercia}) fornece
-	\begin{equation}
+	\begin{equation} \label{eqn:rotres:forca-inercia}
 		\vec{F}_i = m\left[ (\ddot{x} - \varepsilon\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
 		(\ddot{y} - \varepsilon\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
 	
 	A força elástica relativa à rigidez do eixo \gls{s:rigidez} resulta em \cite{rao:2008}
-	\begin{equation}
+	\begin{equation}\label{eqn:rotores:forca-elastica}
 		\vec{F}_e = -k(x\gls{s:vetor-unitario-x} + y\gls{s:vetor-unitario-y})
 	\end{equation}
 	As forças de amortecimento interno e externo são definidas, respectivamente, por \cite{rao:2008}
 	\begin{gather}
 		\vec{F}_{di} = -c_i\left[(\dot{x} + \omega y)\gls{s:vetor-unitario-x} +
-		(\dot{y} + \omega x)\gls{s:vetor-unitario-y} \right]\\
-		\vec{F}_{de} = -c(\dot{x}\gls{s:vetor-unitario-x} + \dot{y}\gls{s:vetor-unitario-y})
+		(\dot{y} + \omega x)\gls{s:vetor-unitario-y} \right] \label{eqn:rotores:forca-amort-interno} \\
+		\vec{F}_{de} = -c(\dot{x}\gls{s:vetor-unitario-x} + \dot{y}\gls{s:vetor-unitario-y}) \label{eqn:rotores:forca-amort-externo}
 	\end{gather}
 	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
 	
 	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material. 
 	\begin{figure}
-		\incluirimagem{Histerese.png}{Ciclo de histerese para tensão-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
+		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
 		\label{fig:histerese}
 	\end{figure}
 
-	A energia dissipada por conta do amortecimento histerético é praticamente indepentente da frequência, e é proporcional ao quadrado da amplitude de vibração $ X $ e à rigidez \gls{s:rigidez} \cite{dimarogonas:1995}. Representando
+	A energia dissipada por conta do amortecimento histerético é praticamente independente da frequência, e é proporcional ao quadrado da amplitude de vibração $ X $ e à rigidez \gls{s:rigidez} \cite{dimarogonas:1995}. Representando essa energia como $ D_h $, obtém-se
+	\begin{equation}
+		D_h = \pi X^2k\gamma
+	\end{equation}
+	onde a constante $ \gamma $ é uma propriedade do material. Através disso, pode-se definir o coeficiente de amortecimento interno $ c_i $ da Equação (\ref{eqn:rotores:forca-amort-interno}) como \cite{dimarogonas:1995}
+	\begin{equation}
+		c_i = \frac{\gamma}{\gls{s:freq-rad} - \gls{s:freq-natural}}\,\gls{s:rigidez}
+	\end{equation}
+	onde \gls{s:freq-rad} é a velocidade angular do eixo e \gls{s:freq-natural} é a frequência natural. Cabe observar que, entre as quatro equações de força apresentadas, aquela referente ao amortecimento histerético é a responsável pelo acoplamento entre as direções $ x $ e $ y $, visto que é a única que contém medidas de ambas as coordenadas multiplicando cada um dos vetores unitários \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}.
+	
+	Finalmente, substituindo as Equações (\ref{eqn:rotores:forca-inercia}) a (\ref{eqn:rotores:forca-amort-externo}) na Equação (\ref{eqn:rotores:forcas}) obtêm-se as equações de movimento \cite{rao:2008}
+	\begin{align}
+		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\varepsilon\ cos\,\omega t \\
+		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\varepsilon\ sen\,\omega t
+	\end{align}
+	ou, definindo o número complexo \[ r = x + iy \] chega-se à equação combinada
+	\begin{equation}
+		m\ddot{r} + (c_i + c)\dot{r} + kr - i\omega c_i r = m\omega^2 \varepsilon e^{i\omega t}
+	\end{equation}
 	
 	\postextual
 	
