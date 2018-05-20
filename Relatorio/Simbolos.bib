@@ -1,22 +1,22 @@
 @comment{Medidas básicas e propriedades}
 @symbol{s:tempo,
-  name = {\ensuremath{t}},
-  description = {tempo \unidadetempo}
+	name = {\ensuremath{t}},
+	description = {tempo \unidadetempo}
 }
 
 @symbol{s:periodo,
-  name = {\ensuremath{\tau}},
-  description = {per\'iodo \unidadetempo}
+	name = {\ensuremath{\tau}},
+	description = {per\'iodo \unidadetempo}
 }
 
 @symbol{s:area,
-  name = {\ensuremath{A}},
-  description = {\'area \unidadearea}
+	name = {\ensuremath{A}},
+	description = {\'area \unidadearea}
 }
 
 @symbol{s:modulo-elast,
-  name = {\ensuremath{E}},
-  description = {m\'odulo de elasticidade \unidadepressao}
+	name = {\ensuremath{E}},
+	description = {m\'odulo de elasticidade \unidadepressao}
 }
 
 @symbol{s:rigidez,
@@ -25,39 +25,39 @@
 }
 
 @symbol{s:segundo-momento-area,
-  name = {\ensuremath{I}},
-  description = {segundo momento de \'area \unidadesegundomomento}
+	name = {\ensuremath{I}},
+	description = {segundo momento de \'area \unidadesegundomomento}
 }
 
 @symbol{s:numero-amostras,
-  name = {\ensuremath{N}},
-  description = {n\'umero de amostras de dados coletadas \semunidade}
+	name = {\ensuremath{N}},
+	description = {n\'umero de amostras de dados coletadas \semunidade}
 }
 
 @comment{Análise de Fourier}
 @symbol{s:funcao-tempo,
-  name = {\ensuremath{g(t)}},
-  description = {fun\c{c}\~ao no dom\'inio do tempo \semunidade}
+	name = {\ensuremath{g(t)}},
+	description = {fun\c{c}\~ao no dom\'inio do tempo \semunidade}
 }
 
 @symbol{s:funcao-freq,
-  name = {\ensuremath{G(\omega)}},
-  description = {fun\c{c}\~ao no dom\'inio da frequ\^encia \semunidade}
+	name = {\ensuremath{G(\omega)}},
+	description = {fun\c{c}\~ao no dom\'inio da frequ\^encia \semunidade}
 }
 
 @symbol{s:matriz-unitarios-dft,
-  name = {\ensuremath{[\mathbf{A}]}},
-  description = {matriz quadrada de vetores unit\'arios \semunidade}
+	name = {\ensuremath{[\mathbf{A}]}},
+	description = {matriz quadrada de vetores unit\'arios \semunidade}
 }
 
 @symbol{s:vetor-matriz-unit-dft,
-  name = {\ensuremath{\mathbf{a}_{kn}}},
-  description = {vetores unit\'arios da matriz \gls{s:matriz-unitarios-dft} \semunidade}
+	name = {\ensuremath{\mathbf{a}_{kn}}},
+	description = {vetores unit\'arios da matriz \gls{s:matriz-unitarios-dft} \semunidade}
 }
 
 @symbol{s:coef-fourier-compl,
-  name = {\ensuremath{\alpha_n}},
-  description = {coeficiente complexo de Fourier \semunidade}
+	name = {\ensuremath{\alpha_n}},
+	description = {coeficiente complexo de Fourier \semunidade}
 }
 
 @symbol{s:coef-fourier,
@@ -73,6 +73,11 @@
 }
 
 @comment{Massas}
+@symbol{s:massa,
+	name = {\ensuremath{m}},
+	description = {massa \unidademassa}
+}
+
 @symbol{s:massa-espec,
   name = {\ensuremath{\rho}},
   description = {massa espec\'ifica por unidade de comprimento \unidademassalinear}
@@ -94,10 +99,16 @@
   description = {deslocamento de um elemento do sistema \unidadeposicao}
 }
 
-@symbol{s:desloc-vertical,
+@symbol{s:desloc-elastico,
   name = {\ensuremath{w}},
-  description = {deslocamento vertical do corpo el\'astico \unidadeposicao}
+  description = {deslocamento do corpo el\'astico \unidadeposicao}
 }
+
+@symbol{s:excentricidade,
+	name = {\ensuremath{\varepsilon}},
+	description = {excentricidade do rotor \unidadeposicao}
+}
+
 @comment{Velocidades}
 @symbol{s:constante-onda,
   name = {\ensuremath{\mathit{c}}},
@@ -236,11 +247,6 @@
 @symbol{s:tensao-corda,
   name = {\ensuremath{P}},
   description = {for\c{c}a tensora \unidadeforca}
-}
-
-@symbol{s:angulo-tensao,
-  name = {\ensuremath{\theta}},
-  description = {\^angulo da corda \unidadeangulo}
 }
 
 @comment{Energias e trabalhos}

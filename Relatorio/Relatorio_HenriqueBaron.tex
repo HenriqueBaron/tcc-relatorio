@@ -348,7 +348,7 @@
 	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
 	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
-	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{s:desloc-vertical} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por \gls{s:angulo-tensao} e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
+	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{s:desloc-elastico} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por $ \theta $ e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
 	\begin{figure}[t] 
 	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{adaptado de \citeauthoronline{rao:2008} (\citeyear{rao:2008})} \label{fig:vibracao-corda}
 	\end{figure}
@@ -360,7 +360,7 @@
 		(P + dP)\;sen(\theta + d\theta) + F\:dx - P\;sen\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo \gls{s:angulo-tensao} seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação (\ref{eqn:cont:balanco}) para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
 	
 	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
 	\begin{align}
@@ -371,7 +371,7 @@
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
 	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-vertical} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
+	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-elastico} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
 		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
@@ -380,7 +380,7 @@
 		\label{fig:elemento-viga}
 	\end{figure}
 
-	A Equação (\ref{eqn:cont:onda}) pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{s:desloc-vertical}$(x,t)$ é descrito como
+	A Equação (\ref{eqn:cont:onda}) pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{s:desloc-elastico}$(x,t)$ é descrito como
 	\begin{equation} \label{eqn:cont:sep-variaveis}
 		w(x,t) = W(x)\cdot T(t)
 	\end{equation}
@@ -424,7 +424,7 @@
 	\end{figure}
 
 	\subsubsection{Equações de movimento}
-	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância $\varepsilon$ do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
+	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância \gls{s:excentricidade} do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[t]
 		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthor{rao:2008}}
 		\label{fig:rotor-excentrico}
@@ -461,7 +461,7 @@
 	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
 	
 	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material. 
-	\begin{figure}
+	\begin{figure}[b]
 		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
 		\label{fig:histerese}
 	\end{figure}
@@ -481,15 +481,44 @@
 		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\varepsilon\ cos\,\omega t \\
 		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\varepsilon\ sen\,\omega t
 	\end{align}
-	ou, definindo o número complexo \[ r = x + iy \] chega-se à equação combinada
-	\begin{equation}
-		m\ddot{r} + (c_i + c)\dot{r} + kr - i\omega c_i r = m\omega^2 \varepsilon e^{i\omega t}
+	ou, definindo para o deslocamento \gls{s:desloc-elastico} um número complexo de modo que \[ w = x + iy \] chega-se à equação combinada
+	\begin{equation}\label{eqn:rotores:resposta-rodopio}
+		m\ddot{w} + (c_i + c)\dot{w} + kw - i\omega c_i w = m\omega^2 \varepsilon e^{i\omega t}
 	\end{equation}
+	
+	\subsubsection{Velocidades críticas}
+	Um eixo em rotação atinge uma velocidade crítica quando esta é igual a alguma das frequências naturais do componente. A frequência natural não amortecida do conjunto do rotor pode ser obtida \cite{rao:2008} resolvendo a Equação (\ref{eqn:rotores:resposta-rodopio}) com $ c = c_i = 0 $. Isso fornece o valor da frequência natural \gls{s:freq-natural} do sistema
+	\begin{equation} \label{eqn:rotores:freq-natural}
+		\omega_n = \left( \frac{k}{m} \right)^{1/2}
+	\end{equation}
+	Uma vez definida a velocidade crítica, denomina-se \cite{dimarogonas:1995} operação subcrítica quando a velocidade de rotação \gls{s:freq-rad} é menor que a frequência natural, ou seja, $ \omega < \omega_n $, e operação supercrítica quando $ \omega > \omega_n $.
+	
+	Considerando que um rotor de massa \gls{s:massa} tenha uma pequena massa desbalanceada $ m_e $ a uma distância $ u $ do centro, a órbita do rodopio pode ser definida como um círculo de raio $ r $, definido como \cite{dimarogonas:1995}
+	\begin{equation} \label{eqn:rotores:orbita-rodopio}
+		r = \frac{m_e u}{m}\ \frac{(\omega/\omega_n)^2}{1 - (\omega/\omega_n)^2}
+	\end{equation}
+	Cabe observar que a razão $ u(m_e/m) $ é equivalente à excentricidade \gls{s:excentricidade} do centro de massa exibida na Figura \ref{fig:rotor-excentrico} e nas equações seguintes, de modo que
+	\begin{equation}
+		\varepsilon = \frac{m_e u}{m}
+	\end{equation}
+	
+	Pode-se perceber na Equação (\ref{eqn:rotores:orbita-rodopio}) que, quando a velocidade de rotação \gls{s:freq-rad} se iguala à frequência natural \gls{s:freq-natural} o raio $ r $ tende ao infinito. Isso comprova a definição de uma velocidade crítica como equivalente à frequência natural. Embora isso sugira que a rotação na velocidade crítica promova amplitudes de vibração muito altas, isso não é necessariamente verdade \cite{dimarogonas:1995}. Considerando a solução na direção $ x $ para o rodopio do eixo como \cite{dimarogonas:1995}
+	\begin{equation}
+		x(t) = \frac{m\varepsilon\omega^2}{k-m\omega^2}\,(cos\,\omega t - cos\,\omega_n t)
+	\end{equation}
+	e rearranjando a Equação (\ref{eqn:rotores:freq-natural}) para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
+	\begin{equation}
+		x(t) = \frac{\varepsilon\omega}{2}\ t\ sen\,\omega t
+	\end{equation}
+	
+	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a observação de \citeauthor{rao:2008}, que afirma que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
+	\begin{figure}
+		\incluirimagem{AceleracaoVelCritica.png}{Passagem de um eixo pela velocidade crítica}{adaptado de \citeauthor{dimarogonas:1995}}
+		\label{fig:aceleracao-vel-critica}
+	\end{figure}
 	
 	\postextual
 	
 	\bibliography{Bibliografia}
-	
-	\listoftodos
 		
 \end{document}
