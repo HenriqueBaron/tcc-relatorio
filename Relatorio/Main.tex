@@ -94,7 +94,9 @@
 		\item Comparação dos resultados obtidos no modelo numérico e no protótipo construído.
 	\end{enumerate}
 
-	\chapter{Desenvolvimento}
+	\chapter{Referencial teórico}
+	Neste capítulos são apresentados os conceitos inerentes à modelagem e análise do protótipo desenvolvido.
+	
 	\section{Análise harmônica}
 	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}. Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
 	\begin{equation}
@@ -425,7 +427,7 @@
 
 	\subsubsection{Equações de movimento}
 	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância \gls{s:excentricidade} do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
-	\begin{figure}[t]
+	\begin{figure}[h]
 		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthor{rao:2008}}
 		\label{fig:rotor-excentrico}
 	\end{figure}
@@ -491,12 +493,14 @@
 	\begin{equation} \label{eqn:rotores:freq-natural}
 		\omega_n = \left( \frac{k}{m} \right)^{1/2}
 	\end{equation}
+	
 	Uma vez definida a velocidade crítica, denomina-se \cite{dimarogonas:1995} operação subcrítica quando a velocidade de rotação \gls{s:freq-rad} é menor que a frequência natural, ou seja, $ \omega < \omega_n $, e operação supercrítica quando $ \omega > \omega_n $.
 	
 	Considerando que um rotor de massa \gls{s:massa} tenha uma pequena massa desbalanceada $ m_e $ a uma distância $ u $ do centro, a órbita do rodopio pode ser definida como um círculo de raio $ r $, definido como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:rotores:orbita-rodopio}
 		r = \frac{m_e u}{m}\ \frac{(\omega/\omega_n)^2}{1 - (\omega/\omega_n)^2}
 	\end{equation}
+	
 	Cabe observar que a razão $ u(m_e/m) $ é equivalente à excentricidade \gls{s:excentricidade} do centro de massa exibida na Figura \ref{fig:rotor-excentrico} e nas equações seguintes, de modo que
 	\begin{equation}
 		\varepsilon = \frac{m_e u}{m}
