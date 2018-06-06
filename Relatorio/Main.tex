@@ -52,7 +52,7 @@
 
 \incluirsiglas{Siglas}
 \incluirsimbolos{Simbolos}
-
+\listfiles
 \begin{document}
 	\include{PreTexto}
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
@@ -60,7 +60,7 @@
 	\chapter{Introdução}
 	Em todo sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada. Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
 	
-	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos, conforme \citeauthoronline{hashemian:2011} (\citeyear{hashemian:2011}). Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
+	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
 	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
@@ -85,7 +85,7 @@
 	
 	\subsection{Objetivos específicos}
 	Para o cumprimento do objetivo geral, são estabelecidos os seguintes objetivos específicos:
-	\setenumerate[0]{label=\alph*)}
+	\setenumerate[0]{leftmargin=2.1cm,label=\alph*)}
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item Desenvolvimento de um modelo numérico da bancada no MATLAB\textsuperscript{\textregistered};
@@ -122,7 +122,7 @@
 		b_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ sen\,n\omega t\ dt \notag
 	\end{align}
 	
-	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:funcao-tempo}, isso não é tratado aqui, visto que, segundo \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}), as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral.
+	Embora seja possível a discussão sobre a convergência da série Fourier na Equação (\ref{eqn:fourier:serie}) para uma função \gls{s:funcao-tempo}, isso não é tratado aqui, visto que as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral \cite{spiegel:1977}.
 	
 	\subsubsection{Notação complexa da série de Fourier} \label{sec:fourier:serie-complexa}
 	Utilizando as identidades de Euler
@@ -156,7 +156,7 @@
 	\end{figure}
 	
 	\subsection{Integral de Fourier}
-	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida por \citeauthoronline{spiegel:1977} (\citeyear{spiegel:1977}) como
+	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:integral}
 		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
 	\end{equation}
@@ -167,17 +167,17 @@
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
-	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante à Seção \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:funcao-tempo}, denotada por \gls{s:funcao-freq}
+	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante ao item \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:funcao-tempo}, denotada por \gls{s:funcao-freq}
 	\begin{equation} \label{eqn:fourier:transform}
 		G(\omega) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\omega t}\:dt
 	\end{equation}
-	que também é denominada por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como transformada contínua de Fourier. A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
+	que também é denominada como transformada contínua de Fourier \cite{dimarogonas:1995}. A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
 	\begin{equation} \label{eqn:fourier:transform-inv}
 		g(t) = \mathcal{F}^{-1}\{G(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\omega)\ e^{i\omega t}\:d\omega
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
-	Na transformada de Fourier apresentada na Seção \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes, sendo chamada também por função amostrada no tempo \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
+	Na transformada de Fourier apresentada no item \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes, sendo chamada também por função amostrada no tempo \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
 	
 	\subsubsection{Funções amostradas no tempo}
 	O par de transformadas integrais das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica. Um intervalo $ (-\tau /2,\:\tau /2) $ é empregado, assumindo que a função \gls{s:funcao-tempo} se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq:hz} que corresponde a \cite{dimarogonas:1995}
@@ -185,12 +185,12 @@
 		\mathit{f} = \frac{1}{\tau}
 	\end{equation}
 	
-	Considerando que a amostragem da função \gls{s:funcao-tempo} seja feita em intervalos $ \Delta $\gls{s:tempo}, a frequência de amostragem \gls{s:freq-amostra} é definida por \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995}) como
+	Considerando que a amostragem da função \gls{s:funcao-tempo} seja feita em intervalos $ \Delta $\gls{s:tempo}, a frequência de amostragem \gls{s:freq-amostra} é definida como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-amostra}
 		\mathit{f}_s = \frac{1}{\Delta t}
 	\end{equation}
 	
-	Considerando ainda que alguma perturbação aconteça a cada \[\Delta t = \frac{\tau}{N} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
+	Considerando ainda que alguma perturbação aconteça a cada intervalo \[\Delta t = \frac{\tau}{N} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
 	
 	\subsubsection{Transformada Discreta de Fourier}
 	Considerando que a função \gls{s:funcao-tempo} seja discretizada e truncada tanto no domínio como na frequência de modo que
@@ -203,7 +203,7 @@
 		G_k &= \frac{1}{N}\sum_{n=0}^{N-1}g_n e^{-i 2\pi k n/N} \label{eqn:fourier:dft}\\
 		g_n &= \sum_{k=0}^{N-1}G_k e^{i 2\pi k n/N} \label{eqn:fourier:dft-inv}
 	\end{align}
-	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) por somas finitas, é muito mais adaptada à computação digital, segundo \citeauthoronline{randall:1987} (\citeyear{randall:1987}). Adicionalmente, a Equação (\ref{eqn:fourier:dft}) pode ser representada como \cite{dimarogonas:1995}
+	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações (\ref{eqn:fourier:transform}) e (\ref{eqn:fourier:transform-inv}) por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}. Adicionalmente, a Equação (\ref{eqn:fourier:dft}) pode ser representada como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:dft-matricial}
 		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
 	\end{equation}
@@ -213,7 +213,7 @@
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
-	Com larga aplicação nos instrumentos de análise atuais, a \gls{sig:FFT} é um algoritmo para obtenção da \gls{sig:DFT} que reduz consideravelmente o número de operações em relação ao método tradicional \cite{randall:1987}. Especificamente, \citeauthor{cooley:1965} afirmam que, ao passo de que a resolução da Equação (\ref{eqn:fourier:dft-inv}) -- que obtém as componentes de frequência da \gls{sig:DFT} -- precisa de um total de $ \gls{s:numero-amostras}^2 $ computações aritméticas, o método da \gls{sig:FFT} fornece o resultado em menos de $ 2\gls{s:numero-amostras} \log_2\! \gls{s:numero-amostras} $ operações. Para um caso em que \gls{s:numero-amostras} representa 1024 amostras, essa redução é da ordem de 100 vezes \cite{randall:1987}.	
+	Com larga aplicação nos instrumentos de análise atuais, a \gls{sig:FFT} é um algoritmo para obtenção da \gls{sig:DFT} que reduz consideravelmente o número de operações em relação ao método tradicional \cite{randall:1987}. Ao passo de que a resolução da Equação (\ref{eqn:fourier:dft-inv}) -- que obtém as componentes de frequência da \gls{sig:DFT} -- precisa de um total de $ \gls{s:numero-amostras}^2 $ computações aritméticas, o método da \gls{sig:FFT} fornece o resultado em menos de $ 2\gls{s:numero-amostras} \log_2\! \gls{s:numero-amostras} $ operações \cite{cooley:1965}. Para um caso em que \gls{s:numero-amostras} representa 1024 amostras, essa redução é da ordem de 100 vezes \cite{randall:1987}.	
 	
 	O algoritmo envolve o reordenamento e fatoração da matriz complexa \gls{s:matriz-unitarios-dft} em matrizes que produzem rotações progressivamente menores nos vetores unitários \cite{randall:1987}, e oferece grandes vantagens quando aplicado amostras cuja quantidade é uma potência inteira de dois, devido à natureza binária das operações computacionais \cite{cooley:1965}. Embora a abordagem completa do procedimento fuja do escopo deste texto, cabe ressaltar que o resultado obtido e as limitações envolvidas são os mesmos relativos ao cálculo da \gls{sig:DFT} \cite{randall:1987}.
 	
@@ -249,7 +249,7 @@
 			k_{n1} & k_{n2} & k_{n3} & \dots & k_{nn}\\
 		\end{bmatrix}
 	\end{gather}
-	onde \gls{s:coef-massa}, \gls{s:coef-amortecimento} e \gls{s:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{s:vetor-desloc}, \gls{s:vetor-vel}, \gls{s:vetor-acel} e \gls{s:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por
+	onde \gls{s:coef-massa}, \gls{s:coef-amortecimento} e \gls{s:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{s:vetor-desloc}, \gls{s:vetor-vel}, \gls{s:vetor-acel} e \gls{s:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por \cite{rao:2008}
 	\begin{align} \label{eqn:vetores}
 		\vec{x} =
 		\begin{Bmatrix}
@@ -272,7 +272,7 @@
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
 	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde $ n $ denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida por \citeauthoronline{rao:2008} (\citeyear{rao:2008}) como
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde $ n $ denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida como \cite{rao:2008}
 	\begin{equation}
 		Q_i = \frac{U_i}{\delta q_i},\qquad i = 1, 2, \dots, n
 	\end{equation}
@@ -284,10 +284,12 @@
 	\begin{equation}
 		V_i = \frac{1}{2}F_i x_i
 	\end{equation}
+	
 	A energia potencial total \gls{s:energ-pot-total} é, então
 	\begin{equation} \label{eqn:discr:energia:deformacao}
 		V = \sum_{i-1}^{n}V_i = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
 	\end{equation}
+	
 	Fazendo a substituição
 	\begin{equation}
 		F_i = \sum_{j=1}^{n}k_{ij} x_j
@@ -321,7 +323,7 @@
 		\end{bmatrix}
 	\end{equation}
 	
-	Se, na Equação (\ref{eqn:discr:energia:cinetica}) forem utilizadas as coordenadas generalizadas \gls{s:coord-general} descritas na Seção \ref{sec:coord-generalizadas}, arranjadas em um vetor de velocidades generalizadas \gls{s:vetor-veloc-general} dado por
+	Se, na Equação (\ref{eqn:discr:energia:cinetica}) forem utilizadas as coordenadas generalizadas \gls{s:coord-general} descritas no item \ref{sec:coord-generalizadas}, arranjadas em um vetor de velocidades generalizadas \gls{s:vetor-veloc-general} dado por
 	\begin{equation}
 		\dot{\vec{q}} = 
 		\begin{Bmatrix}
@@ -373,11 +375,11 @@
 	A Equação (\ref{eqn:cont:onda}) também é conhecida como equação de onda. 
 	
 	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado na Seção \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-elastico} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
+	Aqui, o conceito apresentado no item \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-elastico} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação (\ref{eqn:cont:onda}), no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
 	\begin{equation}
 		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
 	\end{equation}		
-	\begin{figure}[b]
+	\begin{figure}[t]
 		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{adaptado de \citeauthoronline{timoshenko:1974} (\citeyear{timoshenko:1974})}
 		\label{fig:elemento-viga}
 	\end{figure}
@@ -440,7 +442,7 @@
 	\begin{equation} \label{eqn:rotores:forca-inercia}
 		\vec{F}_i = m\ddot{\vec{R}}
 	\end{equation}
-	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido também por \citeauthor{rao:2008} como
+	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido como \cite{rao:2008}
 	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
 		\vec{R} = (x + \varepsilon\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \varepsilon\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
@@ -462,7 +464,7 @@
 	\end{gather}
 	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
 	
-	O amortecimento histerético, por outro lado, é relacionado às características do material. Segundo \citeauthor{dimarogonas:1995}, a imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material. 
+	O amortecimento histerético, por outro lado, é relacionado às características do material. A imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material \cite{dimarogonas:1995}. 
 	\begin{figure}[b]
 		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
 		\label{fig:histerese}
@@ -515,7 +517,7 @@
 		x(t) = \frac{\varepsilon\omega}{2}\ t\ sen\,\omega t
 	\end{equation}
 	
-	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a observação de \citeauthor{rao:2008}, que afirma que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
+	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a constatação em \cite{rao:2008}, de que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
 	\begin{figure}
 		\incluirimagem{AceleracaoVelCritica.png}{Passagem de um eixo pela velocidade crítica}{adaptado de \citeauthor{dimarogonas:1995}}
 		\label{fig:aceleracao-vel-critica}
