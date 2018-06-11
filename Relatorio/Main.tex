@@ -106,7 +106,7 @@
 	
 	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
 	
-	\subsection{Série de Fourier}
+	\subsection{Série de Fourier} \label{sec:fourier:serie}
 	Seja \gls{s:funcao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
 		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
@@ -148,7 +148,7 @@
 		\label{fig:espectro-2sided}
 	\end{figure}
 	
-	De maneira semelhante, o espectro de frequência da Figura \ref{fig:espectro-2sided} pode ser representado por um espectro de frequências de um lado \cite{randall:1987} como mostra a Figura \ref{fig:espectro-1sided}, onde a harmônica \gls{s:coef-fourier-compl} de ordem $ n $ é somada com a harmônica de ordem $ -n $. É importante observar que a componente constante, isto é, $ n=0 $ permanece com o mesmo valor do espectro de dois lados.
+	De maneira semelhante, o espectro de frequência da Figura \ref{fig:espectro-2sided} pode ser representado por um espectro de frequências de um lado como mostra a Figura \ref{fig:espectro-1sided}, onde a harmônica \gls{s:coef-fourier-compl} de ordem $ n $ é somada com a harmônica de ordem $ -n $ \cite{randall:1987}. É importante observar que a componente constante, isto é, $ n=0 $ permanece com o mesmo valor do espectro de dois lados.
 	\begin{figure}[t]
 		\incluirimagem{FourierEspectro1sided.png}{Espectro de um lado de uma função periódica}{o autor (\thedate)}
 		\label{fig:espectro-1sided}
@@ -166,7 +166,7 @@
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
-	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante ao item \ref{sec:fourier:serie-complexa}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:funcao-tempo}, denotada por \gls{s:funcao-freq}
+	Aplicando na Equação (\ref{eqn:fourier:integral}) a identidade de Euler da Equação (\ref{eqn:fourier:ident-euler}) de maneira semelhante ao item \ref{sec:fourier:serie}, obtém-se a transformada de Fourier \cite{savi:2017} de \gls{s:funcao-tempo}, denotada por \gls{s:funcao-freq}
 	\begin{equation} \label{eqn:fourier:transform}
 		G(\omega) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\omega t}\:dt
 	\end{equation}
@@ -194,8 +194,8 @@
 	\subsubsection{Transformada Discreta de Fourier}
 	Considerando que a função \gls{s:funcao-tempo} seja discretizada e truncada tanto no domínio como na frequência de modo que
 	\begin{align*}
-		t_n &= n\Delta t\: ,\quad n = 0, 1, \dots , N\\
-		\mathit{f} &= k\Delta\mathit{f} = \frac{k}{N\Delta t}\: ,\quad k = 0, 1, \dots , N
+		t_n = n\Delta t\: ,&\quad n = 0, 1, \dots , N\\
+		\mathit{f} = k\Delta\mathit{f} = \frac{k}{N\Delta t}\: ,&\quad k = 0, 1, \dots , N
 	\end{align*}
 	a transformada de Fourier (direta e inversa) torna-se \cite{randall:1987}
 	\begin{align}
