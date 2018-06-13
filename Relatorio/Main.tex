@@ -83,7 +83,7 @@
 	\subsection{Objetivo geral}
 	O objetivo do presente trabalho é validar o protótipo de uma bancada didática para análise de vibrações em máquinas rotativas, através de simulação numérica e testes com protótipo montado.
 	
-	\subsection{Objetivos específicos}
+	\subsection{Objetivos específicos} \label{sec:objetivos:especificos}
 	Para o cumprimento do objetivo geral, são estabelecidos os seguintes objetivos específicos:
 	\setenumerate[0]{leftmargin=2.1cm,label=\alph*)}
 	\begin{enumerate}
@@ -528,7 +528,7 @@
 	\section{Condição atual do protótipo}
 	Tendo como princípio a ideia de validação, o trabalho toma como ponto de partida o protótipo de uma bancada para análise de vibrações, já previamente desenvolvido. Atualmente, todos os componentes da bancada didática já foram fabricados, mas o conjunto nunca foi montado. Eventuais retrabalhos podem ser necessários nos componentes usinados para garantir um encaixe ideal entre todas as peças. O equipamento utilizado para o teste é composto por:
 	\begin{itemize}
-		\item Uma mesa de \todo{Medidas mesa} montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero em uma estrutura rígida;
+		\item Uma mesa de \todo{Medidas mesa} montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero, isolando-a da estrutura rígida em que a bancada é montada;
 		\item Motor elétrico trifásico de quatro polos controlado por um inversor de frequência, para variação da sua velocidade de rotação; 
 		\item Base ajustável para o motor, com parafusos para ajuste fino do alinhamento com o eixo;
 		\item Relógio comparador Starrett com resolução de $ 0,01\ mm $, \todo{Verificar resolução} para verificação do alinhamento entre o eixo do motor e o eixo movido;
@@ -539,6 +539,23 @@
 		\item Um mancal de rolamento duplo, com eixo passante de \todo{Diâmetro eixo menor} de diâmetro e comprimento de $ 200\ mm $, utilizado apenas para apoiar a polia trapezoidal;
 		\item Conjunto de módulo de aquisição de dados e acelerômetros para coleta de dados de vibração durante os experimentos.
 	\end{itemize} \todo{Incluir e citar imagens das peças do protótipo}
+
+	\section{Sequência de trabalho}
+	Conforme indicado no item \ref{sec:objetivos:especificos}, o trabalho a ser desenvolvido consiste na análise do protótipo através de um modelo numérico e também da aquisição de dados do sistema real, tendo como passo intermediário a montagem do conjunto. Mais especificamente, os testes serão concentrados na realização de dois experimentos específicos:
+	\begin{enumerate}
+		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
+		\item Resposta de vibração causada pelo desbalanceamento de um rotor montado sobre o eixo;
+		\item Resposta de vibração provocada pelo defeito controlado no rolamento de um mancal.
+	\end{enumerate}
+	
+	A Figura \ref{fig:fluxograma} ilustra o fluxo de trabalho a ser desenvolvido. O passo inicial consiste em obter as informações necessárias para construir no MATLAB\textsuperscript{\textregistered} uma modelagem baseada em dados dos componentes já existentes. Visto que serão desenvolvidos dois modelos -- um para cada experimento -- uma sequência de procedimentos será executada duas vezes. Ela consiste em desenvolver a simulação do experimento e verificar se os resultados trarão valores mensuráveis quando da aquisição de dados na bancada real. Um resultado negativo nessa verificação pode indicar, por exemplo, um superdimensionamento do sistema e demandará um retrabalho nos componentes do protótipo ou até mesmo a fabricação de peças novas com diferentes dimensões. Caso o modelo numérico retorne valores aceitáveis para uma medição posterior com os instrumentos, os resultados são coletados. 
+	
+	Quando finalizadas as simulações numéricas dos experimentos, o desenvolvimento segue com a montagem da bancada e a criação de uma aplicação no LabVIEW\textsuperscript{\textregistered} para fazer a aquisição de dados durante os testes do sistema real. Os experimentos serão conduzidos, e os dados coletados serão tratados e filtrados. Por fim, os resultados dos modelos numéricos serão comparados com os dados experimentais para validação do protótipo.
+
+	\begin{figure}[t]
+		\incluirimagem[0.4]{Fluxograma.png}{Fluxograma de desenvolvimento do trabalho}{O autor (\thedate)}
+		\label{fig:fluxograma}
+	\end{figure}
 	
 	\postextual
 	
