@@ -13,7 +13,7 @@
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    inkscape:export-ydpi="192.1898"
    inkscape:export-xdpi="192.1898"
-   inkscape:export-filename="C:\Users\Henrique Baron\Repos\tcc-relatorio\Relatório\Imagens\VibracaoCorda.png"
+   inkscape:export-filename="C:\Users\Henrique Baron\Repos\tcc-relatorio\Imagens\ComponentesBancada.png"
    id="svg8"
    version="1.1"
    viewBox="0 0 210 297"
@@ -30,10 +30,10 @@
      inkscape:window-height="1017"
      inkscape:window-width="1920"
      showgrid="false"
-     inkscape:current-layer="ltx-render-layer"
+     inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="-31.89066"
-     inkscape:cx="1255.9707"
+     inkscape:cy="638.88062"
+     inkscape:cx="1162.5641"
      inkscape:zoom="1"
      inkscape:pageshadow="2"
      inkscape:pageopacity="1"
@@ -1711,8 +1711,7 @@
   <g
      inkscape:label="Camada 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     sodipodi:insensitive="true">
+     id="layer1">
     <flowRoot
        transform="scale(0.26458333)"
        style="font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
