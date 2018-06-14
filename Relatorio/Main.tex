@@ -526,16 +526,16 @@
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
 	
 	\section{Condição atual do protótipo}
-	Tendo como princípio a ideia de validação, o trabalho toma como ponto de partida o protótipo de uma bancada para análise de vibrações, já previamente desenvolvido. Atualmente, todos os componentes da bancada didática já foram fabricados, mas o conjunto nunca foi montado. Eventuais retrabalhos podem ser necessários nos componentes usinados para garantir um encaixe ideal entre todas as peças. Os principais componentes do equipamento utilizado para o teste são mostrados na Figura \ref{fig:componentes} e são:
+	Tendo como princípio a ideia de validação, o trabalho toma como ponto de partida o protótipo de uma bancada para análise de vibrações, já previamente desenvolvido. Atualmente, todos os componentes da bancada didática já foram fabricados, mas ainda não foi montado. Eventuais retrabalhos podem ser necessários nos componentes usinados para garantir um encaixe ideal entre todas as peças. Os principais componentes do equipamento utilizado para o teste são mostrados na Figura \ref{fig:componentes} e são:
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item Uma mesa de $ 1000\ mm $ de largura e $ 720\ mm $ de comprimento (item A), montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero, isolando-a da estrutura rígida em que a bancada é montada;
 		\item Motor de indução trifásico de dois polos (item E), controlado por um inversor de frequência, para variação da sua velocidade de rotação; 
-		\item Base ajustável para o motor (item E), com parafusos para ajuste fino do alinhamento com o eixo;
+		\item Base para o motor (item E) com parafusos para ajuste fino do alinhamento com o eixo;
 		\item Relógio comparador Starrett com resolução de $ 0,\!01\ mm $ (item D), para verificação do alinhamento entre o eixo do motor e o eixo movido;
 		\item Eixo de $ 20\ mm $ de diâmetro e 400 mm de comprimento (item G), usinado em aço ABNT 1045, onde pode ser montado um disco (item F) com furos radiais nos quais podem ser fixados parafusos M5 para deslocar o centro de massa e provocar desbalanceamento;
 		\item Dois mancais  (item B) em aço ABNT 1045 nos quais são inseridos rolamentos rígidos de esferas tipo 6004 2RSH, do fabricante SKF. O rolamento tem encaixe deslizante e pode ser removido do mancal entre os testes. O mancal também tem dois furos -- um na direção vertical e outro na direção horizontal -- para fixar acelerômetros;
-		\item Um rolamento extra, da mesma marca e modelo do item anterior, porém com um defeito controlado na pista externa;
+		\item Um rolamento extra, da mesma marca e modelo do daquele utilizado nos mancais (item B), porém com um defeito controlado na pista externa;
 		\item Par de polias trapezoidais (item H) de perfil padrão A1 com diâmetros de $ 90\ mm $ e $ 60\ mm $, além de correia trapezoidal lisa e esticador ajustável;
 		\item Um mancal de rolamento duplo (item C), com eixo passante de $ 20\ mm $ de diâmetro e comprimento de $ 200\ mm $, utilizado apenas para apoiar a polia trapezoidal;
 		\item Conjunto de módulo de aquisição de dados e acelerômetros para coleta de dados de vibração durante os experimentos.
@@ -554,7 +554,7 @@
 		\item Resposta de vibração provocada pelo defeito controlado no rolamento de um mancal.
 	\end{enumerate}
 	
-	A Figura \ref{fig:fluxograma} ilustra o fluxo de trabalho a ser desenvolvido. O passo inicial consiste em obter as informações necessárias para construir no MATLAB\textsuperscript{\textregistered} uma modelagem baseada em dados dos componentes já existentes. Visto que serão desenvolvidos dois modelos -- um para cada experimento -- uma sequência de procedimentos será executada duas vezes. Ela consiste em desenvolver a simulação do experimento e verificar se os resultados trarão valores mensuráveis quando da aquisição de dados na bancada real. Um resultado negativo nessa verificação pode indicar, por exemplo, um superdimensionamento do sistema e demandará um retrabalho nos componentes do protótipo ou até mesmo a fabricação de peças novas com diferentes dimensões. Caso o modelo numérico retorne valores aceitáveis para uma medição posterior com os instrumentos, os resultados são coletados. 
+	A Figura \ref{fig:fluxograma} ilustra o fluxo de trabalho a ser desenvolvido. O passo inicial consiste em obter as informações necessárias para construir no MATLAB\textsuperscript{\textregistered} uma modelagem baseada em dados dos componentes já existentes. Visto que serão desenvolvidos dois modelos -- um para cada experimento -- uma sequência de procedimentos será executada duas vezes. Ela consiste em desenvolver a simulação do experimento e verificar se os resultados trarão valores mensuráveis durante a aquisição de dados na bancada real. Um resultado negativo nessa verificação pode indicar, por exemplo, um superdimensionamento do sistema e demandará um retrabalho nos componentes do protótipo ou até mesmo a fabricação de peças novas com diferentes dimensões. Caso o modelo numérico retorne valores aceitáveis para uma medição posterior com os instrumentos, os resultados são coletados. 
 	
 	Quando finalizadas as simulações numéricas dos experimentos, o desenvolvimento segue com a montagem da bancada e a criação de uma aplicação no LabVIEW\textsuperscript{\textregistered} para fazer a aquisição de dados durante os testes do sistema real. Os experimentos serão conduzidos, e os dados coletados serão tratados e filtrados. Por fim, os resultados dos modelos numéricos serão comparados com os dados experimentais para validação do protótipo.
 
@@ -566,8 +566,8 @@
 	\section{Planejamento}
 	Considera-se como início do desenvolvimento das tarefas descritas no fluxograma da Figura \ref{fig:fluxograma} a semana 28 de 2018, iniciada em 8 de julho. A partir desta data, as etapas a serem conduzidas são dispostas no cronograma da Figura \ref{fig:cronograma}. Apesar de se tratar de um trabalho individual, considera-se um paralelismo na execução das tarefas de retrabalho em componentes. Isso foi planejado porque, além deste ser um passo que não necessariamente será executado, a execução das alterações nos componentes ou a fabricação de peças novas será realizada por uma empresa terceirizada, havendo apenas a necessidade de enviar os projetos atualizados e aguardar o prazo do serviço.
 	
-	\begin{figure}[h]
-		\incluirimagem[0.7]{Cronograma.png}{Cronograma de tarefas}{O autor (\thedate)}
+	\begin{figure}[t]
+		\incluirimagem[1]{Cronograma.png}{Cronograma de tarefas}{O autor (\thedate)}
 		\label{fig:cronograma}
 	\end{figure}
 	
