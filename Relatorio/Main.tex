@@ -14,6 +14,7 @@
 \fi
 
 \usepackage[brazil]{babel}
+\usepackage{cite} % Para a citação numérica, permite as citações múltiplas como [8-11], por exemplo
 \usepackage{graphicx} % Inserção de imagens
 \graphicspath{{../Imagens/}} % Definição do caminho para as imagens
 \usepackage{float} % Utilizado para dispor figuras com a posição "h" (Here)
@@ -50,9 +51,9 @@
 }
 \makeatother
 
-\incluirsiglas{Siglas}
-\incluirsimbolos{Simbolos}
-\listfiles
+\incluirsiglas{Siglas} % Inclui o arquivo bibtex com as siglas.
+\incluirsimbolos{Simbolos} % Inclui o arquivo bibtex com os símbolos.
+
 \begin{document}
 	\include{PreTexto}
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
