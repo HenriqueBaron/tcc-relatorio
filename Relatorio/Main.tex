@@ -63,9 +63,9 @@
 	
 	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
 	
-	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2017}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
+	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2018}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
-	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2003}.
+	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2004}.
 	
 	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas. Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento \cite{carden:2004}. Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo. Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados \cite{qiao:2011}, permitindo identificar a origem da variação no sinal analisado. Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
 	
@@ -523,6 +523,9 @@
 		\label{fig:aceleracao-vel-critica}
 	\end{figure}
 
+	\section{Vibração em rolamentos}
+	
+
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
 	
@@ -543,7 +546,7 @@
 	\end{enumerate}
 
 	\begin{figure}[h]
-		\incluirimagem[0.7]{ComponentesBancada.png}{Componentes principais da bancada}{O autor (\thedate)}
+		\incluirimagem[0.7]{ComponentesBancada.png}{Componentes principais da bancada}{o autor (\thedate)}
 		\label{fig:componentes}
 	\end{figure}
 
@@ -560,7 +563,7 @@
 	Quando finalizadas as simulações numéricas dos experimentos, o desenvolvimento segue com a montagem da bancada e a criação de uma aplicação no LabVIEW\textsuperscript{\textregistered} para fazer a aquisição de dados durante os testes do sistema real. Os experimentos serão conduzidos, e os dados coletados serão tratados e filtrados. Por fim, os resultados dos modelos numéricos serão comparados com os dados experimentais para validação do protótipo.
 
 	\begin{figure}[t]
-		\incluirimagem[0.4]{Fluxograma.png}{Fluxograma de desenvolvimento do trabalho}{O autor (\thedate)}
+		\incluirimagem[0.4]{Fluxograma.png}{Fluxograma de desenvolvimento do trabalho}{o autor (\thedate)}
 		\label{fig:fluxograma}
 	\end{figure}
 	
@@ -568,7 +571,7 @@
 	Considera-se como início do desenvolvimento das tarefas descritas no fluxograma da Figura \ref{fig:fluxograma} a semana 28 de 2018, iniciada em 8 de julho. A partir desta data, as etapas a serem conduzidas são dispostas no cronograma da Figura \ref{fig:cronograma}. Apesar de se tratar de um trabalho individual, considera-se um paralelismo na execução das tarefas de retrabalho em componentes. Isso foi planejado porque, além deste ser um passo que não necessariamente será executado, a execução das alterações nos componentes ou a fabricação de peças novas será realizada por uma empresa terceirizada, havendo apenas a necessidade de enviar os projetos atualizados e aguardar o prazo do serviço.
 	
 	\begin{figure}[t]
-		\incluirimagem[1]{Cronograma.png}{Cronograma de tarefas}{O autor (\thedate)}
+		\incluirimagem[1]{Cronograma.png}{Cronograma de tarefas}{o autor (\thedate)}
 		\label{fig:cronograma}
 	\end{figure}
 	
