@@ -33,3 +33,6 @@
 
 # TODO list generated files
 *.tdo
+
+# Arquivos da lista de quadros
+*.toq

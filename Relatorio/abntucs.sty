@@ -168,6 +168,26 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Criação da Lista de Quadros, não definida pela classe abntex2
+
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listquadrosname}{Lista de Quadros}
+
+\newfloat{quadro}{\quadroname}{toq}[chapter]
+
+\newlistof{listofquadros}{toq}{\listquadrosname}
+\newlistentry[chapter]{quadro}{toq}{0}
+
+\counterwithout{quadro}{chapter}
+
+\renewcommand{\cftquadroname}{\quadroname\space}
+\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
+%\renewcommand{\thequadro}{\quadro \textendash}
+
+\setfloatadjustment{quadro}{\centering}
+\setfloatlocations{quadro}{hbtp}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Outros comandos %%%
 
 % Código apenas copiado do TeX Stack Exchange: faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
