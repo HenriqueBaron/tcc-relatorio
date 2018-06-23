@@ -163,11 +163,6 @@
 	\ifglshasfield{\glsxtruserfield}{#2}{\emph{\glscurrentfieldvalue}}{#1}%
 }
 
-% Redefinido o comando \citeauthor para que seja incluído, ao lado do nome do autor, o ano entre parênteses.
-\renewcommand{\citeauthor}[1]{%
-	\citeauthoronline{#1} (\citeyear{#1})%
-}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Criação da Lista de Quadros, não definida pela classe abntex2
 
