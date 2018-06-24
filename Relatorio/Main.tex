@@ -492,7 +492,7 @@
 	
 	\subsubsection{Velocidades críticas}
 	Um eixo em rotação atinge uma velocidade crítica quando esta é igual a alguma das frequências naturais do componente. A frequência natural não amortecida do conjunto do rotor pode ser obtida \cite{rao:2008} resolvendo a Equação \ref{eqn:rotores:resposta-rodopio} com $ c = c_i = 0 $. Isso fornece o valor da frequência natural \gls{s:freq-natural} do sistema
-	\begin{equation} \label{eqn:rotores:freq-natural}
+	\begin{equation} \label{eqn:freq-natural}
 		\omega_n = \left( \frac{k}{m} \right)^{1/2}
 	\end{equation}
 	
@@ -512,7 +512,7 @@
 	\begin{equation}
 		x(t) = \frac{m\mathit{e}\omega^2}{k-m\omega^2}\,(cos\,\omega t - cos\,\omega_n t)
 	\end{equation}
-	e rearranjando a Equação \ref{eqn:rotores:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
+	e rearranjando a Equação \ref{eqn:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
 	\begin{equation}
 		x(t) = \frac{\mathit{e}\omega}{2}\ t\sin\omega t
 	\end{equation}
@@ -598,6 +598,27 @@
 	\end{figure}
 
 	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
+	
+	\subsection{Modelagem do rolamento}
+	Entre diversas possibilidades para modelagem do conjunto, os modelos numéricos avaliados buscam uma alternativa de simplificação da situação real, visto que a determinação exata do comportamento dinâmico é complicada e, por vezes, impossível \cite{sassi:2007}. Abaixo são apresentados os elementos tratados para a análise do sistema.
+	
+	\subsubsection{Modelo dos anéis}
+	Quando uma oscilação no anel do rolamento é excitada devido ao impacto de um elemento rolante com um defeito localizado, este anel -- que é modelado como um sistema contínuo (flexível) -- deve entrar em uma vibração de flexão, gerada em diversos modos \cite{sassi:2007}. A forma que o anel assume no $ n $-ésimo modo é definida pela função \cite{tandon:1997}
+	\begin{equation}
+		X_n(\phi) = \sin n\phi + \cos n\phi
+	\end{equation}
+	
+	A frequência natural do $n$-ésimo modo de vibração também pode ser determinada, através da fórmula \cite{tandon:1997,sassi:2007,cong:2013}
+	\begin{equation} \label{eqn:rol:freq-natural-modo}
+		\gls{s:freq-natural} = \frac{n(n^2-1)}{\sqrt{1+n^2}}\sqrt{\frac{\gls{s:modulo-elast} \gls{s:segundo-momento-area}}{\gls{s:massa-espec} \gls{s:raio-eixo-neutro}^4}}
+	\end{equation}
+	de modo que \gls{s:modulo-elast} é o módulo de elasticidade do material, \gls{s:segundo-momento-area} é o segundo momento de área de seção transversal, e \gls{s:raio-eixo-neutro} é o raio do eixo neutro do anel.
+	
+	Por questão de simplificação, apenas o primeiro modo de flexão será considerado. Isso corresponde ao modo $ n=2 $, uma vez que os modos $ n=0 $ e $ n=1 $ são modos rígidos. Neste modo, o anel do rolamento toma a forma de uma elipse \cite{sassi:2007}. Conhecendo-se a massa dos anéis e determinando os valores das frequências naturais do modo $ n=2 $ conforme a Equação \ref{eqn:rol:freq-natural-modo}, a Equação \ref{eqn:freq-natural} pode ser rearranjada para determinar as rigidezes $ \gls{s:rigidez}_I $ e $ \gls{s:rigidez}_O $ dos anéis interno e externo, respectivamente \cite{sassi:2007}:
+	\begin{align}
+		\gls{s:rigidez}_I &= m_I(\gls{s:freq-natural}_{,I})^2\\
+		\gls{s:rigidez}_O &= m_O(\gls{s:freq-natural}_{,O})^2
+	\end{align}
 
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
