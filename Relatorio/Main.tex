@@ -575,13 +575,29 @@
 	onde \gls{s:rol-comp-defeito} é o comprimento do defeito e \gls{s:rol-coef-impacto} é um coeficiente de impacto que depende tanto do material como da geometria do rolamento.
 	
 	Incluindo a componente dinâmica, a força total de impacto $ \gls{s:forca}_T $ resulta em
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:forca-impacto-tot}
 		F_T = \gls{s:carregamento}\left[1 + \gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2 \right]
 	\end{equation}
 	de modo que o carregamento \gls{s:carregamento} é definido na Equação \ref{eqn:rol:carregamento}.
 	
-	\subsubsection{Impactos pulsados}
+	\subsubsection{Impactos modulados pela força}
+	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}. Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Dirac e obedece à seguinte definição \cite{boyce:2017}
+	\begin{gather}
+		\gls{s:func-impulso}(t - t_0) = 0,\qquad t\neq0\\
+		\int_{-\infty}^{\infty}\gls{s:func-impulso}(t-t_0)\,dt = 1
+	\end{gather}
+	o que resulta em uma função que possui valor não-nulo em um intervalo infinitamente curto, mas preserva o tamanho total de uma unidade.
 	
+	Considerando o giro do eixo com o rolamento em regime permanente, a função $ p(t) $ que define a influência dos impactos pode ser modelada com uma série infinita de impulsos de igual amplitude $ p_0 $, separados por um período $ \gls{s:periodo}_d $, que é o recíproco da frequência de incidência de um elemento rolante sobre o defeito. Um exemplo da função $ p(t) $ está representado na Figura \ref{fig:funcao-impulso} e ela pode ser definida como \cite{mcfadden:1984}
+	\begin{equation} \label{eqn:rol:impulsos}
+		p(t) = p_0\sum_{k=-\infty}^{\infty}\gls{s:func-impulso}(t-k\,\gls{s:periodo}_d)
+	\end{equation}
+	\begin{figure}[t]
+		\incluirimagem{FuncaoImpulso.png}{Função com impulsos periódicos}{adaptado de \citeauthoronline{cong:2013} (\citeyear{cong:2013})}
+		\label{fig:funcao-impulso}
+	\end{figure}
+
+	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
 
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
