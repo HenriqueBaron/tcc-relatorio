@@ -636,6 +636,21 @@
 	\end{equation}
 	onde $ \sum\varrho $ e $ \zeta^* $ são dependentes da geometria do rolamento.
 	
+	\subsection{Transmissão da oscilação}
+	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente. A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do sinal de impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
+	
+	\subsubsection{Posição relativa do medidor de vibração}
+	Quando um impulso é provocado no rolamento, frequências de ressonância serão excitadas nele e na máquina em que ele está instalado, permitindo a medição do sinal em um acelerômetro fixado próximo ao componente. Considerando a detecção do transdutor em uma direção, espera-se que a amplitude máxima da vibração medida ocorrerá quando a oscilação ocorrer em paralelamente ao eixo de medição do acelerômetro. Da mesma forma, estima-se que a resposta medida pelo dispositivo será próxima de zero quando o impulso ocorrer em uma direção perpendicular ao eixo o acelerômetro \cite{mcfadden:1984}.
+	
+	Dessa maneira, pode-se determinar a amplitude de vibração \gls{s:rol-amplitude-sensor} medida pelo transdutor em função da amplitude máxima $ \gls{s:rol-amplitude-sensor}_{max} $ e do ângulo $ \theta $ entre esse valor limite e o eixo de medição do acelerômetro, sendo definida por \cite{sassi:2007}
+	\begin{equation}
+		\gls{s:rol-amplitude-sensor}(\theta) = \gls{s:raio} - \left( \frac{\sin^2\theta}{[\gls{s:raio}-\gls{s:rol-amplitude-sensor}_{max}]^2} + \frac{\cos^2\theta}{[\gls{s:raio}+\gls{s:rol-amplitude-sensor}_{max}]^2} \right)^{-1/2}
+	\end{equation}
+	
+	Nessa equação, \gls{s:raio} denota o raio do anel não-deformado. Uma simplificação pode ser feita no caso do anel avaliado ser fixo, o que torna o ângulo $ \theta $ constante.
+	
+	
+	
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
 	
