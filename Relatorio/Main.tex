@@ -282,12 +282,12 @@
 	
 	Considerando como \gls{s:desloc-elemento} o deslocamento de uma massa \gls{s:massa-elemento} e seja \gls{s:forca-elemento} a força nela aplicada, a energia de deformação \gls{s:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com $ n $ graus de liberdade é dada por \cite{rao:2008}
 	\begin{equation}
-		V_i = \frac{1}{2}F_i x_i
+		\gls{s:energ-pot-elem} = \frac{1}{2}F_i x_i
 	\end{equation}
 	
 	A energia potencial total \gls{s:energ-pot-total} é, então
 	\begin{equation} \label{eqn:discr:energia:deformacao}
-		V = \sum_{i-1}^{n}V_i = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
+		\gls{s:energ-pot-total} = \sum_{i-1}^{n}\gls{s:energ-pot-elem} = \frac{1}{2}\sum_{i-1}^{n}F_i x_i
 	\end{equation}
 	
 	Fazendo a substituição
@@ -296,21 +296,21 @@
 	\end{equation}
 	onde \gls{s:coef-rigidez} representa o coeficiente de rigidez da i-ésima linha e j-ésima coluna na matriz de rigidez da Equação \ref{eqn:matr:rigid}, a Equação \ref{eqn:discr:energia:deformacao} fornece
 	\begin{equation}
-		V = \frac{1}{2}\sum_{i=1}^{n}\left(\sum_{j=1}^{n}k_{ij} x_j\right)x_i = \frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}k_{ij} x_i x_j
+		\gls{s:energ-pot-total} = \frac{1}{2}\sum_{i=1}^{n}\left(\sum_{j=1}^{n}k_{ij} x_j\right)x_i = \frac{1}{2}\sum_{i=1}^{n}\sum_{j=1}^{n}k_{ij} x_i x_j
 	\end{equation}
 	que pode ser expressa na forma matricial como
 	\begin{equation}
-		V = \frac{1}{2}\vec{x}^T [k] \vec{x}
+		\gls{s:energ-pot-total} = \frac{1}{2}\vec{x}^T [k] \vec{x}
 	\end{equation}
 	de modo que \gls{s:matriz-rigidez} e \gls{s:vetor-desloc} denotam respectivamente a matriz de rigidez da Equação \ref{eqn:matr:rigid} e o vetor de deslocamentos da Equação \ref{eqn:vetores}.
 	
 	Para a mesma massa \gls{s:massa-elemento}, a energia cinética associada é denotada por \gls{s:energ-cin-elem} e definida como \cite{rao:2008}
 	\begin{equation}
-		K_i = \frac{1}{2}m_i\dot{x}_i^2
+		\gls{s:energ-cin-elem} = \frac{1}{2}m_i\dot{x}_i^2
 	\end{equation}
 	e, de maneira análoga à Equação \ref{eqn:discr:energia:deformacao}, a energia cinética total do sistema, \gls{s:energ-cin-total}, é obtida realizando o somatório para todos os $ n $ elementos, resultando em \cite{savi:2017}
 	\begin{equation}\label{eqn:discr:energia:cinetica}
-		K = \frac{1}{2}\dot{\vec{x}^T}[m_d]\dot{\vec{x}}
+		\gls{s:energ-cin-total} = \frac{1}{2}\dot{\vec{x}^T}[m_d]\dot{\vec{x}}
 	\end{equation}
 	onde \gls{s:vetor-vel} corresponde ao vetor de velocidades da Equação \ref{eqn:vetores} e \gls{s:matriz-massa-diag} é uma matriz de massa diagonal
 	\begin{equation}
@@ -332,7 +332,7 @@
 	\end{equation}
 	então essa mesma expressão pode ser enunciada como \cite{rao:2008}
 	\begin{equation}
-		K = \frac{1}{2}\dot{\vec{q}^T}[m]\dot{\vec{q}}
+		\gls{s:energ-cin-total} = \frac{1}{2}\dot{\vec{q}^T}[m]\dot{\vec{q}}
 	\end{equation}
 	sendo agora \gls{s:matriz-massa} a matriz de massa da Equação \ref{eqn:matr:massa}.
 	
@@ -342,7 +342,7 @@
 	\end{equation}
 	onde \gls{s:lagrangiano} é o lagrangiano
 	\begin{equation}
-		L = K-V
+		\gls{s:lagrangiano} = \gls{s:energ-cin-total}-\gls{s:energ-pot-total}
 	\end{equation}
 	e \gls{s:forca-naoconserv} é a força generalizada não-conservativa correspondente à coordenada generalizada \gls{s:coord-general} Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
 	
@@ -536,20 +536,20 @@
 	\subsection{Frequências características}
 	Para a modelagem e análise da vibração de um rolamento com defeito pontual, um conjunto de frequências características é definido. Considerando, de maneira mais genérica, que ambos os anéis estejam girando e sejam $ \gls{s:freq-rad}_i $ e $ \gls{s:freq-rad}_e $ as velocidades angulares dos anéis interno e externo do rolamento respectivamente, definem-se as frequências \cite{sassi:2007}
 	\begin{align}
-		\gls{s:freq-rol-gaiola} &= \frac{1}{2}\cdot\left[ \omega_i\left(1-\frac{D_b\,\cos\alpha}{D_p} \right) + \omega_o\left(1+\frac{D_b\cos\alpha}{D_p} \right) \right] \label{eqn:rol:ftf}\\
-		\gls{s:freq-rol-def-out} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{D_b\cos\alpha}{D_p} \right) \label{eqn:rol:bpfo}\\
-		\gls{s:freq-rol-def-in} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1+\frac{D_b\cos\alpha}{D_p} \right) \label{eqn:rol:bpfi}\\
-		\gls{s:freq-rol-esfera} &= \frac{D_p}{2\,D_b}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{D_b^2\cos^2\alpha}{D_p^2} \right) \label{eqn:rol:bsf}
+		\gls{s:freq-rol-gaiola} &= \frac{1}{2}\cdot\left[ \omega_i\left(1-\frac{\gls{s:rol-diam-esferas}\,\cos\alpha}{\gls{s:rol-diam-espec}} \right) + \omega_o\left(1+\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \right] \label{eqn:rol:ftf}\\
+		\gls{s:freq-rol-def-out} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \label{eqn:rol:bpfo}\\
+		\gls{s:freq-rol-def-in} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1+\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \label{eqn:rol:bpfi}\\
+		\gls{s:freq-rol-esfera} &= \frac{\gls{s:rol-diam-espec}}{2\,\gls{s:rol-diam-esferas}}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}^2\cos^2\alpha}{\gls{s:rol-diam-espec}^2} \right) \label{eqn:rol:bsf}
 	\end{align}
-	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, $ \gls{s:diametro}_b $ indica o diâmetro das esferas, e $ \gls{s:diametro}_p $ é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
+	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
 	
 	\subsection{Força de impacto}
-	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, essa força é influenciada pelo carregamento estático, por uma componente dinâmica, e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
+	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, essa força é influenciada pelo carregamento estático e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
 	
 	\subsubsection{Carregamento externo}
 	Esteja o rolamento esteja sujeito a uma força $ \vec{\gls{s:forca}} $ definida como \[ \vec{F}=F_a\,\gls{s:vetor-unitario-x} + F_r\,\gls{s:vetor-unitario-y} \] onde $ F_a $ e $ F_r $ são os módulos das componentes axial e radial da força, respectivamente. Isso provoca um deslocamento relativo $ \vec{\mathit{d}} $ entre o anel interno e externo que pode ser expresso como \[ \vec{\mathit{d}} = \mathit{d}_a\,\gls{s:vetor-unitario-x}+\mathit{d}_r\,\gls{s:vetor-unitario-y} \] sendo que $ \mathit{d}_a $ e $ \mathit{d}_r $ correspondem, analogamente, às partes axial e radial do deslocamento \cite{sassi:2007}. 
 	
-	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i=0 \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}. Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
+	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i=0 \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}. Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ neste elemento é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
 	\begin{equation} \label{eqn:rol:carregamento}
 		\gls{s:carregamento}_i =
 		\begin{cases}
@@ -562,10 +562,26 @@
 		\gls{s:rol-fator-dist-carga} = \frac{1}{2}\cdot\left[1+\frac{\mathit{d}_a}{\mathit{d}_r} \tan\gls{s:rol-angulo-contato} \right]
 	\end{equation}
 	
-	\begin{figure}[b]
+	\begin{figure}[t]
 		\incluirimagem{CarregamentoRolamento.png}{Distribuição do carregamento externo em um rolamento de esferas}{adaptado de \citeauthoronline{sassi:2007} (\citeyear{sassi:2007})}
 		\label{fig:carregamento-rolamento}
 	\end{figure}
+
+	\subsubsection{Componente dinâmica}
+	As referências \cite{mcfadden:1984,tandon:1997} definem a amplitude da força de impacto como sendo dependente somente do carregamento estático \gls{s:carregamento}. No modelo proposto na referência \cite{sassi:2007}, por outro lado, a força total de impacto é a soma de \gls{s:carregamento} com uma componente dinâmica $ \gls{s:forca}_D $, descrita por
+	\begin{equation}
+		\gls{s:forca}_D = \gls{s:carregamento}\cdot\gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2
+	\end{equation}
+	onde \gls{s:rol-comp-defeito} é o comprimento do defeito e \gls{s:rol-coef-impacto} é um coeficiente de impacto que depende tanto do material como da geometria do rolamento.
+	
+	Incluindo a componente dinâmica, a força total de impacto $ \gls{s:forca}_T $ resulta em
+	\begin{equation}
+		F_T = \gls{s:carregamento}\left[1 + \gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2 \right]
+	\end{equation}
+	de modo que o carregamento \gls{s:carregamento} é definido na Equação \ref{eqn:rol:carregamento}.
+	
+	\subsubsection{Impactos pulsados}
+	
 
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
