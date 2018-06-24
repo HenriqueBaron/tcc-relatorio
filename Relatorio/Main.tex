@@ -544,18 +544,22 @@
 	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, $ \gls{s:diametro}_b $ indica o diâmetro das esferas, e $ \gls{s:diametro}_p $ é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
 	
 	\subsection{Força de impacto}
-	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, a força de impacto é influenciada pelo carregamento estático, por uma componente dinâmica, e pelo momento da passagem dos elementos rolantes pelo defeito, que pode ser definido como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou um pulso de duração finita \cite{tandon:1997}.
+	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, essa força é influenciada pelo carregamento estático, por uma componente dinâmica, e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
 	
 	\subsubsection{Carregamento externo}
 	Esteja o rolamento esteja sujeito a uma força $ \vec{\gls{s:forca}} $ definida como \[ \vec{F}=F_a\,\gls{s:vetor-unitario-x} + F_r\,\gls{s:vetor-unitario-y} \] onde $ F_a $ e $ F_r $ são os módulos das componentes axial e radial da força, respectivamente. Isso provoca um deslocamento relativo $ \vec{\mathit{d}} $ entre o anel interno e externo que pode ser expresso como \[ \vec{\mathit{d}} = \mathit{d}_a\,\gls{s:vetor-unitario-x}+\mathit{d}_r\,\gls{s:vetor-unitario-y} \] sendo que $ \mathit{d}_a $ e $ \mathit{d}_r $ correspondem, analogamente, às partes axial e radial do deslocamento \cite{sassi:2007}. 
 	
-	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}. Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
+	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i=0 \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}. Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
 	\begin{equation} \label{eqn:rol:carregamento}
 		\gls{s:carregamento}_i =
 		\begin{cases}
 			\gls{s:carregamento}_{max}\,[1-(1/2\gls{s:rol-fator-dist-carga})(1-\cos\gls{s:rol-angulo-carregamento})]^n, & -\Psi_m\leq\gls{s:rol-angulo-carregamento}\leq\Psi_m \\
 			0, & \mbox{outras posições}
 		\end{cases}
+	\end{equation}
+	onde o intervalo $ [-\gls{s:rol-angulo-carregamento},\gls{s:rol-angulo-carregamento}] $ é a extensão da zona de carga -- representada em verde na Figura \ref{fig:carregamento-rolamento} -- e o expoente $ n $ vale $ 3/2 $ para rolamentos de esferas e $ 10/9 $ para rolamentos de rolos \cite{tandon:1997}. O termo \gls{s:rol-fator-dist-carga} é o fator de distribuição de carga, que pode ser obtido por \cite{sassi:2007}
+	\begin{equation}
+		\gls{s:rol-fator-dist-carga} = \frac{1}{2}\cdot\left[1+\frac{\mathit{d}_a}{\mathit{d}_r} \tan\gls{s:rol-angulo-contato} \right]
 	\end{equation}
 	
 	\begin{figure}[b]
