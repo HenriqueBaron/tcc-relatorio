@@ -101,7 +101,7 @@
 	\section{Análise harmônica}
 	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}. Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
 	\begin{equation}
-		g(t) = a\ cos\,\omega t + b\ sen\,\omega t
+		g(t) = a\cos\omega t + b\sin\omega t
 	\end{equation}
 	onde \gls{s:funcao-tempo} indica a posição ou deslocamento, \gls{s:freq-rad} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
@@ -110,7 +110,7 @@
 	\subsection{Série de Fourier} \label{sec:fourier:serie}
 	Seja \gls{s:funcao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
-		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\ cos\,n\omega t + b_n\ sen\,n\omega t \right)
+		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos n\omega t + b_n\sin n\omega t \right)
 	\end{equation}
 	sendo a frequência \gls{s:freq-rad} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:periodo}
@@ -119,15 +119,15 @@
 	e os coeficientes \glspl{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
 		a_0 &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ dt \notag\\
-		a_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ cos\,n\omega t\ dt \\
-		b_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ sen\,n\omega t\ dt \notag
+		a_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\cos n\omega t\ dt \\
+		b_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\sin n\omega t\ dt \notag
 	\end{align}
 	
 	Embora seja possível a discussão sobre a convergência da série Fourier na Equação \ref{eqn:fourier:serie} para uma função \gls{s:funcao-tempo}, isso não é tratado aqui, visto que as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral \cite{spiegel:1977}.
 	
 	Utilizando as identidades de Euler
 	\begin{equation}\label{eqn:fourier:ident-euler}
-		e^{i\omega} = cos\,\omega + i\ sen\,\omega\, , \quad e^{-i\omega} = cos\,\omega - i\ sen\,\omega
+		e^{i\omega} = cos\,\omega + i\sin\omega\, , \quad e^{-i\omega} = cos\,\omega - i\sin\omega
 	\end{equation}
 	a série de Fourier da Equação \ref{eqn:fourier:serie} também pode ser representada na sua forma complexa como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie-compl}
@@ -139,7 +139,7 @@
 	\end{equation}
 	
 	\subsection{Representação no domínio da frequência} \label{sec:espectros-frequencia}
-	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ g(t) = sen\,2\pi t + 0,\!7\:cos\,4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação \ref{eqn:fourier:coefs-compl} um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq-rad} utilizada na Equação \ref{eqn:fourier:coefs-compl}, e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
+	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ g(t) = \sin2\pi t + 0,\!7\cos4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação \ref{eqn:fourier:coefs-compl} um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq-rad} utilizada na Equação \ref{eqn:fourier:coefs-compl}, e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
 	\begin{figure}[b]
 		\incluirimagem{FourierFuncao.png}{Função periódica no domínio do tempo}{o autor (\thedate)}
 		\label{fig:funcao-periodica}
@@ -158,12 +158,12 @@
 	\subsection{Integral de Fourier}
 	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:integral}
-		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\:cos\,\omega t + b_\omega\:sen\,\omega t\right\rbrace\, d\omega
+		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\cos\omega t + b_\omega\:\sin\omega t\right\rbrace\, d\omega
 	\end{equation}
 	tal que os coeficientes \glspl{s:coef-fourier-int} são determinados por
 	\begin{align}
-		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ cos\,\omega t\ dt \notag\\
-		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\ sen\,\omega t\ dt
+		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\cos\omega t\ dt \notag\\
+		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\sin\omega t\ dt
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
@@ -361,10 +361,10 @@
 	
 	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{s:forca} e da componente vertical da força de tração \gls{s:tensao-corda} \cite{rao:2008}. A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
 	\begin{equation} \label{eqn:cont:balanco}
-		(P + dP)\;sen(\theta + d\theta) + F\:dx - P\;sen\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
+		(P + dP)\;\sin(\theta + d\theta) + F\:dx - P\;\sin\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[sen\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[sen(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação \ref{eqn:cont:balanco} para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[\sin\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[\sin(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação \ref{eqn:cont:balanco} para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
 	
 	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
 	\begin{align}
@@ -403,17 +403,17 @@
 %	
 %	Para a equação diferencial de $T(t)$, a solução é uma oscilação harmônica simples 
 %	\begin{equation} \label{eqn:cont:sep-T}
-%		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
+%		T(t) = \mathit{A}\cos\omega_n t + \mathit{B}\,\sin\omega_n t
 %	\end{equation}
 %	com as constantes $ A $ e $ B $ para a devida solução particular. Para a função $W(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
 %	\begin{equation} \label{eqn:cont:sep-W}
-%		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
+%		W(x) = C_1\:\sin\beta x + C_2\cos\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
 %	\end{equation}
 %	onde as constantes $ C_1, C_2, C_3 $ e $ C_4 $ definem a respectiva solução particular.
 %	
 %	Visto que solução total de cada uma das Equações \ref{eqn:cont:sep-T} e \ref{eqn:cont:sep-W} é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
 %	\begin{equation}
-%		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(\mathit{A}_i\,cos\,\omega_{ni} t + \mathit{B}_i\,sen\,\omega_{ni} t)
+%		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(\mathit{A}_i\cos\omega_{ni} t + \mathit{B}_i\,\sin\omega_{ni} t)
 %	\end{equation}
 %	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e $ \omega_{ni} $, por conseguinte, a respectiva frequência natural.
 	
@@ -444,12 +444,12 @@
 	\end{equation}
 	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido como \cite{rao:2008}
 	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
-		\vec{R} = (x + \mathit{e}\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \mathit{e}\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
+		\vec{R} = (x + \mathit{e}\cos\omega t)\gls{s:vetor-unitario-x} + (y + \mathit{e}\sin\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
 	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $. Calculando a segunda derivada da Equação \ref{eqn:rotores:vetor-centro-massa} e substituindo na Equação \ref{eqn:rotores:forca-inercia} fornece
 	\begin{equation} \label{eqn:rotres:forca-inercia}
-		\vec{F}_i = m\left[ (\ddot{x} - \mathit{e}\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
-		(\ddot{y} - \mathit{e}\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
+		\vec{F}_i = m\left[ (\ddot{x} - \mathit{e}\omega^2\,\cos\omega t)\gls{s:vetor-unitario-x} +
+		(\ddot{y} - \mathit{e}\omega^2\,\sin\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
 	
 	A força elástica relativa à rigidez do eixo \gls{s:rigidez} resulta em \cite{rao:2008}
@@ -482,8 +482,8 @@
 	
 	Finalmente, substituindo as Equações \ref{eqn:rotores:forca-inercia} a \ref{eqn:rotores:forca-amort-externo} na Equação \ref{eqn:rotores:forcas} obtêm-se as equações de movimento \cite{rao:2008}
 	\begin{align}
-		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\mathit{e}\ cos\,\omega t \\
-		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\mathit{e}\ sen\,\omega t
+		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\mathit{e}\cos\omega t \\
+		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\mathit{e}\sin\omega t
 	\end{align}
 	ou, definindo para o deslocamento \gls{s:desloc-elastico} um número complexo de modo que \[ w = x + iy \] chega-se à equação combinada
 	\begin{equation}\label{eqn:rotores:resposta-rodopio}
@@ -514,7 +514,7 @@
 	\end{equation}
 	e rearranjando a Equação \ref{eqn:rotores:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
 	\begin{equation}
-		x(t) = \frac{\mathit{e}\omega}{2}\ t\ sen\,\omega t
+		x(t) = \frac{\mathit{e}\omega}{2}\ t\sin\omega t
 	\end{equation}
 	
 	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a constatação em \cite{rao:2008}, de que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
