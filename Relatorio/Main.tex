@@ -423,14 +423,14 @@
 	\subsection{Rodopio de eixos}
 	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível. O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}. O efeito de rodopio -- também chamado de \foreignlanguage{english}{whirling}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
 	\begin{figure}[b]
-		\incluirimagem[0.15]{WhirlEixo.png}{Eixo em rodopio}{\citeauthor{dimarogonas:1995}}
+		\incluirimagem[0.15]{WhirlEixo.png}{Eixo em rodopio}{\citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:whirl-eixo}
 	\end{figure}
 
 	\subsubsection{Equações de movimento}
 	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância \gls{s:excentricidade} do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[h]
-		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthor{rao:2008}}
+		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthoronline{rao:2008} (\citeyear{rao:2008})}
 		\label{fig:rotor-excentrico}
 	\end{figure}
 	
@@ -444,12 +444,12 @@
 	\end{equation}
 	onde o vetor $ \vec{R} $ indica a posição do centro de massa $ \mathit{G} $ em relação à origem $ \mathit{O} $, sendo então definido como \cite{rao:2008}
 	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
-		\vec{R} = (x + \varepsilon\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \varepsilon\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
+		\vec{R} = (x + \mathit{e}\ cos\,\omega t)\gls{s:vetor-unitario-x} + (y + \mathit{e}\ sen\,sen\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
 	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $. Calculando a segunda derivada da Equação \ref{eqn:rotores:vetor-centro-massa} e substituindo na Equação \ref{eqn:rotores:forca-inercia} fornece
 	\begin{equation} \label{eqn:rotres:forca-inercia}
-		\vec{F}_i = m\left[ (\ddot{x} - \varepsilon\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
-		(\ddot{y} - \varepsilon\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
+		\vec{F}_i = m\left[ (\ddot{x} - \mathit{e}\omega^2\,cos\,\omega t)\gls{s:vetor-unitario-x} +
+		(\ddot{y} - \mathit{e}\omega^2\,sen\,\omega t)\gls{s:vetor-unitario-y} \right]
 	\end{equation}
 	
 	A força elástica relativa à rigidez do eixo \gls{s:rigidez} resulta em \cite{rao:2008}
@@ -466,7 +466,7 @@
 	
 	O amortecimento histerético, por outro lado, é relacionado às características do material. A imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material \cite{dimarogonas:1995}. 
 	\begin{figure}[b]
-		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthor{dimarogonas:1995}}
+		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:histerese}
 	\end{figure}
 
@@ -482,12 +482,12 @@
 	
 	Finalmente, substituindo as Equações \ref{eqn:rotores:forca-inercia} a \ref{eqn:rotores:forca-amort-externo} na Equação \ref{eqn:rotores:forcas} obtêm-se as equações de movimento \cite{rao:2008}
 	\begin{align}
-		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\varepsilon\ cos\,\omega t \\
-		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\varepsilon\ sen\,\omega t
+		m\ddot{x} + (c_i + c)\dot{x} + kx - c_i\omega y &= m\omega^2\mathit{e}\ cos\,\omega t \\
+		m\ddot{y} + (c_i + c)\dot{y} + ky - c_i\omega x &= m\omega^2\mathit{e}\ sen\,\omega t
 	\end{align}
 	ou, definindo para o deslocamento \gls{s:desloc-elastico} um número complexo de modo que \[ w = x + iy \] chega-se à equação combinada
 	\begin{equation}\label{eqn:rotores:resposta-rodopio}
-		m\ddot{w} + (c_i + c)\dot{w} + kw - i\omega c_i w = m\omega^2 \varepsilon e^{i\omega t}
+		m\ddot{w} + (c_i + c)\dot{w} + kw - i\omega c_i w = m\omega^2 \mathit{e}\ e^{i\omega t}
 	\end{equation}
 	
 	\subsubsection{Velocidades críticas}
@@ -505,21 +505,21 @@
 	
 	Cabe observar que a razão $ u(m_e/m) $ é equivalente à excentricidade \gls{s:excentricidade} do centro de massa exibida na Figura \ref{fig:rotor-excentrico} e nas equações seguintes, de modo que
 	\begin{equation}
-		\varepsilon = \frac{m_e u}{m}
+		\mathit{e} = \frac{m_e u}{m}
 	\end{equation}
 	
 	Pode-se perceber na Equação \ref{eqn:rotores:orbita-rodopio} que, quando a velocidade de rotação \gls{s:freq-rad} se iguala à frequência natural \gls{s:freq-natural} o raio $ r $ tende ao infinito. Isso comprova a definição de uma velocidade crítica como equivalente à frequência natural. Embora isso sugira que a rotação na velocidade crítica promova amplitudes de vibração muito altas, isso não é necessariamente verdade \cite{dimarogonas:1995}. Considerando a solução na direção $ x $ para o rodopio do eixo como \cite{dimarogonas:1995}
 	\begin{equation}
-		x(t) = \frac{m\varepsilon\omega^2}{k-m\omega^2}\,(cos\,\omega t - cos\,\omega_n t)
+		x(t) = \frac{m\mathit{e}\omega^2}{k-m\omega^2}\,(cos\,\omega t - cos\,\omega_n t)
 	\end{equation}
 	e rearranjando a Equação \ref{eqn:rotores:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
 	\begin{equation}
-		x(t) = \frac{\varepsilon\omega}{2}\ t\ sen\,\omega t
+		x(t) = \frac{\mathit{e}\omega}{2}\ t\ sen\,\omega t
 	\end{equation}
 	
 	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a constatação em \cite{rao:2008}, de que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
 	\begin{figure}
-		\incluirimagem{AceleracaoVelCritica.png}{Passagem de um eixo pela velocidade crítica}{adaptado de \citeauthor{dimarogonas:1995}}
+		\incluirimagem{AceleracaoVelCritica.png}{Passagem de um eixo pela velocidade crítica}{adaptado de \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:aceleracao-vel-critica}
 	\end{figure}
 
@@ -542,6 +542,12 @@
 		\gls{s:freq-rol-esfera} &= \frac{D_p}{2\,D_b}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{D_b^2\cos^2\alpha}{D_p^2} \right) \label{eqn:rol:bsf}
 	\end{align}
 	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, $ \gls{s:diametro}_b $ indica o diâmetro das esferas, e $ \gls{s:diametro}_p $ é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
+	
+	\subsection{Força de impacto}
+	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, a força de impacto é influenciada pelo carregamento estático, por uma componente dinâmica, e pelo momento da passagem dos elementos rolantes pelo defeito, que pode ser definido como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou um pulso de duração finita \cite{tandon:1997}.
+	
+	\subsubsection{Carregamento externo}
+	
 
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
