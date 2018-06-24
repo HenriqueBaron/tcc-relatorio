@@ -374,48 +374,48 @@
 	
 	A Equação \ref{eqn:cont:onda} também é conhecida como equação de onda. 
 	
-	\subsection{Vibração de vigas} \label{sec:vigas}
-	Aqui, o conceito apresentado no item \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-elastico} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação \ref{eqn:cont:onda}, no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
-	\begin{equation}
-		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
-	\end{equation}		
-	\begin{figure}[t]
-		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{adaptado de \citeauthoronline{timoshenko:1974} (\citeyear{timoshenko:1974})}
-		\label{fig:elemento-viga}
-	\end{figure}
-
-	A Equação \ref{eqn:cont:onda} pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{s:desloc-elastico}$(x,t)$ é descrito como
-	\begin{equation} \label{eqn:cont:sep-variaveis}
-		w(x,t) = W(x)\cdot T(t)
-	\end{equation}
-	que mostra que $ W $ é uma função dependente somente da posição em $x$ e $ T $ depende unicamente do tempo \gls{s:tempo}.
-	
-	Substituindo a Equação \ref{eqn:cont:sep-variaveis} na Equação \ref{eqn:cont:onda} e rearranjando os termos, obtém-se
-	\begin{equation} \label{eqn:cont:geral-vigas}
-		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\mathit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
-	\end{equation}
-	o que permite \cite{clark:1972} igualar cada parte da equação a uma constante, de modo que
-	\begin{align*}
-		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega_n^2 \\
-		\frac{\mathit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
-	\end{align*}
-	onde a constante \gls{s:freq-natural} acrescentada é a frequência natural. 
-	
-	Para a equação diferencial de $T(t)$, a solução é uma oscilação harmônica simples 
-	\begin{equation} \label{eqn:cont:sep-T}
-		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
-	\end{equation}
-	com as constantes $ A $ e $ B $ para a devida solução particular. Para a função $W(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
-	\begin{equation} \label{eqn:cont:sep-W}
-		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
-	\end{equation}
-	onde as constantes $ C_1, C_2, C_3 $ e $ C_4 $ definem a respectiva solução particular.
-	
-	Visto que solução total de cada uma das Equações \ref{eqn:cont:sep-T} e \ref{eqn:cont:sep-W} é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
-	\begin{equation}
-		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(\mathit{A}_i\,cos\,\omega_{ni} t + \mathit{B}_i\,sen\,\omega_{ni} t)
-	\end{equation}
-	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e $ \omega_{ni} $, por conseguinte, a respectiva frequência natural.
+%	\subsection{Vibração de vigas} \label{sec:vigas}
+%	Aqui, o conceito apresentado no item \ref{desenv:cont:eqn-geral} será empregado na determinação da vibração de vigas elásticas. Considera-se a viga como um elemento estrutural com um módulo de elasticidade \gls{s:modulo-elast} e momento de inércia de área \gls{s:segundo-momento-area}, que vibra com deslocamento \gls{s:desloc-elastico} na direção vertical $z$. Diferentemente da vibração de uma corda, que não possui rigidez de flexão, para a viga a rigidez $EI$ deve ser considerada \cite{timoshenko:1974}. Seja uma viga sujeita a um momento fletor \gls{s:momento-fletor} e a uma força de cisalhamento \gls{s:forca-cisalhamento}, conforme mostra o elemento infinitesimal da Figura \ref{fig:elemento-viga}. É possível mostrar que a vibração livre de uma viga de massa linear específica \gls{s:massa-espec} e área de seção transversal \gls{s:area} constantes também obedece à Equação \ref{eqn:cont:onda}, no entanto, com a velocidade de propagação da onda \gls{s:constante-onda} valendo \cite{rao:2008}
+%	\begin{equation}
+%		\mathit{c} = \sqrt{\frac{EI}{\rho A}}
+%	\end{equation}		
+%	\begin{figure}[t]
+%		\incluirimagem{ElementoViga.png}{Elemento de viga em flexão}{adaptado de \citeauthoronline{timoshenko:1974} (\citeyear{timoshenko:1974})}
+%		\label{fig:elemento-viga}
+%	\end{figure}
+%
+%	A Equação \ref{eqn:cont:onda} pode ser resolvida pelo método da separação de variáveis \cite{clark:1972}, de modo que o deslocamento \gls{s:desloc-elastico}$(x,t)$ é descrito como
+%	\begin{equation} \label{eqn:cont:sep-variaveis}
+%		w(x,t) = W(x)\cdot T(t)
+%	\end{equation}
+%	que mostra que $ W $ é uma função dependente somente da posição em $x$ e $ T $ depende unicamente do tempo \gls{s:tempo}.
+%	
+%	Substituindo a Equação \ref{eqn:cont:sep-variaveis} na Equação \ref{eqn:cont:onda} e rearranjando os termos, obtém-se
+%	\begin{equation} \label{eqn:cont:geral-vigas}
+%		\frac{1}{T}\,\frac{d^2T}{dt^2} + \frac{\mathit{c}^2}{X}\,\frac{d^4W}{dx^4} = 0
+%	\end{equation}
+%	o que permite \cite{clark:1972} igualar cada parte da equação a uma constante, de modo que
+%	\begin{align*}
+%		\frac{1}{T}\,\frac{d^2T}{dt^2} = -\omega_n^2 \\
+%		\frac{\mathit{c}^2}{W}\,\frac{d^4W}{dx^2} = \omega_n^2
+%	\end{align*}
+%	onde a constante \gls{s:freq-natural} acrescentada é a frequência natural. 
+%	
+%	Para a equação diferencial de $T(t)$, a solução é uma oscilação harmônica simples 
+%	\begin{equation} \label{eqn:cont:sep-T}
+%		T(t) = \mathit{A}\,cos\,\omega_n t + \mathit{B}\,sen\,\omega_n t
+%	\end{equation}
+%	com as constantes $ A $ e $ B $ para a devida solução particular. Para a função $W(x)$, pode-se reescrever como \[\frac{d^4W}{dx^4} = \beta^4W \] definindo a constante $\beta$ que vale \[\beta^4 = \frac{\omega_n^2}{\mathit{c}^2} \] e obtendo para esta equação diferencial uma solução da forma
+%	\begin{equation} \label{eqn:cont:sep-W}
+%		W(x) = C_1\:sen\,\beta x + C_2\:cos\,\beta x + C_3\:senh\,\beta x + C_4\:cosh\,\beta x
+%	\end{equation}
+%	onde as constantes $ C_1, C_2, C_3 $ e $ C_4 $ definem a respectiva solução particular.
+%	
+%	Visto que solução total de cada uma das Equações \ref{eqn:cont:sep-T} e \ref{eqn:cont:sep-W} é a soma de todas as combinações lineares possíveis das soluções de cada equação \cite{boyce:2017}, segue que a equação que rege o movimento pode ser definida como a série infinita \cite{clark:1972}
+%	\begin{equation}
+%		w(x,t) = \sum_{i=1}^{\infty}w_i(x,t) = \sum_{i=1}^{\infty}W_i(x)(\mathit{A}_i\,cos\,\omega_{ni} t + \mathit{B}_i\,sen\,\omega_{ni} t)
+%	\end{equation}
+%	onde o índice $i$ representa o $i$-ésimo modo normal de vibração e $ \omega_{ni} $, por conseguinte, a respectiva frequência natural.
 	
 	\section{Dinâmica de rotores}
 	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
