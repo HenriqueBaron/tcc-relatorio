@@ -421,7 +421,7 @@
 	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
 
 	\subsection{Rodopio de eixos}
-	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível. O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}. O efeito de rodopio -- também chamado de \foreignlanguage{english}{\emph{whirling}}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
+	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível. O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}. O efeito de rodopio -- também chamado de \foreignlanguage{english}{whirling}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
 	\begin{figure}[b]
 		\incluirimagem[0.15]{WhirlEixo.png}{Eixo em rodopio}{\citeauthor{dimarogonas:1995}}
 		\label{fig:whirl-eixo}
@@ -533,8 +533,15 @@
 	
 	Nas seções seguintes, uma síntese dos métodos utilizados nas diferentes abordagens é apresentada, considerando tanto suas similaridades como as diferenças entre cada metodologia de modelagem.
 	
-	\subsection{Cinemática}
-	
+	\subsection{Frequências características}
+	Para a modelagem e análise da vibração de um rolamento com defeito pontual, um conjunto de frequências características é definido. Considerando, de maneira mais genérica, que ambos os anéis estejam girando e sejam $ \gls{s:freq-rad}_i $ e $ \gls{s:freq-rad}_e $ as velocidades angulares dos anéis interno e externo do rolamento respectivamente, definem-se as frequências \cite{sassi:2007}
+	\begin{align}
+		\gls{s:freq-rol-gaiola} &= \frac{1}{2}\cdot\left[ \omega_i\left(1-\frac{D_b\,\cos\alpha}{D_p} \right) + \omega_o\left(1+\frac{D_b\cos\alpha}{D_p} \right) \right] \label{eqn:rol:ftf}\\
+		\gls{s:freq-rol-def-out} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{D_b\cos\alpha}{D_p} \right) \label{eqn:rol:bpfo}\\
+		\gls{s:freq-rol-def-in} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1+\frac{D_b\cos\alpha}{D_p} \right) \label{eqn:rol:bpfi}\\
+		\gls{s:freq-rol-esfera} &= \frac{D_p}{2\,D_b}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{D_b^2\cos^2\alpha}{D_p^2} \right) \label{eqn:rol:bsf}
+	\end{align}
+	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, $ \gls{s:diametro}_b $ indica o diâmetro das esferas, e $ \gls{s:diametro}_p $ é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
 
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
