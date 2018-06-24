@@ -200,6 +200,10 @@
 	}%
 }
 
+% Extensão do comanando \foreignlanguage para destacar o conteúdo em língua estrangeira
+\let\foreignlanguageaux\foreignlanguage 
+\renewcommand{\foreignlanguage}[2]{\foreignlanguageaux{#1}{\emph{#2}}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comandos e ambientes específicos deste pacote
 
