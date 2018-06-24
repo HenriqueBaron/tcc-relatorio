@@ -619,7 +619,23 @@
 		\gls{s:rigidez}_I &= m_I(\gls{s:freq-natural}_{,I})^2\\
 		\gls{s:rigidez}_O &= m_O(\gls{s:freq-natural}_{,O})^2
 	\end{align}
-
+	
+	\subsubsection{Modelo dos elementos rolantes}
+	Nas referências \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013} as esferas são tratadas como corpos rígidos. Isso justifica-se pelo fato de serem os elementos de maior rigidez no sistema \cite{sassi:2007}. Uma abordagem alternativa permite, no entanto, considerar a deformação das esferas através da teoria de deformação por contato de Hertz, que relaciona uma força radial $ \gls{s:forca}_r $ com a deformação \gls{s:rol-deform-esfera} como \cite{patil:2010}
+	\begin{equation} \label{eqn:rol:deform-esfera}
+		\gls{s:forca}_r = \gls{s:rol-fator-deform}\gls{s:rol-deform-esfera}^n
+	\end{equation}
+	onde o expoente $ n $ tem os mesmos valores definidos para a Equação \ref{eqn:rol:carregamento} e \gls{s:rol-fator-deform} é o fator carga-deformação, definido como \cite{patil:2010}
+	\begin{equation} \label{eqn:rol:fator-deform}
+		\gls{s:rol-fator-deform} = \left[ \frac{1}{(1/K_I)^{1/n}+(1/K_O)^{1/n}} \right]^n
+	\end{equation}
+	
+	Os parâmetros $ K_I $ e $ K_O $ na Equação \ref{eqn:rol:fator-deform} são, por sua vez, as rigidezes de contato entre a pista e a esfera ou rolo, e podem ser calculados por \cite{patil:2010}
+	\begin{equation}
+		K_p = 2,\!15\cdot 10^5 \left(\sum\varrho\right)^{-1/2}(\zeta^*)^{-3/2}
+	\end{equation}
+	onde $ \sum\varrho $ e $ \zeta^* $ são dependentes da geometria do rolamento.
+	
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
 	
