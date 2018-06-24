@@ -637,7 +637,7 @@
 	onde $ \sum\varrho $ e $ \zeta^* $ são dependentes da geometria do rolamento.
 	
 	\subsection{Transmissão da oscilação}
-	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente. A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do sinal de impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
+	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente. A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
 	
 	\subsubsection{Posição relativa do medidor de vibração}
 	Quando um impulso é provocado no rolamento, frequências de ressonância serão excitadas nele e na máquina em que ele está instalado, permitindo a medição do sinal em um acelerômetro fixado próximo ao componente. Considerando a detecção do transdutor em uma direção, espera-se que a amplitude máxima da vibração medida ocorrerá quando a oscilação ocorrer em paralelamente ao eixo de medição do acelerômetro. Da mesma forma, estima-se que a resposta medida pelo dispositivo será próxima de zero quando o impulso ocorrer em uma direção perpendicular ao eixo o acelerômetro \cite{mcfadden:1984}.
@@ -649,7 +649,33 @@
 	
 	Nessa equação, \gls{s:raio} denota o raio do anel não-deformado. Uma simplificação pode ser feita no caso do anel avaliado ser fixo, o que torna o ângulo $ \theta $ constante.
 	
+	\subsubsection{Decaimento do sinal de impulso}
+	Ao gerar os impulsos, a resposta de vibração do rolamento excitará frequências de ressonância no sistema \cite{cong:2013}. A ressonância provocada por um impulso apresenta-se como uma onda cossenoidal, cuja amplitude sofre um decaimento exponencial como mostra a Figura \ref{fig:decaimento-impulso}, que é expresso por \cite{mcfadden:1984,cong:2013}
+	\begin{equation}
+		\gls{s:func-decaimento}(t) =
+		\begin{cases}
+			\cos(\gls{s:freq-natural}\gls{s:tempo})\,e^{-B\gls{s:tempo}}, & \gls{s:tempo}>0\\
+			0, & \gls{s:tempo}\leq0
+		\end{cases}
+	\end{equation}
+	onde $ B $ é um parâmetro que define a taxa de decaimento da amplitude, e a frequência natural \gls{s:freq-natural} corresponde à frequência natural do modo obtida na Equação \ref{eqn:rol:freq-natural-modo}.
 	
+	\begin{figure}[b]
+		\incluirimagem{DecaimentoImpulso.png}{Decaimento exponencial de um sinal de impulso}{adaptado de \citeauthoronline{cong:2013} (\citeyear{cong:2013})}
+		\label{fig:decaimento-impulso}
+	\end{figure}
+
+	Denotando como $ g(t) $ a reposta de vibração do sistema com o produto das funções definidas até o momento, isto é:
+	\begin{enumerate}
+		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
+		\item a força total de impacto, $ \gls{s:forca}_T $;
+		\item a função de impulsos provocada pela passagem nos defeitos, \gls{s:func-impulso}; e
+		\item a amplitude máxima de acordo com a posição do transdutor, \gls{s:rol-amplitude-sensor};
+	\end{enumerate}
+	pode-se obter o sinal efetivo recebido pelo transdutor ao realizar a convolução entre este produto e a função \gls{s:func-decaimento} \cite{mcfadden:1984,cong:2013}
+	\begin{equation}
+		\gls{s:funcao-tempo} = [\gls{s:forca}_T(t)\cdot \gls{s:func-impulso}(t)\cdot \gls{s:rol-amplitude-sensor}(t)]\ast\gls{s:func-decaimento}(t)
+	\end{equation}
 	
 	\chapter{Proposta}
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
