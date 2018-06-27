@@ -5,11 +5,9 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{abntucs}
-\RequirePackage{caption}
-\captionsetup{skip=6pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verificação do compilador utilizado
-\usepackage{ifluatex}
+\RequirePackage{ifluatex}
 \ifluatex
 	% Se o documento está sendo compilado com LuaLaTeX, altera-se a fonte do modo matemático para ser igual à fonte do texto, e não ser em itálico.
 	\usepackage[math-style=upright]{unicode-math}
@@ -22,25 +20,63 @@
 \let\su@ExpandTwoArgs\relax 
 \let\IfSubStringInString\relax 
 \let\su@IfSubStringInString\relax
-\usepackage[top=3cm,left=3cm,bottom=2cm,right=2cm]{geometry} % Redefine e corrige as margens da página
+
+\RequirePackage{caption}
+
+\PassOptionsToPackage{top=3cm,left=3cm,bottom=2cm,right=2cm}{geometry}
+\RequirePackage{geometry} % Redefine e corrige as margens da página
 \flushbottom % Garante que o LaTeX utilize a margem inferior e faça o conteúdo se estender até ela
-\usepackage[record,toc=false,nonumberlist,style=long,acronyms,symbols]{glossaries-extra} % Criação da lista de símbolos
+
+\PassOptionsToPackage{record,toc=false,nonumberlist,style=long,acronyms,symbols}{glossaries-extra}
+\RequirePackage{glossaries-extra} % Criação da lista de símbolos
 \setabbreviationstyle[acronym]{long-short} % Define o estilo de exibição (no texto) das siglas em português
 \setabbreviationstyle[foreignabbreviation]{long-short-user} % Define o estilo de exibição (no texto) das siglas em outros idiomas.
-\setlength{\glsdescwidth}{\linewidth} % Ajusta a largura da tabela interna da lista de símbolos
-\usepackage{etoolbox} % Recursos de programação para LaTeX
-\usepackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
-\usepackage[absolute]{textpos} % Para a criação de quadros com posição absolua (para a capa e folha de rosto)
-\usepackage{calc}
-\usepackage{amsmath}
+
+\RequirePackage{etoolbox} % Recursos de programação para LaTeX
+
+\RequirePackage{indentfirst} % Indenta o primeiro parágrafo de cada seção, o que não é o padrão do LaTeX.
+
+\PassOptionsToPackage{absolute}{textpos}
+\RequirePackage{textpos} % Para a criação de quadros com posição absolua (para a capa e folha de rosto)
+
+\RequirePackage{calc}
+
+\RequirePackage{amsmath}
 \allowdisplaybreaks % Permite quebras de página em displays, como conjuntos de equações.
-\usepackage{xparse} % Permite a criação de comandos com mais de um parâmetro opcional.
-\usepackage{graphicx} % Inserção de imagens
-\usepackage{float} % Posicionamento de caixas flutuantes com a opção "h" (Here)
-\usepackage{adjustbox} % Utilizado na inserção de imagens, permite a criação de caixas ajustáveis.
+
+\RequirePackage{xparse} % Permite a criação de comandos com mais de um parâmetro opcional.
+
+\RequirePackage{graphicx} % Inserção de imagens
+
+\RequirePackage{float} % Posicionamento de caixas flutuantes com a opção "h" (Here)
+
+\RequirePackage{adjustbox} % Utilizado na inserção de imagens, permite a criação de caixas ajustáveis.
 \newlength\larguraimagem % Cria uma nova medida a ser utilizada no comando \incluirimagem deste pacote.
-\usepackage{chngcntr} % Alteração dos parâmetros de contadores de equações, figuras etc.
+
+\RequirePackage{chngcntr} % Alteração dos parâmetros de contadores de equações, figuras etc.
 \counterwithout{equation}{chapter} % Contagem das equações contínua ao longo do documento
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Criação da Lista de Quadros, não definida pela classe abntex2
+
+% Criação das macros para os nomes
+\newcommand{\quadroname}{Quadro}
+\newcommand{\listquadroname}{Lista de Quadros}
+
+\newfloat{quadro}{\quadroname}{toq}[chapter] % Declara o ambiente tipo float para  quadro
+\restylefloat*{quadro} % Redefine o estilo e configura que não é o package float o responsável pela sua formatação
+\setfloatadjustment{quadro}{\centering} % Define posicionamento horizontal dos quadros
+\setfloatlocations{quadro}{hbtp} % Posicionamento vertical padrão dos quadros
+
+\newlistof{listofquadros}{toq}{\listquadroname} % Declara a lista de quadros e cria o arquivo .TOQ
+\newlistentry{quadro}{toq}{0} % Define que floats tipo quadro serão incluídos no arquivo .TOQ
+
+\renewcommand{\cftquadroname}{\quadroname\space} % Exibição "Quadro " nas linhas da Lista de Quadros
+\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill} % Separador após o número do quadro na Lista de Quadros
+
+\renewcommand{\fnum@quadro}{\quadroname\ \thequadro} % Exibição do quadro nas legendas, no corpo do trabalho
+
+\counterwithout{quadro}{chapter} % Numeração dos quadros não é redefinida a cada capítulo
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Configuração das medidas padrão utilizadas no documento
@@ -51,13 +87,15 @@
 \setlength\afterchapskip{1.5\onelineskip plus 2pt minus 2pt}
 
 % Ajuste do espaçamento para ilustrações
-%\setlength\belowcaptionskip{6pt} % Espaço abaixo do título da figura/quadro/tabela
+\captionsetup{skip=6pt} % Espaço abaixo do título da figura/quadro/tabela
 \setlength\textfloatsep{14pt plus 4pt minus 2pt} % Espaço entre a ilustração e o texto, acima ou abaixo
 
 % Ajuste do espaçamento antes, depois e entre equações
 \AtBeginDocument{\setlength\abovedisplayskip{14pt plus 4pt minus 2pt}}
 \AtBeginDocument{\setlength\belowdisplayskip{14pt plus 4pt minus 2pt}}
 \setlength\jot{10pt plus 4pt minus 2pt} % Espaço entre equações dos ambientes do pacote amsmath
+
+\setlength{\glsdescwidth}{\linewidth} % Ajusta a largura da tabela interna da lista de símbolos
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Modificações de comandos específicos da classe abnTeX2 para adequar ao padrão da UCS
@@ -164,33 +202,9 @@
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Criação da Lista de Quadros, não definida pela classe abntex2
-
-\newcommand{\quadroname}{Quadro}
-\newcommand{\listquadroname}{Lista de Quadros}
-
-\newfloat{quadro}{\quadroname}{toq}[chapter]
-\restylefloat*{quadro}
-
-\newlistof{listofquadros}{toq}{\listquadroname}
-\newlistentry{quadro}{toq}{0}
-
-\counterwithout{quadro}{chapter}
-
-\renewcommand{\cftquadroname}{\quadroname\space}
-\renewcommand*{\cftquadroaftersnum}{\hfill\textendash\hfill}
-
-\setfloatadjustment{quadro}{\centering}
-\setfloatlocations{quadro}{hbtp}
-
-\renewcommand{\fnum@quadro}{\quadroname\ \thequadro}
-\captionsetup[quadro]{skip=6pt}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Outros comandos %%%
 
-% Código apenas copiado do TeX Stack Exchange: faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
+% Faz com que os nomes das seções no sumário sejam escritos em letra maiúscula.
 \let\oldcontentsline\contentsline
 \def\contentsline#1#2{%
 	\expandafter\ifx\csname l@#1\endcsname\l@section
@@ -206,8 +220,8 @@
 }
 
 % Extensão do comanando \foreignlanguage para destacar o conteúdo em língua estrangeira
-\let\foreignlanguageaux\foreignlanguage 
-\renewcommand{\foreignlanguage}[2]{\foreignlanguageaux{#1}{\emph{#2}}}
+\let\@foreignlanguageaux\foreignlanguage 
+\renewcommand{\foreignlanguage}[2]{\@foreignlanguageaux{#1}{\emph{#2}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Comandos e ambientes específicos deste pacote
