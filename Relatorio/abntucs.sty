@@ -5,8 +5,8 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{abntucs}
-\RequirePackage{float}
 \RequirePackage{caption}
+\captionsetup{skip=6pt}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verificação do compilador utilizado
 \usepackage{ifluatex}
@@ -22,7 +22,6 @@
 \let\su@ExpandTwoArgs\relax 
 \let\IfSubStringInString\relax 
 \let\su@IfSubStringInString\relax
-
 \usepackage[top=3cm,left=3cm,bottom=2cm,right=2cm]{geometry} % Redefine e corrige as margens da página
 \flushbottom % Garante que o LaTeX utilize a margem inferior e faça o conteúdo se estender até ela
 \usepackage[record,toc=false,nonumberlist,style=long,acronyms,symbols]{glossaries-extra} % Criação da lista de símbolos
@@ -52,7 +51,7 @@
 \setlength\afterchapskip{1.5\onelineskip plus 2pt minus 2pt}
 
 % Ajuste do espaçamento para ilustrações
-\setlength\belowcaptionskip{6pt} % Espaço abaixo do título da figura/quadro/tabela
+%\setlength\belowcaptionskip{6pt} % Espaço abaixo do título da figura/quadro/tabela
 \setlength\textfloatsep{14pt plus 4pt minus 2pt} % Espaço entre a ilustração e o texto, acima ou abaixo
 
 % Ajuste do espaçamento antes, depois e entre equações
@@ -168,12 +167,13 @@
 % Criação da Lista de Quadros, não definida pela classe abntex2
 
 \newcommand{\quadroname}{Quadro}
-\newcommand{\listquadrosname}{Lista de Quadros}
+\newcommand{\listquadroname}{Lista de Quadros}
 
 \newfloat{quadro}{\quadroname}{toq}[chapter]
+\restylefloat*{quadro}
 
-\newlistof{listofquadros}{toq}{\listquadrosname}
-\newlistentry[chapter]{quadro}{toq}{0}
+\newlistof{listofquadros}{toq}{\listquadroname}
+\newlistentry{quadro}{toq}{0}
 
 \counterwithout{quadro}{chapter}
 
@@ -182,6 +182,10 @@
 
 \setfloatadjustment{quadro}{\centering}
 \setfloatlocations{quadro}{hbtp}
+
+\renewcommand{\fnum@quadro}{\quadroname\ \thequadro}
+\captionsetup[quadro]{skip=6pt}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Outros comandos %%%
