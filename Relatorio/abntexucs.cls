@@ -1,1 +1,0 @@
-C:/Program Files/MiKTeX 2.9/tex/latex/abntexucs/abntexucs.cls
