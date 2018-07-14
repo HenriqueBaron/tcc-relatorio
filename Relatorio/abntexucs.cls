@@ -1,10 +1,13 @@
-%	Estilo desenvolvido por Henrique Baron em 29/01/2018.
+%	Class desenvolvida por Henrique Baron em 14/07/2018.
 %	
 %	Formata um documento da classe abnTeX2 para o padrão exigido pela Universidade de Caxias do Sul para
 %	trabalhos de conclusão de curso.
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{abntucs}
+\ProvidesClass{abntexucs}[2018/07/14 v1.0.0 abnTeXUCS]
+\LoadClass[12pt,openright,oneside,a4paper,
+chapter=TITLE,section=TITLE,
+english,brazil]{abntex2}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Verificação do compilador utilizado
 \RequirePackage{ifluatex}
