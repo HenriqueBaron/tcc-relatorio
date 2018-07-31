@@ -1,7 +1,4 @@
-\documentclass[12pt,oneside,english,brazil,siglas,simbolos]{ucsmono}
-% Referências a bibliografia no padrão ABNT. Opções: citações numeradas, com sobrescrito e substituindo listas com mais de dois autores por "et al." e escrevendo o "et al." em itálico.
-\usepackage[num,abnt-etal-list=3,abnt-etal-text=it,abnt-full-initials=no]{abntex2cite}
-\citebrackets[] % Configura para que as citações sejam feitas entre colchetes.
+\documentclass[12pt,oneside,english,brazil,lmodern,siglas,simbolos,cite=num]{ucsmono}
 
 \usepackage{ifluatex} % Verificação do compilador utilizado
 \ifluatex
@@ -12,11 +9,9 @@
 \fi
 
 \usepackage[brazil]{babel}
-\usepackage{cite} % Para a citação numérica, permite as citações múltiplas como [8-11], por exemplo
 \usepackage{graphicx} % Inserção de imagens
 \graphicspath{{../Imagens/}} % Definição do caminho para as imagens
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
-\usepackage{lmodern} % Altera a fonte do documento para Latin Modern, uma evolução à fonte Computer Modern, padrão do LaTeX.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
 \usepackage{todonotes}
