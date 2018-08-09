@@ -23,7 +23,8 @@
 \data{2018}
 \instituicao{Universidade de Caxias do Sul}
 \local{Caxias do Sul}
-\preambulo{Trabalho de conclusão de curso apresentado à Universidade de Caxias do Sul como requisito parcial à obtenção do grau de Engenheiro Mecânico. Área de concentração: Projetos de Máquinas: Estática e Dinâmica Aplicada.}
+\preambulo{Trabalho de conclusão de curso apresentado à Universidade de Caxias do Sul como requisito parcial à obtenção do grau de Engenheiro Mecânico.
+Área de concentração: Projetos de Máquinas: Estática e Dinâmica Aplicada.}
 \orientador{prof. Me. Paulo Roberto Linzmaier}
 
 % Configuração do pacote hyperref, que é chamado pela classe abntex2
@@ -49,25 +50,46 @@
 	\textual % Comando que define que os elementos textuais começaram, para incluir a numeração de páginas.
 	
 	\chapter{Introdução}
-	Em todo sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada. Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento. O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
+	Em todo sistema produtivo em que se faz o uso de ferramentas ou máquinas, a manutenção é um tema que recebe grande atenção, dada a necessidade de manter o funcionamento de equipamentos com o menor tempo possível de parada.
+	Aliado a isso, busca-se continuamente encontrar um balanço entre o custo de repetidas paradas para inspeção e o de uma eventual falha ocasionada por falta de acompanhamento.
+	O montante gasto em manutenção pelas empresas no Brasil no ano de 2013 foi equivalente a 4,69\% do PIB nacional, correspondente a um valor de R\$ 206,5 bilhões \cite{seleme:2015}.
 	
-	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva. Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente. Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos. Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.  
+	Dentre as metodologias de manutenção existentes, há uma divisão em três grupos principais: corretiva, preditiva e preventiva.
+	Este último, que se configura pelo planejamento de uma rotina de manutenção e inspeções baseadas em intervalos regulares de tempo, ainda é a mais comum na indústria atualmente.
+	Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos.
+	Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.
+	 
 	
-	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%). Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2018}. Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade. Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
+	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%).
+	Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2018}.
+	Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade.
+	Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
-	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos. A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito. Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2004}.
+	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos.
+	A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito.
+	Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2004}.
 	
-	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas. Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento \cite{carden:2004}. Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo. Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados \cite{qiao:2011}, permitindo identificar a origem da variação no sinal analisado. Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
+	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas.
+	Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento \cite{carden:2004}.
+	Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo.
+	Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados \cite{qiao:2011}, permitindo identificar a origem da variação no sinal analisado.
+	Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
 	
 	\section{Justificativa}
-	Dada a relevância do conhecimento em vibrações nas aplicações de engenharia, é necessária a formação de profissionais competentes no campo da análise de vibrações em máquinas, em ambos os níveis técnico e acadêmico. E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula. Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
+	Dada a relevância do conhecimento em vibrações nas aplicações de engenharia, é necessária a formação de profissionais competentes no campo da análise de vibrações em máquinas, em ambos os níveis técnico e acadêmico.
+	E, para tanto, surge a demanda por um equipamento didático que aproxime o aluno da técnica aplicada e estabeleça uma conexão com a fundamentação teórica tratada em sala de aula.
+	Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
 	
-	Considerando a escassez da oferta de um equipamento para estudo de vibrações no mercado brasileiro, enxergou-se a possibilidade de desenvolvimento de uma bancada didática que trouxesse os conceitos de análise de vibrações em máquinas para escolas técnicas e universidades. No entanto, para o desenvolvimento de um produto para o mercado de ensino, é vital que exista uma fidelidade entre o equipamento construído e a teoria que ele demonstra. Portanto, a fabricação de um protótipo e a validação deste com um modelo teórico fundamentado são etapas importantes na concepção do produto.
+	Considerando a escassez da oferta de um equipamento para estudo de vibrações no mercado brasileiro, enxergou-se a possibilidade de desenvolvimento de uma bancada didática que trouxesse os conceitos de análise de vibrações em máquinas para escolas técnicas e universidades.
+	No entanto, para o desenvolvimento de um produto para o mercado de ensino, é vital que exista uma fidelidade entre o equipamento construído e a teoria que ele demonstra.
+	Portanto, a fabricação de um protótipo e a validação deste com um modelo teórico fundamentado são etapas importantes na concepção do produto.
 	
 	\section{Ambiente de desenvolvimento}	
-	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul. A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
+	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul.
+	A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
 	
-	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração. Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inserção da empresa em um mercado ainda pouco explorado.
+	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração.
+	Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inserção da empresa em um mercado ainda pouco explorado.
 	
 	\section{Objetivos}
 	
@@ -89,13 +111,15 @@
 	Neste capítulos são apresentados os conceitos inerentes à modelagem e análise do protótipo desenvolvido.
 	
 	\section{Análise harmônica}
-	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}. Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
+	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}.
+	Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
 	\begin{equation}
 		g(t) = a\cos\omega t + b\sin\omega t
 	\end{equation}
 	onde \gls{s:funcao-tempo} indica a posição ou deslocamento, \gls{s:freq-rad} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
-	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}. No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
+	Embora este seja o tipo de movimento mais simples de tratar, muitos dos sistemas vibratórios não exibem oscilação harmônica \cite{rao:2008}.
+	No entanto, uma função periódica pode ser representada em termos da soma de suas componentes harmônicas através da série de Fourier \cite{clark:1972}.
 	
 	\subsection{Série de Fourier} \label{sec:fourier:serie}
 	Seja \gls{s:funcao-tempo} uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
@@ -129,7 +153,10 @@
 	\end{equation}
 	
 	\subsection{Representação no domínio da frequência} \label{sec:espectros-frequencia}
-	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}. A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ g(t) = \sin2\pi t + 0,\!7\cos4\pi t + 2 $ no domínio do tempo. Pode-se aplicar a Equação \ref{eqn:fourier:coefs-compl} um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}. Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq-rad} utilizada na Equação \ref{eqn:fourier:coefs-compl}, e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
+	A série de Fourier permite a representação de uma função periódica no domínio da frequência \cite{rao:2008}.
+	A Figura \ref{fig:funcao-periodica} mostra, por exemplo, o gráfico de $ g(t) = \sin2\pi t + 0,\!7\cos4\pi t + 2 $ no domínio do tempo.
+	Pode-se aplicar a Equação \ref{eqn:fourier:coefs-compl} um número determinado de vezes para representar a função no domínio da frequência com um espectro de dois lados \cite{dimarogonas:1995}.
+	Neste gráfico, mostrado na Figura \ref{fig:espectro-2sided}, o eixo horizontal representa os múltiplos inteiros $ n $ da frequência \gls{s:freq-rad} utilizada na Equação \ref{eqn:fourier:coefs-compl}, e o eixo vertical é o próprio valor da harmônica \gls{s:coef-fourier-compl} calculada.
 	\begin{figure}[b]
 		\incluirimagem{FourierFuncao.png}{Função periódica no domínio do tempo}{o autor (\thedate)}
 		\label{fig:funcao-periodica}
@@ -139,14 +166,16 @@
 		\label{fig:espectro-2sided}
 	\end{figure}
 	
-	De maneira semelhante, o espectro de frequência da Figura \ref{fig:espectro-2sided} pode ser representado por um espectro de frequências de um lado como mostra a Figura \ref{fig:espectro-1sided}, onde a harmônica \gls{s:coef-fourier-compl} de ordem $ n $ é somada com a harmônica de ordem $ -n $ \cite{randall:1987}. É importante observar que a componente constante, isto é, $ n=0 $ permanece com o mesmo valor do espectro de dois lados.
+	De maneira semelhante, o espectro de frequência da Figura \ref{fig:espectro-2sided} pode ser representado por um espectro de frequências de um lado como mostra a Figura \ref{fig:espectro-1sided}, onde a harmônica \gls{s:coef-fourier-compl} de ordem $ n $ é somada com a harmônica de ordem $ -n $ \cite{randall:1987}.
+	É importante observar que a componente constante, isto é, $ n=0 $ permanece com o mesmo valor do espectro de dois lados.
 	\begin{figure}[t]
 		\incluirimagem{FourierEspectro1sided.png}{Espectro de um lado de uma função periódica}{o autor (\thedate)}
 		\label{fig:espectro-1sided}
 	\end{figure}
 	
 	\subsection{Integral de Fourier}
-	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}. Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
+	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}.
+	Seja \gls{s:funcao-tempo} uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:integral}
 		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\cos\omega t + b_\omega\:\sin\omega t\right\rbrace\, d\omega
 	\end{equation}
@@ -161,16 +190,21 @@
 	\begin{equation} \label{eqn:fourier:transform}
 		G(\omega) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\omega t}\:dt
 	\end{equation}
-	que também é denominada como transformada contínua de Fourier \cite{dimarogonas:1995}. A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
+	que também é denominada como transformada contínua de Fourier \cite{dimarogonas:1995}.
+	A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
 	\begin{equation} \label{eqn:fourier:transform-inv}
 		g(t) = \mathcal{F}^{-1}\{G(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\omega)\ e^{i\omega t}\:d\omega
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
-	Na transformada de Fourier apresentada no item \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo. É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto. Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes, sendo chamada também por função amostrada no tempo \cite{dimarogonas:1995}. Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
+	Na transformada de Fourier apresentada no item \ref{sec:fourier:transform}, a definição matemática considera o fenômeno de oscilação acontecendo em um intervalo de tempo contínuo.
+	É muito comum nos instrumentos de medição modernos, no entanto, que os dados sejam descritos em um intervalo de tempo discreto.
+	Isto é, a função -- de vibração, por exemplo -- é representada por uma série de tempo, uma sequência de valores em pontos discretos equidistantes, sendo chamada também por função amostrada no tempo \cite{dimarogonas:1995}.
+	Uma vez que os sinais obtidos nos sistemas atuais são representados discretamente, os métodos de análise também devem ser adaptados a esse modo de processamento.
 	
 	\subsubsection{Funções amostradas no tempo}
-	O par de transformadas integrais das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica. Um intervalo $ (-\tau /2,\:\tau /2) $ é empregado, assumindo que a função \gls{s:funcao-tempo} se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq:hz} que corresponde a \cite{dimarogonas:1995}
+	O par de transformadas integrais das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica.
+	Um intervalo $ (-\tau /2,\:\tau /2) $ é empregado, assumindo que a função \gls{s:funcao-tempo} se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq:hz} que corresponde a \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-fundam}
 		\mathit{f} = \frac{1}{\tau}
 	\end{equation}
@@ -193,7 +227,8 @@
 		G_k &= \frac{1}{N}\sum_{n=0}^{N-1}g_n e^{-i 2\pi k n/N} \label{eqn:fourier:dft}\\
 		g_n &= \sum_{k=0}^{N-1}G_k e^{i 2\pi k n/N} \label{eqn:fourier:dft-inv}
 	\end{align}
-	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}. Adicionalmente, a Equação \ref{eqn:fourier:dft} pode ser representada como \cite{dimarogonas:1995}
+	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}.
+	Adicionalmente, a Equação \ref{eqn:fourier:dft} pode ser representada como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:dft-matricial}
 		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
 	\end{equation}
@@ -203,12 +238,17 @@
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
-	Com larga aplicação nos instrumentos de análise atuais, a \gls{sig:FFT} é um algoritmo para obtenção da \gls{sig:DFT} que reduz consideravelmente o número de operações em relação ao método tradicional \cite{randall:1987}. Ao passo de que a resolução da Equação \ref{eqn:fourier:dft-inv} -- que obtém as componentes de frequência da \gls{sig:DFT} -- precisa de um total de $ \gls{s:numero-amostras}^2 $ computações aritméticas, o método da \gls{sig:FFT} fornece o resultado em menos de $ 2\gls{s:numero-amostras} \log_2\! \gls{s:numero-amostras} $ operações \cite{cooley:1965}. Para um caso em que \gls{s:numero-amostras} representa 1024 amostras, essa redução é da ordem de 100 vezes \cite{randall:1987}.	
+	Com larga aplicação nos instrumentos de análise atuais, a \gls{sig:FFT} é um algoritmo para obtenção da \gls{sig:DFT} que reduz consideravelmente o número de operações em relação ao método tradicional \cite{randall:1987}.
+	Ao passo de que a resolução da Equação \ref{eqn:fourier:dft-inv} -- que obtém as componentes de frequência da \gls{sig:DFT} -- precisa de um total de $ \gls{s:numero-amostras}^2 $ computações aritméticas, o método da \gls{sig:FFT} fornece o resultado em menos de $ 2\gls{s:numero-amostras} \log_2\! \gls{s:numero-amostras} $ operações \cite{cooley:1965}.
+	Para um caso em que \gls{s:numero-amostras} representa 1024 amostras, essa redução é da ordem de 100 vezes \cite{randall:1987}.	
 	
-	O algoritmo envolve o reordenamento e fatoração da matriz complexa \gls{s:matriz-unitarios-dft} em matrizes que produzem rotações progressivamente menores nos vetores unitários \cite{randall:1987}, e oferece grandes vantagens quando aplicado amostras cuja quantidade é uma potência inteira de dois, devido à natureza binária das operações computacionais \cite{cooley:1965}. Embora a abordagem completa do procedimento fuja do escopo deste texto, cabe ressaltar que o resultado obtido e as limitações envolvidas são os mesmos relativos ao cálculo da \gls{sig:DFT} \cite{randall:1987}.
+	O algoritmo envolve o reordenamento e fatoração da matriz complexa \gls{s:matriz-unitarios-dft} em matrizes que produzem rotações progressivamente menores nos vetores unitários \cite{randall:1987}, e oferece grandes vantagens quando aplicado amostras cuja quantidade é uma potência inteira de dois, devido à natureza binária das operações computacionais \cite{cooley:1965}.
+	Embora a abordagem completa do procedimento fuja do escopo deste texto, cabe ressaltar que o resultado obtido e as limitações envolvidas são os mesmos relativos ao cálculo da \gls{sig:DFT} \cite{randall:1987}.
 	
 	\section{Vibração de sistemas discretos}
-	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade. Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema \cite{rao:2008}. 
+	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade.
+	Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema \cite{rao:2008}.
+	
 	
 	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
@@ -260,15 +300,18 @@
 	\end{align}
 	
 	\subsection{Coordenadas e forças generalizadas} \label{sec:coord-generalizadas}
-	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas. Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
+	O conjunto de coordenadas independentes necessárias para descrever o movimento de um sistema é denominado coordenadas generalizadas.
+	Elas são representadas como $q_1$, $q_2$, \dots\ , $q_n$ e podem ser compostas por medidas lineares, ângulos ou qualquer arranjo de números que defina a configuração do sistema de maneira exclusiva em qualquer instante \cite{rao:2008}.
 	
-	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde $ n $ denota o número de graus de liberdade do sistema. Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida como \cite{rao:2008}
+	Com a ação de forças externas, toma-se a mudança das coordenadas generalizadas \gls{s:coord-general} de um incremento $\delta q_i $, $ i = 1, 2, \dots, n $, onde $ n $ denota o número de graus de liberdade do sistema.
+	Seja \gls{s:trabalho-coord-general} o trabalho realizado na variação da coordenada generalizada, a força generalizada correspondente \gls{s:forca-general} é definida como \cite{rao:2008}
 	\begin{equation}
 		Q_i = \frac{U_i}{\delta q_i},\qquad i = 1, 2, \dots, n
 	\end{equation}
 	
 	\subsection{Equação de Lagrange}
-	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema. O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das dimensões vetoriais torna a resolução difícil \cite{savi:2017}.
+	A resolução de um problema de vibração pela abordagem de Lagrange consiste em uma análise das energias potencial -- isto é, de deformação -- e cinética do sistema.
+	O uso de grandezas escalares trazido por esta metodologia é conveniente em problemas complexos nos quais a utilização das dimensões vetoriais torna a resolução difícil \cite{savi:2017}.
 	
 	Considerando como \gls{s:desloc-elemento} o deslocamento de uma massa \gls{s:massa-elemento} e seja \gls{s:forca-elemento} a força nela aplicada, a energia de deformação \gls{s:energ-pot-elem} da i-ésima mola ou elemento elástico de um sistema com $ n $ graus de liberdade é dada por \cite{rao:2008}
 	\begin{equation}
@@ -334,22 +377,32 @@
 	\begin{equation}
 		\gls{s:lagrangiano} = \gls{s:energ-cin-total}-\gls{s:energ-pot-total}
 	\end{equation}
-	e \gls{s:forca-naoconserv} é a força generalizada não-conservativa correspondente à coordenada generalizada \gls{s:coord-general} Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}. Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
+	e \gls{s:forca-naoconserv} é a força generalizada não-conservativa correspondente à coordenada generalizada \gls{s:coord-general}.
+	Estas forças podem ser provenientes do amortecimento ou de quaisquer influências externas que não são deriváveis de uma função potencial \cite{rao:2008}.
+	Se o sistema for conservativo, portanto, $ Q_j^{(n)} = 0 $.
 	
 	\section{Vibração de sistemas contínuos}
-	Em contraste aos sistemas discretos, os sistemas contínuos são aqueles em que não se consegue identificar massas, molas e amortecedores pontuais na vibração de um corpo \cite{rao:2008}. Para estes casos, é possível determinar o comportamento vibratório de maneira analítica e sem discretização. Através dessa abordagem podem ser modeladas barras, eixos, cabos, vigas e outros elementos \cite{timoshenko:1974}. 
+	Em contraste aos sistemas discretos, os sistemas contínuos são aqueles em que não se consegue identificar massas, molas e amortecedores pontuais na vibração de um corpo \cite{rao:2008}.
+	Para estes casos, é possível determinar o comportamento vibratório de maneira analítica e sem discretização.
+	Através dessa abordagem podem ser modeladas barras, eixos, cabos, vigas e outros elementos \cite{timoshenko:1974}.
 	
-	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade. Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
+	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade.
+	Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
 	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
-	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão. Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}. O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$. Nele também são esquematizados o deslocamento \gls{s:desloc-elastico} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por $ \theta $ e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
+	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão.
+	Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}.
+	O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$.
+	Nele também são esquematizados o deslocamento \gls{s:desloc-elastico} na direção $z$, a força de tração \gls{s:tensao-corda}, o ângulo de inclinação da corda em relação ao eixo $x$ denotado por $ \theta $ e, por fim, a força \gls{s:forca}$(x,t)$ atuante sobre o segmento infinitesimal de comprimento $ds$ da corda.
 	\begin{figure}[t] 
 	\incluirimagem{VibracaoCorda.png}{Vibração de uma corda tensionada}{adaptado de \citeauthoronline{rao:2008} (\citeyear{rao:2008})} \label{fig:vibracao-corda}
 	\end{figure}
 
-	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração. Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
+	Neste modelo, desconsidera-se a ação da atmosfera e da gravidade sobre a corda, além de supor-se que não existem perdas de energia na sua vibração.
+	Também define-se a corda vibrante como tendo uma seção transversal pequena em comparação com seu comprimento, de maneira que as tensões ao longo da área da seção variem pouco e se tornem puramente axiais, desprezando assim tensões de flexão e cisalhamento \cite{clark:1972}.
 	
-	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{s:forca} e da componente vertical da força de tração \gls{s:tensao-corda} \cite{rao:2008}. A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
+	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{s:forca} e da componente vertical da força de tração \gls{s:tensao-corda} \cite{rao:2008}.
+	A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
 	\begin{equation} \label{eqn:cont:balanco}
 		(P + dP)\;\sin(\theta + d\theta) + F\:dx - P\;\sin\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
 	\end{equation}
@@ -365,17 +418,24 @@
 	A Equação \ref{eqn:cont:onda} também é conhecida como equação de onda. 
 	
 	\section{Dinâmica de rotores}
-	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si. Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
+	Nos sistemas analisados nas seções anteriores, considerava-se o deslocamento em relação a uma posição de equilíbrio fixa, de modo que o movimento era analisado apenas em uma direção e a existência de vibração simultânea ao longo de outra coordenada não afetaria a análise, e as respectivas equações de movimento seriam desacopladas entre si.
+	Um caso frequente de vibração que ocorre sobre um movimento contínuo -- portanto, com equações acopladas -- é visto na rotação de eixos \cite{dimarogonas:1995}.
 
 	\subsection{Rodopio de eixos}
-	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível. O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}. O efeito de rodopio -- também chamado de \foreignlanguage{english}{whirling}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
+	Esteja um disco desbalanceado -- a rigor, com seu centro de massa localizando em um ponto diferente do centro de rotação -- montado sobre um eixo flexível.
+	O desbalanceamento do disco durante a rotação provocará uma força oscilatória que tende a curvar o eixo, como mostra a Figura \ref{fig:whirl-eixo}.
+	O efeito de rodopio -- também chamado de \foreignlanguage{english}{whirling}, em inglês -- é definido como a rotação do plano formado pelas linhas centrais dos mancais e o eixo curvado \cite{rao:2008}.
 	\begin{figure}[b]
 		\incluirimagem[0.15]{WhirlEixo.png}{Eixo em rodopio}{\citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:whirl-eixo}
 	\end{figure}
 
 	\subsubsection{Equações de movimento}
-	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}. Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio. O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância \gls{s:excentricidade} do centro geométrico $\!\mathit{C}$. A frequência angular do giro do rotor é representada por \gls{s:freq-rad}. O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
+	Para a modelagem do sistema, considera-se um eixo cuja posição de equilíbrio quando perfeitamente balanceado é denotada por $\!\mathit{O}$, como mostra a Figura \ref{fig:rotor-excentrico}.
+	Enquanto girando, devido à excitação permanente provocada pelo desbalanceamento do rotor, o eixo está sujeito a uma deflexão radial $\!\mathit{A}$ em relação à posição de equilíbrio.
+	O centro de massa do rotor, na posição $\!\mathit{G}$, está a uma distância \gls{s:excentricidade} do centro geométrico $\!\mathit{C}$.
+	A frequência angular do giro do rotor é representada por \gls{s:freq-rad}.
+	O ponto $\!\mathit{O}$ é assumido como sendo a origem de um sistema de coordenadas inercial, no qual os vetores unitários nas direções x e y são representados por \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}, respectivamente.
 	\begin{figure}[h]
 		\incluirimagem{DiagramaRodopioEixo.png}{Diagrama de rotor excêntrico}{adaptado de \citeauthoronline{rao:2008} (\citeyear{rao:2008})}
 		\label{fig:rotor-excentrico}
@@ -385,7 +445,8 @@
 	\begin{equation} \label{eqn:rotores:forcas}
 		\vec{F}_i = \vec{F}_e + \vec{F}_{di} + \vec{F}_{de}
 	\end{equation}
-	que representam, na ordem, as forças de inércia, elástica, de amortecimento interno, e de amortecimento externo. Inicialmente, a força de inércia é calculada por \cite{rao:2008}
+	que representam, na ordem, as forças de inércia, elástica, de amortecimento interno, e de amortecimento externo.
+	Inicialmente, a força de inércia é calculada por \cite{rao:2008}
 	\begin{equation} \label{eqn:rotores:forca-inercia}
 		\vec{F}_i = m\ddot{\vec{R}}
 	\end{equation}
@@ -393,7 +454,8 @@
 	\begin{equation} \label{eqn:rotores:vetor-centro-massa}
 		\vec{R} = (x + \mathit{e}\cos\omega t)\gls{s:vetor-unitario-x} + (y + \mathit{e}\sin\omega t)\gls{s:vetor-unitario-y}
 	\end{equation}
-	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $. Calculando a segunda derivada da Equação \ref{eqn:rotores:vetor-centro-massa} e substituindo na Equação \ref{eqn:rotores:forca-inercia} fornece
+	de maneira que $ x $ e $ y $ são as coordenadas do centro geométrico $ \mathit{C} $.
+	Calculando a segunda derivada da Equação \ref{eqn:rotores:vetor-centro-massa} e substituindo na Equação \ref{eqn:rotores:forca-inercia} fornece
 	\begin{equation} \label{eqn:rotres:forca-inercia}
 		\vec{F}_i = m\left[ (\ddot{x} - \mathit{e}\omega^2\,\cos\omega t)\gls{s:vetor-unitario-x} +
 		(\ddot{y} - \mathit{e}\omega^2\,\sin\omega t)\gls{s:vetor-unitario-y} \right]
@@ -409,23 +471,31 @@
 		(\dot{y} + \omega x)\gls{s:vetor-unitario-y} \right] \label{eqn:rotores:forca-amort-interno} \\
 		\vec{F}_{de} = -c(\dot{x}\gls{s:vetor-unitario-x} + \dot{y}\gls{s:vetor-unitario-y}) \label{eqn:rotores:forca-amort-externo}
 	\end{gather}
-	sendo que também são chamadas amortecimento histerético e viscoso. Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
+	sendo que também são chamadas amortecimento histerético e viscoso.
+	Para o amortecimento viscoso, os efeitos estão geralmente relacionados à supressão e eliminação de vibrações \cite{dimarogonas:1995} e sua origem está, como a outra terminologia expressa, em mecanismos externos que atenuam a vibração.
 	
-	O amortecimento histerético, por outro lado, é relacionado às características do material. A imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação. Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese. Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material \cite{dimarogonas:1995}. 
+	O amortecimento histerético, por outro lado, é relacionado às características do material.
+	A imposição de uma deformação cíclica em materiais sólidos -- especialmente metais -- provoca uma diferença de fase entre força e deformação.
+	Traçar estes valores durante um ciclo em um diagrama cartesiano mostrará um gráfico como o da Figura \ref{fig:histerese}, que é chamado de ciclo de histerese.
+	Visto que a área do gráfico é um produto de força e deslocamento, tem-se que ela corresponde à energia dissipada pelo amortecimento interno do material \cite{dimarogonas:1995}.
+	
 	\begin{figure}[b]
 		\incluirimagem{Histerese.png}{Ciclo de histerese para força-deformação}{adaptado de \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:histerese}
 	\end{figure}
 
-	A energia dissipada por conta do amortecimento histerético é praticamente independente da frequência, e é proporcional ao quadrado da amplitude de vibração $ X $ e à rigidez \gls{s:rigidez} \cite{dimarogonas:1995}. Representando essa energia como $ D_h $, obtém-se
+	A energia dissipada por conta do amortecimento histerético é praticamente independente da frequência, e é proporcional ao quadrado da amplitude de vibração $ X $ e à rigidez \gls{s:rigidez} \cite{dimarogonas:1995}.
+	Representando essa energia como $ D_h $, obtém-se
 	\begin{equation}
 		D_h = \pi X^2k\gamma
 	\end{equation}
-	onde a constante $ \gamma $ é uma propriedade do material. Através disso, pode-se definir o coeficiente de amortecimento interno $ c_i $ da Equação \ref{eqn:rotores:forca-amort-interno} como \cite{dimarogonas:1995}
+	onde a constante $ \gamma $ é uma propriedade do material.
+	Através disso, pode-se definir o coeficiente de amortecimento interno $ c_i $ da Equação \ref{eqn:rotores:forca-amort-interno} como \cite{dimarogonas:1995}
 	\begin{equation}
 		c_i = \frac{\gamma}{\gls{s:freq-rad} - \gls{s:freq-natural}}\,\gls{s:rigidez}
 	\end{equation}
-	onde \gls{s:freq-rad} é a velocidade angular do eixo e \gls{s:freq-natural} é a frequência natural. Cabe observar que, entre as quatro equações de força apresentadas, aquela referente ao amortecimento histerético é a responsável pelo acoplamento entre as direções $ x $ e $ y $, visto que é a única que contém medidas de ambas as coordenadas multiplicando cada um dos vetores unitários \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}.
+	onde \gls{s:freq-rad} é a velocidade angular do eixo e \gls{s:freq-natural} é a frequência natural.
+	Cabe observar que, entre as quatro equações de força apresentadas, aquela referente ao amortecimento histerético é a responsável pelo acoplamento entre as direções $ x $ e $ y $, visto que é a única que contém medidas de ambas as coordenadas multiplicando cada um dos vetores unitários \gls{s:vetor-unitario-x} e \gls{s:vetor-unitario-y}.
 	
 	Finalmente, substituindo as Equações \ref{eqn:rotores:forca-inercia} a \ref{eqn:rotores:forca-amort-externo} na Equação \ref{eqn:rotores:forcas} obtêm-se as equações de movimento \cite{rao:2008}
 	\begin{align}
@@ -438,7 +508,9 @@
 	\end{equation}
 	
 	\subsubsection{Velocidades críticas}
-	Um eixo em rotação atinge uma velocidade crítica quando esta é igual a alguma das frequências naturais do componente. A frequência natural não amortecida do conjunto do rotor pode ser obtida \cite{rao:2008} resolvendo a Equação \ref{eqn:rotores:resposta-rodopio} com $ c = c_i = 0 $. Isso fornece o valor da frequência natural \gls{s:freq-natural} do sistema
+	Um eixo em rotação atinge uma velocidade crítica quando esta é igual a alguma das frequências naturais do componente.
+	A frequência natural não amortecida do conjunto do rotor pode ser obtida \cite{rao:2008} resolvendo a Equação \ref{eqn:rotores:resposta-rodopio} com $ c = c_i = 0 $.
+	Isso fornece o valor da frequência natural \gls{s:freq-natural} do sistema
 	\begin{equation} \label{eqn:freq-natural}
 		\omega_n = \left( \frac{k}{m} \right)^{1/2}
 	\end{equation}
@@ -455,48 +527,67 @@
 		\mathit{e} = \frac{m_e u}{m}
 	\end{equation}
 	
-	Pode-se perceber na Equação \ref{eqn:rotores:orbita-rodopio} que, quando a velocidade de rotação \gls{s:freq-rad} se iguala à frequência natural \gls{s:freq-natural} o raio $ r $ tende ao infinito. Isso comprova a definição de uma velocidade crítica como equivalente à frequência natural. Embora isso sugira que a rotação na velocidade crítica promova amplitudes de vibração muito altas, isso não é necessariamente verdade \cite{dimarogonas:1995}. Considerando a solução na direção $ x $ para o rodopio do eixo como \cite{dimarogonas:1995}
+	Pode-se perceber na Equação \ref{eqn:rotores:orbita-rodopio} que, quando a velocidade de rotação \gls{s:freq-rad} se iguala à frequência natural \gls{s:freq-natural} o raio $ r $ tende ao infinito.
+	Isso comprova a definição de uma velocidade crítica como equivalente à frequência natural.
+	Embora isso sugira que a rotação na velocidade crítica promova amplitudes de vibração muito altas, isso não é necessariamente verdade \cite{dimarogonas:1995}.
+	Considerando a solução na direção $ x $ para o rodopio do eixo como \cite{dimarogonas:1995}
 	\begin{equation}
 		x(t) = \frac{m\mathit{e}\omega^2}{k-m\omega^2}\,(cos\,\omega t - cos\,\omega_n t)
 	\end{equation}
-	e rearranjando a Equação \ref{eqn:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $. Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
+	e rearranjando a Equação \ref{eqn:freq-natural} para definir \gls{s:rigidez} como \[ k = m\omega_n^2 \] pode-se perceber que, quando $ \omega = \omega_n $ a resposta de vibração é uma indefinição da forma $ 0/0 $.
+	Aplicando a regra de L'Hôpital em relação a \gls{s:freq-rad} fornece, para $ \omega\to\omega_n $
 	\begin{equation}
 		x(t) = \frac{\mathit{e}\omega}{2}\ t\sin\omega t
 	\end{equation}
 	
-	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada. No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}. A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $. O gráfico exibido confirma a constatação em \cite{rao:2008}, de que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
+	Com base nesse resultado, verifica-se que a amplitude da vibração em ressonância cresce, de fato, de maneira ilimitada.
+	No entanto, esse aumento de amplitude não é instantâneo \cite{dimarogonas:1995}.
+	A Figura \ref{fig:aceleracao-vel-critica} ilustra o deslocamento máximo de vibração $ x_{max} $ para diferentes valores de aceleração angular $ \alpha = \dot{\omega} $.
+	O gráfico exibido confirma a constatação em \cite{rao:2008}, de que uma passagem rápida do eixo pela velocidade crítica limitará a amplitude de vibração.
 	\begin{figure}
 		\incluirimagem{AceleracaoVelCritica.png}{Passagem de um eixo pela velocidade crítica}{adaptado de \citeauthoronline{dimarogonas:1995} (\citeyear{dimarogonas:1995})}
 		\label{fig:aceleracao-vel-critica}
 	\end{figure}
 
 	\section{Vibração em rolamentos}
-	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência. Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados. Entre os defeitos distribuídos, pode-se citar a rugosidade superficial e ondulação nas pistas do rolamento, elementos rolantes fora das dimensões apropriadas, entre outras imperfeições inerentes da fabricação do componente. Já os defeitos localizados geralmente são resultados do processo de fadiga, e se apresentam como trincas, lascados ou pequenos buracos nas pistas do rolamento \cite{tandon:1997,sassi:2007}. Tendo como interesse no presente trabalho a investigação de falhas relativas ao uso e desgaste do equipamento, apenas os defeitos localizados serão considerados.
+	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
+	Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados.
+	Entre os defeitos distribuídos, pode-se citar a rugosidade superficial e ondulação nas pistas do rolamento, elementos rolantes fora das dimensões apropriadas, entre outras imperfeições inerentes da fabricação do componente.
+	Já os defeitos localizados geralmente são resultados do processo de fadiga, e se apresentam como trincas, lascados ou pequenos buracos nas pistas do rolamento \cite{tandon:1997,sassi:2007}.
+	Tendo como interesse no presente trabalho a investigação de falhas relativas ao uso e desgaste do equipamento, apenas os defeitos localizados serão considerados.
 	
 	\subsection{Métodos de análise}
-	Diferentes métodos de análise para a vibração provocada por defeitos localizados em rolamentos foram desenvolvidos desde a metade do século passado. \citeauthor{mcfadden:1984} propuseram um modelo bastante simples para modelar um defeito pontual em uma pista interna de um rolamento, que considera a carga radial aplicada e a condução do sinal até o acelerômetro que mediria a vibração, através do mancal. Abordagens mais complexas foram propostas nos anos seguintes, como uma análise proposta por \citeauthor{tandon:1997} que modela os anéis do rolamento como sistemas contínuos, além de incluir cargas radiais e axiais no desenvolvimento.
+	Diferentes métodos de análise para a vibração provocada por defeitos localizados em rolamentos foram desenvolvidos desde a metade do século passado.
+	\citeauthor{mcfadden:1984} propuseram um modelo bastante simples para modelar um defeito pontual em uma pista interna de um rolamento, que considera a carga radial aplicada e a condução do sinal até o acelerômetro que mediria a vibração, através do mancal.
+	Abordagens mais complexas foram propostas nos anos seguintes, como uma análise proposta por \citeauthor{tandon:1997} que modela os anéis do rolamento como sistemas contínuos, além de incluir cargas radiais e axiais no desenvolvimento.
 	
-	\citeauthor{sassi:2007} apresentaram um modelo bastante elaborado, que também trata os anéis do rolamento como corpos flexíveis e define a região de análise como um sistema de três graus de liberdade. A abordagem considera também as cargas nas direções radial e axial, além de incluir os efeitos de lubrificação entre as pistas e esferas e ruído aleatório no sinal, causado pelo escorregamento dos elementos rolantes.	\citeauthor{patil:2010} modelaram o rolamento como um sistema de dois graus de liberdade que, em contraste aos outros autores, considera os anéis como componentes rígidos e analisa as esferas como deformáveis.
+	\citeauthor{sassi:2007} apresentaram um modelo bastante elaborado, que também trata os anéis do rolamento como corpos flexíveis e define a região de análise como um sistema de três graus de liberdade.
+	A abordagem considera também as cargas nas direções radial e axial, além de incluir os efeitos de lubrificação entre as pistas e esferas e ruído aleatório no sinal, causado pelo escorregamento dos elementos rolantes.	\citeauthor{patil:2010} modelaram o rolamento como um sistema de dois graus de liberdade que, em contraste aos outros autores, considera os anéis como componentes rígidos e analisa as esferas como deformáveis.
 	
 	Nas seções seguintes, uma síntese dos métodos utilizados nas diferentes abordagens é apresentada, considerando tanto suas similaridades como as diferenças entre cada metodologia de modelagem.
 	
 	\subsection{Frequências características}
-	Para a modelagem e análise da vibração de um rolamento com defeito pontual, um conjunto de frequências características é definido. Considerando, de maneira mais genérica, que ambos os anéis estejam girando e sejam $ \gls{s:freq-rad}_i $ e $ \gls{s:freq-rad}_e $ as velocidades angulares dos anéis interno e externo do rolamento respectivamente, definem-se as frequências \cite{sassi:2007}
+	Para a modelagem e análise da vibração de um rolamento com defeito pontual, um conjunto de frequências características é definido.
+	Considerando, de maneira mais genérica, que ambos os anéis estejam girando e sejam $ \gls{s:freq-rad}_i $ e $ \gls{s:freq-rad}_e $ as velocidades angulares dos anéis interno e externo do rolamento respectivamente, definem-se as frequências \cite{sassi:2007}
 	\begin{align}
 		\gls{s:freq-rol-gaiola} &= \frac{1}{2}\cdot\left[ \omega_i\left(1-\frac{\gls{s:rol-diam-esferas}\,\cos\alpha}{\gls{s:rol-diam-espec}} \right) + \omega_o\left(1+\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \right] \label{eqn:rol:ftf}\\
 		\gls{s:freq-rol-def-out} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \label{eqn:rol:bpfo}\\
 		\gls{s:freq-rol-def-in} &= \frac{N_b}{2}\cdot(\omega_i-\omega_o)\cdot\left(1+\frac{\gls{s:rol-diam-esferas}\cos\alpha}{\gls{s:rol-diam-espec}} \right) \label{eqn:rol:bpfi}\\
 		\gls{s:freq-rol-esfera} &= \frac{\gls{s:rol-diam-espec}}{2\,\gls{s:rol-diam-esferas}}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}^2\cos^2\alpha}{\gls{s:rol-diam-espec}^2} \right) \label{eqn:rol:bsf}
 	\end{align}
-	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas. Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
+	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas.
+	Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter}), calculado como o diâmetro médio entre o interno e externo.
 	
 	\subsection{Força de impacto}
-	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes. Em geral, essa força é influenciada pelo carregamento estático e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
+	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes.
+	Em geral, essa força é influenciada pelo carregamento estático e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
 	
 	\subsubsection{Carregamento externo}
-	Esteja o rolamento esteja sujeito a uma força $ \vec{\gls{s:forca}} $ definida como \[ \vec{F}=F_a\,\gls{s:vetor-unitario-x} + F_r\,\gls{s:vetor-unitario-y} \] onde $ F_a $ e $ F_r $ são os módulos das componentes axial e radial da força, respectivamente. Isso provoca um deslocamento relativo $ \vec{\mathit{d}} $ entre o anel interno e externo que pode ser expresso como \[ \vec{\mathit{d}} = \mathit{d}_a\,\gls{s:vetor-unitario-x}+\mathit{d}_r\,\gls{s:vetor-unitario-y} \] sendo que $ \mathit{d}_a $ e $ \mathit{d}_r $ correspondem, analogamente, às partes axial e radial do deslocamento \cite{sassi:2007}. 
+	Esteja o rolamento esteja sujeito a uma força $ \vec{\gls{s:forca}} $ definida como \[ \vec{F}=F_a\,\gls{s:vetor-unitario-x} + F_r\,\gls{s:vetor-unitario-y} \] onde $ F_a $ e $ F_r $ são os módulos das componentes axial e radial da força, respectivamente.
+	Isso provoca um deslocamento relativo $ \vec{\mathit{d}} $ entre o anel interno e externo que pode ser expresso como \[ \vec{\mathit{d}} = \mathit{d}_a\,\gls{s:vetor-unitario-x}+\mathit{d}_r\,\gls{s:vetor-unitario-y} \] sendo que $ \mathit{d}_a $ e $ \mathit{d}_r $ correspondem, analogamente, às partes axial e radial do deslocamento \cite{sassi:2007}.
 	
-	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i=0 \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}. Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ neste elemento é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
+	A condição de equilíbrio estático para essa força pode ser expressa como \[ \vec{F} + \sum_{i=1}^{\gls{s:rol-num-esferas}}\vec{\gls{s:carregamento}}_i=0 \] sendo $ \vec{\gls{s:carregamento}}_i $ a força do carregamento em cada elemento rolante, como mostra a Figura \ref{fig:carregamento-rolamento}.
+	Para uma esfera ou rolo a um ângulo \gls{s:rol-angulo-carregamento} máximo $ \gls{s:carregamento}_{max} $, o valor do carregamento $ \gls{s:carregamento}_i $ neste elemento é dado por \cite{mcfadden:1984,sassi:2007,tandon:1997,cong:2013}
 	\begin{equation} \label{eqn:rol:carregamento}
 		\gls{s:carregamento}_i =
 		\begin{cases}
@@ -504,7 +595,8 @@
 			0, & \mbox{outras posições}
 		\end{cases}
 	\end{equation}
-	onde o intervalo $ [-\gls{s:rol-angulo-carregamento},\gls{s:rol-angulo-carregamento}] $ é a extensão da zona de carga -- representada em verde na Figura \ref{fig:carregamento-rolamento} -- e o expoente $ n $ vale $ 3/2 $ para rolamentos de esferas e $ 10/9 $ para rolamentos de rolos \cite{tandon:1997}. O termo \gls{s:rol-fator-dist-carga} é o fator de distribuição de carga, que pode ser obtido por \cite{sassi:2007}
+	onde o intervalo $ [-\gls{s:rol-angulo-carregamento},\gls{s:rol-angulo-carregamento}] $ é a extensão da zona de carga -- representada em verde na Figura \ref{fig:carregamento-rolamento} -- e o expoente $ n $ vale $ 3/2 $ para rolamentos de esferas e $ 10/9 $ para rolamentos de rolos \cite{tandon:1997}.
+	O termo \gls{s:rol-fator-dist-carga} é o fator de distribuição de carga, que pode ser obtido por \cite{sassi:2007}
 	\begin{equation}
 		\gls{s:rol-fator-dist-carga} = \frac{1}{2}\cdot\left[1+\frac{\mathit{d}_a}{\mathit{d}_r} \tan\gls{s:rol-angulo-contato} \right]
 	\end{equation}
@@ -515,7 +607,8 @@
 	\end{figure}
 
 	\subsubsection{Componente dinâmica}
-	As referências \cite{mcfadden:1984,tandon:1997} definem a amplitude da força de impacto como sendo dependente somente do carregamento estático \gls{s:carregamento}. No modelo proposto na referência \cite{sassi:2007}, por outro lado, a força total de impacto é a soma de \gls{s:carregamento} com uma componente dinâmica $ \gls{s:forca}_D $, descrita por
+	As referências \cite{mcfadden:1984,tandon:1997} definem a amplitude da força de impacto como sendo dependente somente do carregamento estático \gls{s:carregamento}.
+	No modelo proposto na referência \cite{sassi:2007}, por outro lado, a força total de impacto é a soma de \gls{s:carregamento} com uma componente dinâmica $ \gls{s:forca}_D $, descrita por
 	\begin{equation}
 		\gls{s:forca}_D = \gls{s:carregamento}\cdot\gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2
 	\end{equation}
@@ -528,14 +621,16 @@
 	de modo que o carregamento \gls{s:carregamento} é definido na Equação \ref{eqn:rol:carregamento}.
 	
 	\subsubsection{Impactos modulados pela força}
-	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}. Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Dirac e obedece à seguinte definição \cite{boyce:2017}
+	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
+	Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Dirac e obedece à seguinte definição \cite{boyce:2017}
 	\begin{gather}
 		\gls{s:func-impulso}(t - t_0) = 0,\qquad t\neq0\\
 		\int_{-\infty}^{\infty}\gls{s:func-impulso}(t-t_0)\,dt = 1
 	\end{gather}
 	o que resulta em uma função que possui valor não-nulo em um intervalo infinitamente curto, mas preserva o tamanho total de uma unidade.
 	
-	Considerando o giro do eixo com o rolamento em regime permanente, a função $ p(t) $ que define a influência dos impactos pode ser modelada com uma série infinita de impulsos de igual amplitude $ p_0 $, separados por um período $ \gls{s:periodo}_d $, que é o recíproco da frequência de incidência de um elemento rolante sobre o defeito. Um exemplo da função $ p(t) $ está representado na Figura \ref{fig:funcao-impulso} e ela pode ser definida como \cite{mcfadden:1984}
+	Considerando o giro do eixo com o rolamento em regime permanente, a função $ p(t) $ que define a influência dos impactos pode ser modelada com uma série infinita de impulsos de igual amplitude $ p_0 $, separados por um período $ \gls{s:periodo}_d $, que é o recíproco da frequência de incidência de um elemento rolante sobre o defeito.
+	Um exemplo da função $ p(t) $ está representado na Figura \ref{fig:funcao-impulso} e ela pode ser definida como \cite{mcfadden:1984}
 	\begin{equation} \label{eqn:rol:impulsos}
 		p(t) = p_0\sum_{k=-\infty}^{\infty}\gls{s:func-impulso}(t-k\,\gls{s:periodo}_d)
 	\end{equation}
@@ -547,10 +642,12 @@
 	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
 	
 	\subsection{Modelagem do rolamento}
-	Entre diversas possibilidades para modelagem do conjunto, os modelos numéricos avaliados buscam uma alternativa de simplificação da situação real, visto que a determinação exata do comportamento dinâmico é complicada e, por vezes, impossível \cite{sassi:2007}. Abaixo são apresentados os elementos tratados para a análise do sistema.
+	Entre diversas possibilidades para modelagem do conjunto, os modelos numéricos avaliados buscam uma alternativa de simplificação da situação real, visto que a determinação exata do comportamento dinâmico é complicada e, por vezes, impossível \cite{sassi:2007}.
+	Abaixo são apresentados os elementos tratados para a análise do sistema.
 	
 	\subsubsection{Modelo dos anéis}
-	Quando uma oscilação no anel do rolamento é excitada devido ao impacto de um elemento rolante com um defeito localizado, este anel -- que é modelado como um sistema contínuo (flexível) -- deve entrar em uma vibração de flexão, gerada em diversos modos \cite{sassi:2007}. A forma que o anel assume no $ n $-ésimo modo é definida pela função \cite{tandon:1997}
+	Quando uma oscilação no anel do rolamento é excitada devido ao impacto de um elemento rolante com um defeito localizado, este anel -- que é modelado como um sistema contínuo (flexível) -- deve entrar em uma vibração de flexão, gerada em diversos modos \cite{sassi:2007}.
+	A forma que o anel assume no $ n $-ésimo modo é definida pela função \cite{tandon:1997}
 	\begin{equation}
 		X_n(\phi) = \sin n\phi + \cos n\phi
 	\end{equation}
@@ -561,14 +658,19 @@
 	\end{equation}
 	de modo que \gls{s:modulo-elast} é o módulo de elasticidade do material, \gls{s:segundo-momento-area} é o segundo momento de área de seção transversal, e \gls{s:raio-eixo-neutro} é o raio do eixo neutro do anel.
 	
-	Por questão de simplificação, apenas o primeiro modo de flexão será considerado. Isso corresponde ao modo $ n=2 $, uma vez que os modos $ n=0 $ e $ n=1 $ são modos rígidos. Neste modo, o anel do rolamento toma a forma de uma elipse \cite{sassi:2007}. Conhecendo-se a massa dos anéis e determinando os valores das frequências naturais do modo $ n=2 $ conforme a Equação \ref{eqn:rol:freq-natural-modo}, a Equação \ref{eqn:freq-natural} pode ser rearranjada para determinar as rigidezes $ \gls{s:rigidez}_I $ e $ \gls{s:rigidez}_O $ dos anéis interno e externo, respectivamente \cite{sassi:2007}:
+	Por questão de simplificação, apenas o primeiro modo de flexão será considerado.
+	Isso corresponde ao modo $ n=2 $, uma vez que os modos $ n=0 $ e $ n=1 $ são modos rígidos.
+	Neste modo, o anel do rolamento toma a forma de uma elipse \cite{sassi:2007}.
+	Conhecendo-se a massa dos anéis e determinando os valores das frequências naturais do modo $ n=2 $ conforme a Equação \ref{eqn:rol:freq-natural-modo}, a Equação \ref{eqn:freq-natural} pode ser rearranjada para determinar as rigidezes $ \gls{s:rigidez}_I $ e $ \gls{s:rigidez}_O $ dos anéis interno e externo, respectivamente \cite{sassi:2007}:
 	\begin{align}
 		\gls{s:rigidez}_I &= m_I(\gls{s:freq-natural}_{,I})^2\\
 		\gls{s:rigidez}_O &= m_O(\gls{s:freq-natural}_{,O})^2
 	\end{align}
 	
 	\subsubsection{Modelo dos elementos rolantes}
-	Nas referências \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013} as esferas são tratadas como corpos rígidos. Isso justifica-se pelo fato de serem os elementos de maior rigidez no sistema \cite{sassi:2007}. Uma abordagem alternativa permite, no entanto, considerar a deformação das esferas através da teoria de deformação por contato de Hertz, que relaciona uma força radial $ \gls{s:forca}_r $ com a deformação \gls{s:rol-deform-esfera} como \cite{patil:2010}
+	Nas referências \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013} as esferas são tratadas como corpos rígidos.
+	Isso justifica-se pelo fato de serem os elementos de maior rigidez no sistema \cite{sassi:2007}.
+	Uma abordagem alternativa permite, no entanto, considerar a deformação das esferas através da teoria de deformação por contato de Hertz, que relaciona uma força radial $ \gls{s:forca}_r $ com a deformação \gls{s:rol-deform-esfera} como \cite{patil:2010}
 	\begin{equation} \label{eqn:rol:deform-esfera}
 		\gls{s:forca}_r = \gls{s:rol-fator-deform}\gls{s:rol-deform-esfera}^n
 	\end{equation}
@@ -584,20 +686,25 @@
 	onde $ \sum\varrho $ e $ \zeta^* $ são dependentes da geometria do rolamento.
 	
 	\subsection{Transmissão da oscilação}
-	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente. A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
+	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente.
+	A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
 	
 	\subsubsection{Posição relativa do medidor de vibração}
-	Quando um impulso é provocado no rolamento, frequências de ressonância serão excitadas nele e na máquina em que ele está instalado, permitindo a medição do sinal em um acelerômetro fixado próximo ao componente. Considerando a detecção do transdutor em uma direção, espera-se que a amplitude máxima da vibração medida ocorrerá quando a oscilação ocorrer em paralelamente ao eixo de medição do acelerômetro. Da mesma forma, estima-se que a resposta medida pelo dispositivo será próxima de zero quando o impulso ocorrer em uma direção perpendicular ao eixo o acelerômetro \cite{mcfadden:1984}.
+	Quando um impulso é provocado no rolamento, frequências de ressonância serão excitadas nele e na máquina em que ele está instalado, permitindo a medição do sinal em um acelerômetro fixado próximo ao componente.
+	Considerando a detecção do transdutor em uma direção, espera-se que a amplitude máxima da vibração medida ocorrerá quando a oscilação ocorrer em paralelamente ao eixo de medição do acelerômetro.
+	Da mesma forma, estima-se que a resposta medida pelo dispositivo será próxima de zero quando o impulso ocorrer em uma direção perpendicular ao eixo o acelerômetro \cite{mcfadden:1984}.
 	
 	Dessa maneira, pode-se determinar a amplitude de vibração \gls{s:rol-amplitude-sensor} medida pelo transdutor em função da amplitude máxima $ \gls{s:rol-amplitude-sensor}_{max} $ e do ângulo $ \theta $ entre esse valor limite e o eixo de medição do acelerômetro, sendo definida por \cite{sassi:2007}
 	\begin{equation}
 		\gls{s:rol-amplitude-sensor}(\theta) = \gls{s:raio} - \left( \frac{\sin^2\theta}{[\gls{s:raio}-\gls{s:rol-amplitude-sensor}_{max}]^2} + \frac{\cos^2\theta}{[\gls{s:raio}+\gls{s:rol-amplitude-sensor}_{max}]^2} \right)^{-1/2}
 	\end{equation}
 	
-	Nessa equação, \gls{s:raio} denota o raio do anel não-deformado. Uma simplificação pode ser feita no caso do anel avaliado ser fixo, o que torna o ângulo $ \theta $ constante.
+	Nessa equação, \gls{s:raio} denota o raio do anel não-deformado.
+	Uma simplificação pode ser feita no caso do anel avaliado ser fixo, o que torna o ângulo $ \theta $ constante.
 	
 	\subsubsection{Decaimento do sinal de impulso}
-	Ao gerar os impulsos, a resposta de vibração do rolamento excitará frequências de ressonância no sistema \cite{cong:2013}. A ressonância provocada por um impulso apresenta-se como uma onda cossenoidal, cuja amplitude sofre um decaimento exponencial como mostra a Figura \ref{fig:decaimento-impulso}, que é expresso por \cite{mcfadden:1984,cong:2013}
+	Ao gerar os impulsos, a resposta de vibração do rolamento excitará frequências de ressonância no sistema \cite{cong:2013}.
+	A ressonância provocada por um impulso apresenta-se como uma onda cossenoidal, cuja amplitude sofre um decaimento exponencial como mostra a Figura \ref{fig:decaimento-impulso}, que é expresso por \cite{mcfadden:1984,cong:2013}
 	\begin{equation}
 		\gls{s:func-decaimento}(t) =
 		\begin{cases}
@@ -628,7 +735,10 @@
 	O capítulo a seguir apresenta a metodologia adotada para atingir os objetivos propostos, além da disposição das tarefas ao longo do desenvolvimento do trabalho.
 	
 	\section{Condição atual do protótipo}
-	Tendo como princípio a ideia de validação, o trabalho toma como ponto de partida o protótipo de uma bancada para análise de vibrações, já previamente desenvolvido. Atualmente, todos os componentes da bancada didática já foram fabricados, mas ainda não foi montado. Eventuais retrabalhos podem ser necessários nos componentes usinados para garantir um encaixe ideal entre todas as peças. Os principais componentes do equipamento utilizado para o teste são mostrados na Figura \ref{fig:componentes} e são:
+	Tendo como princípio a ideia de validação, o trabalho toma como ponto de partida o protótipo de uma bancada para análise de vibrações, já previamente desenvolvido.
+	Atualmente, todos os componentes da bancada didática já foram fabricados, mas ainda não foi montado.
+	Eventuais retrabalhos podem ser necessários nos componentes usinados para garantir um encaixe ideal entre todas as peças.
+	Os principais componentes do equipamento utilizado para o teste são mostrados na Figura \ref{fig:componentes} e são:
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item Uma mesa de $ 1000\ mm $ de largura e $ 720\ mm $ de comprimento (item A), montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero, isolando-a da estrutura rígida em que a bancada é montada;
@@ -636,7 +746,9 @@
 		\item Base para o motor (item E) com parafusos para ajuste fino do alinhamento com o eixo;
 		\item Relógio comparador Starrett com resolução de $ 0,\!01\ mm $ (item D), para verificação do alinhamento entre o eixo do motor e o eixo movido;
 		\item Eixo de $ 20\ mm $ de diâmetro e 400 mm de comprimento (item G), usinado em aço ABNT 1045, onde pode ser montado um disco (item F) com furos radiais nos quais podem ser fixados parafusos M5 para deslocar o centro de massa e provocar desbalanceamento;
-		\item Dois mancais  (item B) em aço ABNT 1045 nos quais são inseridos rolamentos rígidos de esferas tipo 6004 2RSH, do fabricante SKF. O rolamento tem encaixe deslizante e pode ser removido do mancal entre os testes. O mancal também tem dois furos -- um na direção vertical e outro na direção horizontal -- para fixar acelerômetros;
+		\item Dois mancais  (item B) em aço ABNT 1045 nos quais são inseridos rolamentos rígidos de esferas tipo 6004 2RSH, do fabricante SKF.
+		O rolamento tem encaixe deslizante e pode ser removido do mancal entre os testes.
+		O mancal também tem dois furos -- um na direção vertical e outro na direção horizontal -- para fixar acelerômetros;
 		\item Um rolamento extra, da mesma marca e modelo do daquele utilizado nos mancais (item B), porém com um defeito controlado na pista externa;
 		\item Par de polias trapezoidais (item H) de perfil padrão A1 com diâmetros de $ 90\ mm $ e $ 60\ mm $, além de correia trapezoidal lisa e esticador ajustável;
 		\item Um mancal de rolamento duplo (item C), com eixo passante de $ 20\ mm $ de diâmetro e comprimento de $ 200\ mm $, utilizado apenas para apoiar a polia trapezoidal;
@@ -649,16 +761,25 @@
 	\end{figure}
 
 	\section{Sequência de trabalho}
-	Conforme indicado no item \ref{sec:objetivos:especificos}, o trabalho a ser desenvolvido consiste na análise do protótipo através de um modelo numérico e também da aquisição de dados do sistema real, tendo como passo intermediário a montagem do conjunto. Mais especificamente, os testes serão concentrados na realização de dois experimentos específicos:
+	Conforme indicado no item \ref{sec:objetivos:especificos}, o trabalho a ser desenvolvido consiste na análise do protótipo através de um modelo numérico e também da aquisição de dados do sistema real, tendo como passo intermediário a montagem do conjunto.
+	Mais especificamente, os testes serão concentrados na realização de dois experimentos específicos:
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item Resposta de vibração causada pelo desbalanceamento de um rotor montado sobre o eixo;
 		\item Resposta de vibração provocada pelo defeito controlado no rolamento de um mancal.
 	\end{enumerate}
 	
-	A Figura \ref{fig:fluxograma} ilustra o fluxo de trabalho a ser desenvolvido. O passo inicial consiste em obter as informações necessárias para construir no MATLAB\textsuperscript{\textregistered} uma modelagem baseada em dados dos componentes já existentes. Visto que serão desenvolvidos dois modelos -- um para cada experimento -- uma sequência de procedimentos será executada duas vezes. Ela consiste em desenvolver a simulação do experimento e verificar se os resultados trarão valores mensuráveis durante a aquisição de dados na bancada real. Um resultado negativo nessa verificação pode indicar, por exemplo, um superdimensionamento do sistema e demandará um retrabalho nos componentes do protótipo ou até mesmo a fabricação de peças novas com diferentes dimensões. Caso o modelo numérico retorne valores aceitáveis para uma medição posterior com os instrumentos, os resultados são coletados. 
+	A Figura \ref{fig:fluxograma} ilustra o fluxo de trabalho a ser desenvolvido.
+	O passo inicial consiste em obter as informações necessárias para construir no MATLAB\textsuperscript{\textregistered} uma modelagem baseada em dados dos componentes já existentes.
+	Visto que serão desenvolvidos dois modelos -- um para cada experimento -- uma sequência de procedimentos será executada duas vezes.
+	Ela consiste em desenvolver a simulação do experimento e verificar se os resultados trarão valores mensuráveis durante a aquisição de dados na bancada real.
+	Um resultado negativo nessa verificação pode indicar, por exemplo, um superdimensionamento do sistema e demandará um retrabalho nos componentes do protótipo ou até mesmo a fabricação de peças novas com diferentes dimensões.
+	Caso o modelo numérico retorne valores aceitáveis para uma medição posterior com os instrumentos, os resultados são coletados.
 	
-	Quando finalizadas as simulações numéricas dos experimentos, o desenvolvimento segue com a montagem da bancada e a criação de uma aplicação no LabVIEW\textsuperscript{\textregistered} para fazer a aquisição de dados durante os testes do sistema real. Os experimentos serão conduzidos, e os dados coletados serão tratados e filtrados. Por fim, os resultados dos modelos numéricos serão comparados com os dados experimentais para validação do protótipo.
+	
+	Quando finalizadas as simulações numéricas dos experimentos, o desenvolvimento segue com a montagem da bancada e a criação de uma aplicação no LabVIEW\textsuperscript{\textregistered} para fazer a aquisição de dados durante os testes do sistema real.
+	Os experimentos serão conduzidos, e os dados coletados serão tratados e filtrados.
+	Por fim, os resultados dos modelos numéricos serão comparados com os dados experimentais para validação do protótipo.
 
 	\begin{figure}[h]
 		\incluirimagem[0.4]{Fluxograma.png}{Fluxograma de desenvolvimento do trabalho}{o autor (\thedate)}
@@ -667,7 +788,10 @@
 	\clearpage
 	
 	\section{Planejamento}
-	Considera-se como início do desenvolvimento das tarefas descritas no fluxograma da Figura \ref{fig:fluxograma} a semana 28 de 2018, iniciada em 8 de julho. A partir desta data, as etapas a serem conduzidas são dispostas no cronograma do Quadro \ref{quad:cronograma}. Apesar de se tratar de um trabalho individual, considera-se um paralelismo na execução das tarefas de retrabalho em componentes. Isso foi planejado porque, além deste ser um passo que não necessariamente será executado, a execução das alterações nos componentes ou a fabricação de peças novas será realizada por uma empresa terceirizada, havendo apenas a necessidade de enviar os projetos atualizados e aguardar o prazo do serviço.
+	Considera-se como início do desenvolvimento das tarefas descritas no fluxograma da Figura \ref{fig:fluxograma} a semana 28 de 2018, iniciada em 8 de julho.
+	A partir desta data, as etapas a serem conduzidas são dispostas no cronograma do Quadro \ref{quad:cronograma}.
+	Apesar de se tratar de um trabalho individual, considera-se um paralelismo na execução das tarefas de retrabalho em componentes.
+	Isso foi planejado porque, além deste ser um passo que não necessariamente será executado, a execução das alterações nos componentes ou a fabricação de peças novas será realizada por uma empresa terceirizada, havendo apenas a necessidade de enviar os projetos atualizados e aguardar o prazo do serviço.
 	
 	\begin{quadro}[h]
 		\incluirimagem[1]{Cronograma.png}{Cronograma de tarefas}{o autor (\thedate)}
