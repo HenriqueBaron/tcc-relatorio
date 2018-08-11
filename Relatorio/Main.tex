@@ -18,7 +18,7 @@
 
 \input{UnidadesSimbolos} % Arquivo que contém os símbolos.
 
-\titulo{Desenvolvimento de uma bancada didática para análise de vibrações em máquinas}
+\titulo{Modelagem numérica de vibração em máquinas rotativas}
 \autor{Henrique Baron}
 \data{2018}
 \instituicao{Universidade de Caxias do Sul}
@@ -59,21 +59,20 @@
 	Porém, a realização de manutenção baseada no tempo vem mostrando uma baixa confiabilidade nos últimos anos.
 	Em um teste realizado pelo SKF Group no qual 30 rolamentos de esferas idênticos foram testados até a falha, o tempo de vida das unidades variou de 15 horas até mais de 300 horas \cite{hashemian:2011}.
 	 
-	
 	Da mesma forma, dados do \gls{sig:NREL} dos Estados Unidos apontam que 76\% dos casos de falha em caixas de engrenagens de aerogeradores são causados por rolamentos, sendo os defeitos nas próprias engrenagens a segunda maior causa em número de ocorrências (17,1\%).
 	Ao mesmo tempo, apenas 10\% dos rolamentos atingem a sua vida útil esperada por conta da diversidade de condições de desgaste prematuro às quais estes componentes podem ser submetidos \cite{peeters:2018}.
 	Sendo assim, mesmo com uma expectativa de vida estimada para partes de uma máquina, é impossível determinar de maneira exata a sua durabilidade.
 	Isso corrobora, portanto, que a aplicação de uma metodologia de manutenção com inspeções periódicas não elimina o risco de paradas provocadas por falhas inesperadas.
 	
 	Atualmente, o aumento da oferta de produtos na área de instrumentação e coleta de dados possibilita à indústria o crescimento do uso de técnicas de manutenção preditiva para análise de condições dos equipamentos.
-	A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para a realização de uma operação de manutenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito.
+	A grande vantagem da manutenção preditiva é que, diferentemente da preventiva, o gatilho para uma intervenção não é um intervalo de tempo, mas sim a mudança em algum sinal emitido pela máquina, que pode ser o indício de um defeito.
 	Entre as técnicas existentes, a medição da vibração em pontos específicos de um sistema traz a vantagem de fornecer sinais de mudança na condição do equipamento em um estágio inicial do possível problema \cite{al-najjar:2004}.
 	
 	O campo de aplicação mais desenvolvido para a detecção de falhas através de vibrações é o monitoramento de máquinas rotativas.
 	Sua metodologia de análise é baseada no reconhecimento de padrões de frequência e amplitude dos sinais medidos durante o funcionamento normal do equipamento \cite{carden:2004}.
 	Componentes ligados ao eixo de um motor, por exemplo, emitirão vibrações com uma frequência igual ou múltipla da frequência de rotação do eixo.
 	Uma vez entendido um padrão de comportamento, mudanças em propriedades físicas do sistema -- como rigidez, amortecimento ou distribuição de massa -- causarão alterações detectáveis nos dados coletados \cite{qiao:2011}, permitindo identificar a origem da variação no sinal analisado.
-	Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva neste tipo de equipamento.
+	Isso faz da análise de vibração um dos principais artifícios da manutenção preditiva nestes equipamentos.
 	
 	\section{Justificativa}
 	Dada a relevância do conhecimento em vibrações nas aplicações de engenharia, é necessária a formação de profissionais competentes no campo da análise de vibrações em máquinas, em ambos os níveis técnico e acadêmico.
@@ -81,34 +80,41 @@
 	Ao mesmo tempo, tal produto deve não somente expor uma situação prática, mas também comprovar -- dentro de uma dada tolerância -- que os valores calculados no ambiente teórico se reproduzem no mundo real.
 	
 	Considerando a escassez da oferta de um equipamento para estudo de vibrações no mercado brasileiro, enxergou-se a possibilidade de desenvolvimento de uma bancada didática que trouxesse os conceitos de análise de vibrações em máquinas para escolas técnicas e universidades.
-	No entanto, para o desenvolvimento de um produto para o mercado de ensino, é vital que exista uma fidelidade entre o equipamento construído e a teoria que ele demonstra.
-	Portanto, a fabricação de um protótipo e a validação deste com um modelo teórico fundamentado são etapas importantes na concepção do produto.
+	No entanto, para o desenvolvimento de um produto para o mercado de ensino, é vital que haja consistência entre a teoria desenvolvida em sala de aula e o resultado prático obtido em laboratório.
+	No estudo de vibrações mecânicas, uma possibilidade para o estabelecimento dessa ligação é a existência de um modelo numérico para o sistema, que utilize conceitos teóricos para mostrar a origem daquilo que é medido em bancada.
 	
 	\section{Ambiente de desenvolvimento}	
 	O trabalho foi conduzido no departamento de Pesquisa e Desenvolvimento da unidade de educação da empresa Auttom Automação e Robótica Ltda., situada em Caxias do Sul.
 	A empresa possui duas divisões: uma concentrada em projetos de automação sob demanda; e a outra, onde o trabalho foi realizado, desenvolve bancadas didáticas e sistemas de ensino para escolas técnicas e universidades.
 	
 	Atualmente, a unidade de educação da empresa conta com uma linha ampla de produtos nas áreas de automação industrial, energias renováveis, eletricidade e refrigeração.
-	Ainda não há uma oferta considerável de produtos para estudo de mecânica -- isto é, desde componentes mecânicos, materiais, ou mesmo a análise de sistemas, como é o caso da análise de vibrações -- e o desenvolvimento deste trabalho surge como uma possibilidade de inserção da empresa em um mercado ainda pouco explorado.
+	Ainda não há uma oferta considerável de produtos para estudo de mecânica nas áreas de estática ou dinâmica, e o desenvolvimento deste trabalho surge como uma possibilidade de inserção da empresa em um mercado ainda pouco explorado.
 	
 	\section{Objetivos}
 	
 	\subsection{Objetivo geral}
-	O objetivo do presente trabalho é validar o protótipo de uma bancada didática para análise de vibrações em máquinas rotativas, através de simulação numérica e testes com protótipo montado.
+	O objetivo do presente trabalho é modelar numericamente duas situações relevantes de vibração em máquinas, para que sejam posteriormente integradas como experimentos a conduzir com a bancada didática.
+	Além disso, busca-se verificar os resultados dos modelos desenvolvidos com um sistema de teste devidamente instrumentado.
 	
 	\subsection{Objetivos específicos} \label{sec:objetivos:especificos}
-	Para o cumprimento do objetivo geral, são estabelecidos os seguintes objetivos específicos:
+	O objetivo apresentado pode ser distribuído entre os seguintes objetivos específicos:
 	\setenumerate[0]{leftmargin=2.1cm,label=\alph*)}
 	\begin{enumerate}
 		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
-		\item Desenvolvimento de um modelo numérico da bancada no MATLAB\textsuperscript{\textregistered};
-		\item Montagem do protótipo e instalação de um sistema de aquisição de dados;
-		\item Desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise dos dados;
-		\item Comparação dos resultados obtidos no modelo numérico e no protótipo construído.
+		\item Desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rotores desbalanceados;
+		\item Desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rolamentos danificados;
+		\item Montagem de um sistema de teste com os componentes do protótipo da bancada didática;
+		\item Desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise de dados;
+		\item Medição da vibração real provocada por um rotor desbalanceado;
+		\item Medição da vibração real provocada por rolamentos danificados;
+		\item Comparação dos dados entre o modelo numérico e o protótipo construído.
 	\end{enumerate}
 
+	Este trabalho tem como foco a modelagem numérica das duas situações propostas, de modo que a verificação experimental -- e o desenvolvimento de \foreignlanguage{english}{software} envolvido -- é o meio utilizado para analisar a consistência do modelo construído.
+	Dessa maneira, o aprofundamento relativo às técnicas de instrumentação empregadas no teste fogem do escopo deste trabalho.
+
 	\chapter{Referencial teórico}
-	Neste capítulos são apresentados os conceitos inerentes à modelagem e análise do protótipo desenvolvido.
+	Neste capítulo são apresentados os conceitos inerentes à modelagem e análise do protótipo desenvolvido.
 	
 	\section{Análise harmônica}
 	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}.
