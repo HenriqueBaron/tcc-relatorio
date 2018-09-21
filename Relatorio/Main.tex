@@ -84,16 +84,14 @@
 	
 	\subsection{Objetivos específicos} \label{sec:objetivos:especificos}
 	O objetivo apresentado pode ser distribuído entre os seguintes objetivos específicos:
-	\setenumerate[0]{leftmargin=2.1cm,label=\alph*)}
 	\begin{enumerate}
-		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
-		\item Desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rotores desbalanceados;
-		\item Desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rolamentos danificados;
-		\item Montagem de um sistema de teste com os componentes do protótipo da bancada didática;
-		\item Desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise de dados;
-		\item Medição da vibração real provocada por um rotor desbalanceado;
-		\item Medição da vibração real provocada por rolamentos danificados;
-		\item Comparação dos dados entre o modelo numérico e o protótipo construído.
+		\item desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rotores desbalanceados;
+		\item desenvolvimento de um modelo numérico no MATLAB\textsuperscript{\textregistered} para a vibração provocada por rolamentos danificados;
+		\item montagem de um sistema de teste com os componentes do protótipo da bancada didática;
+		\item desenvolvimento de uma aplicação no LabVIEW\textsuperscript{\textregistered} para coleta e análise de dados;
+		\item medição da vibração real provocada por um rotor desbalanceado;
+		\item medição da vibração real provocada por rolamentos danificados;
+		\item comparação dos dados entre o modelo numérico e o protótipo construído.
 	\end{enumerate}
 
 	Este trabalho tem como foco a modelagem numérica das duas situações propostas, de modo que a verificação experimental -- e o desenvolvimento de \foreignlanguage{english}{software} envolvido -- é o meio utilizado para validar o modelo construído.
@@ -713,7 +711,6 @@
 
 	Denotando como $ g(t) $ a reposta de vibração do sistema com o produto das funções definidas até o momento, isto é:
 	\begin{enumerate}
-		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
 		\item a força total de impacto, $ \gls{s:forca}_T $;
 		\item a função de impulsos provocada pela passagem nos defeitos, \gls{s:func-impulso}; e
 		\item a amplitude máxima de acordo com a posição do transdutor, \gls{s:rol-amplitude-sensor};
@@ -729,9 +726,8 @@
 	\section{Modelagem numérica}
 	Conforme especificado no item \ref{sec:objetivos:especificos}, o trabalho a ser desenvolvido consiste no desenvolvimento de modelos numéricos para duas situações de vibração em máquinas rotativas:
 	\begin{enumerate}
-		\setlength\itemsep{0pt plus 2pt minus 1pt}
-		\item Resposta de vibração causada pelo desbalanceamento de um rotor montado sobre o eixo;
-		\item Resposta de vibração provocada pelo defeito controlado no rolamento de um mancal.
+		\item resposta de vibração causada pelo desbalanceamento de um rotor montado sobre o eixo;
+		\item resposta de vibração provocada pelo defeito controlado no rolamento de um mancal.
 	\end{enumerate}
 
 	Ambos os modelos numéricos serão desenvolvidos no MATLAB\textsuperscript{\textregistered}.
@@ -742,19 +738,18 @@
 	Para validar os resultados obtidos em simulação, será utilizado o protótipo da bancada didática mencionada no item \ref{sec:justificativa}.
 	A Figura \ref{fig:componentes} mostra o protótipo desmontado, que é composto pelos seguintes componentes:
 	\begin{enumerate}
-		\setlength{\itemsep}{0pt plus 2pt minus 1pt}
-		\item Uma mesa de $ 1000\ mm $ de largura e $ 720\ mm $ de comprimento (item A), montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero, isolando-a da estrutura rígida em que a bancada é montada;
-		\item Motor de indução trifásico de dois polos (item E), controlado por um inversor de frequência, para variação da sua velocidade de rotação; 
-		\item Base para o motor (item E) com parafusos para ajuste fino do alinhamento com o eixo;
-		\item Relógio comparador Starrett com resolução de $ 0,\!01\ mm $ (item D), para verificação do alinhamento entre o eixo do motor e o eixo movido;
-		\item Eixo de $ 20\ mm $ de diâmetro e 400 mm de comprimento (item G), usinado em aço ABNT 1045, onde pode ser montado um disco (item F) com furos radiais nos quais podem ser fixados parafusos M5 para deslocar o centro de massa e provocar desbalanceamento;
-		\item Dois mancais  (item B) em aço ABNT 1045 nos quais são inseridos rolamentos rígidos de esferas tipo 6004 2RSH, do fabricante SKF.
+		\item uma mesa de $ 1000\ mm $ de largura e $ 720\ mm $ de comprimento (item A), montada a partir de perfis de alumínio de $ 45 \times 90\ mm $, apoiada sobre coxins de elastômero, isolando-a da estrutura rígida em que a bancada é montada;
+		\item motor de indução trifásico de dois polos (item E), controlado por um inversor de frequência, para variação da sua velocidade de rotação; 
+		\item base para o motor (item E) com parafusos para ajuste fino do alinhamento com o eixo;
+		\item relógio comparador Starrett com resolução de $ 0,\!01\ mm $ (item D), para verificação do alinhamento entre o eixo do motor e o eixo movido;
+		\item eixo de $ 20\ mm $ de diâmetro e 400 mm de comprimento (item G), usinado em aço ABNT 1045, onde pode ser montado um disco (item F) com furos radiais nos quais podem ser fixados parafusos M5 para deslocar o centro de massa e provocar desbalanceamento;
+		\item dois mancais  (item B) em aço ABNT 1045 nos quais são inseridos rolamentos rígidos de esferas tipo 6004 2RSH, do fabricante SKF.
 		O rolamento tem encaixe deslizante e pode ser removido do mancal entre os testes.
 		O mancal também tem dois furos -- um na direção vertical e outro na direção horizontal -- para fixar acelerômetros;
-		\item Um rolamento extra, da mesma marca e modelo do daquele utilizado nos mancais (item B), porém com um defeito controlado na pista externa;
-		\item Par de polias trapezoidais (item H) de perfil padrão A1 com diâmetros de $ 90\ mm $ e $ 60\ mm $, além de correia trapezoidal lisa e esticador ajustável;
-		\item Um mancal de rolamento duplo (item C), com eixo passante de $ 20\ mm $ de diâmetro e comprimento de $ 200\ mm $, utilizado apenas para apoiar a polia trapezoidal;
-		\item Conjunto de módulo de aquisição de dados e acelerômetros para coleta de dados de vibração durante os experimentos.
+		\item um rolamento extra, da mesma marca e modelo do daquele utilizado nos mancais (item B), porém com um defeito controlado na pista externa;
+		\item par de polias trapezoidais (item H) de perfil padrão A1 com diâmetros de $ 90\ mm $ e $ 60\ mm $, além de correia trapezoidal lisa e esticador ajustável;
+		\item um mancal de rolamento duplo (item C), com eixo passante de $ 20\ mm $ de diâmetro e comprimento de $ 200\ mm $, utilizado apenas para apoiar a polia trapezoidal;
+		\item conjunto de módulo de aquisição de dados e acelerômetros para coleta de dados de vibração durante os experimentos.
 	\end{enumerate}
 
 	\begin{figure}[h]
