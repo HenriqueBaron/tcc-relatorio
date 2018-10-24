@@ -445,6 +445,28 @@
 	
 	Cabe ressaltar que, diferentemente da soma de curvatura, a diferença de curvatura é adimensional.
 	
+	\subsection{Integrais elípticas}
+	Conforme proposto em \cite{hertz:1881}, a solução para o contato entre os dois sólidos depende do cálculo das integrais elípticas de primeiro e segundo tipos, além do fator de elipticidade, denotados respectivamente por \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e \gls{s:fator-elipticidade}.
+	
+	Um método para a obtenção destes três parâmetros, proposto em \cite{hamrock:1991}, calcula as integrais elípticas como
+	\begin{align}
+		\gls{s:int-eliptica-1} &= \int_{0}^{\pi/2} \left[ 1 - \left( 1-\frac{1}{\gls{s:fator-elipticidade}^2}\right)\sin^2\phi
+		\right]^{-1/2}d\phi \label{eqn:int-eliptica-1} \\
+		\gls{s:int-eliptica-2} &= \int_{0}^{\pi/2} \left[ 1 - \left(
+		1-\frac{1}{\gls{s:fator-elipticidade}^2}\right)\sin^2\phi
+		\right]^{1/2}d\phi \label{eqn:int-eliptica-2}
+	\end{align}
+	e relaciona estes valores com \gls{s:fator-elipticidade} e \gls{s:curvatura-diferenca} através de uma equação transcendental
+	\begin{equation} \label{eqn:fator-elipticidade}
+		\gls{s:fator-elipticidade} = \left[ \frac{
+		2\gls{s:int-eliptica-1} - \gls{s:int-eliptica-2}(
+		1+\gls{s:curvatura-diferenca})}{
+		\gls{s:int-eliptica-2}(1-\gls{s:curvatura-diferenca})}
+		\right]^{1/2}
+	\end{equation}
+	
+	Sendo os valores das Equações (\ref{eqn:int-eliptica-1}), (\ref{eqn:int-eliptica-2}) e (\ref{eqn:fator-elipticidade}) interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:fator-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
+	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
 	Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados.
