@@ -422,8 +422,28 @@
 		\label{fig:raios-rolamento}
 	\end{figure}
 
-	É perceptível pela Figura \ref{fig:raios-rolamento} que o contato entre uma esfera e a calha do anel do rolamento não representa o modelo geral de contato mostrado na Figura \ref{fig:contato-elipses}.
+	Para a modelagem do contato entre o rolamento e cada anel, deve-se determinar os raios de curvatura equivalentes \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y}, dados por
+	\begin{gather}
+		\frac{1}{\gls{s:raio-equiv-x}} = \frac{1}{r_{ax}} +
+		\frac{1}{r_{bx}} \label{eqn:raio-equiv-x} \\
+		\frac{1}{\gls{s:raio-equiv-y}} = \frac{1}{r_{ay}} +
+		\frac{1}{r_{by}} \label{eqn:raio-equiv-y}
+	\end{gather}
+	que redefinem o problema do contato entre dois elipsoides -- como mostrado na Figura \ref{fig:contato-elipses} -- para o contato de um elipsoide de raios de curvatura \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y} com uma superfície plana \cite{hamrock:1991}.
 	
+	Outros dois parâmetros importantes utilizados nos cálculos posteriores são a soma de curvatura \gls{s:curvatura-soma}, definida como \cite{wijnant:1998}
+	\begin{equation} \label{eqn:curvatura-soma}
+		\frac{1}{\gls{s:curvatura-soma}} =
+		\frac{1}{\gls{s:raio-equiv-x}} + \frac{1}{\gls{s:raio-equiv-y}}
+	\end{equation}
+	e a diferença de curvatura \gls{s:curvatura-diferenca}, que vale
+	\begin{equation}
+		\gls{s:curvatura-diferenca} = \gls{s:curvatura-soma}
+		\left( \frac{1}{\gls{s:raio-equiv-x}} - 
+		\frac{1}{\gls{s:raio-equiv-y}} \right)
+	\end{equation}
+	
+	Cabe ressaltar que, diferentemente da soma de curvatura, a diferença de curvatura é adimensional.
 	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
