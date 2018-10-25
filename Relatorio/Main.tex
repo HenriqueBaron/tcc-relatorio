@@ -446,28 +446,56 @@
 	Cabe ressaltar que, diferentemente da soma de curvatura, a diferença de curvatura é adimensional.
 	
 	\subsection{Integrais elípticas}
-	Conforme proposto em \cite{hertz:1881}, a solução para o contato entre os dois sólidos depende do cálculo das integrais elípticas de primeiro e segundo tipos, além do fator de elipticidade, denotados respectivamente por \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e \gls{s:fator-elipticidade}.
+	Conforme proposto em \cite{hertz:1881}, a solução para o contato entre os dois sólidos depende do cálculo das integrais elípticas de primeiro e segundo tipos, além do parâmetro de elipticidade, denotados respectivamente por \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e \gls{s:param-elipticidade}.
 	
 	Um método para a obtenção destes três parâmetros, proposto em \cite{hamrock:1991}, calcula as integrais elípticas como
 	\begin{align}
-		\gls{s:int-eliptica-1} &= \int_{0}^{\pi/2} \left[ 1 - \left( 1-\frac{1}{\gls{s:fator-elipticidade}^2}\right)\sin^2\phi
+		\gls{s:int-eliptica-1} &= \int_{0}^{\pi/2} \left[ 1 - \left( 1-\frac{1}{\gls{s:param-elipticidade}^2}\right)\sin^2\phi
 		\right]^{-1/2}d\phi \label{eqn:int-eliptica-1} \\
 		\gls{s:int-eliptica-2} &= \int_{0}^{\pi/2} \left[ 1 - \left(
-		1-\frac{1}{\gls{s:fator-elipticidade}^2}\right)\sin^2\phi
+		1-\frac{1}{\gls{s:param-elipticidade}^2}\right)\sin^2\phi
 		\right]^{1/2}d\phi \label{eqn:int-eliptica-2}
 	\end{align}
-	e relaciona estes valores com \gls{s:fator-elipticidade} e \gls{s:curvatura-diferenca} através de uma equação transcendental
+	e relaciona estes valores com \gls{s:param-elipticidade} e \gls{s:curvatura-diferenca} através de uma equação transcendental
 	\begin{equation} \label{eqn:fator-elipticidade}
-		\gls{s:fator-elipticidade} = \left[ \frac{
+		\gls{s:param-elipticidade} = \left[ \frac{
 		2\gls{s:int-eliptica-1} - \gls{s:int-eliptica-2}(
 		1+\gls{s:curvatura-diferenca})}{
 		\gls{s:int-eliptica-2}(1-\gls{s:curvatura-diferenca})}
 		\right]^{1/2}
 	\end{equation}
 	
-	Sendo os valores das Equações (\ref{eqn:int-eliptica-1}), (\ref{eqn:int-eliptica-2}) e (\ref{eqn:fator-elipticidade}) interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:fator-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
+	Sendo os valores das Equações (\ref{eqn:int-eliptica-1}), (\ref{eqn:int-eliptica-2}) e (\ref{eqn:fator-elipticidade}) interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:param-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
 	
 	\subsection{Deformação elástica por contato}
+	Pela teoria de Hertz, a carga aplicada ao contato \gls{s:carga-radial} e a deformação máxima \gls{s:deformacao-maxima} são relacionadas por \cite{tandon:1997,hamrock:1991}
+	\begin{equation} \label{eqn:deform-hertz-curta}
+		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
+		\gls{s:deformacao-maxima}^j
+	\end{equation}
+	
+	Para o caso de rolamentos de esferas, o expoente $ j $ vale $ 1,5 $ e \gls{s:rigidez-hertz} é a rigidez não-linear, que vale \cite{hamrock:1991}
+	\begin{equation} \label{eqn:rigidez-hertz}
+		\gls{s:rigidez-hertz} = \pi\gls{s:param-elipticidade}\,
+		\gls{s:modulo-elast-efetivo}\left( \frac{
+		2\gls{s:int-eliptica-2}\gls{s:curvatura-soma}}{
+		9\gls{s:int-eliptica-1}^3} \right)^{1/2}
+	\end{equation}
+	
+	Nesta equação, o termo \gls{s:modulo-elast-efetivo} é o módulo de elasticidade efetivo, que combina o módulo de elasticidade \gls{s:modulo-elast} e o coeficiente de Poisson \gls{s:coef-poisson} de cada um dos dois sólidos a e b em contato através da fórmula \cite{wijnant:1998}
+	\begin{equation}
+		\frac{2}{\gls{s:modulo-elast-efetivo}} = 
+		\frac{1-\gls{s:coef-poisson}_a}{\gls{s:modulo-elast}_a} + 
+		\frac{1-\gls{s:coef-poisson}_b}{\gls{s:modulo-elast}_b}
+	\end{equation}
+	
+	Para o cálculo específico da deformação máxima \gls{s:deformacao-maxima}, as Equações (\ref{eqn:deform-hertz-curta}) e (\ref{eqn:rigidez-hertz}) podem ser combinadas e rearranjadas para \cite{hamrock:1991}
+	\begin{equation}
+		\gls{s:deformacao-maxima} = \gls{s:int-eliptica-1} \left[
+		\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
+		\frac{\gls{s:carga-radial}}{\pi\gls{s:param-elipticidade}\,
+		\gls{s:modulo-elast-efetivo}} \right)^2 \right]^{1/3}
+	\end{equation}
 	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
