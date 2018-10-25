@@ -561,6 +561,49 @@
 		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^j
 	\end{equation}
 	
+	Ainda conforme \cite{hamrock:1991}, a carga total aplicada \gls{s:carga-radial} deve ser igual ao somatório da carga distribuída entre todos os elementos rolantes solicitados:
+	\begin{equation}\label{eqn:rol:dist-carga-geral}
+		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\sum\left(
+		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
+		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^j\,
+		\cos\gls{s:rol-angulo-carregamento}
+	\end{equation}
+	o que é representado para um rolamento de esferas na forma integral como
+	\begin{equation}\label{eqn:rol:dist-carga-esf}
+		\gls{s:carga-radial} = \frac{\gls{s:rol-num-esferas}}{\pi}\,
+		\gls{s:rigidez-hertz}\,\gls{s:deformacao-maxima}^{3/2}
+		\int_{0}^{\gls{s:rol-extensao-carregamento}}
+		\left( \cos\gls{s:rol-angulo-carregamento} - \frac{
+		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^{
+		3/2} \cos\gls{s:rol-angulo-carregamento}\ 
+		d\gls{s:rol-angulo-carregamento}
+	\end{equation}
+	
+	É possível ainda obter uma expressão que relacione a carga radial aplicada \gls{s:carga-radial} com a carga na esfera mais solicitada \gls{s:rol-carga-maxima-elemento}.
+	A carga na esfera mais solicitada pode ser obtida fazendo $ \gls{s:rol-angulo-carregamento} = 0 $ na Equação (\ref{eqn:rol:dist-carga-geral}) e removendo o somatório \cite{hamrock:1991}:
+	\begin{equation}
+		\gls{s:rol-carga-maxima-elemento} = \gls{s:rigidez-hertz}
+		\left( 1 - \frac{\gls{s:rol-folga-diam}}{
+		2\gls{s:deformacao-maxima}} \right)^j
+	\end{equation}
+	
+	Em um segundo passo, essa expressão pode ser dividida pela Equação (\ref{eqn:rol:dist-carga-esf}).
+	Rearranjando os termos, chega-se a
+	\begin{equation}
+		\gls{s:carga-radial} = \frac{\gls{s:rol-num-esferas}\,
+		\gls{s:rol-carga-maxima-elemento}}{Z_w}
+	\end{equation}
+	onde $ Z_w $ representa
+	\begin{equation}
+		Z_w = \frac{\pi\left( 1 - \frac{\gls{s:rol-folga-diam}}{
+		2\gls{s:deformacao-maxima}} \right)^{3/2}}
+		{\int_{0}^{\gls{s:rol-extensao-carregamento}}\left(
+		\cos\gls{s:rol-angulo-carregamento} - \frac
+		{\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^
+		{3/2} \cos\gls{s:rol-angulo-carregamento}\ 
+		d\gls{s:rol-angulo-carregamento}}
+	\end{equation}
+	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
 	Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados.
