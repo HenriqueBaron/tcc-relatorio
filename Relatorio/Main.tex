@@ -230,7 +230,7 @@
 	O algoritmo envolve o reordenamento e fatoração da matriz complexa \gls{s:matriz-unitarios-dft} em matrizes que produzem rotações progressivamente menores nos vetores unitários \cite{randall:1987}, e oferece grandes vantagens quando aplicado amostras cuja quantidade é uma potência inteira de dois, devido à natureza binária das operações computacionais \cite{cooley:1965}.
 	Embora a abordagem completa do procedimento fuja do escopo deste texto, cabe ressaltar que o resultado obtido e as limitações envolvidas são os mesmos relativos ao cálculo da \gls{sig:DFT} \cite{randall:1987}.
 	
-	\section{Vibração de sistemas discretos}
+	\section{Vibração de sistemas discretos} \label{sec:disc}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade.
 	Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema \cite{rao:2008}.
 	
@@ -374,7 +374,7 @@
 	Ao tratar um corpo como um elemento elástico contínuo, ele é considerado como sendo composto de um número infinito de partículas infinitesimais, e é tratado como um sistema com infinitos gruas de liberdade.
 	Dessa maneira, estruturas geometricamente complexas tornam-se demasiado difíceis -- ou mesmo impossíveis -- de serem modeladas por este método, restando para estes casos métodos que envolvam a discretização em um número finito de graus de liberdade \cite{timoshenko:1974}.
 	
-	\subsection{Equação de movimento} \label{desenv:cont:eqn-geral}
+	\subsection{Equação de movimento}
 	A equação geral de movimento de um sistema contínuo pode ser deduzida a partir da vibração vertical de uma corda sob tensão.
 	Esteja uma corda com uma massa por unidade de comprimento equivalente a \gls{s:massa-espec}, sujeita a uma força transversal \gls{s:forca} que é função do tempo \gls{s:tempo} e da coordenada $x$, como mostra o lado esquerdo da Figura \ref{fig:vibracao-corda}.
 	O lado direito da figura mostra em detalhe o intervalo infinitesimal $dx$ entre os pontos $x_1$ e $x_2$.
@@ -604,6 +604,33 @@
 		d\gls{s:rol-angulo-carregamento}}
 	\end{equation}
 	
+	\subsection{Determinação de propriedades}
+	Como mostrado no item \ref{sec:disc}, a modelagem dinâmica de um sistema depende da determinação de propriedades como rigidez e frequência natural.
+	A seguir serão apresentados os métodos para determinação destas propriedades para os componentes de um rolamento.
+	
+	\subsubsection{Anéis interno e externo}
+	Na definição de um modelo para um rolamento de esferas, a deformação dos anéis interno e externo é compreendida modelando estas peças como um sistema contínuo \cite{sassi:2007}.
+	Em tal sistema, a frequência natural do $n$-ésimo modo de vibração pode ser determinada através da equação \cite{tandon:1997,sassi:2007,cong:2013}
+	\begin{equation} \label{eqn:rol:freq-natural-modo}
+		\gls{s:freq-natural} = \frac{n\,(n^2-1)}{\sqrt{1+n^2}}\:
+		\sqrt{\frac{\gls{s:modulo-elast}\gls{s:segundo-momento-area}}{
+		\gls{s:massa-espec}\gls{s:raio-eixo-neutro}^4}}
+	\end{equation}
+	onde \gls{s:modulo-elast} é o módulo de elasticidade do material, e \gls{s:segundo-momento-area}, \gls{s:massa-espec} e \gls{s:raio-eixo-neutro} são, respectivamente, o segundo momento de área, a massa por unidade de comprimento, e o raio da linha neutra relativos à seção transversal do anel.
+	
+	Para os anéis, os modos de vibração $n=0$ e $n=1$ são modos rígidos.
+	O primeiro e principal modo em que de fato ocorre deformação no sólido é o modo para $n=2$.
+	Embora a vibração ocorra em diversos modos simultaneamente, a amplitude da oscilação nos modos posteriores a $n=2$ não é expressiva.
+	Portanto, a Equação (\ref{eqn:rol:freq-natural-modo}) é utilizada no modelo dos anéis somente neste modo, por questões de simplificação \cite{sassi:2007}.
+	
+	Uma vez conhecida a frequência natural e a massa \gls{s:rol-massa-anel} de cada anel, é possível encontrar o valor da rigidez \gls{s:rol-rig-anel} para os anéis interno e externo através das equações \cite{sassi:2007}
+	\begin{align}
+		\gls{s:rol-rig-anel}_i &= \gls{s:rol-massa-anel}_i\,
+			(\gls{s:freq-natural}_i)^2\\
+		\gls{s:rol-rig-anel}_o &= \gls{s:rol-massa-anel}_o\,
+			(\gls{s:freq-natural}_o)^2
+	\end{align}
+	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
 	Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados.
@@ -684,7 +711,7 @@
 	\end{equation}
 	
 	A frequência natural do $n$-ésimo modo de vibração também pode ser determinada, através da fórmula \cite{tandon:1997,sassi:2007,cong:2013}
-	\begin{equation} \label{eqn:rol:freq-natural-modo}
+	\begin{equation} 
 		\gls{s:freq-natural} = \frac{n(n^2-1)}{\sqrt{1+n^2}}\sqrt{\frac{\gls{s:modulo-elast} \gls{s:segundo-momento-area}}{\gls{s:massa-espec} \gls{s:raio-eixo-neutro}^4}}
 	\end{equation}
 	de modo que \gls{s:modulo-elast} é o módulo de elasticidade do material, \gls{s:segundo-momento-area} é o segundo momento de área de seção transversal, e \gls{s:raio-eixo-neutro} é o raio do eixo neutro do anel.
