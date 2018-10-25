@@ -407,7 +407,7 @@
 	Neste trabalho, é provado que a área de contato entre dois corpos toma a forma de uma elipse, além de serem apresentadas soluções para o deslocamento de pontos em uma superfície, e as tensões envolvidas na deformação.
 	Em termos da relação entre força e deformação, a teoria batizada de \emph{contato hertziano} apresenta uma resposta não-linear do deslocamento em resposta à força aplicada, o que difere da rigidez linear apresentada nas seções anteriores.
 	
-	\subsection{Curvatura das superfícies de contato}
+	\subsection{Curvatura das superfícies de contato} \label{sec:curvatura-contato}
 	De maneira geral, pode-se exemplificar o contato entre duas superfícies com dois elipsoides, como mostra a Figura \ref{fig:contato-elipses}.
 	Adota-se o eixo x como sendo o eixo paralelo à direção do movimento, sendo também o semieixo menor da elipse de contato \cite{hamrock:1991}.
 	\begin{figure}[h]
@@ -496,6 +496,35 @@
 		\frac{\gls{s:carga-radial}}{\pi\gls{s:param-elipticidade}\,
 		\gls{s:modulo-elast-efetivo}} \right)^2 \right]^{1/3}
 	\end{equation}
+	
+	\section{Rolamentos rígidos de esferas}
+	A seção a seguir apresenta os elementos construtivos e parâmetros principais que são utilizados na modelagem de rolamentos rígidos de esferas.
+	Também será aplicada a teoria desenvolvida nas seções anteriores de modo a estabelecer os métodos de solução para determinar as 		propriedades e comportamento dinâmico do componente.
+		
+	\subsection{Características construtivas}
+	As principais medidas do rolamento são ilustradas na Figura \ref{fig:rolamento-medidas}.
+	Nas seções posteriores, os subscritos ''i'' e ''o'' nas variáveis relacionam o valor aos anéis interno e externo do rolamento, respectivamente.
+	
+	O diâmetro específico \gls{s:rol-diam-espec}, denominado em inglês \foreignlanguage{english}{pitch diameter}, é calculado por
+	\begin{equation}
+		\gls{s:rol-diam-espec} = \frac{\gls{s:rol-diam-int} + 
+		\gls{s:rol-diam-ext}}{2}
+	\end{equation}
+	sendo \gls{s:rol-diam-int} o diâmetro interno do anel interno, e \gls{s:rol-diam-ext} o diâmetro externo do anel externo.
+	
+	Nos elementos rolantes, é importante conhecer o número de esferas \gls{s:rol-num-esferas} e o diâmetro \gls{s:rol-diam-esferas} de cada uma.
+	No item \ref{sec:curvatura-contato}, a Figura \ref{fig:raios-rolamento} já indica a necessidade do conhecimento dessa medida das esferas.	
+	Também na mesma figura, é visível que o raio da calha -- em inglês, \foreignlanguage{english}{groove} -- do anel, \gls{s:rol-raio-groove}, também é relevante nos cálculos.
+	
+	No ponto de contato entre a esfera e o anel, uma dimensão importante para a determinação posterior da distribuição de carga do rolamento é a folga diametral \gls{s:rol-folga-diam}.
+	Essa medida é fornecida pelo fabricante do componente como folga radial (isto é, metade da folga diametral), e dentro de uma faixa de valores.
+	A norma ISO prevê cinco classes de folga radial para rolamentos: 2, N, 3, 4 e 5. A classe 2 é a que apresenta menores folgas, enquanto as maiores estão presentes na classe 5.
+	A classe N abrevia a palavra ''normal'' e é empregada na maioria dos rolamentos comerciais \cite{skfClearance}.
+		
+	\begin{figure}[t]
+		\missingfigure{Incluir desenho das medidas principais do rolamento}
+		\label{fig:rolamento-medidas}
+	\end{figure}
 	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
