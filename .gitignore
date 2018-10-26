@@ -39,3 +39,6 @@
 
 # Arquivos da lista de quadros
 *.loq
+
+# Cópia dos arquivos do modelo numérico, utilizados no apêndice
+*.m 
