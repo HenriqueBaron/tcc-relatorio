@@ -569,7 +569,7 @@
 	utilizando o valor de deformação máxima calculado pela Equação (\ref{eqn:seco:deformacao-max}).
 	
 	Já a carga em um elemento rolante qualquer emprega também a rigidez não-linear \gls{s:rigidez-hertz} da Equação (\ref{eqn:seco:rig-hertz}) e é calculada por
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:carga-elemento}
 		\gls{s:rol-carga-elemento} = \gls{s:rigidez-hertz} \left(
 		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
 		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^j
@@ -683,18 +683,24 @@
 	Em geral, essa força é influenciada pelo carregamento estático e pela amplificação durante a passagem dos elementos rolantes pelo defeito, que pode ser tratada como um impulso \cite{mcfadden:1984,sassi:2007,cong:2013} ou como um pulso de duração finita \cite{tandon:1997}.
 	
 	\subsubsection{Composição da força}
-	As referências \cite{mcfadden:1984,tandon:1997} definem a amplitude da força de impacto como sendo dependente somente do carregamento estático \gls{s:carregamento}.
-	No modelo proposto na referência \cite{sassi:2007}, por outro lado, a força total de impacto é a soma de \gls{s:carregamento} com uma componente dinâmica $ \gls{s:forca}_D $, descrita por \todo{Atualizar estas equações com os símbolos apropriados}
+	As referências \cite{mcfadden:1984,tandon:1997} definem a amplitude da força de impacto como sendo dependente somente do carregamento estático \gls{s:rol-carga-elemento} no elemento que passa pelo defeito.
+	No modelo proposto na referência \cite{sassi:2007}, por outro lado, a força total de impacto é a soma de \gls{s:rol-carga-elemento} com uma componente dinâmica \gls{s:rol-forca-din-impacto}, descrita por
 	\begin{equation}
-		\gls{s:forca}_D = \gls{s:carregamento}\cdot\gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2
+		\gls{s:rol-forca-din-impacto} =
+		\gls{s:rol-carga-elemento}\cdot\gls{s:rol-coef-impacto}\cdot
+		\left(\frac{\gls{s:rol-comp-defeito}}
+		{\gls{s:rol-diam-esferas}}\right)^2
 	\end{equation}
 	onde \gls{s:rol-comp-defeito} é o comprimento do defeito e \gls{s:rol-coef-impacto} é um coeficiente de impacto que depende tanto do material como da geometria do rolamento.
 	
-	Incluindo a componente dinâmica, a força total de impacto $ \gls{s:forca}_T $ resulta em
+	Incluindo a componente dinâmica, a força total de impacto \gls{s:rol-forca-tot-impacto} resulta em
 	\begin{equation} \label{eqn:rol:forca-impacto-tot}
-		F_T = \gls{s:carregamento}\left[1 + \gls{s:rol-coef-impacto}\cdot \left(\frac{\gls{s:rol-comp-defeito}}{\gls{s:rol-diam-esferas}}\right)^2 \right]
+		\gls{s:rol-forca-tot-impacto} = \gls{s:rol-carga-elemento}
+		\left[1 + \gls{s:rol-coef-impacto}\cdot
+		\left(\frac{\gls{s:rol-comp-defeito}}
+		{\gls{s:rol-diam-esferas}}\right)^2 \right]
 	\end{equation}
-	de modo que o carregamento \gls{s:carregamento} é definido na Equação \ref{eqn:rol:carregamento}.
+	de modo que o carregamento \gls{s:rol-carga-elemento} é definido na Equação (\ref{eqn:rol:carga-elemento}).
 	
 	\subsubsection{Impactos modulados pela força}
 	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
