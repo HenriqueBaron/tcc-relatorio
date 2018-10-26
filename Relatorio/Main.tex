@@ -789,7 +789,7 @@
 	
 	A modelagem considerará a velocidade de rotação constante, e indo de encontro aos modelos propostos nas referências \cite{mcfadden:1984,sassi:2007,patil:2010,cong:2013,tandon:1997}, é considerada condição isotérmica em todo o rolamento e durante todo o experimento.
 	
-	\section{Dados de entrada}
+	\section{Dados de entrada} \label{sec:dados-entrada}
 	O modelo desenvolvido assume como velocidade de rotação do eixo um valor de 1800 \gls{sig:RPM} e uma carga radial de 100 N.
 	Conforme determinado no item \ref{sec:proposta-condicoes}, a carga encontra-se alinhada ao defeito.
 	Os dados gerais do rolamento 6004-2RSH utilizados no modelo são mostrados no Quadro \ref{qdr:6004-gerais}.
@@ -837,6 +837,23 @@
 		\incluirimagem[0.7]{Modelo3DRolamento.png}{Modelo 3D do rolamento 6004}{o autor (\thedate)}
 		\label{fig:3d-rolamento}
 	\end{figure}
+
+	\section{Determinação de propriedades}
+	A partir as propriedades iniciais trazidas no item \ref{sec:dados-entrada}, um conjunto de propriedades derivadas é calculado, para que os cálculos do modelo possam ser efetivamente realizados.
+	A obtenção destes valores a partir da teoria apresentada no capítulo anterior é segmentada nas seções abaixo.
+
+	\subsection{Diâmetros e raios de elementos}	
+	Como mostrado na Equação (\ref{eqn:rol:diam-espec}), o diâmetro específico \gls{s:rol-diam-espec} é calculado a partir dos dados do Quadro \ref{qdr:6004-gerais}:
+	\begin{equation*}
+		\gls{s:rol-diam-espec} = \frac{20 + 42}{2} = 31\ \text{mm}
+	\end{equation*}
+	
+	Para as esferas, o diâmetro \gls{s:rol-diam-esferas} nominal fornecido pelo fabricante pode ser utilizado de maneira satisfatória para obtenção das frequências características do rolamento, mostradas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}).
+	No entanto, para utilização do raio da esfera (conforme mostrado na Figura \ref{fig:raios-rolamento}) nos cálculos relacionados ao contato de superfícies, a folga diametral -- não considerada nas medidas nominais do fabricante -- precisa ser ponderada.
+	Dessa maneira, pode-se calcular
+	\begin{equation}
+		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1315\ \text{mm}
+	\end{equation}
 	
 	\postextual
 	
