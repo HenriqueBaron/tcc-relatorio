@@ -960,7 +960,7 @@
 		\gls{s:param-elipticidade}_o = 1,3191
 	\end{align*}
 	
-	\subsection{Obtenção da força de impacto}
+	\subsection{Obtenção da força de impacto} \label{sec:mdl:forca-impacto}
 	Embora haja a possibilidade de incluir uma componente dinâmica na força total de impacto, o modelo desenvolvido considera que a excitação do sistema provocada no momento do impacto é igual à carga estática \gls{s:rol-carga-elemento} à qual está sujeito o elemento rolante que está passando pelo defeito.
 	
 	Como o item \ref{sec:proposta-condicoes} aponta, pressupõe-se que a carga radial está alinhada com o defeito na pista externa.
@@ -1019,6 +1019,37 @@
 	
 	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação (\ref{eqn:mdl:carga-maxima}) para obter a força sobre o elemento rolante no momento do impacto.
 	O procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é empregado na função \textsc{ObterCargaMaximaEsfera} do código-fonte do Apêndice \ref{apc:codigo}.
+	
+	\chapter{Resultados}
+	Aqui são apresentados os resultados do modelo numérico desenvolvido.
+	Posteriormente à apresentação dos resultados, estes serão comparados às referências consultadas, de modo a identificar se o modelo obteve sucesso.
+	
+	\section{Convergência do modelo}
+	A proposta inicial do modelo não convergiu devido a dois aspectos, que foram ajustados em correções do programa.
+	Inicialmente, o procedimento iterativo apresentado no item \ref{sec:mdl:forca-impacto} não convergia e por vezes retornava valores de força com uma componente imaginária.
+	Foi identificado que a folga diametral empregada ultrapassava os limites tolerados pelo modelo.
+	Naqueles testes, a folga diametral utilizada era de $25\ \mu\text{m}$, o que representa o valor médio entre as tolerâncias máxima e mínima da folga para rolamentos destas dimensões na classe N de folgas segundo a ISO \cite{skf6004}.
+	Para a convergência do modelo, a folga diametral foi reduzida para um valor próximo da folga máxima na qual o modelo ainda convergia.
+	Este valor ainda se encontra dentro dos limites da norma ISO para folga diametral, sendo então valores praticáveis em uma situação real.
+	
+	Em um segundo momento, identificou-se que a função utilizada para modelar a força de excitação do sistema levava o mecanismo de solução do sistema de equações diferenciais a divergir e iterar indefinidamente.
+	Na situação em questão, a força dos impactos era representada como um delta de Kronecker ideal.
+	Isto é, a função retornava um impulso com o valor da carga máxima \gls{s:rol-carga-maxima-elemento} exatamente em um instante de tempo.
+	A solução adotada para o sucesso da operação do modelo foi definir a função de força externa como uma onda quadrada que, no entanto, é configurada para permanecer apenas $0,5\%$ do ciclo com algum valor diferente de zero.
+	Isso permitiu executar o modelo com sucesso, mas ainda mantendo a característica impulsiva desta função, como é possível observar na Figura \ref{fig:res:impulsos}.
+	
+	\begin{figure}[h]
+		\incluirimagem[0.7]{ImpulsosTempo.png}{Modelo da força dos impactos nos defeitos}{o autor (\thedate)}
+		\label{fig:res:impulsos}
+	\end{figure}
+
+	\begin{figure}[h]
+		\incluirimagem[0.7]{DeslocamentosTempo.png}{Resultado de deslocamentos do modelo em função do tempo}{o autor (\thedate)}
+	\end{figure}
+
+	\begin{figure}[t]
+		\incluirimagem[0.7]{EspectroFrequencias.png}{Espectro de frequências da vibração do modelo}{o autor (\thedate)}
+	\end{figure}
 	
 	\postextual
 	
