@@ -520,7 +520,7 @@
 	Nas seções posteriores, os subscritos ''i'' e ''o'' nas variáveis relacionam o valor aos anéis interno e externo do rolamento, respectivamente.
 	
 	O diâmetro específico \gls{s:rol-diam-espec}, denominado em inglês \foreignlanguage{english}{pitch diameter}, é calculado por
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:diam-espec}
 		\gls{s:rol-diam-espec} = \frac{\gls{s:rol-diam-int} + 
 		\gls{s:rol-diam-ext}}{2}
 	\end{equation}
@@ -676,7 +676,7 @@
 		\gls{s:freq-rol-esfera} &= \frac{\gls{s:rol-diam-espec}}{2\,\gls{s:rol-diam-esferas}}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}^2\cos^2\alpha}{\gls{s:rol-diam-espec}^2} \right) \label{eqn:rol:bsf}
 	\end{align}
 	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas.
-	Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} \todo{Remover a descrição sobre as esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico (também denotado em inglês como \foreignlanguage{english}{pitch diameter})\todo{Remover a descrição do pitch diameter}, calculado como o diâmetro médio entre o interno e externo.
+	Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico definido na Equação (\ref{eqn:rol:diam-espec}).
 	
 	\subsection{Força de impacto}
 	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes.
