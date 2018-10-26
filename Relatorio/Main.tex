@@ -703,13 +703,15 @@
 	de modo que o carregamento \gls{s:rol-carga-elemento} é definido na Equação (\ref{eqn:rol:carga-elemento}).
 	
 	\subsubsection{Impactos modulados pela força}
-	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
-	Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Dirac e obedece à seguinte definição \cite{boyce:2017}
-	\begin{gather}
-		\gls{s:func-impulso}(t - t_0) = 0,\qquad t\neq0\\
-		\int_{-\infty}^{\infty}\gls{s:func-impulso}(t-t_0)\,dt = 1
-	\end{gather}
-	o que resulta em uma função que possui valor não-nulo em um intervalo infinitamente curto, mas preserva o tamanho total de uma unidade.
+	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}) resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
+	Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Kronecker e obedece à seguinte definição \cite{rao:2008}
+	\begin{equation}
+		\gls{s:func-impulso}(t) = 
+		\begin{cases}
+			1,& t=0\\
+			0,& t\ne 0
+		\end{cases}
+	\end{equation}
 	
 	Considerando o giro do eixo com o rolamento em regime permanente, a função $ p(t) $ que define a influência dos impactos pode ser modelada com uma série infinita de impulsos de igual amplitude $ p_0 $, separados por um período $ \gls{s:periodo}_d $, que é o recíproco da frequência de incidência de um elemento rolante sobre o defeito.
 	Um exemplo da função $ p(t) $ está representado na Figura \ref{fig:funcao-impulso} e ela pode ser definida como \cite{mcfadden:1984}
@@ -721,7 +723,7 @@
 		\label{fig:funcao-impulso}
 	\end{figure}
 
-	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
+	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações (\ref{eqn:rol:forca-impacto-tot}) e (\ref{eqn:rol:impulsos}).
 	
 	\subsection{Transmissão da oscilação}
 	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente.
