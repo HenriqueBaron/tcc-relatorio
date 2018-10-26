@@ -14,7 +14,7 @@
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
 \usepackage{icomma} % Utilizar a vírgula como separador decimal
-\usepackage[framed,numbered]{matlab-prettifier}
+\usepackage[framed]{matlab-prettifier}
 \usepackage{todonotes}
 \includeonly{PreTexto} % Inclusão do arquivo de elementos pré-textuais sem deixar páginas em branco
 
@@ -778,6 +778,8 @@
 	
 	\chapter{Materiais e métodos}
 	O capítulo a seguir apresenta a metodologia adotada para o desenvolvimento do modelo numérico da vibração de um rolamento defeituoso, utilizando como ferramenta de modelagem o \foreignlanguage{english}{software} MATLAB\textsuperscript\textregistered.
+	Todo o código-fonte do modelo está disponível no Apêndice \ref{apc:codigo}.
+	
 	A apresentação dos procedimentos começa pela delimitação de escopo do problema, seguindo com os dados de entrada do modelo.
 	Posteriormente, a forma de obtenção das propriedades do rolamento será apresentada para que, por fim, a solução adotada para o modelo dinâmico seja demonstrada.
 	
@@ -829,7 +831,7 @@
 	Raio da linha neutra & \gls{s:raio-eixo-neutro} & $11,65\ \text{mm}$ & $19,43\ \text{mm}$ \\\hline
 	Segundo momento de área & \gls{s:segundo-momento-area} & $37,424\cdot 10^{-12}\ \text{m}^4$ & $31,802\cdot 10^{-12}\ \text{m}^4$ \\\hline
 	Massa & \gls{s:rol-massa-anel} & $0,022\ \text{kg}$ & $0,035\ \text{kg}$ \\\hline
-	Massa por unidade de comprimento & \gls{s:massa-espec} & $0,301\ \text{kg/m}$ & $0,289\ \text{kg/m}$ \\\hline
+	Massa por unidade de compr. & \gls{s:massa-espec} & $0,301\ \text{kg/m}$ & $0,289\ \text{kg/m}$ \\\hline
 	\end{tabular}
 	\label{qdr:6004-aneis}
 	\end{quadro}
@@ -876,7 +878,7 @@
 	
 	Os anéis, por sua vez, são tratados como elementos flexíveis -- ou contínuos.
 	Conforme proposto no item \ref{sec:props-aneis}, apenas o modo de vibração $n=2$ é considerado.
-	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo comot
+	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo como
 	\begin{align*}
 		\gls{s:freq-natural}_i &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
 		\sqrt{\frac{200\cdot 10^9\cdot 37,424\cdot 10^{-12}}{0,301
@@ -893,12 +895,31 @@
 		3,8913\cdot10^7\ \text{N/m}
 	\end{align*}
 	
+	\section{Desenvolvimento do modelo}
+	O modelo desenvolvido para a vibração do rolamento defeituoso trata-se de um modelo com três massas e três graus de liberdade, ilustrado na Figura \ref{fig:modelo-dinamico}.
+	A esfera é a massa central do sistema, rígida, que está conectada aos dois anéis por um conjunto mola-amortecedor de cada lado.
+	Esse conjunto é a representação do filme do lubrificante existente entre cada par de corpos.
+	O filme de fluido é modelado com uma característica linear de rigidez e amortecimento.
+	
+	Os anéis são representados como uma associação massa-mola.
+	O comportamento de mola no anel está relacionado à sua deformação por ser modelado como um sistema contínuo.
+	Quaisquer efeitos de amortecimento interno ou interno deste componente são desconsiderados.
+	
+	A excitação que provocará a vibração no sistema é originada pelo impacto ocorrente na passagem de um elemento rolante pela falha no anel externo.
+	A força transmitida em cada impacto está diretamente relacionada à carga estática da esfera no momento da incidência no defeito, que depende por sua vez das características do contato entre a esfera e as pistas dos anéis interno e externo.
+		
+	\begin{figure}[t]
+		\caption{Representação esquemática do modelo dinâmico}
+		\missingfigure{Inserir desenho do modelo dinâmico}
+		\label{fig:modelo-dinamico}
+	\end{figure}
+	
 	\postextual
 	
 	\bibliography{Bibliografia}
 	
 	\apendices
-	\chapter{Código MATLAB do modelo}
+	\chapter{Código MATLAB do modelo} \label{apc:codigo}
 	\lstinputlisting[style=Matlab-editor]{../Modelo-copia/FalhaPistaExterna.m}
 		
 \end{document}
