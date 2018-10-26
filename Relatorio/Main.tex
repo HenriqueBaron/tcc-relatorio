@@ -13,6 +13,7 @@
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
+\usepackage{icomma} % Utilizar a vírgula como separador decimal
 \usepackage{todonotes}
 \includeonly{PreTexto} % Inclusão do arquivo de elementos pré-textuais sem deixar páginas em branco
 
@@ -795,7 +796,7 @@
 	No Quadro \ref{qdr:6004-aneis} são detalhadas propridades específicas dos anéis do rolamento.
 	Parte destes valores foi obtida diretamente em \cite{skf6004}, enquanto outros -- como dados envolvendo propriedades do material ou propriedades de partes independentes -- foram extraídos de um modelo 3D do rolamento, obtido da mesma fonte e ilustrado na Figura \ref{fig:3d-rolamento}.
 	
-	Para ambos os anéis e esferas foi considerado o mesmo aço como material, considerando-o com um módulo de elasticidade de $200\ \text{GPa}$, coeficiente de Poisson de $ 0,\!3 $ e massa específica de $ 7833\ \text{kg/m}^3$.
+	Para ambos os anéis e esferas foi considerado o mesmo aço como material, considerando-o com um módulo de elasticidade de $200\ \text{GPa}$, coeficiente de Poisson de $ 0,3 $ e massa específica de $ 7833\ \text{kg/m}^3$.
 	
 	\begin{quadro}[t]
 	\caption{Dados do rolamento 6004-2RSH}
@@ -806,10 +807,10 @@
 	Diâmetro interno & \gls{s:rol-diam-int} & $20\ \text{mm}$ \\\hline
 	Diâmetro externo & \gls{s:rol-diam-ext} & $42\ \text{mm}$ \\\hline
 	Número de esferas & \gls{s:rol-num-esferas} & $ 9 $\\\hline
-	Diâmetro da esfera & \gls{s:rol-diam-esferas} & $6,\!35\ \text{mm}$ \\\hline
+	Diâmetro da esfera & \gls{s:rol-diam-esferas} & $6,35\ \text{mm}$ \\\hline
 	Folga diametral & \gls{s:rol-folga-diam} & $ 14\ \mu\text{m} $ \\\hline
 	Ângulo de contato & \gls{s:rol-angulo-contato} & $ 0\textdegree $ \\\hline
-	Massa da esfera & $ m_b $ & $ 0,\!00105\ \text{kg} $ \\\hline
+	Massa da esfera & $ m_b $ & $ 0,00105\ \text{kg} $ \\\hline
 	\end{tabular}
 	\label{qdr:6004-gerais}
 	\end{quadro}
@@ -821,13 +822,13 @@
 	\hline
 	\textbf{Propriedade} & \textbf{Símbolo} & \textbf{Anel interno} & \textbf{Anel externo} \\\hline\hline
 	Diâmetro, face de montagem & $D$ & $20\ \text{mm}$ & $ 42\ \text{mm}$ \\\hline
-	Diâmetro, face da esfera & $D_2$ & $24,\!65\ \text{mm}$ & $37,\!19\ \text{mm}$ \\\hline
-	Raio de curvatura, eixo x & $r_{bx}$ & $12,\!32\ \text{mm}$ & $18,\!68\ \text{mm}$ \\\hline
-	Raio de curvatura, eixo y & $r_{by}$ & $3,\!18\ \text{mm}$ & $3,\!18\ \text{mm}$ \\\hline
-	Raio da linha neutra & \gls{s:raio-eixo-neutro} & $11,\!65\ \text{mm}$ & $19,\!43\ \text{mm}$ \\\hline
-	Segundo momento de área & \gls{s:segundo-momento-area} & $37,\!424\times 10^{-12}\ \text{m}^4$ & $31,\!802\times 10^{-12}\ \text{m}^4$ \\\hline
-	Massa & \gls{s:rol-massa-anel} & $0,\!022\ \text{kg}$ & $0,\!035\ \text{kg}$ \\\hline
-	Massa por unidade de comprimento & \gls{s:massa-espec} & $0,\!301\ \text{kg/m}$ & $0,\!289\ \text{kg/m}$ \\\hline
+	Diâmetro, face da esfera & $D_2$ & $24,65\ \text{mm}$ & $37,19\ \text{mm}$ \\\hline
+	Raio de curvatura, eixo x & $r_{bx}$ & $12,32\ \text{mm}$ & $18,68\ \text{mm}$ \\\hline
+	Raio de curvatura, eixo y & $r_{by}$ & $3,18\ \text{mm}$ & $3,18\ \text{mm}$ \\\hline
+	Raio da linha neutra & \gls{s:raio-eixo-neutro} & $11,65\ \text{mm}$ & $19,43\ \text{mm}$ \\\hline
+	Segundo momento de área & \gls{s:segundo-momento-area} & $37,424\times 10^{-12}\ \text{m}^4$ & $31,802\times 10^{-12}\ \text{m}^4$ \\\hline
+	Massa & \gls{s:rol-massa-anel} & $0,022\ \text{kg}$ & $0,035\ \text{kg}$ \\\hline
+	Massa por unidade de comprimento & \gls{s:massa-espec} & $0,301\ \text{kg/m}$ & $0,289\ \text{kg/m}$ \\\hline
 	\end{tabular}
 	\label{qdr:6004-aneis}
 	\end{quadro}
