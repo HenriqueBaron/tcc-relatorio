@@ -628,7 +628,7 @@
 	Como mostrado no item \ref{sec:disc}, a modelagem dinâmica de um sistema depende da determinação de propriedades como rigidez e frequência natural.
 	A seguir serão apresentados os métodos para determinação destas propriedades para os componentes de um rolamento.
 	
-	\subsubsection{Anéis interno e externo}
+	\subsubsection{Anéis interno e externo} \label{sec:props-aneis}
 	Na definição de um modelo para um rolamento de esferas, a deformação dos anéis interno e externo é compreendida modelando estas peças como um sistema contínuo \cite{sassi:2007}.
 	Em tal sistema, a frequência natural do $n$-ésimo modo de vibração pode ser determinada através da equação \cite{tandon:1997,sassi:2007,cong:2013}
 	\begin{equation} \label{eqn:rol:freq-natural-modo}
@@ -646,9 +646,9 @@
 	Uma vez conhecida a frequência natural e a massa \gls{s:rol-massa-anel} de cada anel, é possível encontrar o valor da rigidez \gls{s:rol-rig-anel} para os anéis interno e externo através das equações \cite{sassi:2007}
 	\begin{align}
 		\gls{s:rol-rig-anel}_i &= \gls{s:rol-massa-anel}_i\,
-			(\gls{s:freq-natural}_i)^2\\
+			(\gls{s:freq-natural}_i)^2 \label{eqn:rol:rig-anel-int}\\
 		\gls{s:rol-rig-anel}_o &= \gls{s:rol-massa-anel}_o\,
-			(\gls{s:freq-natural}_o)^2
+			(\gls{s:freq-natural}_o)^2 \label{eqn:rol:rig-anel-ext}
 	\end{align}
 	
 	\subsubsection{Esferas}
@@ -854,6 +854,43 @@
 	\begin{equation}
 		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1315\ \text{mm}
 	\end{equation}
+	
+	\subsection{Velocidades e frequências características}
+	Aplicando a condição estabelecida no item \ref{sec:proposta-condicoes} de que o anel externo do rolamento é fixo no mancal e que a velocidade de rotação do eixo é impressa no anel interno, definem-se as velocidades angulares
+	\begin{align}
+		\gls{s:freq-rad}_o &= 0 \\
+		\gls{s:freq-rad}_i &= \frac{1800\ \text{RPM}}{30\pi} = 188,5\ \text{rad/s}
+	\end{align}
+	
+	Com estas velocidades angulares, é possível determinar as frequências características do rolamento, descritas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}).
+	Aplicando-se o modelo a um defeito na pista externa do rolamento, apenas a frequência de passagem de uma esfera pela pista externa -- \gls{s:freq-rol-def-out}, Equação (\ref{eqn:rol:bpfo}) -- interessa:
+	\begin{equation*}
+		\gls{s:freq-rol-def-out} = \frac{9}{2}\cdot(188,5 - 0)\cdot
+		\left( 1 - \frac{6,35\,\cos 0}{31} \right) =
+		674,48\ \text{rad/s} =	107,35\ \text{Hz}
+	\end{equation*}
+	
+	\subsection{Propriedades dos elementos}
+	Seguindo a linha de desenvolvimento dos modelos de \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013}, as esferas são consideradas corpos rígidos, então a sua deformação será desprezada no comportamento dinâmico do sistema.
+	
+	Os anéis, por sua vez, são tratados como elementos flexíveis -- ou contínuos.
+	Conforme proposto no item \ref{sec:props-aneis}, apenas o modo de vibração $n=2$ é considerado.
+	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo como
+	\begin{align*}
+		\gls{s:freq-natural}_i &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
+		\sqrt{\frac{200\cdot 10^9\cdot 37,424\cdot 10^{-12}}{0,301
+		\cdot 0,01165^4}} = 9,8587\cdot 10^4\ \text{rad/s} \\
+		\gls{s:freq-natural}_o &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
+		\sqrt{\frac{200\cdot 10^9\cdot 31,802\cdot 10^{-12}}{0,289
+		\cdot 0,01943^4}} = 3,3344\cdot 10^4\ \text{rad/s} 
+	\end{align*}
+	e as suas rigidezes podem então ser obtidas com o par de Equações (\ref{eqn:rol:rig-anel-int}) e (\ref{eqn:rol:rig-anel-ext}):
+	\begin{align*}
+		\gls{s:rol-rig-anel}_i &= 0,022\cdot(9,8587\cdot 10^4)^2 =
+		2,1383\cdot10^8\ \text{N/m} \\
+		\gls{s:rol-rig-anel}_o &= 0,035\cdot(3,3344\cdot 10^4)^2 =
+		3,8913\cdot10^7\ \text{N/m}
+	\end{align*}
 	
 	\postextual
 	
