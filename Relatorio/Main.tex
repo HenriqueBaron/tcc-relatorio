@@ -408,7 +408,7 @@
 	
 	A Equação \ref{eqn:cont:onda} também é conhecida como equação de onda. 
 	
-	\section{Contato seco entre sólidos}
+	\section{Contato seco entre sólidos} \label{sec:contato-seco}
 	A primeira solução para o contato entre duas superfícies sólidas foi apresentada por \citeauthoronline{hertz:1881} em 1881, e envolvia o cálculo de integrais elípticas e um fator de elipticidade \cite{hertz:1881}.
 	Neste trabalho, é provado que a área de contato entre dois corpos toma a forma de uma elipse, além de serem apresentadas soluções para o deslocamento de pontos em uma superfície, e as tensões envolvidas na deformação.
 	Em termos da relação entre força e deformação, a teoria batizada de \emph{contato hertziano} apresenta uma resposta não-linear do deslocamento em resposta à força aplicada, o que difere da rigidez linear apresentada nas seções anteriores.
@@ -443,7 +443,7 @@
 		\frac{1}{\gls{s:raio-equiv-x}} + \frac{1}{\gls{s:raio-equiv-y}}
 	\end{equation}
 	e a diferença de curvatura \gls{s:curvatura-diferenca}, que vale
-	\begin{equation}
+	\begin{equation} \label{eqn:seco:curv-diferenca}
 		\gls{s:curvatura-diferenca} = \gls{s:curvatura-soma}
 		\left( \frac{1}{\gls{s:raio-equiv-x}} - 
 		\frac{1}{\gls{s:raio-equiv-y}} \right)
@@ -451,7 +451,7 @@
 	
 	Cabe ressaltar que, diferentemente da soma de curvatura, a diferença de curvatura é adimensional.
 	
-	\subsection{Integrais elípticas}
+	\subsection{Integrais elípticas} \label{sec:int-elipticas}
 	Conforme proposto em \cite{hertz:1881}, a solução para o contato entre os dois sólidos depende do cálculo das integrais elípticas de primeiro e segundo tipos, além do parâmetro de elipticidade, denotados respectivamente por \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e \gls{s:param-elipticidade}.
 	
 	Um método para a obtenção destes três parâmetros, proposto em \cite{hamrock:1991}, calcula as integrais elípticas como
@@ -903,16 +903,59 @@
 	
 	Os anéis são representados como uma associação massa-mola.
 	O comportamento de mola no anel está relacionado à sua deformação por ser modelado como um sistema contínuo.
-	Quaisquer efeitos de amortecimento interno ou interno deste componente são desconsiderados.
+	Quaisquer efeitos de amortecimento interno ou externo deste componente são desconsiderados.
 	
 	A excitação que provocará a vibração no sistema é originada pelo impacto ocorrente na passagem de um elemento rolante pela falha no anel externo.
-	A força transmitida em cada impacto está diretamente relacionada à carga estática da esfera no momento da incidência no defeito, que depende por sua vez das características do contato entre a esfera e as pistas dos anéis interno e externo.
+	A força transmitida em cada impacto está diretamente relacionada à carga estática \gls{s:rol-carga-elemento} da esfera no momento da incidência no defeito, que depende por sua vez das características do contato entre a esfera e as pistas dos anéis interno e externo.
 		
 	\begin{figure}[t]
 		\caption{Representação esquemática do modelo dinâmico}
 		\missingfigure{Inserir desenho do modelo dinâmico}
 		\label{fig:modelo-dinamico}
 	\end{figure}
+	
+	\subsection{Caracterização do contato entre os sólidos}
+	Uma vez que a força de excitação do sistema dinâmico depende da carga \gls{s:rol-carga-elemento}, é preciso empregar os conceitos da teoria \emph{hertziana} de deformação por contato mostrada no item \ref{sec:contato-seco} para a resolução do problema.
+	
+	Conhecidos os raios de curvatura da esfera e dos anéis, mostrados nos Quadros \ref{qdr:6004-gerais} e \ref{qdr:6004-aneis}, é possível determinar para as duas superfícies de contato -- esfera com anel interno e esfera com anel externo -- valores para os raios de curvatura equivalentes \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y}, além da soma e diferença de curvatura \gls{s:curvatura-soma} e \gls{s:curvatura-diferenca}, mostrados nas Equações (\ref{eqn:seco:r-equiv-x}) a (\ref{eqn:seco:curv-diferenca}).
+	Para o contato entre a esfera e a pista interna, tem-se
+	\begin{align*}
+		\frac{1}{\gls{s:raio-equiv-x}_i} = \frac{1}{3,1315} +
+		\frac{1}{12,32} &\implies \gls{s:raio-equiv-x}_i =
+		2,497\ \text{mm} \\
+		\frac{1}{\gls{s:raio-equiv-y}_i} = \frac{1}{3,1315} +
+		\frac{1}{3,18} &\implies \gls{s:raio-equiv-y}_i =
+		1,578\ \text{mm} \\
+		\frac{1}{\gls{s:curvatura-soma}_i} = \frac{1}{2,497} +
+		\frac{1}{1,578} &\implies \gls{s:curvatura-soma}_i =
+		0,9668\ \text{mm}\\
+		\gls{s:curvatura-diferenca}_i = 0,9668\left( 
+		\frac{1}{2,497} - \frac{1}{1,578} \right) &\implies
+		\gls{s:curvatura-diferenca}_i = -0,2256 
+	\end{align*}
+	
+	O procedimento pode ser repetido para o contato entre esfera e pista externa, obtendo os valores finais
+	\begin{align*}
+		\gls{s:raio-equiv-x}_o &= 2,682\ \text{mm}\\
+		\gls{s:raio-equiv-y}_o &= 1,578\ \text{mm}\\
+		\gls{s:curvatura-soma}_o &= 0,9334\ \text{mm}\\
+		\gls{s:curvatura-diferenca}_o &= -0,2592
+	\end{align*}
+	
+	Possuindo valores para a diferença de curvatura \gls{s:curvatura-diferenca}, é possível encontrar os valores para as integrais elípticas \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2} e para o parâmetro de elipticidade \gls{s:param-elipticidade} através das Equações (\ref{eqn:seco:int-elip-1}) a (\ref{eqn:seco:param-elip}).
+	Como identificado no item \ref{sec:int-elipticas}, a obtenção desses valores se dá através de um processo iterativo.
+	
+	No código-fonte do Apêndice \ref{apc:codigo}, esse processo é ilustrado pela função ''ParametrosElipseContato'', e consiste em arbitrar um valor inicial para \gls{s:param-elipticidade}, iterando em seguida os cálculos de \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e do novo valor para \gls{s:param-elipticidade} até que seja satisfeita a condição \[ |\gls{s:param-elipticidade}_n - \gls{s:param-elipticidade}_{n+1}| \leq 10^{-7} \]
+	
+	Para a situação deste modelo, o valor inicial arbitrado para \gls{s:param-elipticidade} foi $2$, e os valores destas três propriedades encontrados para as duas superfícies de contato são
+	\begin{align*}
+		\gls{s:int-eliptica-1}_i = 1,9193, &\qquad
+		\gls{s:int-eliptica-1}_o = 1,9232 \\
+		\gls{s:int-eliptica-2}_i = 1,3140, &\qquad
+		\gls{s:int-eliptica-2}_o = 1,3120 \\
+		\gls{s:param-elipticidade}_i = 1,3235, &\qquad
+		\gls{s:param-elipticidade}_o = 1,3191
+	\end{align*}
 	
 	\postextual
 	
