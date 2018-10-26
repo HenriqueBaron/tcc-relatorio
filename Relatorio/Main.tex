@@ -568,7 +568,7 @@
 	Essa abordagem, no entanto, não considera a folga diametral do rolamento e nem trata da deformação não-linear dos elementos rolantes.
 	Havendo apenas carga radial sobre o rolamento, é possível empregar a solução apresentada por \citeauthor{hamrock:1991}.
 	Nesta, a extensão angular \gls{s:rol-extensao-carregamento} da distribuição de carga é obtida por
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:extensao-carregamento}
 		\gls{s:rol-extensao-carregamento} = \arccos \frac{
 		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}}
 	\end{equation}
@@ -609,12 +609,12 @@
 	
 	Em um segundo passo, essa expressão pode ser dividida pela Equação (\ref{eqn:rol:dist-carga-esf}).
 	Rearranjando os termos, chega-se a
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:carga-radial-com-maxima}
 		\gls{s:carga-radial} = \frac{\gls{s:rol-num-esferas}\,
 		\gls{s:rol-carga-maxima-elemento}}{Z_w}
 	\end{equation}
 	onde $ Z_w $ representa
-	\begin{equation}
+	\begin{equation} \label{eqn:rol:zw-carga-radial}
 		Z_w = \frac{\displaystyle
 		\pi\left( 1 - \frac{\gls{s:rol-folga-diam}}{
 		2\gls{s:deformacao-maxima}} \right)^{3/2}}
@@ -818,7 +818,7 @@
 	\label{qdr:6004-gerais}
 	\end{quadro}
 
-	\begin{quadro}[h]
+	\begin{quadro}[b]
 	\def\arraystretch{1.2}
 	\caption{Dados dos anéis do rolamento 6004-2RSH}
 	\begin{tabular}{l|c|l|l}
@@ -945,7 +945,10 @@
 	Possuindo valores para a diferença de curvatura \gls{s:curvatura-diferenca}, é possível encontrar os valores para as integrais elípticas \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2} e para o parâmetro de elipticidade \gls{s:param-elipticidade} através das Equações (\ref{eqn:seco:int-elip-1}) a (\ref{eqn:seco:param-elip}).
 	Como identificado no item \ref{sec:int-elipticas}, a obtenção desses valores se dá através de um processo iterativo.
 	
-	No código-fonte do Apêndice \ref{apc:codigo}, esse processo é ilustrado pela função ''ParametrosElipseContato'', e consiste em arbitrar um valor inicial para \gls{s:param-elipticidade}, iterando em seguida os cálculos de \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e do novo valor para \gls{s:param-elipticidade} até que seja satisfeita a condição \[ |\gls{s:param-elipticidade}_n - \gls{s:param-elipticidade}_{n+1}| \leq 10^{-7} \]
+	No código-fonte do Apêndice \ref{apc:codigo}, esse processo é ilustrado pela função \textsc{ParametrosElipseContato}, e consiste em arbitrar um valor inicial para \gls{s:param-elipticidade}, iterando em seguida os cálculos de \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e do novo valor para \gls{s:param-elipticidade} até que seja satisfeita a condição
+	\begin{equation} \label{eqn:mdl:cond-parada-k}
+		|\gls{s:param-elipticidade}_n - \gls{s:param-elipticidade}_{n+1}| \leq 10^{-7}
+	\end{equation}
 	
 	Para a situação deste modelo, o valor inicial arbitrado para \gls{s:param-elipticidade} foi $2$, e os valores destas três propriedades encontrados para as duas superfícies de contato são
 	\begin{align*}
@@ -956,6 +959,66 @@
 		\gls{s:param-elipticidade}_i = 1,3235, &\qquad
 		\gls{s:param-elipticidade}_o = 1,3191
 	\end{align*}
+	
+	\subsection{Obtenção da força de impacto}
+	Embora haja a possibilidade de incluir uma componente dinâmica na força total de impacto, o modelo desenvolvido considera que a excitação do sistema provocada no momento do impacto é igual à carga estática \gls{s:rol-carga-elemento} à qual está sujeito o elemento rolante que está passando pelo defeito.
+	
+	Como o item \ref{sec:proposta-condicoes} aponta, pressupõe-se que a carga radial está alinhada com o defeito na pista externa.
+	Isso faz com que \gls{s:rol-angulo-carregamento} seja zero na Equação (\ref{eqn:rol:dist-carga-geral}) e dessa maneira o carregamento \gls{s:rol-carga-elemento} da esfera incidindo sobre o defeito seja igual à carga da esfera mais solicitada \gls{s:rol-carga-maxima-elemento}. 
+	
+	É possível, portanto, utilizar as Equações (\ref{eqn:rol:carga-radial-com-maxima}) e (\ref{eqn:rol:zw-carga-radial}) para determinar a força de impacto,
+	se a primeira destas for rearranjada para
+	\begin{equation} \label{eqn:mdl:carga-maxima}
+		\gls{s:rol-carga-maxima-elemento} = 
+		\frac{Z_w\gls{s:carga-radial}}{\gls{s:rol-num-esferas}}
+	\end{equation}
+	e for nela empregada então a carga radial constante \gls{s:carga-radial} aplicada ao rolamento e o número de esferas \gls{s:rol-numero-esferas} do componente.
+	
+	Para encontrar uma solução para o valor de $Z_w$, também foi empregado um método iterativo, conforme mostrado em \cite{hamrock:1991}.
+	O processo consiste em determinar um valor inicial para $Z_w$, sugerido na mesma referência como $5$, calculando em seguida o valor de \gls{s:rol-carga-maxima-elemento} como mostrado na Equação (\ref{eqn:mdl:carga-maxima}).
+	Representando o valor retornado a força à qual está submetido um elemento rolante, utiliza-se esta quantidade no lugar de \gls{s:carga-maxima} na Equação (\ref{eqn:seco:deformacao-max}), resultando em
+	\begin{equation} \label{eqn:mdl:deformacao-max}
+	(\gls{s:deformacao-maxima})_{i,o} = \gls{s:int-eliptica-1} \left[
+	\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
+	\frac{\gls{s:rol-carga-maxima-elemento}}
+	{\pi\gls{s:param-elipticidade}\,\gls{s:modulo-elast-efetivo}}
+	\right)^2 \right]^{1/3}
+	\end{equation}
+	
+	A deformação máxima obtida na Equação (\ref{eqn:mdl:deformacao-max}) deve ser calculada para as duas superfícies de contato -- esfera com o anel interno e esfera com o anel externo.
+	As deformações $\gls{s:deformacao-maxima}_i$ e $\gls{s:deformacao-maxima}_o$ são somadas para efetivamente resultar em \gls{s:deformacao-maxima}:
+	\begin{equation} \label{eqn:mdl:soma-deformacoes}
+		\gls{s:deformacao-maxima} = \gls{s:deformacao-maxima}_i +
+		\gls{s:deformacao-maxima}_o
+	\end{equation}
+	
+	Após a obtenção da deformação máxima pela Equação (\ref{eqn:mdl:soma-deformacoes}), o resultado deve ser empregado na determinação de um valor para a extensão angular \gls{s:rol-extensao-carregamento} com a Equação (\ref{eqn:rol:extensao-carregamento})
+	\begin{equation*}
+	\gls{s:rol-extensao-carregamento} = \arccos \frac{
+		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}}
+	\end{equation*}
+	e utilizá-la no cálculo da integral no denominador da Equação (\ref{eqn:rol:zw-carga-radial}).
+	
+	A resolução desta integral em conjunto com o novo valor calculado para \gls{s:deformacao-maxima} e a folga diametral constante \gls{s:rol-folga-diam} possibilitam o recálculo do valor de $Z_w$ segundo a Equação (\ref{eqn:rol:zw-carga-radial})
+	\begin{equation*}
+	Z_w = \frac{\displaystyle
+		\pi\left( 1 - \frac{\gls{s:rol-folga-diam}}{
+			2\gls{s:deformacao-maxima}} \right)^{3/2}}
+	{\displaystyle\int_{0}^{\gls{s:rol-extensao-carregamento}}
+		\left( \cos\gls{s:rol-angulo-carregamento} - \frac
+		{\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^
+		{3/2} \cos\gls{s:rol-angulo-carregamento}\ 
+		d\gls{s:rol-angulo-carregamento}}
+	\end{equation*}
+	
+	O novo valor calculado para $Z_w$ deve então ser realimentado na Equação (\ref{eqn:mdl:carga-maxima}), possibilitando repetir os passos do procedimento.
+	O processo iterativo continua, obedecendo um critério de parada semelhante ao da Equação (\ref{eqn:mdl:cond-parada-k})
+	\begin{equation}
+		| (Z_w)_n - (Z_w)_{n+1} | \leq 10^{-7}
+	\end{equation}
+	
+	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação (\ref{eqn:mdl:carga-maxima}) para obter a força sobre o elemento rolante no momento do impacto.
+	O procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é empregado na função \textsc{ObterCargaMaximaEsfera} do código-fonte do Apêndice \ref{apc:codigo}.
 	
 	\postextual
 	
