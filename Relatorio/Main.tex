@@ -14,6 +14,7 @@
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
 \usepackage{icomma} % Utilizar a vírgula como separador decimal
+\usepackage[framed,numbered]{matlab-prettifier}
 \usepackage{todonotes}
 \includeonly{PreTexto} % Inclusão do arquivo de elementos pré-textuais sem deixar páginas em branco
 
@@ -875,7 +876,7 @@
 	
 	Os anéis, por sua vez, são tratados como elementos flexíveis -- ou contínuos.
 	Conforme proposto no item \ref{sec:props-aneis}, apenas o modo de vibração $n=2$ é considerado.
-	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo como
+	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo comot
 	\begin{align*}
 		\gls{s:freq-natural}_i &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
 		\sqrt{\frac{200\cdot 10^9\cdot 37,424\cdot 10^{-12}}{0,301
@@ -895,5 +896,9 @@
 	\postextual
 	
 	\bibliography{Bibliografia}
+	
+	\apendices
+	\chapter{Código MATLAB do modelo}
+	\lstinputlisting[style=Matlab-editor]{../Modelo-copia/FalhaPistaExterna.m}
 		
 \end{document}
