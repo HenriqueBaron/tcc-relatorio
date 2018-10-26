@@ -631,6 +631,26 @@
 			(\gls{s:freq-natural}_o)^2
 	\end{align}
 	
+	\subsubsection{Esferas}
+	As esferas são o elemento mais rígido do conjunto mecânico do rolamento \cite{sassi:2007}, o que leva a sua deformação a ser ignorada em alguns modelos, considerando as esferas como corpos rígidos \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013}.
+	
+	É possível, no entanto, modelar a esfera como um corpo deformável.
+	Neste caso, a melhor abordagem é tratar a esfera segundo a teoria \emph{hertziana} de contato entre superfícies \cite{patil:2010}, cuja relação entre força e deformação é dada pela Equação (\ref{eqn:seco:def-hertz-curta})
+	\begin{equation*}
+		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
+		\gls{s:deformacao-maxima}^j
+	\end{equation*}
+	utilizando para o expoente $j$ o valor de $1,5$.
+	Para este contato, no entanto, a rigidez \emph{hertziana} \gls{s:rigidez-hertz} deve considerar o contato entre a esfera e os dois anéis simultaneamente.
+	Isso é atingido calculando \gls{s:rigidez-hertz} como \cite{patil:2010,hamrock:1991}
+	\begin{equation}
+		\frac{1}{\gls{s:rigidez-hertz}} = \left\lbrace \left[
+		\frac{1}{(\gls{s:rigidez-hertz})_i} \right]^{1/j} + \left[
+		\frac{1}{(\gls{s:rigidez-hertz})_o} \right]^{1/j}
+		\right\rbrace^j
+	\end{equation}
+	de modo que $ (\gls{s:rigidez-hertz})_i $ e $ (\gls{s:rigidez-hertz})_o $ são aplicações individuais da Equação (\ref{eqn:seco:rig-hertz}) para o contato com os anéis interno e externo, respectivamente.
+	
 	\section{Vibração em rolamentos}
 	Ao analisar a vibração em rolamentos, é de especial interesse identificar o sinal emitido quando apresentam falhas, para permitir diagnósticos no equipamento com antecedência.
 	Os defeitos em rolamentos de esferas ou de rolos podem ser classificados como distribuídos ou localizados.
