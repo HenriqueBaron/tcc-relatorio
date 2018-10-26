@@ -775,9 +775,67 @@
 	\end{equation}
 	
 	\chapter{Materiais e métodos}
-	O capítulo a seguir apresenta a metodologia adotada para o desenvolvimento do modelo numérico da vibração de um rolamento defeituoso.
+	O capítulo a seguir apresenta a metodologia adotada para o desenvolvimento do modelo numérico da vibração de um rolamento defeituoso, utilizando como ferramenta de modelagem o \foreignlanguage{english}{software} MATLAB\textsuperscript\textregistered.
 	A apresentação dos procedimentos começa pela delimitação de escopo do problema, seguindo com os dados de entrada do modelo.
 	Posteriormente, a forma de obtenção das propriedades do rolamento será apresentada para que, por fim, a solução adotada para o modelo dinâmico seja demonstrada.
+	
+	\section{Proposta e condições} \label{sec:proposta-condicoes}
+	O presente trabalho tem como proposta modelar a vibração provocada por um único defeito na pista externa de um rolamento rígido de esferas, tipo 6004-2RSH.
+	Considera-se o rolamento como inserido em um mancal, de modo que a seu anel externo seja fixo, enquanto o anel interno é o que possui um eixo acoplado e está livre para girar.
+	
+	A carga aplicada é puramente radial -- justificado inclusive pelo modelo de rolamento adotado -- e é mantida constante.
+	Uma vez que o defeito encontra-se na pista externa, que é fixa, define-se que a carga aplicada também está alinhada ao defeito.
+	
+	A modelagem considerará a velocidade de rotação constante, e indo de encontro aos modelos propostos nas referências \cite{mcfadden:1984,sassi:2007,patil:2010,cong:2013,tandon:1997}, é considerada condição isotérmica em todo o rolamento e durante todo o experimento.
+	
+	\section{Dados de entrada}
+	No modelo desenvolvido assume como velocidade de rotação do eixo um valor de 1800 \gls{sig:RPM} e uma carga radial de 100 N.
+	Conforme determinado no item \ref{sec:proposta-condicoes}, a carga encontra-se alinhada ao defeito.
+	Os dados gerais do rolamento 6004-2RSH utilizados no modelo são mostrados no Quadro \ref{qdr:6004-gerais}.
+	No Quadro \ref{qdr:6004-aneis} são detalhadas propridades específicas dos anéis do rolamento.
+	Parte destes valores foi obtida diretamente em \cite{skf6004}, enquanto outros -- como dados envolvendo propriedades do material ou propriedades de partes independentes -- foram extraídos de um modelo 3D do rolamento, ilustrado na Figura \ref{fig:3d-rolamento}, obtido da mesma fonte.
+	
+	Para ambos os anéis e esferas foi considerado o mesmo aço como material, considerando-o com um módulo de elasticidade de $200\ \text{GPa}$, coeficiente de Poisson de $ 0,\!3 $ e massa específica de $ 7833\ \text{kg/m}^3$.
+	
+	\begin{quadro}[t]
+	\caption{Dados do rolamento 6004-2RSH}
+	\def\arraystretch{1.2}
+	\begin{tabular}{l|c|l}
+	\hline
+	\textbf{Propriedade} & \textbf{Símbolo} & \textbf{Valor} \\\hline\hline
+	Diâmetro interno & \gls{s:rol-diam-int} & $20\ \text{mm}$ \\\hline
+	Diâmetro externo & \gls{s:rol-diam-ext} & $42\ \text{mm}$ \\\hline
+	Número de esferas & \gls{s:rol-num-esferas} & $ 9 $\\\hline
+	Diâmetro da esfera & \gls{s:rol-diam-esferas} & $6,\!35\ \text{mm}$ \\\hline
+	Folga diametral & \gls{s:rol-folga-diam} & $ 14\ \mu\text{m} $ \\\hline
+	Ângulo de contato & \gls{s:rol-angulo-contato} & $ 0\textdegree $ \\\hline
+	Massa da esfera & $ m_b $ & $ 0,\!00105\ \text{kg} $ \\\hline
+	\end{tabular}
+	\label{qdr:6004-gerais}
+	\end{quadro}
+
+	\begin{quadro}[h]
+	\def\arraystretch{1.2}
+	\caption{Dados dos anéis do rolamento 6004-2RSH}
+	\begin{tabular}{l|c|l|l}
+	\hline
+	\textbf{Propriedade} & \textbf{Símbolo} & \textbf{Anel interno} & \textbf{Anel externo} \\\hline\hline
+	Diâmetro, face de montagem & $D$ & $20\ \text{mm}$ & $ 42\ \text{mm}$ \\\hline
+	Diâmetro, face da esfera & $D_2$ & $24,\!65\ \text{mm}$ & $37,\!19\ \text{mm}$ \\\hline
+	Raio de curvatura, eixo x & $r_{bx}$ & $12,\!32\ \text{mm}$ & $18,\!68\ \text{mm}$ \\\hline
+	Raio de curvatura, eixo y & $r_{by}$ & $3,\!18\ \text{mm}$ & $3,\!18\ \text{mm}$ \\\hline
+	Raio da linha neutra & \gls{s:raio-eixo-neutro} & $11,\!65\ \text{mm}$ & $19,\!43\ \text{mm}$ \\\hline
+	Segundo momento de área & \gls{s:segundo-momento-area} & $37,\!424\times 10^{-12}\ \text{m}^4$ & $31,\!802\times 10^{-12}\ \text{m}^4$ \\\hline
+	Massa & \gls{s:rol-massa-anel} & $0,\!022\ \text{kg}$ & $0,\!035\ \text{kg}$ \\\hline
+	Massa por unidade de comprimento & \gls{s:massa-espec} & $0,\!301\ \text{kg/m}$ & $0,\!289\ \text{kg/m}$ \\\hline
+	\end{tabular}
+	\label{qdr:6004-aneis}
+	\end{quadro}
+
+	\begin{figure}[b]
+		\incluirimagem[0.7]{Modelo3DRolamento.png}{Modelo 3D do rolamento 6004}{o autor (\thedate)}
+		\label{fig:3d-rolamento}
+	\end{figure}
 	
 	\postextual
 	
