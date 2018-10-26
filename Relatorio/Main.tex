@@ -389,14 +389,18 @@
 	Com estas considerações, o balanço de forças na direção $z$ para o elemento da Figura \ref{fig:vibracao-corda} é o somatório da força transversal \gls{s:forca} e da componente vertical da força de tração \gls{s:tensao-corda} \cite{rao:2008}.
 	A força líquida corresponde à força de inércia atuante sobre o elemento, portanto
 	\begin{equation} \label{eqn:cont:balanco}
-		(P + dP)\;\sin(\theta + d\theta) + F\:dx - P\;\sin\:\theta = \rho\:dx\:\frac{\partial^2 w}{\partial t^2}
+		(P + dP)\;\sin(\theta + d\theta) + F\:dx - P\;\sin\:\theta =
+		\rho\:dx\:\frac{\partial^2 \gls{s:desloc-elastico}}
+		{\partial t^2}
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[\sin\:\theta \simeq tg\:\theta = \frac{\partial w}{\partial x} \] e \[\sin(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial w}{\partial x} + \frac{\partial^2 w}{\partial x^2}\:dx \] que reduzem a Equação \ref{eqn:cont:balanco} para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial w(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 w(x,t)}{\partial t^2} \]
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[\sin\:\theta \simeq tg\:\theta = \frac{\partial \gls{s:desloc-elastico}}{\partial x} \] e \[\sin(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial \gls{s:desloc-elastico}}{\partial x} + \frac{\partial^2 \gls{s:desloc-elastico}}{\partial x^2}\:dx \] que reduzem a Equação \ref{eqn:cont:balanco} para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial \gls{s:desloc-elastico}(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 \gls{s:desloc-elastico}(x,t)}{\partial t^2} \]
 	
 	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
 	\begin{align}
-		\mathit{c}^2\:\frac{\partial^2 w}{\partial x^2}=\frac{\partial^2 w}{\partial t^2} \label{eqn:cont:onda}\\
+		\mathit{c}^2\:\frac{\partial^2
+		\gls{s:desloc-elastico}}{\partial x^2}=\frac{\partial^2
+		\gls{s:desloc-elastico}}{\partial t^2} \label{eqn:cont:onda}\\
 		\mathit{c} = \left(\frac{P}{\rho}\right)^{1/2}
 	\end{align}
 	
