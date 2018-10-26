@@ -717,50 +717,6 @@
 
 	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
 	
-	\subsection{Modelagem do rolamento}
-	Entre diversas possibilidades para modelagem do conjunto, os modelos numéricos avaliados buscam uma alternativa de simplificação da situação real, visto que a determinação exata do comportamento dinâmico é complicada e, por vezes, impossível \cite{sassi:2007}.
-	Abaixo são apresentados os elementos tratados para a análise do sistema.
-	
-	\subsubsection{Modelo dos anéis}
-	Quando uma oscilação no anel do rolamento é excitada devido ao impacto de um elemento rolante com um defeito localizado, este anel -- que é modelado como um sistema contínuo (flexível) -- deve entrar em uma vibração de flexão, gerada em diversos modos \cite{sassi:2007}.
-	A forma que o anel assume no $ n $-ésimo modo é definida pela função \cite{tandon:1997}
-	\begin{equation}
-		X_n(\phi) = \sin n\phi + \cos n\phi
-	\end{equation}
-	
-	A frequência natural do $n$-ésimo modo de vibração também pode ser determinada, através da fórmula \cite{tandon:1997,sassi:2007,cong:2013}
-	\begin{equation} 
-		\gls{s:freq-natural} = \frac{n(n^2-1)}{\sqrt{1+n^2}}\sqrt{\frac{\gls{s:modulo-elast} \gls{s:segundo-momento-area}}{\gls{s:massa-espec} \gls{s:raio-eixo-neutro}^4}}
-	\end{equation}
-	de modo que \gls{s:modulo-elast} é o módulo de elasticidade do material, \gls{s:segundo-momento-area} é o segundo momento de área de seção transversal, e \gls{s:raio-eixo-neutro} é o raio do eixo neutro do anel.
-	
-	Por questão de simplificação, apenas o primeiro modo de flexão será considerado.
-	Isso corresponde ao modo $ n=2 $, uma vez que os modos $ n=0 $ e $ n=1 $ são modos rígidos.
-	Neste modo, o anel do rolamento toma a forma de uma elipse \cite{sassi:2007}.
-	Conhecendo-se a massa dos anéis e determinando os valores das frequências naturais do modo $ n=2 $ conforme a Equação \ref{eqn:rol:freq-natural-modo}, é possível determinar as rigidezes $ \gls{s:rigidez}_I $ e $ \gls{s:rigidez}_O $ dos anéis interno e externo, respectivamente \cite{sassi:2007}:
-	\begin{align}
-		\gls{s:rigidez}_I &= m_I(\gls{s:freq-natural}_{,I})^2\\
-		\gls{s:rigidez}_O &= m_O(\gls{s:freq-natural}_{,O})^2
-	\end{align}
-	
-	\subsubsection{Modelo dos elementos rolantes}
-	Nas referências \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013} as esferas são tratadas como corpos rígidos.
-	Isso justifica-se pelo fato de serem os elementos de maior rigidez no sistema \cite{sassi:2007}.
-	Uma abordagem alternativa permite, no entanto, considerar a deformação das esferas através da teoria de deformação por contato de Hertz, que relaciona uma força radial $ \gls{s:forca}_r $ com a deformação \gls{s:rol-deform-esfera} como \cite{patil:2010}
-	\begin{equation} \label{eqn:rol:deform-esfera}
-		\gls{s:forca}_r = \gls{s:rol-fator-deform}\gls{s:rol-deform-esfera}^n
-	\end{equation}
-	onde o expoente $ n $ tem os mesmos valores definidos para a Equação \ref{eqn:rol:carregamento} e \gls{s:rol-fator-deform} é o fator carga-deformação, definido como \cite{patil:2010}
-	\begin{equation} \label{eqn:rol:fator-deform}
-		\gls{s:rol-fator-deform} = \left[ \frac{1}{(1/K_I)^{1/n}+(1/K_O)^{1/n}} \right]^n
-	\end{equation}
-	
-	Os parâmetros $ K_I $ e $ K_O $ na Equação \ref{eqn:rol:fator-deform} são, por sua vez, as rigidezes de contato entre a pista e a esfera ou rolo, e podem ser calculados por \cite{patil:2010}
-	\begin{equation}
-		K_p = 2,\!15\cdot 10^5 \left(\sum\varrho\right)^{-1/2}(\zeta^*)^{-3/2}
-	\end{equation}
-	onde $ \sum\varrho $ e $ \zeta^* $ são dependentes da geometria do rolamento.
-	
 	\subsection{Transmissão da oscilação}
 	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente.
 	A condução da vibração através do mancal, dependendo da posição de instalação do transdutor, e o decaimento do impulso lido afetam a característica do sinal recebido pelos instrumentos \cite{mcfadden:1984}.
