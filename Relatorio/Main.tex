@@ -396,20 +396,19 @@
 	\begin{equation} \label{eqn:cont:balanco}
 		(P + dP)\;\sin(\theta + d\theta) + F\:dx - P\;\sin\:\theta =
 		\rho\:dx\:\frac{\partial^2 \gls{s:desloc-elastico}}
-		{\partial t^2}
+		{\partial t^2}.
 	\end{equation}
 	
-	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx\] e, considerando que a corda esteja firmemente esticada, estima-se que o ângulo $ \theta $ seja pequeno, permitindo fazer as simplificações \[\sin\:\theta \simeq tg\:\theta = \frac{\partial \gls{s:desloc-elastico}}{\partial x} \] e \[\sin(\theta + d\theta) \simeq tg(\theta + d\theta) = \frac{\partial \gls{s:desloc-elastico}}{\partial x} + \frac{\partial^2 \gls{s:desloc-elastico}}{\partial x^2}\:dx \] que reduzem a Equação \ref{eqn:cont:balanco} para \[\frac{\partial}{\partial x}\,\left[P\:\frac{\partial \gls{s:desloc-elastico}(x,t)}{\partial x}\right] + F(x,t) = \rho(x)\:\frac{\partial^2 \gls{s:desloc-elastico}(x,t)}{\partial t^2} \]
-	
-	Considerando que a massa linear específica \gls{s:massa-espec} é uniforme, que a tensão \gls{s:tensao-corda} é constante e que a corda esteja em vibração livre -- isto é, \gls{s:forca}$(x,t) = 0$ -- chega-se a \cite{rao:2008}
+	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx.\] 
+	Empregando essa substituição e tomando a tensão \gls{s:tensao-corda} como constante ao longo do comprimento; fazendo a simplificação de $\sin\theta$ para um ângulo pequeno e considerando que a corda esteja em vibração livre, ou seja, tomando $\gls{s:forca}(x,t) = 0$, pode-se simplificar a Equação (\ref{eqn:cont:balanco}) para
 	\begin{align}
 		\mathit{c}^2\:\frac{\partial^2
 		\gls{s:desloc-elastico}}{\partial x^2}=\frac{\partial^2
 		\gls{s:desloc-elastico}}{\partial t^2} \label{eqn:cont:onda}\\
-		\mathit{c} = \left(\frac{P}{\rho}\right)^{1/2}
+		\mathit{c} = \left(\frac{P}{\rho}\right)^{1/2}.
 	\end{align}
 	
-	A Equação \ref{eqn:cont:onda} também é conhecida como equação de onda. 
+	A Equação \ref{eqn:cont:onda} também é conhecida como equação de onda \cite{rao:2008}. 
 	
 	\section{Contato seco entre sólidos} \label{sec:contato-seco}
 	A primeira solução para o contato entre duas superfícies sólidas foi apresentada por \citeauthoronline{hertz:1881} em 1881, e envolvia o cálculo de integrais elípticas e um fator de elipticidade \cite{hertz:1881}.
