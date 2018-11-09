@@ -404,7 +404,7 @@
 	\end{equation}
 	
 	Para um comprimento elementar $dx$ a força de tração $dP$ pode ser escrita como \[dP = \frac{\partial P}{\partial x}\:dx.\] 
-	Empregando essa substituição e tomando a tensão \gls{s:tensao-corda} como constante ao longo do comprimento; fazendo a simplificação de $\sin\theta$ para um ângulo pequeno e considerando que a corda esteja em vibração livre, ou seja, tomando $\gls{s:forca}(x,t) = 0$, pode-se simplificar a Equação (\ref{eqn:cont:balanco}) para
+	Empregando essa substituição e tomando a tensão \gls{s:tensao-corda} como constante ao longo do comprimento; fazendo a simplificação de $\sin\theta$ para um ângulo pequeno e considerando que a corda esteja em vibração livre, ou seja, tomando $\gls{s:forca}(x,t) = 0$, pode-se simplificar a Equação \ref{eqn:cont:balanco} para
 	\begin{align}
 		\mathit{c}^2\:\frac{\partial^2
 		\gls{s:desloc-elastico}}{\partial x^2}=\frac{\partial^2
@@ -477,7 +477,7 @@
 		\right]^{1/2}
 	\end{equation}
 	
-	Sendo os valores das Equações (\ref{eqn:seco:int-elip-1}), (\ref{eqn:seco:int-elip-2}) e (\ref{eqn:seco:param-elip}) interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:param-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
+	Sendo os valores das Equações \ref{eqn:seco:int-elip-1}, \ref{eqn:seco:int-elip-2} e \ref{eqn:seco:param-elip} interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:param-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
 	
 	\subsection{Deformação elástica por contato} \label{sec:deform-contato}
 	Pela teoria de Hertz, a carga aplicada ao contato \gls{s:carga-radial} e a deformação máxima \gls{s:deformacao-maxima} são relacionadas por \cite{tandon:1997,hamrock:1991}
@@ -501,7 +501,7 @@
 		\frac{1-\gls{s:coef-poisson}_b}{\gls{s:modulo-elast}_b}
 	\end{equation}
 	
-	Para o cálculo específico da deformação máxima \gls{s:deformacao-maxima}, as Equações (\ref{eqn:seco:def-hertz-curta}) e (\ref{eqn:seco:rig-hertz}) podem ser combinadas e rearranjadas para \cite{hamrock:1991}
+	Para o cálculo específico da deformação máxima \gls{s:deformacao-maxima}, as Equações \ref{eqn:seco:def-hertz-curta} e \ref{eqn:seco:rig-hertz} podem ser combinadas e rearranjadas para \cite{hamrock:1991}
 	\begin{equation} \label{eqn:seco:deformacao-max}
 		\gls{s:deformacao-maxima} = \gls{s:int-eliptica-1} \left[
 		\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
@@ -564,7 +564,7 @@
 		\end{cases}
 	\end{equation}
 	sendo $ \varepsilon $ um fator de distribuição de carga, que depende do ângulo de contato e da relação entre carga radial e axial aplicada ao rolamento, e \gls{s:rol-angulo-carregamento} o ângulo do elemento rolante analisado em relação ao elemento mais solicitado.
-	O expoente $ j $ vale $ 1,5 $, de maneira similar à Equação (\ref{eqn:seco:def-hertz-curta}).
+	O expoente $ j $ vale $ 1,5 $, de maneira similar à Equação \ref{eqn:seco:def-hertz-curta}.
 	
 	\begin{figure}[t]
 		\incluirimagem{CarregamentoRolamento.png}{Distribuição do carregamento em um rolamento de esferas}{adaptado de \citeauthoronline{sassi:2007} (\citeyear{sassi:2007})}
@@ -578,9 +578,9 @@
 		\gls{s:rol-extensao-carregamento} = \arccos \frac{
 		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}}
 	\end{equation}
-	utilizando o valor de deformação máxima calculado pela Equação (\ref{eqn:seco:deformacao-max}).
+	utilizando o valor de deformação máxima calculado pela Equação \ref{eqn:seco:deformacao-max}.
 	
-	Já a carga em um elemento rolante qualquer emprega também a rigidez não-linear \gls{s:rigidez-hertz} da Equação (\ref{eqn:seco:rig-hertz}) e é calculada por
+	Já a carga em um elemento rolante qualquer emprega também a rigidez não-linear \gls{s:rigidez-hertz} da Equação \ref{eqn:seco:rig-hertz} e é calculada por
 	\begin{equation} \label{eqn:rol:carga-elemento}
 		\gls{s:rol-carga-elemento} = \gls{s:rigidez-hertz} \left(
 		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
@@ -606,14 +606,14 @@
 	\end{equation}
 	
 	É possível ainda obter uma expressão que relacione a carga radial aplicada \gls{s:carga-radial} com a carga na esfera mais solicitada \gls{s:rol-carga-maxima-elemento}.
-	A carga na esfera mais solicitada pode ser obtida fazendo $ \gls{s:rol-angulo-carregamento} = 0 $ na Equação (\ref{eqn:rol:dist-carga-geral}) e removendo o somatório \cite{hamrock:1991}:
+	A carga na esfera mais solicitada pode ser obtida fazendo $ \gls{s:rol-angulo-carregamento} = 0 $ na Equação \ref{eqn:rol:dist-carga-geral} e removendo o somatório \cite{hamrock:1991}:
 	\begin{equation}
 		\gls{s:rol-carga-maxima-elemento} = \gls{s:rigidez-hertz}
 		\left( 1 - \frac{\gls{s:rol-folga-diam}}{
 		2\gls{s:deformacao-maxima}} \right)^j
 	\end{equation}
 	
-	Em um segundo passo, essa expressão pode ser dividida pela Equação (\ref{eqn:rol:dist-carga-esf}).
+	Em um segundo passo, essa expressão pode ser dividida pela Equação \ref{eqn:rol:dist-carga-esf}.
 	Rearranjando os termos, chega-se a
 	\begin{equation} \label{eqn:rol:carga-radial-com-maxima}
 		\gls{s:carga-radial} = \frac{\gls{s:rol-num-esferas}\,
@@ -648,7 +648,7 @@
 	Para os anéis, os modos de vibração $n=0$ e $n=1$ são modos rígidos.
 	O primeiro e principal modo em que de fato ocorre deformação no sólido é o modo para $n=2$.
 	Embora a vibração ocorra em diversos modos simultaneamente, a amplitude da oscilação nos modos posteriores a $n=2$ não é expressiva.
-	Portanto, a Equação (\ref{eqn:rol:freq-natural-modo}) é utilizada no modelo dos anéis somente neste modo, por questões de simplificação \cite{sassi:2007}.
+	Portanto, a Equação \ref{eqn:rol:freq-natural-modo} é utilizada no modelo dos anéis somente neste modo, por questões de simplificação \cite{sassi:2007}.
 	
 	Uma vez conhecida a frequência natural e a massa \gls{s:rol-massa-anel} de cada anel, é possível encontrar o valor da rigidez \gls{s:rol-rig-anel} para os anéis interno e externo através das equações \cite{sassi:2007}
 	\begin{align}
@@ -662,7 +662,7 @@
 	As esferas são o elemento mais rígido do conjunto mecânico do rolamento \cite{sassi:2007}, o que leva a sua deformação a ser ignorada em alguns modelos, considerando as esferas como corpos rígidos \cite{mcfadden:1984,tandon:1997,sassi:2007,cong:2013}.
 	
 	É possível, no entanto, modelar a esfera como um corpo deformável.
-	Neste caso, a melhor abordagem é tratar a esfera segundo a teoria \emph{hertziana} de contato entre superfícies \cite{patil:2010}, cuja relação entre força e deformação é dada pela Equação (\ref{eqn:seco:def-hertz-curta})
+	Neste caso, a melhor abordagem é tratar a esfera segundo a teoria \emph{hertziana} de contato entre superfícies \cite{patil:2010}, cuja relação entre força e deformação é dada pela Equação \ref{eqn:seco:def-hertz-curta}
 	\begin{equation*}
 		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
 		\gls{s:deformacao-maxima}^j
@@ -676,7 +676,7 @@
 		\frac{1}{(\gls{s:rigidez-hertz})_o} \right]^{1/j}
 		\right\rbrace^j
 	\end{equation}
-	de modo que $ (\gls{s:rigidez-hertz})_i $ e $ (\gls{s:rigidez-hertz})_o $ são aplicações individuais da Equação (\ref{eqn:seco:rig-hertz}) para o contato com os anéis interno e externo, respectivamente.
+	de modo que $ (\gls{s:rigidez-hertz})_i $ e $ (\gls{s:rigidez-hertz})_o $ são aplicações individuais da Equação \ref{eqn:seco:rig-hertz} para o contato com os anéis interno e externo, respectivamente.
 	
 	\subsection{Frequências características}
 	Para a modelagem e análise da vibração de um rolamento com defeito pontual, um conjunto de frequências características é definido.
@@ -688,7 +688,7 @@
 		\gls{s:freq-rol-esfera} &= \frac{\gls{s:rol-diam-espec}}{2\,\gls{s:rol-diam-esferas}}\cdot(\omega_i-\omega_o)\cdot\left(1-\frac{\gls{s:rol-diam-esferas}^2\cos^2\alpha}{\gls{s:rol-diam-espec}^2} \right) \label{eqn:rol:bsf}
 	\end{align}
 	que correspondem, na ordem de apresentação, à frequência fundamental da gaiola, frequência de passagem de esferas por um defeito na pista externa, frequência de passagem de esferas por um defeito na pista interna e, por fim, a frequência de rotação das esferas.
-	Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico definido na Equação (\ref{eqn:rol:diam-espec}).
+	Ainda nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}, \gls{s:rol-num-esferas} representa o número de esferas ou rolos do rolamento, \gls{s:rol-angulo-contato} é o ângulo de contato das esferas, \gls{s:rol-diam-esferas} indica o diâmetro das esferas, e \gls{s:rol-diam-espec} é o diâmetro específico definido na Equação \ref{eqn:rol:diam-espec}.
 	
 	\subsection{Força de impacto}
 	Nos modelos numéricos investigados, um fator importante na determinação da reposta de vibração é a força de impacto, que pode ser calculada de maneiras diferentes.
@@ -712,10 +712,10 @@
 		\left(\frac{\gls{s:rol-comp-defeito}}
 		{\gls{s:rol-diam-esferas}}\right)^2 \right]
 	\end{equation}
-	de modo que o carregamento \gls{s:rol-carga-elemento} é definido na Equação (\ref{eqn:rol:carga-elemento}).
+	de modo que o carregamento \gls{s:rol-carga-elemento} é definido na Equação \ref{eqn:rol:carga-elemento}.
 	
 	\subsubsection{Impactos modulados pela força}
-	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}) resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
+	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
 	Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Kronecker e obedece à seguinte definição \cite{rao:2008}
 	\begin{equation}
 		\gls{s:func-impulso}(t) = 
@@ -735,7 +735,7 @@
 		\label{fig:funcao-impulso}
 	\end{figure}
 
-	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações (\ref{eqn:rol:forca-impacto-tot}) e (\ref{eqn:rol:impulsos}).
+	A influência do comportamento em impulsos, modulado pela força de impacto total, é obtida multiplicando as Equações \ref{eqn:rol:forca-impacto-tot} e \ref{eqn:rol:impulsos}.
 	
 	\subsection{Transmissão da oscilação}
 	Além do comportamento pulsante que molda a resposta de vibração de um rolamento a partir da força de impacto, outros dois fatores ainda colaboram para modificar o sinal que é efetivamente lido durante a medição da oscilação no componente.
@@ -853,12 +853,12 @@
 	A obtenção destes valores a partir da teoria apresentada no capítulo anterior é segmentada nas seções abaixo.
 
 	\subsection{Diâmetros e raios de elementos}	
-	Como mostrado na Equação (\ref{eqn:rol:diam-espec}), o diâmetro específico \gls{s:rol-diam-espec} é calculado a partir dos dados da \tablename\ \ref{tbl:6004-gerais}:
+	Como mostrado na Equação \ref{eqn:rol:diam-espec}, o diâmetro específico \gls{s:rol-diam-espec} é calculado a partir dos dados da \tablename\ \ref{tbl:6004-gerais}:
 	\begin{equation*}
 		\gls{s:rol-diam-espec} = \frac{20 + 42}{2} = 31\ \text{mm}
 	\end{equation*}
 	
-	Para as esferas, o diâmetro \gls{s:rol-diam-esferas} nominal fornecido pelo fabricante pode ser utilizado de maneira satisfatória para obtenção das frequências características do rolamento, mostradas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}).
+	Para as esferas, o diâmetro \gls{s:rol-diam-esferas} nominal fornecido pelo fabricante pode ser utilizado de maneira satisfatória para obtenção das frequências características do rolamento, mostradas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}.
 	No entanto, para utilização do raio da esfera (conforme mostrado na Figura \ref{fig:raios-rolamento}) nos cálculos relacionados ao contato de superfícies, a folga diametral -- não considerada nas medidas nominais do fabricante -- precisa ser ponderada.
 	Dessa maneira, pode-se calcular
 	\begin{equation}
@@ -872,8 +872,8 @@
 		\gls{s:freq-rad}_i &= \frac{1800\ \text{RPM}}{30\pi} = 188,5\ \text{rad/s}
 	\end{align}
 	
-	Com estas velocidades angulares, é possível determinar as frequências características do rolamento, descritas nas Equações (\ref{eqn:rol:ftf}) a (\ref{eqn:rol:bsf}).
-	Aplicando-se o modelo a um defeito na pista externa do rolamento, apenas a frequência de passagem de uma esfera pela pista externa -- \gls{s:freq-rol-def-out}, Equação (\ref{eqn:rol:bpfo}) -- interessa:
+	Com estas velocidades angulares, é possível determinar as frequências características do rolamento, descritas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}.
+	Aplicando-se o modelo a um defeito na pista externa do rolamento, apenas a frequência de passagem de uma esfera pela pista externa -- \gls{s:freq-rol-def-out}, Equação \ref{eqn:rol:bpfo} -- interessa:
 	\begin{equation*}
 		\gls{s:freq-rol-def-out} = \frac{9}{2}\cdot(188,5 - 0)\cdot
 		\left( 1 - \frac{6,35\,\cos 0}{31} \right) =
@@ -885,7 +885,7 @@
 	
 	Os anéis, por sua vez, são tratados como elementos flexíveis -- ou contínuos.
 	Conforme proposto no item \ref{sec:props-aneis}, apenas o modo de vibração $n=2$ é considerado.
-	Assim, a Equação (\ref{eqn:rol:freq-natural-modo}) pode ser empregada para obter a frequência natural dos anéis interno e externo como
+	Assim, a Equação \ref{eqn:rol:freq-natural-modo} pode ser empregada para obter a frequência natural dos anéis interno e externo como
 	\begin{align*}
 		\gls{s:freq-natural}_i &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
 		\sqrt{\frac{200\cdot 10^9\cdot 37,424\cdot 10^{-12}}{0,301
@@ -894,7 +894,7 @@
 		\sqrt{\frac{200\cdot 10^9\cdot 31,802\cdot 10^{-12}}{0,289
 		\cdot 0,01943^4}} = 3,3344\cdot 10^4\ \text{rad/s} 
 	\end{align*}
-	e as suas rigidezes podem então ser obtidas com o par de Equações (\ref{eqn:rol:rig-anel-int}) e (\ref{eqn:rol:rig-anel-ext}):
+	e as suas rigidezes podem então ser obtidas com o par de Equações \ref{eqn:rol:rig-anel-int} e \ref{eqn:rol:rig-anel-ext}:
 	\begin{align*}
 		\gls{s:rol-rig-anel}_i &= 0,022\cdot(9,8587\cdot 10^4)^2 =
 		2,1383\cdot10^8\ \text{N/m} \\
@@ -924,7 +924,7 @@
 	\subsection{Caracterização do contato entre os sólidos}
 	Uma vez que a força de excitação do sistema dinâmico depende da carga \gls{s:rol-carga-elemento}, é preciso empregar os conceitos da teoria \emph{hertziana} de deformação por contato mostrada no item \ref{sec:contato-seco} para a resolução do problema.
 	
-	Conhecidos os raios de curvatura da esfera e dos anéis, mostrados nas \tablename s \ref{tbl:6004-gerais} e \ref{tbl:6004-aneis}, é possível determinar para as duas superfícies de contato -- esfera com anel interno e esfera com anel externo -- valores para os raios de curvatura equivalentes \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y}, além da soma e diferença de curvatura \gls{s:curvatura-soma} e \gls{s:curvatura-diferenca}, mostrados nas Equações (\ref{eqn:seco:r-equiv-x}) a (\ref{eqn:seco:curv-diferenca}).
+	Conhecidos os raios de curvatura da esfera e dos anéis, mostrados nas \tablename s \ref{tbl:6004-gerais} e \ref{tbl:6004-aneis}, é possível determinar para as duas superfícies de contato -- esfera com anel interno e esfera com anel externo -- valores para os raios de curvatura equivalentes \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y}, além da soma e diferença de curvatura \gls{s:curvatura-soma} e \gls{s:curvatura-diferenca}, mostrados nas Equações \ref{eqn:seco:r-equiv-x} a \ref{eqn:seco:curv-diferenca}.
 	Para o contato entre a esfera e a pista interna, tem-se
 	\begin{align*}
 		\frac{1}{\gls{s:raio-equiv-x}_i} = \frac{1}{3,1315} +
@@ -949,7 +949,7 @@
 		\gls{s:curvatura-diferenca}_o &= -0,2592
 	\end{align*}
 	
-	Possuindo valores para a diferença de curvatura \gls{s:curvatura-diferenca}, é possível encontrar os valores para as integrais elípticas \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2} e para o parâmetro de elipticidade \gls{s:param-elipticidade} através das Equações (\ref{eqn:seco:int-elip-1}) a (\ref{eqn:seco:param-elip}).
+	Possuindo valores para a diferença de curvatura \gls{s:curvatura-diferenca}, é possível encontrar os valores para as integrais elípticas \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2} e para o parâmetro de elipticidade \gls{s:param-elipticidade} através das Equações \ref{eqn:seco:int-elip-1} a \ref{eqn:seco:param-elip}.
 	Como identificado no item \ref{sec:int-elipticas}, a obtenção desses valores se dá através de um processo iterativo.
 	
 	No código-fonte do Apêndice \ref{apc:codigo}, esse processo é ilustrado pela função \textsc{ParametrosElipseContato}, e consiste em arbitrar um valor inicial para \gls{s:param-elipticidade}, iterando em seguida os cálculos de \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e do novo valor para \gls{s:param-elipticidade} até que seja satisfeita a condição
@@ -971,9 +971,9 @@
 	Embora haja a possibilidade de incluir uma componente dinâmica na força total de impacto, o modelo desenvolvido considera que a excitação do sistema provocada no momento do impacto é igual à carga estática \gls{s:rol-carga-elemento} à qual está sujeito o elemento rolante que está passando pelo defeito.
 	
 	Como o item \ref{sec:proposta-condicoes} aponta, pressupõe-se que a carga radial está alinhada com o defeito na pista externa.
-	Isso faz com que \gls{s:rol-angulo-carregamento} seja zero na Equação (\ref{eqn:rol:dist-carga-geral}) e dessa maneira o carregamento \gls{s:rol-carga-elemento} da esfera incidindo sobre o defeito seja igual à carga da esfera mais solicitada \gls{s:rol-carga-maxima-elemento}. 
+	Isso faz com que \gls{s:rol-angulo-carregamento} seja zero na Equação \ref{eqn:rol:dist-carga-geral} e dessa maneira o carregamento \gls{s:rol-carga-elemento} da esfera incidindo sobre o defeito seja igual à carga da esfera mais solicitada \gls{s:rol-carga-maxima-elemento}. 
 	
-	É possível, portanto, utilizar as Equações (\ref{eqn:rol:carga-radial-com-maxima}) e (\ref{eqn:rol:zw-carga-radial}) para determinar a força de impacto,
+	É possível, portanto, utilizar as Equações \ref{eqn:rol:carga-radial-com-maxima} e \ref{eqn:rol:zw-carga-radial} para determinar a força de impacto,
 	se a primeira destas for rearranjada para
 	\begin{equation} \label{eqn:mdl:carga-maxima}
 		\gls{s:rol-carga-maxima-elemento} = 
@@ -982,8 +982,8 @@
 	e for nela empregada então a carga radial constante \gls{s:carga-radial} aplicada ao rolamento e o número de esferas \gls{s:rol-numero-esferas} do componente.
 	
 	Para encontrar uma solução para o valor de $Z_w$, também foi empregado um método iterativo, conforme mostrado em \cite{hamrock:1991}.
-	O processo consiste em determinar um valor inicial para $Z_w$, sugerido na mesma referência como $5$, calculando em seguida o valor de \gls{s:rol-carga-maxima-elemento} como mostrado na Equação (\ref{eqn:mdl:carga-maxima}).
-	Representando o valor retornado a força à qual está submetido um elemento rolante, utiliza-se esta quantidade no lugar de \gls{s:carga-maxima} na Equação (\ref{eqn:seco:deformacao-max}), resultando em
+	O processo consiste em determinar um valor inicial para $Z_w$, sugerido na mesma referência como $5$, calculando em seguida o valor de \gls{s:rol-carga-maxima-elemento} como mostrado na Equação \ref{eqn:mdl:carga-maxima}.
+	Representando o valor retornado a força à qual está submetido um elemento rolante, utiliza-se esta quantidade no lugar de \gls{s:carga-maxima} na Equação \ref{eqn:seco:deformacao-max}, resultando em
 	\begin{equation} \label{eqn:mdl:deformacao-max}
 	(\gls{s:deformacao-maxima})_{i,o} = \gls{s:int-eliptica-1} \left[
 	\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
@@ -992,21 +992,21 @@
 	\right)^2 \right]^{1/3}
 	\end{equation}
 	
-	A deformação máxima obtida na Equação (\ref{eqn:mdl:deformacao-max}) deve ser calculada para as duas superfícies de contato -- esfera com o anel interno e esfera com o anel externo.
+	A deformação máxima obtida na Equação \ref{eqn:mdl:deformacao-max} deve ser calculada para as duas superfícies de contato -- esfera com o anel interno e esfera com o anel externo.
 	As deformações $\gls{s:deformacao-maxima}_i$ e $\gls{s:deformacao-maxima}_o$ são somadas para efetivamente resultar em \gls{s:deformacao-maxima}:
 	\begin{equation} \label{eqn:mdl:soma-deformacoes}
 		\gls{s:deformacao-maxima} = \gls{s:deformacao-maxima}_i +
 		\gls{s:deformacao-maxima}_o
 	\end{equation}
 	
-	Após a obtenção da deformação máxima pela Equação (\ref{eqn:mdl:soma-deformacoes}), o resultado deve ser empregado na determinação de um valor para a extensão angular \gls{s:rol-extensao-carregamento} com a Equação (\ref{eqn:rol:extensao-carregamento})
+	Após a obtenção da deformação máxima pela Equação \ref{eqn:mdl:soma-deformacoes}, o resultado deve ser empregado na determinação de um valor para a extensão angular \gls{s:rol-extensao-carregamento} com a Equação \ref{eqn:rol:extensao-carregamento}
 	\begin{equation*}
 	\gls{s:rol-extensao-carregamento} = \arccos \frac{
 		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}}
 	\end{equation*}
-	e utilizá-la no cálculo da integral no denominador da Equação (\ref{eqn:rol:zw-carga-radial}).
+	e utilizá-la no cálculo da integral no denominador da Equação \ref{eqn:rol:zw-carga-radial}.
 	
-	A resolução desta integral em conjunto com o novo valor calculado para \gls{s:deformacao-maxima} e a folga diametral constante \gls{s:rol-folga-diam} possibilitam o recálculo do valor de $Z_w$ segundo a Equação (\ref{eqn:rol:zw-carga-radial})
+	A resolução desta integral em conjunto com o novo valor calculado para \gls{s:deformacao-maxima} e a folga diametral constante \gls{s:rol-folga-diam} possibilitam o recálculo do valor de $Z_w$ segundo a Equação \ref{eqn:rol:zw-carga-radial}
 	\begin{equation*}
 	Z_w = \frac{\displaystyle
 		\pi\left( 1 - \frac{\gls{s:rol-folga-diam}}{
@@ -1018,13 +1018,13 @@
 		d\gls{s:rol-angulo-carregamento}}
 	\end{equation*}
 	
-	O novo valor calculado para $Z_w$ deve então ser realimentado na Equação (\ref{eqn:mdl:carga-maxima}), possibilitando repetir os passos do procedimento.
-	O processo iterativo continua, obedecendo um critério de parada semelhante ao da Equação (\ref{eqn:mdl:cond-parada-k})
+	O novo valor calculado para $Z_w$ deve então ser realimentado na Equação \ref{eqn:mdl:carga-maxima}, possibilitando repetir os passos do procedimento.
+	O processo iterativo continua, obedecendo um critério de parada semelhante ao da Equação \ref{eqn:mdl:cond-parada-k}
 	\begin{equation}
 		| (Z_w)_n - (Z_w)_{n+1} | \leq 10^{-7}
 	\end{equation}
 	
-	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação (\ref{eqn:mdl:carga-maxima}) para obter a força sobre o elemento rolante no momento do impacto.
+	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação \ref{eqn:mdl:carga-maxima} para obter a força sobre o elemento rolante no momento do impacto.
 	O procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é empregado na função \textsc{ObterCargaMaximaEsfera} do código-fonte do Apêndice \ref{apc:codigo}.
 	
 	\chapter{Resultados}
