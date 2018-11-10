@@ -526,6 +526,15 @@
 	Entre superfícies não-conformes, toda a carga aplicada fica apoiada em uma pequena superfície de contato lubrificada.
 	Uma característica relevante do contato não-conforme é que o tamanho dessa superfície varia muito em função da carga aplicada, mas sempre permanece em torno de três ordens de magnitude menor do que a área de contato lubrificado entre superfícies conformes \cite{hamrock:1991}.
 	
+	\subsection{Lubrificação elastohidrodinâmica}
+	A \gls{sig:EHL} é um regime de lubrificação que ocorre no contato entre superfícies não-conformes, onde a deformação elástica dos corpos torna-se significante \cite{spikes:2006}.
+	Esta teoria de lubrificação é dividida entre \gls{sig:EHL} dura, para materiais com alto módulo de elasticidade como metais, e \gls{sig:EHL} macia, para os materiais com módulo de elasticidade baixo, como borrachas e polímeros \cite{hamrock:1991}.
+	No primeiro caso, ocorre uma alta pressão na superfície do contato devido à não-conformidade das geometrias, já que a carga acaba concentrada em um ponto ou uma linha.
+	Isso provoca dois efeitos principais \cite{spikes:2006}: a deformação dos corpos cria uma região de contato localmente conforme, que toma a forma de uma elipse (como mostrado no item \ref{sec:contato-seco}) ou de um retângulo;
+	além disso, a viscosidade do fluido lubrificante aumenta muito na região de maior pressão.
+	Esse conjunto de efeitos faz com que a \gls{sig:EHL} também leve o nome de lubrificação \emph{piezo-viscoelástica} \cite{spikes:2006}.
+	Tendo como objeto de interesse a aplicação em rolamentos rígidos de esferas, apenas a teoria da \gls{sig:EHL} dura será abordada.
+	
 	\section{Rolamentos rígidos de esferas}
 	As seções a seguir apresentam os elementos principais de rolamentos rígidos de esferas e a aplicação dos conceitos demonstrados nos itens anteriores para a modelagem e determinação de propriedades deste componente,	trazendo também uma síntese de outros trabalhos desenvolvidos neste campo de estudo.
 	
@@ -1082,5 +1091,5 @@
 	\apendices
 	\chapter{Código MATLAB do modelo} \label{apc:codigo}
 	\lstinputlisting[style=Matlab-editor]{../Modelo-copia/FalhaPistaExterna.m}
-		
+	
 \end{document}
