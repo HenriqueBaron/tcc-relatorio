@@ -996,11 +996,11 @@
 		\gls{s:rol-carga-maxima-elemento} = 
 		\frac{Z_w\gls{s:carga-radial}}{\gls{s:rol-num-esferas}}
 	\end{equation}
-	e for nela empregada então a carga radial constante \gls{s:carga-radial} aplicada ao rolamento e o número de esferas \gls{s:rol-numero-esferas} do componente.
+	e for nela empregada então a carga radial constante \gls{s:carga-radial} aplicada ao rolamento e o número de esferas \gls{s:rol-num-esferas} do componente.
 	
 	Para encontrar uma solução para o valor de $Z_w$, também foi empregado um método iterativo, conforme mostrado em \cite{hamrock:1991}.
 	O processo consiste em determinar um valor inicial para $Z_w$, sugerido na mesma referência como $5$, calculando em seguida o valor de \gls{s:rol-carga-maxima-elemento} como mostrado na Equação \ref{eqn:mdl:carga-maxima}.
-	Representando o valor retornado a força à qual está submetido um elemento rolante, utiliza-se esta quantidade no lugar de \gls{s:carga-maxima} na Equação \ref{eqn:seco:deformacao-max}, resultando em
+	Representando o valor retornado a força à qual está submetido um elemento rolante, utiliza-se esta quantidade no lugar de \gls{s:carga-radial} na Equação \ref{eqn:seco:deformacao-max}, resultando em
 	\begin{equation} \label{eqn:mdl:deformacao-max}
 	(\gls{s:deformacao-maxima})_{i,o} = \gls{s:int-eliptica-1} \left[
 	\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
