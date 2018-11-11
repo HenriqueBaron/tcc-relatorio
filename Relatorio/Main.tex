@@ -460,6 +460,32 @@
 	Esse conjunto de efeitos faz com que a \gls{sig:EHL} também leve o nome de lubrificação \emph{piezo-viscoelástica} \cite{spikes:2006}.
 	Tendo como objeto de interesse a aplicação em rolamentos rígidos de esferas, apenas a teoria da \gls{sig:EHL} dura será abordada.
 	
+	Um dos focos da teoria da \gls{sig:EHL} é a determinação da espessura do filme de fluido que impede o contato direto entre os dois corpos \cite{wijnant:1998}.
+	Isso se relaciona diretamente com a resolução da equação de Reynolds, que pode ser simplificada, em uma condição de deslocamento apenas na direção $ x $, para \cite{hamrock:1991,wijnant:1998}
+	\begin{equation} \label{eqn:reynolds}
+		%
+		\frac{\partial}{\partial x}\left(
+		\frac{\gls{s:massa-espec}\gls{s:esp-filme}^3}{\gls{s:visc-abs}}\,
+		\frac{\partial\gls{s:pressao}}{\partial x} \right) +
+		%
+		\frac{\partial}{\partial y}\left(
+		\frac{\gls{s:massa-espec}\gls{s:esp-filme}^3}{\gls{s:visc-abs}}\,
+		\frac{\partial\gls{s:pressao}}{\partial y} \right) =
+		%
+		6\,\gls{s:soma-veloc}\frac{\partial\gls{s:massa-espec}
+		\gls{s:esp-filme}}{\partial x} +
+		%
+		6\,\gls{s:massa-espec}
+		\gls{s:esp-filme}\frac{\partial\gls{s:soma-veloc}}{\partial x} +
+		%
+		12\frac{\partial\gls{s:massa-espec}\gls{s:esp-filme}}{
+		\partial t},
+	\end{equation}
+	onde os símbolos \gls{s:massa-espec} e \gls{s:visc-abs} representam respectivamente a massa específica e a viscosidade absoluta do fluido, \gls{s:pressao} é a pressão hidrostática acima da pressão atmosférica, \gls{s:esp-filme} indica a espessura do filme de fluido e \gls{s:soma-veloc} é a soma de velocidades entre as duas superfícies, obtida diretamente com a velocidade de escoamento \gls{s:vel-esc-x} do fluido em cada superfície:
+	\begin{equation}
+		\gls{s:soma-veloc} = \gls{s:vel-esc-x}_a + \gls{s:vel-esc-x}_b
+	\end{equation}
+	
 	\section{Rolamentos rígidos de esferas}
 	As seções a seguir apresentam os elementos principais de rolamentos rígidos de esferas e a aplicação dos conceitos demonstrados nos itens anteriores para a modelagem e determinação de propriedades deste componente,	trazendo também uma síntese de outros trabalhos desenvolvidos neste campo de estudo.
 	
