@@ -460,10 +460,9 @@
 	Esse conjunto de efeitos faz com que a \gls{sig:EHL} também leve o nome de lubrificação \emph{piezo-viscoelástica} \cite{spikes:2006}.
 	Tendo como objeto de interesse a aplicação em rolamentos rígidos de esferas, apenas a teoria da \gls{sig:EHL} dura será abordada.
 	
-	Um dos focos da teoria da \gls{sig:EHL} é a determinação da espessura do filme de fluido que impede o contato direto entre os dois corpos \cite{wijnant:1998}.
-	Isso se relaciona diretamente com a resolução da equação de Reynolds, que pode ser simplificada, em uma condição de deslocamento apenas na direção $ x $, para \cite{hamrock:1991,wijnant:1998}
-	\begin{equation} \label{eqn:reynolds}
-		%
+	A teoria da \gls{sig:EHL} estuda o fluxo de lubrificante que separa os dois corpos do contato direto, que pode ser descrito pela equação de Reynolds \cite{wijnant:1998,hamrock:1991}.
+	Considerando que os dois corpos tenham uma componente de velocidade apenas na direção $x$, ela pode ser representada por
+	\begin{equation} \label{eqn:ehl:reynolds}
 		\frac{\partial}{\partial x}\left(
 		\frac{\gls{s:massa-espec}\gls{s:esp-filme}^3}{\gls{s:visc-abs}}\,
 		\frac{\partial\gls{s:pressao}}{\partial x} \right) +
@@ -483,8 +482,68 @@
 	\end{equation}
 	onde os símbolos \gls{s:massa-espec} e \gls{s:visc-abs} representam respectivamente a massa específica e a viscosidade absoluta do fluido, \gls{s:pressao} é a pressão hidrostática acima da pressão atmosférica, \gls{s:esp-filme} indica a espessura do filme de fluido e \gls{s:soma-veloc} é a soma de velocidades entre as duas superfícies, obtida diretamente com a velocidade de escoamento \gls{s:vel-esc-x} do fluido em cada superfície:
 	\begin{equation}
-		\gls{s:soma-veloc} = \gls{s:vel-esc-x}_a + \gls{s:vel-esc-x}_b
+		\gls{s:soma-veloc} = \gls{s:vel-esc-x}_a + \gls{s:vel-esc-x}_b.
 	\end{equation}
+	
+	A análise da \gls{sig:EHL} se combina com a determinação da espessura \gls{s:esp-filme} do filme de lubrificante, que para uma suposição de que os dois corpos tomam a forma parabólica, pode ser definida como \cite{wijnant:1998}
+	\begin{equation} \label{eqn:ehl:esp-filme-comp}
+		\gls{s:esp-filme}(x,y) = - \gls{s:aprox-mutua} +
+		%
+		\frac{x^2}{2\gls{s:raio-equiv-x}} +
+		%
+		\frac{y^2}{2\gls{s:raio-equiv-y}} +
+		%
+		\frac{2}{\pi\gls{s:modulo-elast-efetivo}}
+		%
+		\iint_{\gls{s:superf-contato}} \frac{\gls{s:pressao}(x',\,y')
+		dx'\,dy'}{\sqrt{(x-x')^2 + (y-y')^2}}.
+	\end{equation}
+	Nesta equação, o termo \gls{s:aprox-mutua} que aparece indica a aproximação mútua de dois pontos remotos entre os dois sólidos em contato \cite{wijnant:1998}.
+	O termo remoto é empregado para denotar que a deformação elástica é desprezível nestes pontos.
+	
+	Conhecendo-se o valor da aproximação mútua \gls{s:aprox-mutua}, o problema trazido pelas Equações \ref{eqn:ehl:reynolds} e \ref{eqn:ehl:esp-filme-comp} torna-se bem definido e possuirá uma única solução.
+	Este valor, no entanto, geralmente é desconhecido.
+	Um método de solução é proposto na referência \cite{nonato:2010}, empregando o método de análise \emph{multinível multiintegração}, modelando um rolamento de esferas tanto como um sistema dinâmico linear como não-linear.
+	
+	\subsubsection{Simplificação com parâmetros adimensionais}
+	Uma alternativa simplificada de solução para a espessura do filme de fluido é trazida nas referências \cite{hamrock:1991,spikes:2006}, utilizando fatores adimensionais.
+	Nesta proposta, a espessura do filme pode ser resolvida por
+	\begin{equation} \label{eqn:ehl:esp-filme}
+		\frac{\gls{s:esp-filme}}{\gls{s:raio-equiv-x}} = 
+		%
+		2,69\gls{s:veloc-adim}^{0,67}\gls{s:material-adim}^{0,53}
+		\gls{s:carga-adim}^{-0,067}
+		%
+		(1-0,61e^{-0,73\gls{s:param-elipticidade}}),
+	\end{equation}
+	de modo que \gls{s:veloc-adim}, \gls{s:material-adim}, \gls{s:carga-adim} são parâmetros adimensionais de velocidade, material e carga respectivamente.
+	Considerando um vetor de velocidade apenas na direção $x$, estes parâmetros valem \cite{hamrock:1991}
+	\begin{align}
+		\gls{s:veloc-adim} &= \frac{\gls{s:soma-veloc}\gls{s:visc-abs-0}}
+		{2\gls{s:modulo-elast-efetivo}\gls{s:raio-equiv-x}}
+		\label{eqn:ehl:veloc-adim}\\
+		\gls{s:material-adim} &= \gls{s:coef-visc-pressao}
+		\gls{s:modulo-elast-efetivo} \label{eqn:ehl:material-adim}\\
+		\gls{s:carga-adim} &= \frac{\gls{s:carga-radial}}
+		{\gls{s:modulo-elast-efetivo}\gls{s:raio-equiv-x}}
+		\label{eqn:ehl:carga-adim},
+	\end{align}
+	sendo \gls{s:visc-abs-0} a viscosidade absoluta do lubrificante à pressão atmosférica e temperatura constante, e \gls{s:coef-visc-pressao} é uma propriedade do fluido, que é relacionada a \gls{s:visc-abs-0} e ao índice de viscosidade-pressão \gls{s:indice-visc-pressao} pela equação \cite{wijnant:1998}
+	\begin{equation}
+		\gls{s:indice-visc-pressao} = 
+		\frac{1,96\cdot10^8\gls{s:coef-visc-pressao}}
+		{\ln(\gls{s:visc-abs-0})+9,67}.
+	\end{equation}
+	
+	O índice de viscosidade-pressão \gls{s:indice-visc-pressao} para diversos fluidos é exibido na \figurename\ \ref{fig:indices-visc-pressao}, em função das respectivas viscosidades absolutas.
+	Mesmo em outras situações de análise, o valor desse índice em uma variedade de óleos minerais tende a convergir para o valor de $0,74$ \cite{roelands:1966}.
+	
+	\begin{figure}[b]
+		\caption{Índices de viscosidade-pressão para diversos fluidos}
+		\missingfigure{Inserir diagrama da página 156 de Roelands}
+		\fonte{adaptado de \citeauthoronline{roelands:1966} (\citeyear{roelands:1966})}
+		\label{fig:indices-visc-pressao}
+	\end{figure}
 	
 	\section{Rolamentos rígidos de esferas}
 	As seções a seguir apresentam os elementos principais de rolamentos rígidos de esferas e a aplicação dos conceitos demonstrados nos itens anteriores para a modelagem e determinação de propriedades deste componente,	trazendo também uma síntese de outros trabalhos desenvolvidos neste campo de estudo.
