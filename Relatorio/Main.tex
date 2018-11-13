@@ -198,17 +198,17 @@
 	
 	\subsubsection{Funções amostradas no tempo}
 	O par de transformadas integrais das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica.
-	Um intervalo $ (-\tau /2,\:\tau /2) $ é empregado, assumindo que a função $g(t)$ se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq:hz} que corresponde a \cite{dimarogonas:1995}
+	Um intervalo $ (-\gls{s:periodo}/2,\:\gls{s:periodo}/2) $ é empregado, assumindo que a função $g(t)$ se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq-hz} que corresponde a \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-fundam}
-		\mathit{f} = \frac{1}{\tau}
+		\gls{s:freq-hz} = \frac{1}{\gls{s:periodo}}
 	\end{equation}
 	
 	Considerando que a amostragem da função $g(t)$ seja feita em intervalos $ \Delta $\gls{s:tempo}, a frequência de amostragem \gls{s:freq-amostra} é definida como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-amostra}
-		\mathit{f}_s = \frac{1}{\Delta t}
+		\gls{s:freq-amostra} = \frac{1}{\Delta t}
 	\end{equation}
 	
-	Considerando ainda que alguma perturbação aconteça a cada intervalo \[\Delta t = \frac{\tau}{N} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
+	Considerando ainda que alguma perturbação aconteça a cada intervalo \[\Delta t = \frac{\gls{s:periodo}}{\gls{s:numero-amostras}} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
 	
 	\subsubsection{Transformada Discreta de Fourier}
 	Considerando que a função $g(t)$ seja discretizada e truncada tanto no domínio como na frequência de modo que
