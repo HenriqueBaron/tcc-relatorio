@@ -401,10 +401,10 @@
 	Pela teoria de Hertz, a carga aplicada ao contato \gls{s:carga-radial} e a deformação máxima \gls{s:deformacao-maxima} são relacionadas por \cite{tandon:1997,hamrock:1991}
 	\begin{equation} \label{eqn:seco:def-hertz-curta}
 		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
-		\gls{s:deformacao-maxima}^j
+		\gls{s:deformacao-maxima}^{\gls{s:exp-naolin}}
 	\end{equation}
 	
-	Para o caso de rolamentos de esferas, o expoente $ j $ vale $ 1,5 $ e \gls{s:rigidez-hertz} é a rigidez não-linear, que vale \cite{hamrock:1991}
+	Para o caso de rolamentos de esferas, o expoente \gls{s:exp-naolin} vale $ 1,5 $ e \gls{s:rigidez-hertz} é a rigidez não-linear, que vale \cite{hamrock:1991}
 	\begin{equation} \label{eqn:seco:rig-hertz}
 		\gls{s:rigidez-hertz} = \pi\gls{s:param-elipticidade}\,
 		\gls{s:modulo-elast-efetivo}\left( \frac{
@@ -595,12 +595,12 @@
 	\begin{equation}
 		\gls{s:rol-carga-elemento} =
 		\begin{cases}
-		\gls{s:carga-radial}\,[1-(1/2\varepsilon)(1-\cos\gls{s:rol-angulo-carregamento})]^j, & -\gls{s:rol-extensao-carregamento}\leq\gls{s:rol-angulo-carregamento}\leq\gls{s:rol-extensao-carregamento} \\
+		\gls{s:carga-radial}\,[1-(1/2\varepsilon)(1-\cos\gls{s:rol-angulo-carregamento})]^{\gls{s:exp-naolin}}, & -\gls{s:rol-extensao-carregamento}\leq\gls{s:rol-angulo-carregamento}\leq\gls{s:rol-extensao-carregamento} \\
 		0, & \mbox{outras posições}
 		\end{cases}
 	\end{equation}
 	sendo $ \varepsilon $ um fator de distribuição de carga, que depende do ângulo de contato e da relação entre carga radial e axial aplicada ao rolamento, e \gls{s:rol-angulo-carregamento} o ângulo do elemento rolante analisado em relação ao elemento mais solicitado.
-	O expoente $ j $ vale $ 1,5 $, de maneira similar à Equação \ref{eqn:seco:def-hertz-curta}.
+	O expoente \gls{s:exp-naolin} vale $ 1,5 $, de maneira similar à Equação \ref{eqn:seco:def-hertz-curta}.
 	
 	\begin{figure}[t]
 		\incluirimagem{CarregamentoRolamento.png}{Distribuição do carregamento em um rolamento de esferas}{adaptado de \citeauthoronline{sassi:2007} (\citeyear{sassi:2007})}
@@ -620,14 +620,14 @@
 	\begin{equation} \label{eqn:rol:carga-elemento}
 		\gls{s:rol-carga-elemento} = \gls{s:rigidez-hertz} \left(
 		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
-		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^j
+		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^{\gls{s:exp-naolin}}
 	\end{equation}
 	
 	Ainda conforme \cite{hamrock:1991}, a carga total aplicada \gls{s:carga-radial} deve ser igual ao somatório da carga distribuída entre todos os elementos rolantes solicitados:
 	\begin{equation}\label{eqn:rol:dist-carga-geral}
 		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\sum\left(
 		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
-		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^j\,
+		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^{\gls{s:exp-naolin}}\,
 		\cos\gls{s:rol-angulo-carregamento}
 	\end{equation}
 	o que é representado para um rolamento de esferas na forma integral como
@@ -646,7 +646,7 @@
 	\begin{equation}
 		\gls{s:rol-carga-maxima-elemento} = \gls{s:rigidez-hertz}
 		\left( 1 - \frac{\gls{s:rol-folga-diam}}{
-		2\gls{s:deformacao-maxima}} \right)^j
+		2\gls{s:deformacao-maxima}} \right)^{\gls{s:exp-naolin}}
 	\end{equation}
 	
 	Em um segundo passo, essa expressão pode ser dividida pela Equação \ref{eqn:rol:dist-carga-esf}.
@@ -701,16 +701,17 @@
 	Neste caso, a melhor abordagem é tratar a esfera segundo a teoria \emph{hertziana} de contato entre superfícies \cite{patil:2010}, cuja relação entre força e deformação é dada pela Equação \ref{eqn:seco:def-hertz-curta}
 	\begin{equation*}
 		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
-		\gls{s:deformacao-maxima}^j
+		\gls{s:deformacao-maxima}^{\gls{s:exp-naolin}}
 	\end{equation*}
-	utilizando para o expoente $j$ o valor de $1,5$.
+	utilizando para o expoente \gls{s:exp-naolin} o valor de $1,5$.
 	Para este contato, no entanto, a rigidez \emph{hertziana} \gls{s:rigidez-hertz} deve considerar o contato entre a esfera e os dois anéis simultaneamente.
 	Isso é atingido calculando \gls{s:rigidez-hertz} como \cite{patil:2010,hamrock:1991}
 	\begin{equation}
 		\frac{1}{\gls{s:rigidez-hertz}} = \left\lbrace \left[
-		\frac{1}{(\gls{s:rigidez-hertz})_i} \right]^{1/j} + \left[
-		\frac{1}{(\gls{s:rigidez-hertz})_o} \right]^{1/j}
-		\right\rbrace^j
+		\frac{1}{(\gls{s:rigidez-hertz})_i} \right]^{1/\gls{s:exp-naolin}}
+		+ \left[
+		\frac{1}{(\gls{s:rigidez-hertz})_o} \right]^{1/\gls{s:exp-naolin}}
+		\right\rbrace^{\gls{s:exp-naolin}}
 	\end{equation}
 	de modo que $ (\gls{s:rigidez-hertz})_i $ e $ (\gls{s:rigidez-hertz})_o $ são aplicações individuais da Equação \ref{eqn:seco:rig-hertz} para o contato com os anéis interno e externo, respectivamente.
 	
