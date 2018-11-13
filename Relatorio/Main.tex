@@ -544,6 +544,15 @@
 		\fonte{adaptado de \citeauthoronline{roelands:1966} (\citeyear{roelands:1966})}
 		\label{fig:indices-visc-pressao}
 	\end{figure}
+
+	\subsubsection{Propriedades dinâmicas do filme de fluido}
+	A determinação completa das propriedades dinâmicas do fluido envolveria a solução completa do problema da \gls{sig:EHL}.
+	Desse modo, alternativas simplificadas para a solução do problema podem ser propostas.
+	Entre elas, pode-se empregar um valor linear e constante de amortecimento para o filme de fluido, em conjunto com um valor não-linear de rigidez \gls{s:rig-naolin-filme} que tem um comportamento similar à deformação \emph{hertziana} apresentada no item \ref{sec:contato-seco}, com a adição de uma força de sustentação \gls{s:forca-sust-filme} constante \cite{nonato:2014}
+	\begin{equation}
+		\gls{s:rig-naolin-filme}\gls{s:deformacao}^{\gls{s:exp-naolin}} +
+		\gls{s:forca-sust-filme} = \gls{s:forca}
+	\end{equation}
 	
 	\section{Rolamentos rígidos de esferas}
 	As seções a seguir apresentam os elementos principais de rolamentos rígidos de esferas e a aplicação dos conceitos demonstrados nos itens anteriores para a modelagem e determinação de propriedades deste componente,	trazendo também uma síntese de outros trabalhos desenvolvidos neste campo de estudo.
