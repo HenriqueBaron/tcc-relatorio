@@ -107,7 +107,7 @@
 	Qualquer movimento que se repita em intervalos de tempo iguais é denominado movimento periódico \cite{rao:2008}.
 	Dentre eles, entende-se por movimento harmônico simples aquele que é definido por uma função do tipo \cite{timoshenko:1974}
 	\begin{equation}
-		g(t) = a\cos\omega t + b\sin\omega t
+		g(t) = a\cos\omega \gls{s:tempo} + b\sin\omega t
 	\end{equation}
 	onde $g(t)$ indica a posição ou deslocamento, \gls{s:freq-rad} é a frequência da oscilação, \gls{s:tempo} denota o tempo e $ a $ e $ b $ são duas constantes quaisquer.
 	
@@ -117,32 +117,32 @@
 	\subsection{Série de Fourier} \label{sec:fourier:serie}
 	Seja $g(t)$ uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
-		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos n\omega t + b_n\sin n\omega t \right)
+		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos n\gls{s:freq-rad} t + b_n\sin n\gls{s:freq-rad} t \right)
 	\end{equation}
 	sendo a frequência \gls{s:freq-rad} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:periodo}
-		\omega = \frac{2\pi}{\tau}
+		\gls{s:freq-rad} = \frac{2\pi}{\gls{s:periodo}}
 	\end{equation}
 	e os coeficientes \glspl{s:coef-fourier} representam as harmônicas \cite{dimarogonas:1995}, que valem \cite{spiegel:1977}
 	\begin{align}\label{eqn:fourier:coefs}
-		a_0 &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\ dt \notag\\
-		a_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\cos n\omega t\ dt \\
-		b_n &= \frac{2}{\tau}\int_{0}^{\tau}g(t)\sin n\omega t\ dt \notag
+		a_0 &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\ dt \notag\\
+		a_n &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\cos n\gls{s:freq-rad} t\ dt \\
+		b_n &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\sin n\gls{s:freq-rad} t\ dt \notag
 	\end{align}
 	
 	Embora seja possível a discussão sobre a convergência da série Fourier na Equação \ref{eqn:fourier:serie} para uma função $g(t)$, isso não é tratado aqui, visto que as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral \cite{spiegel:1977}.
 	
 	Utilizando as identidades de Euler
 	\begin{equation}\label{eqn:fourier:ident-euler}
-		e^{i\omega} = cos\,\omega + i\sin\omega\, , \quad e^{-i\omega} = cos\,\omega - i\sin\omega
+		e^{i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} + i\sin\gls{s:freq-rad}, , \quad e^{-i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} - i\sin\gls{s:freq-rad}
 	\end{equation}
 	a série de Fourier da Equação \ref{eqn:fourier:serie} também pode ser representada na sua forma complexa como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie-compl}
-		g(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\omega t}
+		g(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\gls{s:freq-rad} t}
 	\end{equation}
 	onde a harmônica \gls{s:coef-fourier-compl} é calculada por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:coefs-compl}
-		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\tau}\int_{0}^{\tau}g(t)\,e^{-in\omega t}\ dt
+		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\,e^{-in\gls{s:freq-rad} t}\ dt
 	\end{equation}
 	
 	\subsection{Representação no domínio da frequência} \label{sec:espectros-frequencia}
@@ -170,24 +170,24 @@
 	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}.
 	Seja $g(t)$ uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:integral}
-		g(t) = \int_{0}^{\infty}\left\lbrace a_\omega\cos\omega t + b_\omega\:\sin\omega t\right\rbrace\, d\omega
+		g(t) = \int_{0}^{\infty}\left\lbrace a_{\gls{s:freq-rad}}\cos\gls{s:freq-rad} t + b_{\gls{s:freq-rad}}\sin\gls{s:freq-rad} t\right\rbrace\, d\gls{s:freq-rad}
 	\end{equation}
 	tal que os coeficientes \glspl{s:coef-fourier-int} são determinados por
 	\setlength\jot{3ex plus 2ex minus 1ex}
 	\begin{align}
-		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\cos\omega t\ dt \\
-		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\sin\omega t\ dt
+		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\cos\gls{s:freq-rad} t\ dt \\
+		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\sin\gls{s:freq-rad} t\ dt
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
 	Aplicando na Equação \ref{eqn:fourier:integral} a identidade de Euler da Equação \ref{eqn:fourier:ident-euler} de maneira semelhante ao item \ref{sec:fourier:serie}, obtém-se a transformada de Fourier \cite{savi:2017} de $g(t)$, denotada por $G(\omega)$
 	\begin{equation} \label{eqn:fourier:transform}
-		G(\omega) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\omega t}\:dt
+		G(\gls{s:freq-rad}) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\gls{s:freq-rad} t}\:dt
 	\end{equation}
 	que também é denominada como transformada contínua de Fourier \cite{dimarogonas:1995}.
 	A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
 	\begin{equation} \label{eqn:fourier:transform-inv}
-		g(t) = \mathcal{F}^{-1}\{G(\omega)\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\omega)\ e^{i\omega t}\:d\omega
+		g(t) = \mathcal{F}^{-1}\{G(\gls{s:freq-rad})\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\gls{s:freq-rad})\ e^{i\gls{s:freq-rad} t}\:d\gls{s:freq-rad}
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
@@ -213,22 +213,22 @@
 	\subsubsection{Transformada Discreta de Fourier}
 	Considerando que a função $g(t)$ seja discretizada e truncada tanto no domínio como na frequência de modo que
 	\begin{align*}
-		t_n = n\Delta t\: ,&\quad n = 0, 1, \dots , N\\
-		\mathit{f} = k\Delta\mathit{f} = \frac{k}{N\Delta t}\: ,&\quad k = 0, 1, \dots , N
+		t_n = n\Delta t\: ,&\quad n = 0, 1, \dots , \gls{s:numero-amostras}\\
+		\mathit{f} = k\Delta\mathit{f} = \frac{k}{\gls{s:numero-amostras}\Delta t}\: ,&\quad k = 0, 1, \dots , \gls{s:numero-amostras}
 	\end{align*}
 	a transformada de Fourier (direta e inversa) torna-se \cite{randall:1987}
 	\begin{align}
-		G_k &= \frac{1}{N}\sum_{n=0}^{N-1}g_n e^{-i 2\pi k n/N} \label{eqn:fourier:dft}\\
-		g_n &= \sum_{k=0}^{N-1}G_k e^{i 2\pi k n/N} \label{eqn:fourier:dft-inv}
+		G_k &= \frac{1}{\gls{s:numero-amostras}}\sum_{n=0}^{\gls{s:numero-amostras}-1}g_n e^{-i 2\pi k n/\gls{s:numero-amostras}} \label{eqn:fourier:dft}\\
+		g_n &= \sum_{k=0}^{\gls{s:numero-amostras}-1}G_k e^{i 2\pi k n/\gls{s:numero-amostras}} \label{eqn:fourier:dft-inv}
 	\end{align}
 	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}.
 	Adicionalmente, a Equação \ref{eqn:fourier:dft} pode ser representada como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:dft-matricial}
-		\vec{G} = \frac{1}{N}[\mathbf{A}]\vec{g}
+		\vec{G} = \frac{1}{\gls{s:numero-amostras}}[\mathbf{A}]\vec{g}
 	\end{equation}
 	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ \vec{g} $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada $ \gls{s:numero-amostras}\! \times\!	\gls{s:numero-amostras} $ contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
 	\begin{equation}
-		\textbf{a}_{kn} = e^{-i2\pi kn/N}
+		\textbf{a}_{kn} = e^{-i2\pi kn/\gls{s:numero-amostras}}
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
@@ -242,7 +242,6 @@
 	\section{Vibração de sistemas discretos} \label{sec:disc}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade.
 	Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema \cite{rao:2008}.
-	
 	
 	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
