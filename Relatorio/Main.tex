@@ -13,7 +13,8 @@
 \usepackage{pdfpages} % Permite a inclusão de páginas em PDF dentro do documento. Será útil para incluir uma cópia digitalizada da folha de aprovação, após as assinaturas.
 \usepackage{amsmath} % Digitação de alguns símbolos matemáticos.
 \usepackage{bigints} % Inclui símbolos de integral grandes, para frações etc.
-\usepackage{booktabs}
+\usepackage{booktabs} % Recursos para formatar tabelas
+\usepackage{bm} % Bold Math
 \usepackage[framed]{matlab-prettifier}
 \usepackage{todonotes}
 \setlength\heavyrulewidth{1.5pt}
@@ -557,15 +558,29 @@
 	No experimento, os resultados foram ajustados, e os valores para \gls{s:rig-naolin-filme} e \gls{s:forca-sust-filme} para diversas velocidades de rotação e carga radial constante são apresentados na \tablename\ \ref{tbl:props-filme}.
 	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.	
 	
-	\begin{table} \label{tbl:props-filme}
-		\begin{tabular}{l|l|l|l|l|l}
-			\toprule \bfseries
-			Velocidade de rotação [RPM] & Carga radial [N] &
-			$\gls{s:rig-naolin-filme} \cdot 10^8$
-			[N/m\textsuperscript{\gls{s:exp-naolin}}] &
-			\gls{s:exp-naolin} & \gls{s:forca-sust-filme} [N] &
-			Resíduo\\ \midrule
-		\end{tabular}
+	\begin{table}[t]
+	\caption{Rigidez não-linear do filme de fluido para um rolamento 6006}
+	\def\arraystretch{1.2}
+	\centering
+	\begin{tabular}{l|l|l|l|l|l}
+	\toprule
+	$\bm{N_r\ [RPM]}$ & 
+	$\bm{w_z\ [N]}$ &
+	$\bm{K_{EHD}} \cdot \bm{10^8\ [N/m^j]}$ &
+	$\bm{j}$ &
+	$\bm{F_{EHD}\ [N]}$ &
+	$\bm{1}-\bm{R^2}$\\ \midrule
+	%
+	$600$&$100$ & $153,8$ & $1,452$ & $2,073$ & $3,39\cdot 10^{-7}$\\
+	$1200$&$100$ & $100,0$ & $1,418$ & $3,155$ & $1,39\cdot 10^{-6}$\\
+	$1800$&$100$ & $68,3$ & $1,388$ & $4,023$ & $3,28\cdot 10^{-6}$\\
+	$2400$&$100$ & $48,2$ & $1,360$ & $4,781$ & $6,10\cdot 10^{-6}$\\
+	\bottomrule
+	\end{tabular}
+	\vspace{5pt}
+	\hspace{5pt}
+	\fonte{\citeauthoronline{nonato:2014} (\citeyear{nonato:2014})}
+	\label{tbl:props-filme}
 	\end{table}
 	
 	\section{Rolamentos rígidos de esferas}
