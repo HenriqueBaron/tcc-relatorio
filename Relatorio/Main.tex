@@ -549,10 +549,25 @@
 	A determinação completa das propriedades dinâmicas do fluido envolveria a solução completa do problema da \gls{sig:EHL}.
 	Desse modo, alternativas simplificadas para a solução do problema podem ser propostas.
 	Entre elas, pode-se empregar um valor linear e constante de amortecimento para o filme de fluido, em conjunto com um valor não-linear de rigidez \gls{s:rig-naolin-filme} que tem um comportamento similar à deformação \emph{hertziana} apresentada no item \ref{sec:contato-seco}, com a adição de uma força de sustentação \gls{s:forca-sust-filme} constante \cite{nonato:2014}
-	\begin{equation}
+	\begin{equation} \label{eqn:ehl:forca-rest}
 		\gls{s:rig-naolin-filme}\gls{s:deformacao}^{\gls{s:exp-naolin}} +
 		\gls{s:forca-sust-filme} = \gls{s:forca}
 	\end{equation}
+	
+	A referência \cite{nonato:2014} empregou o modelo utilizado em \cite{nonato:2010} para obter as propriedades de rigidez não-linear, força de sustentação e amortecimento linear para um filme de lubrificante ISO VG 32 em um rolamento radial rígido de esferas tipo 6006.
+	No experimento, os resultados foram ajustados, e os valores para \gls{s:rig-naolin-filme} e \gls{s:forca-sust-filme} para diversas velocidades de rotação e carga radial constante são apresentados na \tablename\ \ref{tbl:props-filme}.
+	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.	
+	
+	\begin{table} \label{tbl:props-filme}
+		\begin{tabular}{l|l|l|l|l|l}
+			\toprule \bfseries
+			Velocidade de rotação [RPM] & Carga radial [N] &
+			$\gls{s:rig-naolin-filme} \cdot 10^8$
+			[N/m\textsuperscript{\gls{s:exp-naolin}}] &
+			\gls{s:exp-naolin} & \gls{s:forca-sust-filme} [N] &
+			Resíduo\\ \midrule
+		\end{tabular}
+	\end{table}
 	
 	\section{Rolamentos rígidos de esferas}
 	As seções a seguir apresentam os elementos principais de rolamentos rígidos de esferas e a aplicação dos conceitos demonstrados nos itens anteriores para a modelagem e determinação de propriedades deste componente,	trazendo também uma síntese de outros trabalhos desenvolvidos neste campo de estudo.
