@@ -225,7 +225,7 @@
 	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}.
 	Adicionalmente, a Equação \ref{eqn:fourier:dft} pode ser representada como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:dft-matricial}
-		\vec{G} = \frac{1}{\gls{s:numero-amostras}}[\mathbf{A}]\vec{g}
+		\vec{G} = \frac{1}{\gls{s:numero-amostras}}\gls{s:matriz-unitarios-dft}\vec{g}
 	\end{equation}
 	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ \vec{g} $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada $ \gls{s:numero-amostras}\! \times\!	\gls{s:numero-amostras} $ contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
 	\begin{equation}
@@ -247,25 +247,25 @@
 	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
 	\begin{equation} \label{eqn:discr:movimento}
-		[m]\ddot{\vec{x}} + [c]\dot{\vec{x}} + [k]\vec{x} = \vec{F}
+		\gls{s:matriz-massa}\,\ddot{\vec{x}} + \gls{s:matriz-amort}\,\dot{\vec{x}} + \gls{s:matriz-rigidez}\,\vec{x} = \vec{F}
 	\end{equation}
 	onde \gls{s:matriz-massa}, \gls{s:matriz-amort} e \gls{s:matriz-rigidez} representam as matrizes de massa, amortecimento e rigidez, respectivamente, e são dadas por
 	\begin{gather} 
-		[m] = 
+		\gls{s:matriz-massa} = 
 		\begin{bmatrix} \label{eqn:matr:massa}
 			m_{11} & m_{12} & m_{13} & \dots & m_{1n}\\
 			m_{21} & m_{22} & m_{23} & \dots & m_{2n}\\
 			\vdots\\
 			m_{n1} & m_{n2} & m_{n3} & \dots & m_{nn}\\
 		\end{bmatrix}\\
-		[c] = 
+		\gls{s:matriz-amort} = 
 		\begin{bmatrix} \label{eqn:matr:amort}
 			c_{11} & c_{12} & c_{13} & \dots & c_{1n}\\
 			c_{21} & c_{22} & c_{23} & \dots & c_{2n}\\
 			\vdots\\
 			c_{n1} & c_{n2} & c_{n3} & \dots & c_{nn}\\
 		\end{bmatrix}\\
-		[k] =
+		\gls{s:matriz-rigidez} =
 		\begin{bmatrix} \label{eqn:matr:rigid}
 			k_{11} & k_{12} & k_{13} & \dots & k_{1n}\\
 			k_{21} & k_{22} & k_{23} & \dots & k_{2n}\\
