@@ -961,21 +961,21 @@
 	\subsection{Diâmetros e raios de elementos}	
 	Como mostrado na Equação \ref{eqn:rol:diam-espec}, o diâmetro específico \gls{s:rol-diam-espec} é calculado a partir dos dados da \tablename\ \ref{tbl:6004-gerais}:
 	\begin{equation*}
-		\gls{s:rol-diam-espec} = \frac{20 + 42}{2} = 31\ \text{mm}
+		\gls{s:rol-diam-espec} = \frac{20 + 42}{2} = 31\ \text{mm}.
 	\end{equation*}
 	
 	Para as esferas, o diâmetro \gls{s:rol-diam-esferas} nominal fornecido pelo fabricante pode ser utilizado de maneira satisfatória para obtenção das frequências características do rolamento, mostradas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}.
 	No entanto, para utilização do raio da esfera (conforme mostrado na Figura \ref{fig:raios-rolamento}) nos cálculos relacionados ao contato de superfícies, a folga diametral -- não considerada nas medidas nominais do fabricante -- precisa ser ponderada.
 	Dessa maneira, pode-se calcular
 	\begin{equation}
-		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1315\ \text{mm}
+		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1315\ \text{mm}.
 	\end{equation}
 	
 	\subsection{Velocidades e frequências características}
 	Aplicando a condição estabelecida no item \ref{sec:proposta-condicoes} de que o anel externo do rolamento é fixo no mancal e que a velocidade de rotação do eixo é impressa no anel interno, definem-se as velocidades angulares
 	\begin{align}
 		\gls{s:freq-rad}_o &= 0 \\
-		\gls{s:freq-rad}_i &= \frac{1800\ \text{RPM}}{30\pi} = 188,5\ \text{rad/s}
+		\gls{s:freq-rad}_i &= \frac{1800\ \text{RPM}}{30\pi} = 188,5\ \text{rad/s}.
 	\end{align}
 	
 	Com estas velocidades angulares, é possível determinar as frequências características do rolamento, descritas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}.
@@ -983,7 +983,7 @@
 	\begin{equation*}
 		\gls{s:freq-rol-def-out} = \frac{9}{2}\cdot(188,5 - 0)\cdot
 		\left( 1 - \frac{6,35\,\cos 0}{31} \right) =
-		674,48\ \text{rad/s} =	107,35\ \text{Hz}
+		674,48\ \text{rad/s} =	107,35\ \text{Hz}.
 	\end{equation*}
 	
 	\subsection{Rigidezes e frequências naturais}
@@ -998,14 +998,14 @@
 		\cdot 0,01165^4}} = 9,8587\cdot 10^4\ \text{rad/s} \\
 		\gls{s:freq-natural}_o &= \frac{2(2^2 - 1)}{\sqrt{1+2^2}}\,
 		\sqrt{\frac{200\cdot 10^9\cdot 31,802\cdot 10^{-12}}{0,289
-		\cdot 0,01943^4}} = 3,3344\cdot 10^4\ \text{rad/s} 
+		\cdot 0,01943^4}} = 3,3344\cdot 10^4\ \text{rad/s},
 	\end{align*}
 	e as suas rigidezes podem então ser obtidas com o par de Equações \ref{eqn:rol:rig-anel-int} e \ref{eqn:rol:rig-anel-ext}:
 	\begin{align*}
 		\gls{s:rol-rig-anel}_i &= 0,022\cdot(9,8587\cdot 10^4)^2 =
 		2,1383\cdot10^8\ \text{N/m} \\
 		\gls{s:rol-rig-anel}_o &= 0,035\cdot(3,3344\cdot 10^4)^2 =
-		3,8913\cdot10^7\ \text{N/m}
+		3,8913\cdot10^7\ \text{N/m}.
 	\end{align*}
 	
 	\section{Desenvolvimento do modelo}
@@ -1044,7 +1044,7 @@
 		0,9668\ \text{mm}\\
 		\gls{s:curvatura-diferenca}_i = 0,9668\left( 
 		\frac{1}{2,497} - \frac{1}{1,578} \right) &\implies
-		\gls{s:curvatura-diferenca}_i = -0,2256 
+		\gls{s:curvatura-diferenca}_i = -0,2256.
 	\end{align*}
 	
 	O procedimento pode ser repetido para o contato entre esfera e pista externa, obtendo os valores finais
@@ -1052,7 +1052,7 @@
 		\gls{s:raio-equiv-x}_o &= 2,682\ \text{mm}\\
 		\gls{s:raio-equiv-y}_o &= 1,578\ \text{mm}\\
 		\gls{s:curvatura-soma}_o &= 0,9334\ \text{mm}\\
-		\gls{s:curvatura-diferenca}_o &= -0,2592
+		\gls{s:curvatura-diferenca}_o &= -0,2592.
 	\end{align*}
 	
 	Possuindo valores para a diferença de curvatura \gls{s:curvatura-diferenca}, é possível encontrar os valores para as integrais elípticas \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2} e para o parâmetro de elipticidade \gls{s:param-elipticidade} através das Equações \ref{eqn:seco:int-elip-1} a \ref{eqn:seco:param-elip}.
@@ -1060,7 +1060,7 @@
 	
 	No código-fonte do Apêndice \ref{apc:codigo}, esse processo é ilustrado pela função \textsc{ParametrosElipseContato}, e consiste em arbitrar um valor inicial para \gls{s:param-elipticidade}, iterando em seguida os cálculos de \gls{s:int-eliptica-1}, \gls{s:int-eliptica-2} e do novo valor para \gls{s:param-elipticidade} até que seja satisfeita a condição
 	\begin{equation} \label{eqn:mdl:cond-parada-k}
-		|\gls{s:param-elipticidade}_n - \gls{s:param-elipticidade}_{n+1}| \leq 10^{-7}
+		|\gls{s:param-elipticidade}_n - \gls{s:param-elipticidade}_{n+1}| \leq 10^{-7}.
 	\end{equation}
 	
 	Para a situação deste modelo, o valor inicial arbitrado para \gls{s:param-elipticidade} foi $2$, e os valores destas três propriedades encontrados para as duas superfícies de contato são
@@ -1070,7 +1070,7 @@
 		\gls{s:int-eliptica-2}_i = 1,3140, &\qquad
 		\gls{s:int-eliptica-2}_o = 1,3120 \\
 		\gls{s:param-elipticidade}_i = 1,3235, &\qquad
-		\gls{s:param-elipticidade}_o = 1,3191
+		\gls{s:param-elipticidade}_o = 1,3191.
 	\end{align*}
 	
 	\subsection{Obtenção da força de impacto} \label{sec:mdl:forca-impacto}
@@ -1095,14 +1095,14 @@
 	\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
 	\frac{\gls{s:rol-carga-maxima-elemento}}
 	{\pi\gls{s:param-elipticidade}\,\gls{s:modulo-elast-efetivo}}
-	\right)^2 \right]^{1/3}
+	\right)^2 \right]^{1/3}.
 	\end{equation}
 	
 	A deformação máxima obtida na Equação \ref{eqn:mdl:deformacao-max} deve ser calculada para as duas superfícies de contato -- esfera com o anel interno e esfera com o anel externo.
 	As deformações $\gls{s:deformacao-maxima}_i$ e $\gls{s:deformacao-maxima}_o$ são somadas para efetivamente resultar em \gls{s:deformacao-maxima}:
 	\begin{equation} \label{eqn:mdl:soma-deformacoes}
 		\gls{s:deformacao-maxima} = \gls{s:deformacao-maxima}_i +
-		\gls{s:deformacao-maxima}_o
+		\gls{s:deformacao-maxima}_o.
 	\end{equation}
 	
 	Após a obtenção da deformação máxima pela Equação \ref{eqn:mdl:soma-deformacoes}, o resultado deve ser empregado na determinação de um valor para a extensão angular \gls{s:rol-extensao-carregamento} com a Equação \ref{eqn:rol:extensao-carregamento}
@@ -1121,13 +1121,13 @@
 		\left( \cos\gls{s:rol-angulo-carregamento} - \frac
 		{\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^
 		{3/2} \cos\gls{s:rol-angulo-carregamento}\ 
-		d\gls{s:rol-angulo-carregamento}}
+		d\gls{s:rol-angulo-carregamento}}.
 	\end{equation*}
 	
 	O novo valor calculado para $Z_w$ deve então ser realimentado na Equação \ref{eqn:mdl:carga-maxima}, possibilitando repetir os passos do procedimento.
 	O processo iterativo continua, obedecendo um critério de parada semelhante ao da Equação \ref{eqn:mdl:cond-parada-k}
 	\begin{equation}
-		| (Z_w)_n - (Z_w)_{n+1} | \leq 10^{-7}
+		| (Z_w)_n - (Z_w)_{n+1} | \leq 10^{-7}.
 	\end{equation}
 	
 	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação \ref{eqn:mdl:carga-maxima} para obter a força sobre o elemento rolante no momento do impacto.
