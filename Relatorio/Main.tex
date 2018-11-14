@@ -1012,14 +1012,14 @@
 	O modelo desenvolvido para a vibração do rolamento defeituoso trata-se de um modelo com três massas e três graus de liberdade, ilustrado na Figura \ref{fig:modelo-dinamico}.
 	A esfera é a massa central do sistema, rígida, que está conectada aos dois anéis por um conjunto mola-amortecedor de cada lado.
 	Esse conjunto é a representação do filme do lubrificante existente entre cada par de corpos.
-	O filme de fluido é modelado com uma característica linear de rigidez e amortecimento.
+	O filme de fluido é modelado com uma característica linear de amortecimento e não-linear de rigidez, conforme mostrado no item \ref{sec:props-filme-fluido}.
 	
 	Os anéis são representados como uma associação massa-mola.
 	O comportamento de mola no anel está relacionado à sua deformação por ser modelado como um sistema contínuo.
 	Quaisquer efeitos de amortecimento interno ou externo deste componente são desconsiderados.
 	
 	A excitação que provocará a vibração no sistema é originada pelo impacto ocorrente na passagem de um elemento rolante pela falha no anel externo.
-	A força transmitida em cada impacto está diretamente relacionada à carga estática \gls{s:rol-carga-elemento} da esfera no momento da incidência no defeito, que depende por sua vez das características do contato entre a esfera e as pistas dos anéis interno e externo.
+	A força transmitida em cada impacto está diretamente relacionada à carga estática \gls{s:rol-carga-elemento} da esfera no momento da incidência no defeito, que depende das características do contato entre a esfera e as pistas dos anéis interno e externo.
 		
 	\begin{figure}[t]
 		\caption{Representação esquemática do modelo dinâmico}
@@ -1132,6 +1132,17 @@
 	
 	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação \ref{eqn:mdl:carga-maxima} para obter a força sobre o elemento rolante no momento do impacto.
 	O procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é empregado na função \textsc{ObterCargaMaximaEsfera} do código-fonte do Apêndice \ref{apc:codigo}.
+	Com os valores de entrada utilizados, chega-se a uma carga máxima de \[ \gls{s:rol-carga-maxima-elemento} = 73,53\ N. \]
+	
+	A carga máxima encontrada é empregada para desenvolver um perfil de impactos ao longo do tempo.
+	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
+	O modelo dos impactos ao longo do tempo é calculado como uma série de impulsos retangulares, com uma duração de $0,5\%$ do período entre os pulsos, o que corresponde a cerca de $4\cdot 10^{-5}\ s$.
+	Um gráfico com o perfil dos impulsos ao longo do tempo é exibido na \figurename\ \ref{fig:modelo-impulsos}.
+	
+	\begin{figure}[b]
+		\incluirimagem[0.7]{ModeloImpulsos.png}{Perfil de impactos ao longo do tempo}{o autor (\thedate)}
+		\label{fig:modelo-impulsos}
+	\end{figure}
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
