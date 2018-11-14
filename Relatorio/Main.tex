@@ -1139,7 +1139,7 @@
 	A carga máxima encontrada é empregada para desenvolver um perfil de impactos ao longo do tempo.
 	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
 	O modelo dos impactos ao longo do tempo é calculado como uma série de impulsos retangulares, com uma duração de $0,5\%$ do período entre os pulsos, o que corresponde a cerca de $4\cdot 10^{-5}\ s$.
-	Um gráfico com o perfil dos impulsos ao longo do tempo é exibido na \figurename\ \ref{fig:modelo-impulsos}.
+	Um gráfico da função \gls{s:fun-forca-impacto} com o perfil dos impulsos ao longo do tempo é exibido na \figurename\ \ref{fig:modelo-impulsos}.
 	
 	\begin{figure}[b]
 		\incluirimagem[0.7]{ModeloImpulsos.png}{Perfil de impactos ao longo do tempo}{o autor (\thedate)}
@@ -1218,6 +1218,15 @@
 		\end{bmatrix}.
 	\end{equation*}
 	
+	O vetor de forças externas \gls{s:vetor-forcas}, por fim, contém apenas um elemento não-nulo, que é a função \gls{s:fun-forca-impacto} que define a força gerada pelos impactos ao longo do tempo, ilustrada na \figurename\ \ref{fig:modelo-impulsos}.
+	Considerando a força de impacto como sendo originada no anel externo do rolamento, o vetor de forças externas vale
+	\begin{equation*}
+		\gls{s:vetor-forcas} = 
+		\begin{Bmatrix}
+		\gls{s:fun-forca-impacto} \\ 0 \\ 0
+		\end{Bmatrix}.
+	\end{equation*}
+	
 	A equação diferencial de movimento completa do sistema modelado resulta, então, em
 	\begin{equation}
 		\gls{s:matriz-massa}\,\gls{s:vetor-acel} +
@@ -1232,8 +1241,9 @@
 		\gls{s:matriz-rigidez}_{fi}\,\gls{s:forca-rest-filme}_i
 		(\gls{s:vetor-desloc}) = 
 		%
-		\gls{s:vetor-forcas}.
+		\gls{s:vetor-forcas},
 	\end{equation}
+	onde por uma questão de simplificação à leitura, o símbolo de produto vetorial foi omitido.
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
