@@ -548,10 +548,12 @@
 	\subsubsection{Propriedades dinâmicas do filme de fluido} \label{sec:props-filme-fluido}
 	A determinação completa das propriedades dinâmicas do fluido envolveria a solução completa do problema da \gls{sig:EHL}.
 	Desse modo, alternativas simplificadas para a solução do problema podem ser propostas.
-	Entre elas, pode-se empregar um valor linear e constante de amortecimento para o filme de fluido, em conjunto com um valor não-linear de rigidez \gls{s:rig-naolin-filme} que tem um comportamento similar à deformação \emph{hertziana} apresentada no item \ref{sec:contato-seco}, com a adição de uma força de sustentação \gls{s:forca-sust-filme} constante \cite{nonato:2014}
+	Entre elas, pode-se empregar um valor linear e constante de amortecimento para o filme de fluido, em conjunto com um valor não-linear de rigidez \gls{s:rig-naolin-filme}.
+	Esta propriedade de rigidez tem um comportamento similar à deformação \emph{hertziana} apresentada no item \ref{sec:contato-seco}, utilizando um expoente \gls{s:exp-naolin} definido, com a adição de uma força de sustentação \gls{s:forca-sust-filme} constante \cite{nonato:2014}.
+	Desse modo, a força de restauração do filme de fluido \gls{s:forca-rest-filme} pode ser calculada por
 	\begin{equation} \label{eqn:ehl:forca-rest}
 		\gls{s:rig-naolin-filme}\gls{s:deformacao}^{\gls{s:exp-naolin}} +
-		\gls{s:forca-sust-filme} = \gls{s:forca}
+		\gls{s:forca-sust-filme} = \gls{s:forca-rest-filme}.
 	\end{equation}
 	
 	A referência \cite{nonato:2014} empregou o modelo utilizado em \cite{nonato:2010} para obter as propriedades de rigidez não-linear, força de sustentação e amortecimento linear para um filme de lubrificante ISO VG 32 em um rolamento radial rígido de esferas tipo 6006.
