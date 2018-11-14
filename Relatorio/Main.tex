@@ -545,7 +545,7 @@
 		\label{fig:indices-visc-pressao}
 	\end{figure}
 
-	\subsubsection{Propriedades dinâmicas do filme de fluido}
+	\subsubsection{Propriedades dinâmicas do filme de fluido} \label{sec:props-filme-fluido}
 	A determinação completa das propriedades dinâmicas do fluido envolveria a solução completa do problema da \gls{sig:EHL}.
 	Desse modo, alternativas simplificadas para a solução do problema podem ser propostas.
 	Entre elas, pode-se empregar um valor linear e constante de amortecimento para o filme de fluido, em conjunto com um valor não-linear de rigidez \gls{s:rig-naolin-filme} que tem um comportamento similar à deformação \emph{hertziana} apresentada no item \ref{sec:contato-seco}, com a adição de uma força de sustentação \gls{s:forca-sust-filme} constante \cite{nonato:2014}
@@ -893,7 +893,11 @@
 	A carga aplicada é puramente radial -- justificado inclusive pelo modelo de rolamento adotado -- e é mantida constante.
 	Uma vez que o defeito encontra-se na pista externa, que é fixa, define-se que a carga aplicada também está alinhada ao defeito.
 	
-	A modelagem considerará a velocidade de rotação constante, e indo de encontro aos modelos propostos nas referências \cite{mcfadden:1984,sassi:2007,patil:2010,cong:2013,tandon:1997}, é considerada condição isotérmica em todo o rolamento e durante todo o experimento.
+	A modelagem considerará a velocidade de rotação constante, e indo de encontro aos modelos propostos nas referências \cite{mcfadden:1984,sassi:2007,patil:2010,cong:2013,tandon:1997}, é suposta condição isotérmica em todo o rolamento e durante todo o experimento.
+	
+	Para considerar os efeitos do filme de lubrificante, serão tomadas as propriedades do óleo hidráulico ISO VG 32, obtidas na referência \cite{iso-vg32} e semelhantemente utilizadas em \cite{nonato:2014}.
+	Para as propriedades elastohidrodinâmicas do fluido, serão empregados os dados das referências \cite{roelands:1966,nonato:2014}, apresentados no item \ref{sec:props-filme-fluido}.
+	Embora os dados se apliquem ao modelo de um rolamento 6006, a diferença dimensional entre os dois elementos será desconsiderada, aplicando-se os mesmos valores.
 	
 	\section{Dados de entrada} \label{sec:dados-entrada}
 	O modelo desenvolvido assume como velocidade de rotação do eixo um valor de 1800 \gls{sig:RPM} e uma carga radial de 100 N.
