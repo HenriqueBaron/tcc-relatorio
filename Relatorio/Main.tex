@@ -538,7 +538,7 @@
 	O índice de viscosidade-pressão \gls{s:indice-visc-pressao} para diversos fluidos é exibido na \figurename\ \ref{fig:indices-visc-pressao}, em função das respectivas viscosidades absolutas.
 	Mesmo em outras situações de análise, o valor desse índice em uma variedade de óleos minerais tende a convergir para o valor de $0,74$ \cite{roelands:1966}.
 	
-	\begin{figure}[b]
+	\begin{figure}[t]
 		\caption{Índices de viscosidade-pressão para diversos fluidos}
 		\missingfigure{Inserir diagrama da página 156 de Roelands}
 		\fonte{adaptado de \citeauthoronline{roelands:1966} (\citeyear{roelands:1966})}
@@ -555,10 +555,11 @@
 	\end{equation}
 	
 	A referência \cite{nonato:2014} empregou o modelo utilizado em \cite{nonato:2010} para obter as propriedades de rigidez não-linear, força de sustentação e amortecimento linear para um filme de lubrificante ISO VG 32 em um rolamento radial rígido de esferas tipo 6006.
-	No experimento, os resultados foram ajustados, e os valores para \gls{s:rig-naolin-filme} e \gls{s:forca-sust-filme} para diversas velocidades de rotação e carga radial constante são apresentados na \tablename\ \ref{tbl:props-filme}.
-	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.	
+	No experimento, os resultados foram ajustados, e os valores para \gls{s:rig-naolin-filme} e \gls{s:forca-sust-filme} para diversas velocidades de rotação e carga radial constante são apresentados na \tablename\ \ref{tbl:rig-filme}.
+	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.
+	Nas outras colunas, \gls{s:veloc-rotacao} indica a velocidade de rotação do rolamento em \gls{sig:RPM} e, de maneira semelhante às seções anteriores, \gls{s:carga-radial} representa a carga radial aplicada ao rolamento.	
 	
-	\begin{table}[t]
+	\begin{table}[b]
 	\caption{Rigidez não-linear do filme de fluido para um rolamento 6006}
 	\def\arraystretch{1.2}
 	\centering
@@ -566,7 +567,7 @@
 	\toprule
 	$\bm{N_r\ [RPM]}$ & 
 	$\bm{w_z\ [N]}$ &
-	$\bm{K_{EHD}} \cdot \bm{10^8\ [N/m^j]}$ &
+	$\bm{k_{EHD}} \cdot \bm{10^8\ [N/m^j]}$ &
 	$\bm{j}$ &
 	$\bm{F_{EHD}\ [N]}$ &
 	$\bm{1}-\bm{R^2}$\\ \midrule
@@ -576,11 +577,32 @@
 	$1800$&$100$ & $68,3$ & $1,388$ & $4,023$ & $3,28\cdot 10^{-6}$\\
 	$2400$&$100$ & $48,2$ & $1,360$ & $4,781$ & $6,10\cdot 10^{-6}$\\
 	\bottomrule
-	\end{tabular}
-	\vspace{5pt}
+	\end{tabular}\par
 	\hspace{5pt}
 	\fonte{\citeauthoronline{nonato:2014} (\citeyear{nonato:2014})}
-	\label{tbl:props-filme}
+	\label{tbl:rig-filme}
+	\end{table}
+	
+	Da mesma forma, na \tablename\ \ref{tbl:amort-filme} são apresentados os resultados da referência \cite{nonato:2014} para o amortecimento elastohidrodinâmico \gls{s:amort-filme} do filme de fluido para o rolamento 6006, junto com o resíduo do ajuste de curva realizado.
+	Naquela pesquisa, identificou-se que o amortecimento, diferentemente da rigidez, não depende da carga \cite{nonato:2014}.
+	
+	\begin{table}[t]
+	\caption{Amortecimento linear do filme de fluido para um rolamento 6006}
+	\def\arraystretch{1.2}
+	\centering
+	\begin{tabular}{l|c|c}
+	\toprule
+	$\bm{N_r\ [RPM]}$ &
+	$\bm{c_{EHD}\ [N.s/m]}$ &
+	$\bm{1}-\bm{R^2}$ \\ \midrule
+	$ 600 $ & $ 31,602 $ & $ 0,307 $ \\
+	$ 1200 $ & $ 22,289 $ & $ 0,303 $\\
+	$ 1800 $ & $ 18,027 $ & $ 0,301 $ \\
+	$ 2400 $ & $ 15,438 $ & $ 0,300 $ \\ \bottomrule
+	\end{tabular}\par
+	\hspace{5pt}
+	\fonte{\citeauthoronline{nonato:2014} (\citeyear{nonato:2014})}
+	\label{tbl:amort-filme}
 	\end{table}
 	
 	\section{Rolamentos rígidos de esferas}
@@ -598,7 +620,7 @@
 	\citeauthor{mcfadden:1984} propuseram um modelo bastante simples para modelar um defeito pontual em uma pista interna de um rolamento, que considera a carga radial aplicada e a condução do sinal até o acelerômetro que mediria a vibração, através do mancal.
 	Abordagens mais complexas foram propostas nos anos seguintes, como uma análise proposta por \citeauthor{tandon:1997} que modela os anéis do rolamento como sistemas contínuos, além de incluir cargas radiais e axiais no desenvolvimento.
 	
-	\citeauthor{sassi:2007} apresentaram um modelo bastante elaborado, que também trata os anéis do rolamento como corpos flexíveis e define a região de análise como um sistema de três graus de liberdade.
+	\citeauthor{sassi:2007} apresentaram um modelo que também trata os anéis do rolamento como corpos flexíveis e define a região de análise como um sistema de três graus de liberdade.
 	A abordagem considera também as cargas nas direções radial e axial, além de incluir os efeitos de lubrificação entre as pistas e esferas e ruído aleatório no sinal, causado pelo escorregamento dos elementos rolantes.	\citeauthor{patil:2010} modelaram o rolamento como um sistema de dois graus de liberdade que, em contraste aos outros autores, considera os anéis como componentes rígidos e analisa as esferas como deformáveis.
 		
 	\subsection{Características construtivas}
