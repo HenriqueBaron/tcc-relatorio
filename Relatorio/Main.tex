@@ -1192,10 +1192,48 @@
 	\end{equation*}
 	é possível determinar matrizes de valores unitários $\gls{s:matriz-rigidez}_f$ que permitam a avaliação da função de \gls{s:forca-rest-filme} apenas nas equações do sistema em que essa componente de força realmente existe.
 	
-	Assim como na determinação do amortecimento, os valores para o filme no anel externo e interno são iguais, mas se adotará conjuntos de variáveis individuais para cada parte.
+	Assim como na determinação do amortecimento, os valores para o filme no anel externo e interno são iguais, mas se adotarão conjuntos de variáveis individuais para cada parte.
 	Portanto, estabelece-se $\gls{s:matriz-rigidez}_{fo}$ como a matriz que determina as componentes da força de restauração relativas ao anel externo, e $\gls{s:forca-rest-filme}_o$ como a função que utiliza as propriedades do filme de lubrificante do anel externo.
-	O vetor com as componentes da força de restauração desta camada 
 	
+	O vetor com as forças de restauração desta camada respectivas a cada equação diferencial do sistema pode ser então obtido aplicando a função $\gls{s:forca-rest-filme}_o(\gls{s:deformacao},t)$ a cada elemento do vetor de deslocamentos \gls{s:vetor-desloc} e calcular o produto com a matriz $\gls{s:matriz-rigidez}_{fo}$, obtendo então
+	\begin{equation*}
+		\gls{s:matriz-rigidez}_{fo}\times
+		\gls{s:forca-rest-filme}_o(\gls{s:vetor-desloc}).
+	\end{equation*}
+	
+	O procedimento pode ser executado de maneira análoga para a rigidez do filme de lubrificante do anel interno.
+	No sistema modelado, as matrizes $\gls{s:matriz-rigidez}_{fo}$ e $\gls{s:matriz-rigidez}_{fi}$ valem
+	\begin{equation*}
+		\gls{s:matriz-rigidez}_{fo} =
+		\begin{bmatrix}
+		1	&	-1	&	0\\
+		-1	&	1	&	0\\
+		0	&	0	&	0\\
+		\end{bmatrix},\qquad
+		\gls{s:matriz-rigidez}_{fi} =
+		\begin{bmatrix}
+		0	&	0	&	0\\
+		0	&	1	&	-1\\
+		0	&	-1	&	1\\
+		\end{bmatrix}.
+	\end{equation*}
+	
+	A equação diferencial de movimento completa do sistema modelado resulta, então, em
+	\begin{equation}
+		\gls{s:matriz-massa}\,\gls{s:vetor-acel} +
+		%
+		\gls{s:matriz-amort}\,\gls{s:vetor-vel} +
+		%
+		\gls{s:matriz-rigidez}_{lin}\,\gls{s:vetor-desloc} +
+		%
+		\gls{s:matriz-rigidez}_{fo}\,\gls{s:forca-rest-filme}_o
+		(\gls{s:vetor-desloc}) +
+		%
+		\gls{s:matriz-rigidez}_{fi}\,\gls{s:forca-rest-filme}_i
+		(\gls{s:vetor-desloc}) = 
+		%
+		\gls{s:vetor-forcas}.
+	\end{equation}
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
