@@ -1145,6 +1145,57 @@
 		\incluirimagem[0.7]{ModeloImpulsos.png}{Perfil de impactos ao longo do tempo}{o autor (\thedate)}
 		\label{fig:modelo-impulsos}
 	\end{figure}
+
+	\subsection{Construção do modelo dinâmico}
+	Por caracterizar-se como um modelo de três graus de liberdade, a sua solução é composta por um sistema de três equações diferenciais ordinárias.
+	O sistema é montado na forma matricial apresentada no item \ref{sec:disc}, e a matriz de massa \gls{s:matriz-massa} é dada por
+	\begin{equation*}
+		\gls{s:matriz-massa} =
+	\begin{bmatrix}
+		\gls{s:rol-massa-anel}_o	&	0	&	0\\
+		0	&	\gls{s:rol-massa-esfera}	&	0\\
+		0	&	0	&	\gls{s:rol-massa-anel}_i
+	\end{bmatrix}.
+	\end{equation*}
+	
+	A matriz de amortecimento é composta por combinações dos amortecimentos lineares do filme de fluido, mostrados na \tablename\ \ref{tbl:amort-filme}.
+	Neste modelo são empregados os mesmos valores de amortecimento para os filmes dos anéis interno e externo.
+	Mesmo assim, por questões de clareza, a matriz é representada com os amortecimentos em variáveis independentes como
+	\begin{equation*}
+		\gls{s:matriz-amort} = 
+	\begin{bmatrix}
+		\gls{s:amort-filme}_o & -\gls{s:amort-filme}_o & 0\\
+		-\gls{s:amort-filme}_o & \gls{s:amort-filme}_o +
+		\gls{s:amort-filme}_i & -\gls{s:amort-filme}_i\\
+		0 & -\gls{s:amort-filme}_i & \gls{s:amort-filme}_i
+	\end{bmatrix}.
+	\end{equation*}
+	
+	Na matriz de rigidez existe a necessidade de considerar a característica não-linear do amortecimento do filme de fluido.
+	Dessa maneira, não é possível montar uma única matriz para o sistema.
+	Como solução, adota-se uma matriz de rigidezes lineares, $\gls{s:matriz-rigidez}_{lin}$, que contém os termos de rigidez dos anéis interno e externo, resultando em
+	\begin{equation*}
+		\gls{s:matriz-rigidez}_{lin} =
+	\begin{bmatrix}
+		\gls{s:rol-rig-anel}_o	&	0	&	0\\
+		0	&	0	&	0\\
+		0	&	0	&	\gls{s:rol-rig-anel}_i
+	\end{bmatrix}.
+	\end{equation*}
+	
+	A montagem da parte não-linear do sistema começa pela definição da força de restauração elastohidrodinâmica do filme de fluido, determinada na Equação \ref{eqn:ehl:forca-rest}.
+	Definindo \gls{s:forca-rest-filme} como uma função do deslocamento, de modo que
+	\begin{equation*}
+		\gls{s:forca-rest-filme}(\gls{s:deformacao},t) =
+		\gls{s:rig-naolin-filme}\,[\gls{s:deformacao}(t)]^{
+		\gls{s:exp-naolin}} + \gls{s:forca-sust-filme},
+	\end{equation*}
+	é possível determinar matrizes de valores unitários $\gls{s:matriz-rigidez}_f$ que permitam a avaliação da função de \gls{s:forca-rest-filme} apenas nas equações do sistema em que essa componente de força realmente existe.
+	
+	Assim como na determinação do amortecimento, os valores para o filme no anel externo e interno são iguais, mas se adotará conjuntos de variáveis individuais para cada parte.
+	Portanto, estabelece-se $\gls{s:matriz-rigidez}_{fo}$ como a matriz que determina as componentes da força de restauração relativas ao anel externo, e $\gls{s:forca-rest-filme}_o$ como a função que utiliza as propriedades do filme de lubrificante do anel externo.
+	O vetor com as componentes da força de restauração desta camada 
+	
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
