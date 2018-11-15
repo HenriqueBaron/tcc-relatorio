@@ -505,7 +505,7 @@
 	Este valor, no entanto, geralmente é desconhecido.
 	Um método de solução é proposto na referência \cite{nonato:2010}, empregando o método de análise \emph{multinível multiintegração}, modelando um rolamento de esferas tanto como um sistema dinâmico linear como não-linear.
 	
-	\subsubsection{Simplificação com parâmetros adimensionais}
+	\subsubsection{Simplificação com parâmetros adimensionais} \label{sec:ehl:simpl}
 	Uma alternativa simplificada de solução para a espessura do filme de fluido é trazida nas referências \cite{hamrock:1991,spikes:2006}, utilizando fatores adimensionais.
 	Nesta proposta, a espessura do filme pode ser resolvida por
 	\begin{equation} \label{eqn:ehl:esp-filme}
@@ -1228,7 +1228,7 @@
 	\end{equation*}
 	
 	A equação diferencial de movimento completa do sistema modelado resulta, então, em
-	\begin{equation}
+	\begin{equation} \label{eqn:mdl:sistema}
 		\gls{s:matriz-massa}\,\gls{s:vetor-acel} +
 		%
 		\gls{s:matriz-amort}\,\gls{s:vetor-vel} +
@@ -1244,6 +1244,12 @@
 		\gls{s:vetor-forcas},
 	\end{equation}
 	onde por uma questão de simplificação à leitura, o símbolo de produto vetorial foi omitido.
+	
+	\subsection{Determinação de condições iniciais}
+	Para encontrar a solução particular do sistema matricial da Equação \ref{eqn:mdl:sistema}, são necessárias seis condições iniciais.
+	Elas correspondem à posição e a velocidade iniciais do anel externo, da esfera e do anel interno.
+	Por uma questão de simplificação, as três velocidades iniciais são consideradas nulas.
+	A posição inicial do anel externo também será tomada como zero, enquanto as posições iniciais dos outros componentes dependem da espessura do filme de fluido, cujo método de obtenção é apresentado no item \ref{sec:ehl:simpl}.
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
