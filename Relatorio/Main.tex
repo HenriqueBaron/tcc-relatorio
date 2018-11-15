@@ -1310,6 +1310,9 @@
 	a segunda compara a vibração simulada do rolamento com a literatura consultada e verifica a sua consistência qualitativa, conforme propunha o objetivo deste trabalho.
 	
 	\section{Convergência do modelo}
+	Durante o desenvolvimento do modelo, dois aspectos apresentaram problemas à convergência da solução.
+	Um dos problemas encontrados foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto}.
+	
 	A proposta inicial do modelo não convergiu devido a dois aspectos, que foram ajustados em correções do programa.
 	Inicialmente, o procedimento iterativo apresentado no item \ref{sec:mdl:forca-impacto} não convergia e por vezes retornava valores de força com uma componente imaginária.
 	Foi identificado que a folga diametral empregada ultrapassava os limites tolerados pelo modelo.
