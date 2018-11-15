@@ -1299,6 +1299,11 @@
 		\end{Bmatrix}.
 	\end{equation*}
 	
+	\subsection{Resolução do sistema}
+	O sistema foi modelado por um período quatro segundos, com uma frequência de amostragem \gls{s:freq-amostra} de $50\ kHz$. 
+	Para a solução do sistema de equações diferenciais foi empregado um mecanismo baseado na fórmula explícita de Runge-Kutta, com intervalo de passo variável e de passo único \cite{ode45}.
+	Dessa maneira, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$.
+	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
 	Posteriormente à apresentação dos resultados, estes serão comparados às referências consultadas, de modo a identificar se o modelo obteve sucesso.
