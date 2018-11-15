@@ -1245,11 +1245,56 @@
 	\end{equation}
 	onde por uma questão de simplificação à leitura, o símbolo de produto vetorial foi omitido.
 	
-	\subsection{Determinação de condições iniciais}
-	Para encontrar a solução particular do sistema matricial da Equação \ref{eqn:mdl:sistema}, são necessárias seis condições iniciais.
+	\subsection{Determinação de condições de contorno}
+	Para encontrar a solução particular do sistema matricial da Equação \ref{eqn:mdl:sistema}, são necessárias seis condições de contorno.
 	Elas correspondem à posição e a velocidade iniciais do anel externo, da esfera e do anel interno.
 	Por uma questão de simplificação, as três velocidades iniciais são consideradas nulas.
-	A posição inicial do anel externo também será tomada como zero, enquanto as posições iniciais dos outros componentes dependem da espessura do filme de fluido, cujo método de obtenção é apresentado no item \ref{sec:ehl:simpl}.
+	A posição inicial do anel externo também será tomada como zero, enquanto as posições iniciais dos outros componentes dependem da espessura do filme de fluido, cujo método de obtenção é apresentado no item \ref{sec:ehl:simpl} utilizando parâmetros adimensionais.
+	
+	A determinação do coeficiente de visosidade-pressão \gls{s:coef-visc-pres} depende da viscosidade absoluta do fluido à pressão atmosférica \gls{s:visc-abs-0}.
+	Possuindo a viscosidade cinemática \gls{s:visc-cin} e a massa específica \gls{s:massa-espec} do lubrificante, essa propriedade pode ser encontrada diretamente por \cite{roelands:1966}
+	\begin{equation}
+		\gls{s:visc-abs-0} = \gls{s:visc-cin}\,\gls{s:massa-espec} =
+		0,02755\ \text{Pa.s},
+	\end{equation}
+	permitindo estabelecer \gls{s:coef-visc-pres} utilizando $\gls{s:indice-visc-pres} = 0,74$ e rearranjando a Equação \ref{eqn:ehl:indice-visc-pressao} para chegar a
+	\begin{equation}
+		\gls{s:coef-visc-pres} = \gls{s:indice-visc-pres}\cdot
+		\frac{\log(\gls{s:visc-abs-0})+9,67}{1,96\cdot 10^8} =
+		2,295\cdot 10^{-8}.
+	\end{equation}
+	
+	Em seguida, os parâmetros adimensionais das Equações \ref{eqn:ehl:veloc-adim}, \ref{eqn:ehl:material-adim} e \ref{eqn:ehl:carga-adim} para os filmes de fluido dos dois anéis podem ser encontrados:
+	\begin{align*}
+		\gls{s:veloc-adim}_i &= 0,7335\cdot 10^{-10} \qquad
+		\gls{s:veloc-adim}_o = 0,1399\cdot 10^{-10}\\
+		%
+		\gls{s:material-adim}_i &= \gls{s:material-adim}_o =
+		5,0437\cdot 10^3\\
+		%
+		\gls{s:carga-adim}_i &= 0,5366\cdot 10^{-4} \qquad
+		\gls{s:carga-adim}_o = 0,4651\cdot 10^{-4}.
+	\end{align*}
+	
+	Uma vez que os parâmetros adimensionais, o raio equivalente \gls{s:raio-equiv-x} e o parâmetro de elipticidade \gls{s:param-elipticidade} são conhecidos para cada contato, a Equação \ref{eqn:ehl:esp-filme} é utilizada para determinar as espessuras dos filmes de fluido, resultado em
+	\begin{equation*}
+		\gls{s:esp-filme}_i = 0,1482\cdot 10^{-6}\ m \qquad
+		\gls{s:esp-filme}_o = 0,05290\cdot 10^{-6}\ m.
+	\end{equation*}
+	
+	O cálculo das espessuras de filme de fluido pode ser encontrado no código-fonte do Apêndice \ref{apc:codigo} encapsulado na função \textsc{EspessuraFilmeLub}.
+	
+	Com as espessuras de filme de fluido determinadas, as condições de contorno para o sistema da Equação \ref{eqn:mdl:sistema} resultam em
+	\begin{equation*}
+		\gls{s:vetor-desloc}_0 =
+		\begin{Bmatrix}
+		0 \\ \gls{s:esp-filme}_o \\ \gls{s:esp-filme}_i
+		\end{Bmatrix} \qquad
+		\gls{s:vetor-vel}_0 = 
+		\begin{Bmatrix}
+		0 \\ 0 \\ 0
+		\end{Bmatrix}.
+	\end{equation*}
 	
 	\chapter{Resultados}
 	Aqui são apresentados os resultados do modelo numérico desenvolvido.
