@@ -522,20 +522,20 @@
 		\gls{s:veloc-adim} &= \frac{\gls{s:soma-veloc}\gls{s:visc-abs-0}}
 		{2\gls{s:modulo-elast-efetivo}\gls{s:raio-equiv-x}}
 		\label{eqn:ehl:veloc-adim}\\
-		\gls{s:material-adim} &= \gls{s:coef-visc-pressao}
+		\gls{s:material-adim} &= \gls{s:coef-visc-pres}
 		\gls{s:modulo-elast-efetivo} \label{eqn:ehl:material-adim}\\
 		\gls{s:carga-adim} &= \frac{\gls{s:carga-radial}}
 		{\gls{s:modulo-elast-efetivo}(\gls{s:raio-equiv-x})^2}
 		\label{eqn:ehl:carga-adim},
 	\end{align}
-	sendo \gls{s:visc-abs-0} a viscosidade absoluta do lubrificante à pressão atmosférica e temperatura constante, e \gls{s:coef-visc-pressao} é uma propriedade do fluido, que é relacionada a \gls{s:visc-abs-0} e ao índice de viscosidade-pressão \gls{s:indice-visc-pressao} pela equação \cite{wijnant:1998}
-	\begin{equation}
-		\gls{s:indice-visc-pressao} = 
-		\frac{1,96\cdot10^8\gls{s:coef-visc-pressao}}
+	sendo \gls{s:visc-abs-0} a viscosidade absoluta do lubrificante à pressão atmosférica e temperatura constante, e \gls{s:coef-visc-pres} é uma propriedade do fluido, que é relacionada a \gls{s:visc-abs-0} e ao índice de viscosidade-pressão \gls{s:indice-visc-pres} pela equação \cite{wijnant:1998}
+	\begin{equation} \label{eqn:ehl:indice-visc-pressao}
+		\gls{s:indice-visc-pres} = 
+		\frac{1,96\cdot10^8\gls{s:coef-visc-pres}}
 		{\ln(\gls{s:visc-abs-0})+9,67}.
 	\end{equation}
 	
-	O índice de viscosidade-pressão \gls{s:indice-visc-pressao} para diversos fluidos é exibido na \figurename\ \ref{fig:indices-visc-pressao}, em função das respectivas viscosidades absolutas.
+	O índice de viscosidade-pressão \gls{s:indice-visc-pres} para diversos fluidos é exibido na \figurename\ \ref{fig:indices-visc-pressao}, em função das respectivas viscosidades absolutas.
 	Mesmo em outras situações de análise, o valor desse índice em uma variedade de óleos minerais tende a convergir para o valor de $0,74$ \cite{roelands:1966}.
 	
 	\begin{figure}[t]
