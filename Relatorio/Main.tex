@@ -1352,12 +1352,6 @@
 	O novo valor foi escolhido por ser um dos valores inteiros mais próximos da folga determinada inicialmente, mas que ainda estão no intervalo de convergência do método de cálculo de \gls{s:rol-carga-maxima-elemento}.
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
-	Em um segundo momento, identificou-se que a função utilizada para modelar a força de excitação do sistema levava o mecanismo de solução do sistema de equações diferenciais a divergir e iterar indefinidamente.
-	Na situação em questão, a força dos impactos era representada como um delta de Kronecker ideal.
-	Isto é, a função retornava um impulso com o valor da carga máxima \gls{s:rol-carga-maxima-elemento} exatamente em um instante de tempo.
-	A solução adotada para o sucesso da operação do modelo foi definir a função de força externa como uma onda quadrada que, no entanto, é configurada para permanecer apenas $0,5\%$ do ciclo com algum valor diferente de zero.
-	Isso permitiu executar o modelo com sucesso, mas ainda mantendo a característica impulsiva desta função, como é possível observar na Figura.
-	
 	\postextual
 	
 	\bibliography{Bibliografia}
