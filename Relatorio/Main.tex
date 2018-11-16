@@ -1139,11 +1139,21 @@
 	A carga máxima encontrada é empregada para desenvolver um perfil de impactos ao longo do tempo.
 	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
 	O modelo dos impactos ao longo do tempo é calculado como uma série de impulsos retangulares, com uma duração de $0,5\%$ do período entre os pulsos, o que corresponde a cerca de $4\cdot 10^{-5}\ s$.
-	Um gráfico da função \gls{s:fun-forca-impacto} com o perfil dos impulsos ao longo do tempo é exibido na \figurename\ \ref{fig:modelo-impulsos}.
+	Um gráfico da função \gls{s:fun-forca-impacto} com o perfil dos impulsos ao longo do tempo é exibido na \figurename\ \ref{fig:modelo-imp-rect}.
 	
-	\begin{figure}[b]
-		\incluirimagem[0.7]{ModeloImpulsosRect.png}{Perfil de impactos ao longo do tempo}{o autor (\thedate)}
-		\label{fig:modelo-impulsos}
+	\begin{figure}[h]
+		\incluirimagem[0.5]{ModeloImpulsoUnicoKron.png}{Perfil de impulso unitário de impacto}{o autor (\thedate)}
+		\label{fig:modelo-imp-kron}
+	\end{figure}
+	
+	\begin{figure}[h]
+		\incluirimagem[0.5]{ModeloImpulsoUnicoTri.png}{Perfil de impulso triangular de impacto}{o autor (\thedate)}
+		\label{fig:modelo-imp-tri}
+	\end{figure}
+
+	\begin{figure}[h]
+		\incluirimagem[0.5]{ModeloImpulsoUnicoRect.png}{Perfil de impulso retangular de impacto}{o autor (\thedate)}
+		\label{fig:modelo-imp-rect}
 	\end{figure}
 
 	\subsection{Construção do modelo dinâmico}
@@ -1218,7 +1228,7 @@
 		\end{bmatrix}.
 	\end{equation*}
 	
-	O vetor de forças externas \gls{s:vetor-forcas}, por fim, contém apenas um elemento não-nulo, que é a função \gls{s:fun-forca-impacto} que define a força gerada pelos impactos ao longo do tempo, ilustrada na \figurename\ \ref{fig:modelo-impulsos}.
+	O vetor de forças externas \gls{s:vetor-forcas}, por fim, contém apenas um elemento não-nulo, que é a função \gls{s:fun-forca-impacto} que define a força gerada pelos impactos ao longo do tempo, ilustrada na \figurename\ \ref{fig:modelo-imp-rect}.
 	Considerando a força de impacto como sendo originada no anel externo do rolamento, o vetor de forças externas vale
 	\begin{equation*}
 		\gls{s:vetor-forcas} = 
