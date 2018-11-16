@@ -1319,12 +1319,13 @@
 	
 	\chapter{Resultados}
 	O capítulo a seguir apresenta os resultados obtidos com o trabalho desenvolvido.
-	A apresentação destes se divide em duas partes: a primeira apresenta os resultados quanto à convergência e estabilidade do modelo proposto;
+	A apresentação destes se divide em duas partes: a primeira apresenta os resultados quanto à convergência e desempenho do modelo proposto;
 	a segunda compara a vibração simulada do rolamento com a literatura consultada e verifica a sua consistência qualitativa, conforme propunha o objetivo deste trabalho.
 	
-	\section{Convergência do modelo}
+	\section{Convergência e desempenho do modelo}
 	Durante o desenvolvimento do modelo, dois aspectos apresentaram problemas à convergência da solução.
-	Um deles foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto}.
+	Um deles foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto} quando modelada com impulsos unitários como ilustrado na \figurename\ \ref{fig:modelo-imp-kron}.
+	Entre os outros dois perfis de impacto testados, grandes diferenças de desempenho foram percebidas.
 	
 	\subsection{Força de impacto}
 	A força de impacto provocada pelo defeito, como mostrado no item \ref{sec:mdl:forca-impacto}, é igual à carga na esfera mais solicitada do rolamento, que é calculada pela função \textsc{ObterCargaMaximaEsfera} do código trazido no Apêndice \ref{apc:codigo}.
