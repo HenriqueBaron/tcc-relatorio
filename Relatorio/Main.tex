@@ -1312,10 +1312,20 @@
 		\end{Bmatrix}.
 	\end{equation*}
 	
-	\subsection{Resolução do sistema}
-	O sistema foi modelado por um período de quatro segundos, com uma frequência de amostragem \gls{s:freq-amostra} de $50\ kHz$. 
-	Para a solução do sistema de equações diferenciais foi empregado um mecanismo baseado na fórmula explícita de Runge-Kutta, com intervalo de passo variável e de passo único \cite{ode45}.
-	Dessa maneira, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$.
+	\subsection{Resolução do sistema} \label{sec:mdl:sol-sistema}
+	As simulações ocorreram em duas partes: inicialmente o modelo foi gerado com uma duração de $0,5$ segundo com os três perfis de impacto mostrados nas {\figurename s} \ref{fig:modelo-imp-kron}, \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}.
+	Cada execução do modelo foi realizada com dois mecanismos de solução diferentes:
+	\begin{enumerate}
+		\item mecanismo baseado na fórmula explícita de Runge-Kutta (4,5) de passo único \cite{ode45}, isto é, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$;
+		\label{enum:ode45}
+		\item mecanismo baseado no algoritmo de Adams-Bashforth-Moulton de passo e ordem variáveis \cite{ode113}.
+		Este possui passo múltiplo, portanto, depende de vários valores anteriores ao atual para computar a resposta em um determinado instante.
+		\label{enum:ode113}
+	\end{enumerate}
+	
+	Após avaliar a combinação mais apropriada de perfil de impulso e mecanismo de solução, uma simulação com duração de quatro segundos é realizada para obter a resposta de vibração ao longo do tempo e o seu espectro de frequências.
+	
+	Em todos os testes, uma frequência de amostragem \gls{s:freq-amostra} de $50\ \text{kHz}$ foi adotada.
 	
 	\chapter{Resultados}
 	O capítulo a seguir apresenta os resultados obtidos com o trabalho desenvolvido.
