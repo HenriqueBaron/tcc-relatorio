@@ -1314,7 +1314,7 @@
 	
 	\subsection{Resolução do sistema} \label{sec:mdl:sol-sistema}
 	As simulações ocorreram em duas partes: inicialmente o modelo foi gerado com uma duração de $0,5$ segundo com os três perfis de impacto mostrados nas {\figurename s} \ref{fig:modelo-imp-kron}, \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}.
-	Cada execução do modelo foi realizada com dois mecanismos de solução diferentes:
+	Cada perfil de impulso foi testado com dois algoritmos diferentes para a solução do sistema de equações diferenciais da Equação \ref{eqn:mdl:sistema}:
 	\begin{enumerate}
 		\item mecanismo baseado na fórmula explícita de Runge-Kutta (4,5) de passo único \cite{ode45}, isto é, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$;
 		\label{enum:ode45}
