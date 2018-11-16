@@ -1311,14 +1311,33 @@
 	
 	\section{Convergência do modelo}
 	Durante o desenvolvimento do modelo, dois aspectos apresentaram problemas à convergência da solução.
-	Um dos problemas encontrados foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto}.
+	Um deles foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto}.
 	
-	A proposta inicial do modelo não convergiu devido a dois aspectos, que foram ajustados em correções do programa.
-	Inicialmente, o procedimento iterativo apresentado no item \ref{sec:mdl:forca-impacto} não convergia e por vezes retornava valores de força com uma componente imaginária.
-	Foi identificado que a folga diametral empregada ultrapassava os limites tolerados pelo modelo.
-	Naqueles testes, a folga diametral utilizada era de $25\ \mu\text{m}$, o que representa o valor médio entre as tolerâncias máxima e mínima da folga para rolamentos destas dimensões na classe N de folgas segundo a ISO \cite{skf6004}.
-	Para a convergência do modelo, a folga diametral foi reduzida para um valor próximo da folga máxima na qual o modelo ainda convergia.
-	Este valor ainda se encontra dentro dos limites da norma ISO para folga diametral, sendo então valores praticáveis em uma situação real.
+	\subsection{Força de impacto}
+	A força de impacto provocada pelo defeito, como mostrado no item \ref{sec:mdl:forca-impacto}, é igual à carga na esfera mais solicitada do rolamento, que é calculada pela função \textsc{ObterCargaMaximaEsfera} do código trazido no Apêndice \ref{apc:codigo}.
+	Entre as variáveis utilizadas por este cálculo, a carga radial \gls{s:carga-radial} aplicada e a folga diametral do rolamento \gls{s:rol-folga-diam} demonstraram grande importância na consistência do resultado.
+	
+	Conforme a norma ISO, a faixa de folga radial para rolamentos da classe N com diâmetro interno de $18\ \text{a}\ 24\ \text{mm}$ vai de $5\ \text{a}\ 20\ \mu\text{m}$ \cite{skf6004}.
+	Baseado nisso, um valor médio de $12,5\ \mu\text{m}$ foi escolhido inicialmente para a folga radial, resultando, portanto, em $25\ \mu\text{m}$ para a folga diametral \gls{s:rol-folga-diam}.
+	
+	Constatou-se então que os valores da carga máxima da esfera mais solicitada \gls{s:rol-carga-maxima-elemento} apresentavam uma componente imaginária, além de uma componente real inconsistente com a literatura consultada.
+	Analisando a Equação \ref{eqn:mdl:carga-maxima}, nota-se que o único termo que pode dar origem a valores imaginários é $Z_w$.
+	Uma investigação no cálculo deste termo, visto na Equação \ref{eqn:rol:zw-carga-radial}, identificou que valores para a deformação elástica máxima \gls{s:deformacao-maxima} menores do que a folga radial $\gls{s:rol-folga-diam}/2$ eram gerados ainda no começo do procedimento iterativo demonstrado no item \ref{sec:mdl:forca-impacto}.
+	Isso torna claro o aparecimento de termos imaginários no numerador da fração na Equação \ref{eqn:rol:zw-carga-radial}.
+	
+	O resultado de uma investigação nos resultados do procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é exibido na \figurename\ \ref{fig:modelo-converg-carga-max}.
+	No gráfico, são exibidos valores da carga na esfera mais solicitada para diferentes valores da carga radial \gls{s:carga-radial}, iniciando a partir de uma folga radial $\gls{s:rol-folga-diam}/2$ nula até o máximo valor desta variável que trazia apenas valores reais para \gls{s:rol-carga-maxima-elemento}.
+	Apesar de o aumento da carga máxima com o crescimento da carga radial ser um efeito óbvio, o resultado também cresce com o aumento da folga radial.
+	Isso está de acordo com a explicação trazida em \cite{hamrock:1991}, de que o aumento da folga do rolamento promove uma acomodação menos uniforme da carga do anel interno sobre as esferas, de modo que a carga tende a ser suportada por menos elementos.
+	
+	\begin{figure}[b]
+		\incluirimagem[0.75]{ModeloConvergCargaMaxima.png}{Carga máxima da esfera em função da carga radial e folga diametral}{o autor (\thedate)}
+		\label{fig:modelo-converg-carga-max}
+	\end{figure}
+
+	De toda forma, o método para cálculo de \gls{s:rol-carga-maxima-elemento} demonstrou um limite para a seleção no valor da folga radial do rolamento. Por este motivo, adotou-se o valor de $7\ \mu\text{m}$, que resulta no valor de $14\ \mu\text{m}$ para \gls{s:rol-folga-diam} exibido na \tablename\ \ref{tbl:6004-gerais}.
+	O novo valor foi escolhido por ser um dos valores inteiros mais próximos da folga determinada inicialmente, mas que ainda estão no intervalo de convergência do método de cálculo de \gls{s:rol-carga-maxima-elemento}.
+	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
 	Em um segundo momento, identificou-se que a função utilizada para modelar a força de excitação do sistema levava o mecanismo de solução do sistema de equações diferenciais a divergir e iterar indefinidamente.
 	Na situação em questão, a força dos impactos era representada como um delta de Kronecker ideal.
