@@ -1369,6 +1369,14 @@
 	A investigação da causa vai além dos objetivos deste trabalho.
 	Portanto, apenas as formas de pulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
 	
+	Os testes realizados com os outros dois perfis de força de impacto, com dois algoritmos de solução diferentes, apresentaram resultados similares para a resposta de vibração simulada.
+	Uma diferença pôde ser notada, no entanto, no custo computacional entre as diferentes alternativas.
+	A \tablename\ \ref{tbl:tempo-simulacao} apresenta o tempo que cada um dos algoritmos levou para finalizar o cálculo para o tempo de simulação de $0,5\ \text{s}$.
+	Enquanto o uso do algoritmo de Adams-Bashforth-Moulton, descrito no \ref{enum:ode113} da seção \ref{sec:mdl:sol-sistema} apresentou tempos de execução $15,15\%$ e $32,15\%$ menores do que o método do item \ref{enum:ode45}, a maior diferença mostrou-se entre os dois perfis de força de impacto.
+	Para ambos os algoritmos, a simulação com um perfil em pulsos retangulares foi pelo menos $88\%$ mais rápida.
+	
+	Por esse motivo, adotou-se para a simulação completa da resposta de vibração do rolamento o algoritmo Adams-Bashforth-Moulton, modelando a função da força de impacto \gls{s:fun-forca-impacto} com pulsos retangulares.
+	
 	\begin{table}[b]
 	\caption{Comparativo do tempo de computação das simulações}
 	\def\arraystretch{1.2}\centering
@@ -1383,7 +1391,7 @@
 	$24,93\ \text{s}$ &	$\bm{90,81\%}$ \\
 	%
 	Adams-Bashforth-Moulton (\ref{enum:ode113} & $184,03\ \text{s}$ &
-	$21,16\ \text{s}$ & $\bm{88,50\%}$\\
+	$21,16\ \text{s}$ & $\bm{88,50\%}$\\ \midrule
 	%
 	\textbf{Redução} & $\bm{32,15\%}$ & $\bm{15,15\%}$ & \\\bottomrule
 	\end{tabular}\par
