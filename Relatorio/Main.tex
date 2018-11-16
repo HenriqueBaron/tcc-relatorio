@@ -1334,7 +1334,7 @@
 	
 	\section{Convergência e desempenho do modelo}
 	Durante o desenvolvimento do modelo, dois aspectos apresentaram problemas à convergência da solução.
-	Um deles foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo devido à natureza impulsiva da força externa trazida pela função \gls{s:fun-forca-impacto} quando modelada com impulsos unitários como ilustrado na \figurename\ \ref{fig:modelo-imp-kron}.
+	Um deles foi o aparecimento de componentes imaginárias na carga máxima \gls{s:rol-carga-maxima-elemento}, e o outro foi a incapacidade de convergência do modelo com um dos perfis de força de impacto.
 	Entre os outros dois perfis de impacto testados, grandes diferenças de desempenho foram percebidas.
 	
 	\subsection{Força de impacto}
@@ -1364,8 +1364,8 @@
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
 	\subsection{Perfil de impacto e mecanismo de solução}
-	Dos três perfis para a força de impacto testados, apenas dois levaram o modelo a convergir.
-	Com ambos os algoritmos para a solução das equações diferenciais, descritos no item \ref{sec:mdl:sol-sistema}, a utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o cálculo de uma solução.
+	Dos três perfis para a função da força de impacto \gls{s:fun-forca-impacto} testados, apenas dois levaram o modelo a convergir.
+	Com ambos os algoritmos para a solução das equações diferenciais, descritos no item \ref{sec:mdl:sol-sistema}, a utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o atingimento de uma solução.
 	A investigação da causa vai além dos objetivos deste trabalho.
 	Portanto, apenas as formas de pulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
 	
