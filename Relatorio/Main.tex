@@ -1138,11 +1138,11 @@
 	
 	A carga máxima encontrada é empregada para desenvolver um perfil de impactos ao longo do tempo.
 	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
-	Os impactos ao longo do tempo são modelados, conforme as referências \cite{mcfadden:1984,tandon:1997}, como uma série de impulsos, com três formas diferentes:
+	Os impactos ao longo do tempo são modelados, conforme as referências \cite{mcfadden:1984,tandon:1997}, como uma série infinita de impulsos ou de pulsos, em três formas diferentes:
 	\begin{enumerate}
 		\item impulso infinitesimal com o delta de Kronecker, conforme mostrado na Equação \ref{eqn:rol:impulsos}, exibido na \figurename\ \ref{fig:modelo-imp-kron};
-		\item impulso triangular simétrico, com duração de $250\ \mu\text{s}$, exibido na \figurename\ \ref{fig:modelo-imp-tri};
-		\item impulso retangular com duração de $0,5\%$ do período correspondente à frequência \gls{s:freq-rol-def-out} (aproximadamente $47\ \mu\text{s}$), exibido na \figurename\ \ref{fig:modelo-imp-rect}.
+		\item pulso triangular simétrico, com duração de $250\ \mu\text{s}$, exibido na \figurename\ \ref{fig:modelo-imp-tri};
+		\item pulso retangular com duração de $0,5\%$ do período correspondente à frequência \gls{s:freq-rol-def-out} (aproximadamente $47\ \mu\text{s}$), exibido na \figurename\ \ref{fig:modelo-imp-rect}.
 	\end{enumerate}
 	
 	\begin{figure}[b]
@@ -1151,12 +1151,12 @@
 	\end{figure}
 	
 	\begin{figure}[h]
-		\incluirimagem[0.5]{ModeloImpulsoUnicoTri.png}{Perfil de impulso triangular de impacto}{o autor (\thedate)}
+		\incluirimagem[0.5]{ModeloImpulsoUnicoTri.png}{Perfil de pulso triangular de impacto}{o autor (\thedate)}
 		\label{fig:modelo-imp-tri}
 	\end{figure}
 
 	\begin{figure}[h]
-		\incluirimagem[0.5]{ModeloImpulsoUnicoRect.png}{Perfil de impulso retangular de impacto}{o autor (\thedate)}
+		\incluirimagem[0.5]{ModeloImpulsoUnicoRect.png}{Perfil de pulso retangular de impacto}{o autor (\thedate)}
 		\label{fig:modelo-imp-rect}
 	\end{figure}
 
@@ -1314,7 +1314,7 @@
 	
 	\subsection{Resolução do sistema} \label{sec:mdl:sol-sistema}
 	As simulações ocorreram em duas partes: inicialmente o modelo foi gerado com uma duração de $0,5$ segundo com os três perfis de impacto mostrados nas {\figurename s} \ref{fig:modelo-imp-kron}, \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}.
-	Cada perfil de impulso foi testado com dois algoritmos diferentes para a solução do sistema de equações diferenciais da Equação \ref{eqn:mdl:sistema}:
+	Cada perfil de impacto foi testado com dois algoritmos diferentes para a solução do sistema de equações diferenciais da Equação \ref{eqn:mdl:sistema}:
 	\begin{enumerate}
 		\item mecanismo baseado na fórmula explícita de Runge-Kutta (4,5) de passo único \cite{ode45}, isto é, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$;
 		\label{enum:ode45}
@@ -1323,7 +1323,7 @@
 		\label{enum:ode113}
 	\end{enumerate}
 	
-	Após avaliar a combinação mais apropriada de perfil de impulso e mecanismo de solução, uma simulação com duração de quatro segundos é realizada para obter a resposta de vibração ao longo do tempo e o seu espectro de frequências.
+	Após avaliar a combinação mais apropriada de perfil de força de impacto e mecanismo de solução, uma simulação com duração de quatro segundos é realizada para obter a resposta de vibração ao longo do tempo e o seu espectro de frequências.
 	
 	Em todos os testes, uma frequência de amostragem \gls{s:freq-amostra} de $50\ \text{kHz}$ foi adotada.
 	
@@ -1364,10 +1364,10 @@
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
 	\subsection{Perfil de impacto e mecanismo de solução}
-	Dos três perfis de impulso para a força de impacto testados, apenas dois levaram o modelo a convergir.
+	Dos três perfis para a força de impacto testados, apenas dois levaram o modelo a convergir.
 	Com ambos os algoritmos para a solução das equações diferenciais, descritos no item \ref{sec:mdl:sol-sistema}, a utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o cálculo de uma solução.
 	A investigação da causa vai além dos objetivos deste trabalho.
-	Portanto, apenas as formas de impulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
+	Portanto, apenas as formas de pulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
 	
 	\begin{table}[b]
 	\caption{Comparativo do tempo de computação das simulações}
