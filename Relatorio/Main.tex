@@ -926,7 +926,7 @@
 	Diâmetro externo & \gls{s:rol-diam-ext} & $42\ \text{mm}$ \\
 	Número de esferas & \gls{s:rol-num-esferas} & $ 9 $\\
 	Diâmetro da esfera & \gls{s:rol-diam-esferas} & $6,35\ \text{mm}$ \\
-	Folga diametral & \gls{s:rol-folga-diam} & $ 14\ \mu\text{m} $ \\
+	Folga diametral & \gls{s:rol-folga-diam} & $ 16\ \mu\text{m} $ \\
 	Ângulo de contato & \gls{s:rol-angulo-contato} & $ 0\text\textdegree $ \\
 	Massa da esfera & \gls{s:rol-massa-esfera} & $ 0,00105\ \text{kg} $ \\\bottomrule
 	\end{tabular}
@@ -970,7 +970,7 @@
 	No entanto, para utilização do raio da esfera (conforme mostrado na Figura \ref{fig:raios-rolamento}) nos cálculos relacionados ao contato de superfícies, a folga diametral -- não considerada nas medidas nominais do fabricante -- precisa ser ponderada.
 	Dessa maneira, pode-se calcular
 	\begin{equation}
-		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1315\ \text{mm}.
+		r_{ax} = r_{ay} = \frac{D_{2o} - D_{2i} - c_d}{4} = 3,1310\ \text{mm}.
 	\end{equation}
 	
 	\subsection{Velocidades e frequências características}
@@ -1036,25 +1036,25 @@
 	Conhecidos os raios de curvatura da esfera e dos anéis, mostrados nas \tablename s \ref{tbl:6004-gerais} e \ref{tbl:6004-aneis}, é possível determinar para as duas superfícies de contato -- esfera com anel interno e esfera com anel externo -- valores para os raios de curvatura equivalentes \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y}, além da soma e diferença de curvatura \gls{s:curvatura-soma} e \gls{s:curvatura-diferenca}, mostrados nas Equações \ref{eqn:seco:r-equiv-x} a \ref{eqn:seco:curv-diferenca}.
 	Para o contato entre a esfera e a pista interna, tem-se
 	\begin{align*}
-		\frac{1}{\gls{s:raio-equiv-x}_i} = \frac{1}{3,1315} +
+		\frac{1}{\gls{s:raio-equiv-x}_i} = \frac{1}{3,131} +
 		\frac{1}{12,32} &\implies \gls{s:raio-equiv-x}_i =
 		2,497\ \text{mm} \\
-		\frac{1}{\gls{s:raio-equiv-y}_i} = \frac{1}{3,1315} +
+		\frac{1}{\gls{s:raio-equiv-y}_i} = \frac{1}{3,131} +
 		\frac{1}{3,18} &\implies \gls{s:raio-equiv-y}_i =
 		1,578\ \text{mm} \\
 		\frac{1}{\gls{s:curvatura-soma}_i} = \frac{1}{2,497} +
 		\frac{1}{1,578} &\implies \gls{s:curvatura-soma}_i =
-		0,9668\ \text{mm}\\
-		\gls{s:curvatura-diferenca}_i = 0,9668\left( 
+		0,9667\ \text{mm}\\
+		\gls{s:curvatura-diferenca}_i = 0,9667\left( 
 		\frac{1}{2,497} - \frac{1}{1,578} \right) &\implies
-		\gls{s:curvatura-diferenca}_i = -0,2256.
+		\gls{s:curvatura-diferenca}_i = -0,2255.
 	\end{align*}
 	
 	O procedimento pode ser repetido para o contato entre esfera e pista externa, obtendo os valores finais
 	\begin{align*}
 		\gls{s:raio-equiv-x}_o &= 2,682\ \text{mm}\\
 		\gls{s:raio-equiv-y}_o &= 1,578\ \text{mm}\\
-		\gls{s:curvatura-soma}_o &= 0,9334\ \text{mm}\\
+		\gls{s:curvatura-soma}_o &= 0,9333\ \text{mm}\\
 		\gls{s:curvatura-diferenca}_o &= -0,2592.
 	\end{align*}
 	
@@ -1135,7 +1135,7 @@
 	
 	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação \ref{eqn:mdl:carga-maxima} para obter a força sobre o elemento rolante no momento do impacto.
 	O procedimento iterativo para o cálculo de \gls{s:rol-carga-maxima-elemento} é empregado na função \textsc{ObterCargaMaximaEsfera} do código-fonte do Apêndice \ref{apc:codigo}.
-	Com os valores de entrada utilizados, chega-se a uma carga máxima de \[ \gls{s:rol-carga-maxima-elemento} = 73,53\ N. \]
+	Com os valores de entrada utilizados, chega-se a uma carga máxima de \[ \gls{s:rol-carga-maxima-elemento} = 79,38\ N. \]
 	
 	A carga máxima encontrada é empregada para desenvolver um perfil de impactos ao longo do tempo.
 	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
@@ -1269,20 +1269,20 @@
 	
 	Em seguida, os parâmetros adimensionais das Equações \ref{eqn:ehl:veloc-adim}, \ref{eqn:ehl:material-adim} e \ref{eqn:ehl:carga-adim} para os filmes de fluido dos dois anéis podem ser encontrados:
 	\begin{align*}
-		\gls{s:veloc-adim}_i &= 0,7335\cdot 10^{-10} \qquad
+		\gls{s:veloc-adim}_i &= 0,7336\cdot 10^{-10} \qquad
 		\gls{s:veloc-adim}_o = 0,1399\cdot 10^{-10}\\
 		%
 		\gls{s:material-adim}_i &= \gls{s:material-adim}_o =
 		5,0437\cdot 10^3\\
 		%
-		\gls{s:carga-adim}_i &= 0,5366\cdot 10^{-4} \qquad
-		\gls{s:carga-adim}_o = 0,4651\cdot 10^{-4}.
+		\gls{s:carga-adim}_i &= 0,5795\cdot 10^{-4} \qquad
+		\gls{s:carga-adim}_o = 0,5023\cdot 10^{-4}.
 	\end{align*}
 	
 	Uma vez que os parâmetros adimensionais, o raio equivalente \gls{s:raio-equiv-x} e o parâmetro de elipticidade \gls{s:param-elipticidade} são conhecidos para cada contato, a Equação \ref{eqn:ehl:esp-filme} é utilizada para determinar as espessuras dos filmes de fluido, resultado em
 	\begin{equation*}
-		\gls{s:esp-filme}_i = 0,1482\cdot 10^{-6}\ m \qquad
-		\gls{s:esp-filme}_o = 0,05290\cdot 10^{-6}\ m.
+		\gls{s:esp-filme}_i = 0,1474\cdot 10^{-6}\ m \qquad
+		\gls{s:esp-filme}_o = 0,05262\cdot 10^{-6}\ m.
 	\end{equation*}
 	
 	O cálculo das espessuras de filme de fluido pode ser encontrado no código-fonte do Apêndice \ref{apc:codigo} encapsulado na função \textsc{EspessuraFilmeLub}.
@@ -1335,7 +1335,7 @@
 		\label{fig:modelo-converg-carga-max}
 	\end{figure}
 
-	De toda forma, o método para cálculo de \gls{s:rol-carga-maxima-elemento} demonstrou um limite para a seleção no valor da folga radial do rolamento. Por este motivo, adotou-se o valor de $7\ \mu\text{m}$, que resulta no valor de $14\ \mu\text{m}$ para \gls{s:rol-folga-diam} exibido na \tablename\ \ref{tbl:6004-gerais}.
+	De toda forma, o método para cálculo de \gls{s:rol-carga-maxima-elemento} demonstrou um limite para a seleção no valor da folga radial do rolamento. Por este motivo, adotou-se o valor de $8\ \mu\text{m}$, que resulta no valor de $16\ \mu\text{m}$ para \gls{s:rol-folga-diam} exibido na \tablename\ \ref{tbl:6004-gerais}.
 	O novo valor foi escolhido por ser um dos valores inteiros mais próximos da folga determinada inicialmente, mas que ainda estão no intervalo de convergência do método de cálculo de \gls{s:rol-carga-maxima-elemento}.
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
