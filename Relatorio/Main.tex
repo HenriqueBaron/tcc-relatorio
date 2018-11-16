@@ -1354,7 +1354,7 @@
 	Apesar de o aumento da carga máxima com o crescimento da carga radial ser um efeito óbvio, o resultado também cresce com o aumento da folga radial.
 	Isso está de acordo com a explicação trazida em \cite{hamrock:1991}, de que o aumento da folga do rolamento promove uma acomodação menos uniforme da carga do anel interno sobre as esferas, de modo que a carga tende a ser suportada por menos elementos.
 	
-	\begin{figure}[b]
+	\begin{figure}[t]
 		\incluirimagem[0.75]{ModeloConvergCargaMaxima.png}{Carga máxima da esfera em função da carga radial e folga diametral}{o autor (\thedate)}
 		\label{fig:modelo-converg-carga-max}
 	\end{figure}
@@ -1362,6 +1362,35 @@
 	De toda forma, o método para cálculo de \gls{s:rol-carga-maxima-elemento} demonstrou um limite para a seleção no valor da folga radial do rolamento. Por este motivo, adotou-se o valor de $8\ \mu\text{m}$, que resulta no valor de $16\ \mu\text{m}$ para \gls{s:rol-folga-diam} exibido na \tablename\ \ref{tbl:6004-gerais}.
 	O novo valor foi escolhido por ser um dos valores inteiros mais próximos da folga determinada inicialmente, mas que ainda estão no intervalo de convergência do método de cálculo de \gls{s:rol-carga-maxima-elemento}.
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
+	
+	\subsection{Perfil de impacto e mecanismo de solução}
+	Dos três perfis de impulso para a força de impacto testados, apenas dois levaram o modelo a convergir.
+	Com ambos os algoritmos para a solução das equações diferenciais, descritos no item \ref{sec:mdl:sol-sistema}, a utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o cálculo de uma solução.
+	A investigação da causa vai além dos objetivos deste trabalho.
+	Portanto, apenas as formas de impulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
+	
+	\begin{table}[b]
+	\caption{Comparativo do tempo de computação das simulações}
+	\def\arraystretch{1.2}\centering
+	\begin{tabular}{l|l|l|l}
+	\toprule
+	\textbf{Algoritmo de solução} &
+	\textbf{Triangular} &
+	\textbf{Retangular} &
+	\textbf{Redução} \\ \midrule
+	%
+	Runge-Kutta (\ref{enum:ode45} & $271,24\ \text{s}$ & 
+	$24,93\ \text{s}$ &	$\bm{90,81\%}$ \\
+	%
+	Adams-Bashforth-Moulton (\ref{enum:ode113} & $184,03\ \text{s}$ &
+	$21,16\ \text{s}$ & $\bm{88,50\%}$\\
+	%
+	\textbf{Redução} & $\bm{32,15\%}$ & $\bm{15,15\%}$ & \\\bottomrule
+	\end{tabular}\par
+	\hspace{5pt}
+	\fonte{o autor (\thedate)}
+	\label{tbl:tempo-simulacao}
+	\end{table}
 	
 	\postextual
 	
