@@ -1405,14 +1405,14 @@
 	A análise destes indicadores e comparação às referências consultadas é feita em duas partes.
 	A primeira analisará o sinal ao longo do tempo, e a segunda caracterizará os resultados obtidos no domínio da frequência.
 	
-	\subsection{Análise de tempo}
-	A \figurename\ \ref{fig:modelo-resp-ext-tempo} apresenta a resposta de deslocamento do anel externo à vibração do sistema.
+	\subsection{Análise de tempo} \label{sec:res:analise-tempo}
+	A \figurename\ \ref{fig:modelo-ext-tempo} apresenta a resposta de deslocamento do anel externo à vibração do sistema.
 	É possível observar um comportamento repetitivo de picos de deslocamento, causados pelos sucessivos impactos de uma esfera do rolamento com o defeito modelado.
 	O intervalo de tempo entre cada pico corresponde ao período de \gls{s:freq-rol-def-out}, indo de encontro à observação experimental em \cite{cong:2013}, de que os picos do gráfico ao longo do tempo se apresentam na frequência característica do defeito presente no rolamento.
 	
 	\begin{figure}[b]
 		\incluirimagem[0.75]{ModeloExtPosTempo.png}{Deslocamento do anel externo ao longo do tempo}{o autor (\thedate)}
-		\label{fig:modelo-resp-ext-tempo}
+		\label{fig:modelo-ext-tempo}
 	\end{figure}
 	
 	Enquanto os picos deste sinal têm uma variação senoidal nos resultados das referências \cite{mcfadden:1984,sassi:2007,cong:2013,patil:2010}, a resposta de vibração deste modelo possui valores de pico praticamente constantes.
@@ -1420,10 +1420,58 @@
 	No caso das referências consultadas, os modelos previam um defeito no anel interno do rolamento com uma aplicação constante de carga; ou um defeito no anel externo com uma carga oriunda de um rotor desbalanceado, cujo vetor de força rotaciona na mesma velocidade angular do eixo.
 	O modelo desenvolvido neste trabalho prevê uma condição mais simples, com o defeito localizado no anel externo, fixo, e uma aplicação de carga constante.
 	
-	É visível também que, nos resultados exibidos na \figurename\ \ref{fig:modelo-resp-ext-tempo}, a posição do anel externo não atinge a posição zero até a ocorrência do impacto seguinte, diferentemente do modelo desenvolvido em \cite{sassi:2007}.
+	É visível também que, nos resultados exibidos na \figurename\ \ref{fig:modelo-ext-tempo}, a posição do anel externo não atinge a posição zero até a ocorrência do impacto seguinte, diferentemente do modelo desenvolvido em \cite{sassi:2007}.
 	Entre as possíveis causas dessa diferença pode-se citar a diferente velocidade de rotação empregada ($720$ \gls{sig:RPM} na referência contra $1800$ \gls{sig:RPM} no modelo desenvolvido);
 	e diferentes métodos para obtenção dos valores de amortecimento para os filmes de lubrificante.
 	Em \cite{sassi:2007}, um conjunto de parâmetros para a lubrificação hidrodinâmica de mancais de deslizamento é utilizado, em vez da teoria \gls{sig:EHL}, para a obtenção desta propriedade.
+	
+	\subsection{Análise de frequência}
+	Como um panorama, o espectro de amplitude exibido na \figurename\ \ref{fig:modelo-ext-ampspec} decompõe as frequências presentes no sinal de aceleração do anel externo.
+	A linha mais destacada deste espectro encontra-se a uma frequência de $5260\ \text{Hz}$, bastante próxima à frequência natural do anel externo, de $5307\ \text{Hz}$.
+	Isso alinha-se com o resultado do modelo proposto em \cite{sassi:2007}, no qual o espectro de frequências possui uma componente destacada em uma alta frequência, indicada como a frequência de ressonância do rolamento.
+	
+	\begin{figure}[h]
+		\incluirimagem[0.7]{ModeloExtAccAmpSpectrum.png}{Espectro de frequências do anel externo}{o autor (\thedate)}
+		\label{fig:modelo-ext-ampspec}
+	\end{figure}
+
+	Para eliminar a interferência da frequência natural do rolamento na obtenção de informações sobre possíveis falhas, as referências consultadas empregam o espectro de envelope, que destacará as componentes de baixa frequência em que se apresentam os defeitos.
+	De maneira correspondente, o espectro de envelope para o sinal de aceleração do anel externo é exibido na \figurename\ \ref{fig:modelo-ext-envspec-total}.
+
+	\begin{figure}[h]
+		\incluirimagem[0.7]{ModeloExtAccEnvSpectrum.png}{Espectro de envelope do anel externo}{o autor (\thedate)}
+		\label{fig:modelo-ext-envspec-total}
+	\end{figure}
+
+	Uma ampliação no espectro de envelope da \figurename\ \ref{fig:modelo-ext-envspec-total} é exibido na \figurename\ \ref{fig:modelo-ext-envspec-600hz}.
+	Nele, é possível verificar a existência de linhas altas igualmente espaçadas.
+	Estas linhas estão em frequências múltiplas de $107,35\ \text{Hz}$, o que corresponde exatamente a \gls{s:freq-rol-def-out}.
+	A presença de linhas mais altas na frequência característica do defeito vai de encontro às observações feitas nas referências \cite{mcfadden:1984,sassi:2007,patil:2010,cong:2013}, tanto no desenvolvimento de seus modelos como em seus testes experimentais.
+
+	\begin{figure}[h]
+		\incluirimagem[0.7]{ModeloExtAccEnvSpec600Hz.png}{Espectro de envelope do anel externo, ampliado}{o autor (\thedate)}
+		\label{fig:modelo-ext-envspec-600hz}
+	\end{figure}
+
+	Uma característica que é pontuada nos testes experimentais de \cite{mcfadden:1984} e também nos modelos e testes de \cite{sassi:2007,cong:2013} é a presença de bandas laterais à frequência característica do defeito e suas harmônicas no espectro de envelope.
+	Estas bandas laterais distam das linhas principais -- na frequência do defeito -- o equivalente à frequência de rotação do eixo.
+	Uma constatação feita em \cite{mcfadden:1984} na verificação experimental é que no espectro de envelope também haverá uma linha de altura semelhante à das bandas laterais, porém, isolada na frequência de rotação do eixo.
+	Ao observar as linhas de espectro nas frequências múltiplas de \gls{s:freq-rol-def-out} na \figurename\ \ref{fig:modelo-ext-envspec-600hz}, seria razoável afirmar que as bandas laterais mencionadas nas referências não foram evidenciadas.
+	Uma ampliação posterior do espectro, mostrada na \figurename\ \ref{fig:modelo-ext-envspec-sidebands}, indica que estas linhas foram geradas, mas possuem uma amplitude quase desprezível.
+	Além da baixa amplitude, a frequência em que aparecem destoa da frequência de rotação do eixo.
+	Enquanto a rotação de 1800 \gls{sig:RPM} impressa corresponde a uma frequência de rotação de $30\ \text{Hz}$, a linha isolada aparece em $23,5\ \text{Hz}$.
+	O padrão de distância, no entanto, acabou preservado: as bandas laterais distam da linha principal os mesmos $23,5\ \text{Hz}$.
+	A causa para o aparecimento destas linhas em uma frequência diferente daquela de rotação do eixo não foi identificada.
+		
+	\begin{figure}[b]
+		\incluirimagem[0.7]{ModeloExtAccEnvSpecSideBands.png}{Bandas laterais no espectro de envelope}{o autor (\thedate)}
+		\label{fig:modelo-ext-envspec-sidebands}
+	\end{figure}
+
+	Embora o aparecimento das bandas laterais em amplitudes baixas pareça um indício de erro no modelo, o aumento destas linhas laterais e da linha inicial isolada na frequência do eixo está diretamente ligado à carga oscilante \cite{cong:2013}.
+	Como mencionado no item \ref{sec:res:analise-tempo}, a carga oscilante pode aparecer com um defeito no anel interno combinado a uma carga fixa, ou a um defeito no anel externo associado a uma carga girante, como um rotor desbalanceado.
+	No segundo caso, uma carga desbalanceada muito grande pode inclusive tornar as bandas laterais dominantes no espectro de envelope, em relação à banda na frequência característica do defeito.
+	Uma vez que a carga adotada no desenvolvimento deste modelo é constante e a falha se encontra no anel externo do rolamento, também fixo, é razoável esperar que a altura das bandas laterais e da banda inicial sejam minimizados.
 	
 	\postextual
 	
