@@ -1364,15 +1364,30 @@
 	A investigação da causa vai além dos objetivos deste trabalho.
 	Portanto, apenas as formas de pulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
 	
-	Os testes realizados com os outros dois perfis de força de impacto, com dois algoritmos de solução diferentes, apresentaram resultados similares para a resposta de vibração simulada.
-	Uma diferença pôde ser notada, no entanto, no custo computacional entre as diferentes alternativas.
+	Os testes realizados com os outros dois perfis de força de impacto apresentaram resultados semelhantes entre ambos algoritmos para um mesmo perfil de força.
+	A resposta de vibração do anel externo para as diferentes forças, no entanto, apresentou-se diferente, como pode ser observado na \figurename\ \ref{fig:modelo-comp-pulsos}.
+	A diferença entre os dois resultados pode ser justificada na diferença de forma e de largura entre as funções de força de impacto.
+	Ao comparar o comportamento dos pulsos entre as {\figurename s} \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}, é perceptível a maior largura do pulso triangular.
+	A diferença nessa medida implica uma área maior sob o gráfico da função \gls{s:fun-forca-impacto} o que, por integração da definição da força como $F = m\cdot a$, indica maior crescimento da velocidade do corpo em que a força foi aplicada.
+	Por conseguinte, o deslocamento tem um aumento momentâneo em apenas uma direção vertical do gráfico.
+	
+	\begin{figure}[b]
+		\incluirimagem[0.42]{ModeloResultadosPulsos.png}{Deslocamento do anel externo para diferentes forças de impacto}{o autor (\thedate)}
+		\label{fig:modelo-comp-pulsos}
+	\end{figure}
+
+	Já a forma do impulso é a resposta para a maior amplitude observada no deslocamento provocado pelo pulso retangular, quando desconsiderado o pico assimétrico na direção vertical positiva do outro gráfico.
+	A característica retangular da variação da força indica um valor muito alto -- teoricamente, infinito -- da derivada da aceleração, chamada de impulso ou \foreignlanguage{english}{jerk}.
+	Essa variação abrupta de aceleração provocou um deslocamento maior, visto que o conjunto dos parâmetros de rigidez e amortecimento (que são os mesmos entre os dois testes) definem o tempo de resposta de um sistema dinâmico.
+	
+	Além da diferença na resposta de vibração, uma diferença expressiva no custo computacional da solução entre as diferentes formas de força de impacto.
 	A \tablename\ \ref{tbl:tempo-simulacao} apresenta o tempo que cada um dos algoritmos levou para finalizar o cálculo para o tempo de simulação de $0,5\ \text{s}$.
 	Enquanto o uso do algoritmo de Adams-Bashforth-Moulton, descrito no \ref{enum:ode113} da seção \ref{sec:mdl:sol-sistema} apresentou tempos de execução $15,15\%$ e $32,15\%$ menores do que o método do item \ref{enum:ode45}, a maior diferença mostrou-se entre os dois perfis de força de impacto.
 	Para ambos os algoritmos, a simulação com um perfil em pulsos retangulares foi pelo menos $88\%$ mais rápida.
 	
-	Por esse motivo, adotou-se para a simulação completa da resposta de vibração do rolamento o algoritmo Adams-Bashforth-Moulton, modelando a função da força de impacto \gls{s:fun-forca-impacto} com pulsos retangulares.
+	Dada a diferença no custo computacional e uma maior similaridade da resposta de deslocamento com o modelo apresentado em \cite{sassi:2007}, adotou-se para a simulação completa da vibração do rolamento o algoritmo Adams-Bashforth-Moulton, modelando a função da força de impacto \gls{s:fun-forca-impacto} com pulsos retangulares.
 	
-	\begin{table}[b]
+	\begin{table}[t]
 	\caption{Comparativo do tempo de computação das simulações}
 	\def\arraystretch{1.2}\centering
 	\begin{tabular}{l|l|l|l}
