@@ -1468,6 +1468,27 @@
 	No segundo caso, uma carga desbalanceada muito grande pode inclusive tornar as bandas laterais dominantes no espectro de envelope, em relação à banda na frequência característica do defeito.
 	Uma vez que a carga adotada no desenvolvimento deste modelo é constante e a falha se encontra no anel externo do rolamento, também fixo, é razoável esperar que a altura das bandas laterais e da banda inicial sejam minimizados.
 	
+	\chapter{Conclusão}
+	No presente trabalho, o desenvolvimento completo de um modelo para a predição de falha em um rolamento defeituoso foi realizado.
+	A simulação foi conduzida em uma condição específica de falha e carregamento para fins de verificação.
+	O código disponibilizado no Apêndice \ref{apc:codigo} deste documento, no entanto, é aplicável a outras condições de falha sem a necessidade de grandes adaptações.
+	A expansão da funcionalidade deste modelo a outras formas construtivas de rolamento exigirá uma nova análise das condições de contato analisadas no item \ref{sec:contato-seco}, mas é de toda maneira cabível ao trabalho já desenvolvido.
+	
+	A determinação de propriedades elencada como objetivo foi parcialmente atingida, de modo que informações dos componentes foram completamente obtidas e a interação destes como contato seco foi plenamente caracterizada.
+	A investigação de parâmetros relacionados ao filme de lubrificante sob o regime de \gls{sig:EHL} não foi realizada profundamente dada a complexidade do assunto em relação ao escopo amplo do trabalho.
+	
+	Diferentes modelos para a força de excitação provocada pelos impactos das esferas do rolamento com o defeito foram experimentados, possibilitando a escolha daquele que demonstrou maior eficiência na simulação, na questão de custo computacional.
+	
+	A resolução completa do modelo dinâmico não-linear permitiu a comparação com a literatura consultada, possibilitando identificar semelhanças com outros modelos desenvolvidos no sinal de vibração ao longo do tempo.
+	Em especial nos resultados obtidos no domínio da frequência, uma sintonia grande com as observações teóricas e experimentais das referências consultadas identificou que o comportamento do modelo é fiel à realidade para o modo de falha considerado, ao menos em caráter qualitativo.
+	
+	Uma verificação da precisão quantitativa do modelo depende de uma análise experimental.
+	Visto que as dimensões do rolamento ensaiado variavam entre cada referência consultada, não foi possível obter um padrão quantitativo a seguir e estabelecer como meta para o trabalho.
+	Não obstante, a experimentação do modelo desenvolvido com outras condições de carregamento e defeito é necessária para concluir mais assertivamente a respeito da sua confiabilidade.
+	
+	De toda maneira, o modelo apresentou resultados satisfatórios, indo de encontro à literatura e demonstrando semelhança qualitativa com a teoria da vibração em rolamentos defeituosos.
+	Com o objetivo atingido, este trabalho estabelece o primeiro passo para um desenvolvimento que pode ser tanto ampliado para outras dimensões de rolamento e condições de falha; como aprofundado para uma maior compreensão de fenômenos complexos associados à dinâmica de rolamentos, como a teoria da \gls{sig:EHL}.
+	
 	\postextual
 	
 	\bibliography{Bibliografia}
