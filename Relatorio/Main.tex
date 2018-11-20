@@ -1308,19 +1308,11 @@
 	\end{equation*}
 	
 	\subsection{Resolução do sistema} \label{sec:mdl:sol-sistema}
-	As simulações ocorreram em duas partes: inicialmente o modelo foi gerado com uma duração de $0,5$ segundo com os três perfis de impacto mostrados nas {\figurename s} \ref{fig:modelo-imp-kron}, \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}.
-	Cada perfil de impacto foi testado com dois algoritmos diferentes para a solução do sistema de equações diferenciais da Equação \ref{eqn:mdl:sistema}:
-	\begin{enumerate}
-		\item mecanismo baseado na fórmula explícita de Runge-Kutta (4,5) de passo único \cite{ode45}, isto é, o cálculo de um valor de $x(t_n)$ depende apenas do seu valor anterior, $x(t_{n-1})$;
-		\label{enum:ode45}
-		\item mecanismo baseado no algoritmo de Adams-Bashforth-Moulton de passo e ordem variáveis \cite{ode113}.
-		Este possui passo múltiplo, portanto, depende de vários valores anteriores ao atual para computar a resposta em um determinado instante.
-		\label{enum:ode113}
-	\end{enumerate}
-	
-	Após avaliar a combinação mais apropriada de perfil de força de impacto e mecanismo de solução, uma simulação com duração de quatro segundos é realizada para obter a resposta de vibração ao longo do tempo e o seu espectro de frequências.
-	
-	Em todos os testes, uma frequência de amostragem \gls{s:freq-amostra} de $50\ \text{kHz}$ foi adotada.
+	As simulações ocorreram em duas partes: inicialmente o modelo foi gerado com uma duração de $0,5$ segundo com os três perfis de impacto mostrados nas {\figurename s} \ref{fig:modelo-imp-kron}, \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}.	
+	Após avaliar o perfil de força de impacto mais apropriado, uma simulação com duração de quatro segundos é realizada para obter a resposta de vibração ao longo do tempo e o seu espectro de frequências.
+	Em todos os testes, o modelo dinâmico foi resolvido com o algoritmo de solução -- denominado pelo termo em inglês \foreignlanguage{english}{solver} -- de Adams-Bashforth-Moulton de ordens 1 a 12.
+	É um \foreignlanguage{english}{solver} de passo e ordem variáveis, e de passo múltiplo, ou seja, o cálculo da solução em um instante de tempo depende da solucão em diversos instantes anteriores \cite{ode113}.
+	Além disso, uma frequência de amostragem \gls{s:freq-amostra} de $50\ \text{kHz}$ foi adotada de maneira igual nas duas situações de teste.
 	
 	\chapter{Resultados}
 	O capítulo a seguir apresenta os resultados obtidos com o trabalho desenvolvido.
@@ -1358,15 +1350,14 @@
 	O novo valor foi escolhido por ser um dos valores inteiros mais próximos da folga determinada inicialmente, mas que ainda estão no intervalo de convergência do método de cálculo de \gls{s:rol-carga-maxima-elemento}.
 	Adicionalmente, o novo valor determinado para a folga radial ainda está dentro da faixa de valores especificado pela norma.
 	
-	\subsection{Perfil de impacto e mecanismo de solução}
+	\subsection{Perfil da força de impacto}
 	Dos três perfis para a função da força de impacto \gls{s:fun-forca-impacto} testados, apenas dois levaram o modelo a convergir.
-	Com ambos os algoritmos para a solução das equações diferenciais, descritos no item \ref{sec:mdl:sol-sistema}, a utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o atingimento de uma solução.
+	A utilização de impulsos unitários com o delta de Kronecker como exibido na \figurename\ \ref{fig:modelo-imp-kron} impedia o atingimento de uma solução.
 	A investigação da causa vai além dos objetivos deste trabalho.
 	Portanto, apenas as formas de pulso triangular (\figurename\ \ref{fig:modelo-imp-tri}) e retangular (\figurename\ \ref{fig:modelo-imp-rect}) foram consideradas.
 	
-	Os testes realizados com os outros dois perfis de força de impacto apresentaram resultados semelhantes entre ambos algoritmos para um mesmo perfil de força.
-	A resposta de vibração do anel externo para as diferentes forças, no entanto, apresentou-se diferente, como pode ser observado na \figurename\ \ref{fig:modelo-comp-pulsos}.
-	A diferença entre os dois resultados pode ser justificada na diferença de forma e de largura entre as funções de força de impacto.
+	A resposta de vibração do anel externo para os outros dois perfis de força de impacto pôde ser calculada e os resultados apresentaram-se diferentes, como pode ser observado na \figurename\ \ref{fig:modelo-comp-pulsos}.
+	A diferença entre os dois resultados se justifica pela diferença de forma e de largura entre as funções de força de impacto.
 	Ao comparar o comportamento dos pulsos entre as {\figurename s} \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}, é perceptível a maior largura do pulso triangular.
 	A diferença nessa medida implica uma área maior sob o gráfico da função \gls{s:fun-forca-impacto} o que, por integração da definição da força como $F = m\cdot a$, indica maior crescimento da velocidade do corpo em que a força foi aplicada.
 	Por conseguinte, o deslocamento tem um aumento momentâneo em apenas uma direção vertical do gráfico.
@@ -1380,35 +1371,9 @@
 	A característica retangular da variação da força indica um valor muito alto -- teoricamente, infinito -- da derivada da aceleração, chamada de impulso ou \foreignlanguage{english}{jerk} \cite{norton:2010}.
 	Essa variação abrupta de aceleração provocou um deslocamento maior, visto que o conjunto dos parâmetros de rigidez e amortecimento (que são os mesmos entre os dois testes) definem o tempo de resposta de um sistema dinâmico \cite{lutz:2005}.
 	
-	Além da diferença na resposta de vibração, uma diferença expressiva no custo computacional da solução entre as diferentes formas de força de impacto.
-	A \tablename\ \ref{tbl:tempo-simulacao} apresenta o tempo que cada um dos algoritmos levou para finalizar o cálculo para o tempo de simulação de $0,5\ \text{s}$.
-	Enquanto o uso do algoritmo de Adams-Bashforth-Moulton, descrito no \ref{enum:ode113} da seção \ref{sec:mdl:sol-sistema} apresentou tempos de execução $15,15\%$ e $32,15\%$ menores do que o método do item \ref{enum:ode45}, a maior diferença mostrou-se entre os dois perfis de força de impacto.
-	Para ambos os algoritmos, a simulação com um perfil em pulsos retangulares foi pelo menos $88\%$ mais rápida.
-	
-	Dada a diferença no custo computacional e uma maior similaridade da resposta de deslocamento com o modelo apresentado em \cite{sassi:2007}, adotou-se para a simulação completa da vibração do rolamento o algoritmo Adams-Bashforth-Moulton, modelando a função da força de impacto \gls{s:fun-forca-impacto} com pulsos retangulares.
-	
-	\begin{table}[t]
-	\caption{Comparativo do tempo de computação das simulações}
-	\def\arraystretch{1.2}\centering
-	\begin{tabular}{l|l|l|l}
-	\toprule
-	\textbf{Algoritmo de solução} &
-	\textbf{Triangular} &
-	\textbf{Retangular} &
-	\textbf{Redução} \\ \midrule
-	%
-	Runge-Kutta (\ref{enum:ode45} & $271,24\ \text{s}$ & 
-	$24,93\ \text{s}$ &	$\bm{90,81\%}$ \\
-	%
-	Adams-Bashforth-Moulton (\ref{enum:ode113} & $184,03\ \text{s}$ &
-	$21,16\ \text{s}$ & $\bm{88,50\%}$\\ \midrule
-	%
-	\textbf{Redução} & $\bm{32,15\%}$ & $\bm{15,15\%}$ & \\\bottomrule
-	\end{tabular}\par
-	\hspace{5pt}
-	\fonte{o autor (\thedate)}
-	\label{tbl:tempo-simulacao}
-	\end{table}
+	Além da diferença na resposta de vibração, houve uma variação expressiva no custo computacional da solução entre as diferentes formas de força de impacto.
+	Ao passo de que a simulação com pulsos triangulares durante $0,5$ segundo levou uma média de $184,03$ segundos entre três execuções, o teste da função com forma retangular, sob as mesmas condições, teve um tempo médio de $21,16$ segundos, o que representa uma redução de $88,5\%$ na duração da resolução do modelo.
+	Dada a diferença no custo computacional e uma maior similaridade da resposta de deslocamento com o modelo apresentado em \cite{sassi:2007}, adotou-se para a simulação completa da vibração do rolamento a função da força de impacto \gls{s:fun-forca-impacto} com pulsos retangulares.
 
 	\section{Resposta de vibração simulada}
 	Na simulação com os parâmetros selecionados, foram obtidos os resultados para o deslocamento do anel externo do rolamento ao longo do tempo, além dos espectros de amplitude e de envelope, da aceleração do anel externo.
