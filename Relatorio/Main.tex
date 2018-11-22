@@ -109,7 +109,7 @@
 	\subsection{Série de Fourier} \label{sec:fourier:serie}
 	Seja $g(t)$ uma função periódica com período \gls{s:periodo}, a série de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie}
-		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos n\gls{s:freq-rad} t + b_n\sin n\gls{s:freq-rad} t \right)
+		g(t) = \frac{a_0}{2} + \sum_{n=1}^{\infty}\left(a_n\cos n\gls{s:freq-rad} t + b_n\sin n\gls{s:freq-rad} t \right),
 	\end{equation}
 	sendo a frequência \gls{s:freq-rad} relacionada ao período \gls{s:periodo} por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:periodo}
@@ -119,22 +119,22 @@
 	\begin{align}\label{eqn:fourier:coefs}
 		a_0 &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\ dt \notag\\
 		a_n &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\cos n\gls{s:freq-rad} t\ dt \\
-		b_n &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\sin n\gls{s:freq-rad} t\ dt \notag
+		b_n &= \frac{2}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\sin n\gls{s:freq-rad} t\ dt. \notag
 	\end{align}
 	
 	Embora seja possível a discussão sobre a convergência da série Fourier na Equação \ref{eqn:fourier:serie} para uma função $g(t)$, isso não é tratado aqui, visto que as condições de convergência desta série são satisfeitas nos problemas de ciência e engenharia, em geral \cite{spiegel:1977}.
 	
 	Utilizando as identidades de Euler
 	\begin{equation}\label{eqn:fourier:ident-euler}
-		e^{i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} + i\sin\gls{s:freq-rad}, , \quad e^{-i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} - i\sin\gls{s:freq-rad}
+		e^{i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} + i\sin\gls{s:freq-rad}, \quad e^{-i\gls{s:freq-rad}} = cos\,\gls{s:freq-rad} - i\sin\gls{s:freq-rad}
 	\end{equation}
 	a série de Fourier da Equação \ref{eqn:fourier:serie} também pode ser representada na sua forma complexa como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:serie-compl}
-		g(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\gls{s:freq-rad} t}
+		g(t) = \sum_{n=-\infty}^{\infty}\alpha_n\,e^{in\gls{s:freq-rad} t},
 	\end{equation}
 	onde a harmônica \gls{s:coef-fourier-compl} é calculada por \cite{dimarogonas:1995}
 	\begin{equation}\label{eqn:fourier:coefs-compl}
-		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\,e^{-in\gls{s:freq-rad} t}\ dt
+		\alpha_n = \frac{1}{2}(a_n - ib_n) = \frac{1}{\gls{s:periodo}}\int_{0}^{\gls{s:periodo}}g(t)\,e^{-in\gls{s:freq-rad} t}\ dt.
 	\end{equation}
 	
 	\subsection{Representação no domínio da frequência} \label{sec:espectros-frequencia}
@@ -163,24 +163,24 @@
 	Para o caso de uma função não-periódica, toma-se a definição formal de que $ \tau\to\infty $, fazendo com que a série de Fourier torne-se uma integral de Fourier \cite{spiegel:1977}.
 	Seja $g(t)$ uma função seccionalmente contínua em qualquer intervalo finito e absolutamente integrável em $ (-\infty ,\,\infty) $, a integral de Fourier é definida como \cite{spiegel:1977}
 	\begin{equation}\label{eqn:fourier:integral}
-		g(t) = \int_{0}^{\infty}\left\lbrace a_{\gls{s:freq-rad}}\cos\gls{s:freq-rad} t + b_{\gls{s:freq-rad}}\sin\gls{s:freq-rad} t\right\rbrace\, d\gls{s:freq-rad}
+		g(t) = \int_{0}^{\infty}\left\lbrace a_{\gls{s:freq-rad}}\cos\gls{s:freq-rad} t + b_{\gls{s:freq-rad}}\sin\gls{s:freq-rad} t\right\rbrace\, d\gls{s:freq-rad},
 	\end{equation}
 	tal que os coeficientes \glspl{s:coef-fourier-int} são determinados por
 	\setlength\jot{3ex plus 2ex minus 1ex}
 	\begin{align}
 		a_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\cos\gls{s:freq-rad} t\ dt \\
-		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\sin\gls{s:freq-rad} t\ dt
+		b_\omega = \frac{1}{\pi}\int_{-\infty}^{\infty}g(t)\sin\gls{s:freq-rad} t\ dt.
 	\end{align}
 	
 	\subsubsection{Transformada de Fourier} \label{sec:fourier:transform}
 	Aplicando na Equação \ref{eqn:fourier:integral} a identidade de Euler da Equação \ref{eqn:fourier:ident-euler} de maneira semelhante ao item \ref{sec:fourier:serie}, obtém-se a transformada de Fourier \cite{savi:2017} de $g(t)$, denotada por $G(\omega)$
 	\begin{equation} \label{eqn:fourier:transform}
-		G(\gls{s:freq-rad}) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\gls{s:freq-rad} t}\:dt
+		G(\gls{s:freq-rad}) = \mathcal{F}\{g(t)\} = \int_{-\infty}^{\infty}g(t)\ e^{-i\gls{s:freq-rad} t}\:dt,
 	\end{equation}
 	que também é denominada como transformada contínua de Fourier \cite{dimarogonas:1995}.
 	A transformada inversa de Fourier, por sua vez, é dada por \cite{spiegel:1977}
 	\begin{equation} \label{eqn:fourier:transform-inv}
-		g(t) = \mathcal{F}^{-1}\{G(\gls{s:freq-rad})\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\gls{s:freq-rad})\ e^{i\gls{s:freq-rad} t}\:d\gls{s:freq-rad}
+		g(t) = \mathcal{F}^{-1}\{G(\gls{s:freq-rad})\} = \frac{1}{2\pi}\int_{-\infty}^{\infty}G(\gls{s:freq-rad})\ e^{i\gls{s:freq-rad} t}\:d\gls{s:freq-rad}.
 	\end{equation}
 	
 	\subsection{Métodos numéricos}
@@ -193,12 +193,12 @@
 	O par de transformadas integrais das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} vai do intervalo $ -\infty $ até $ \infty $, o que torna impossível a sua manipulação numérica.
 	Um intervalo $ (-\gls{s:periodo}/2,\:\gls{s:periodo}/2) $ é empregado, assumindo que a função $g(t)$ se repita fora desse intervalo em ambas as direções, e permitindo o uso da frequência fundamental \gls{s:freq-hz} que corresponde a \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-fundam}
-		\gls{s:freq-hz} = \frac{1}{\gls{s:periodo}}
+		\gls{s:freq-hz} = \frac{1}{\gls{s:periodo}}.
 	\end{equation}
 	
 	Considerando que a amostragem da função $g(t)$ seja feita em intervalos $ \Delta $\gls{s:tempo}, a frequência de amostragem \gls{s:freq-amostra} é definida como \cite{dimarogonas:1995}
 	\begin{equation} \label{eqn:fourier:freq-amostra}
-		\gls{s:freq-amostra} = \frac{1}{\Delta t}
+		\gls{s:freq-amostra} = \frac{1}{\Delta t}.
 	\end{equation}
 	
 	Considerando ainda que alguma perturbação aconteça a cada intervalo \[\Delta t = \frac{\gls{s:periodo}}{\gls{s:numero-amostras}} \] onde \gls{s:numero-amostras} corresponde ao número de amostras coletadas para o período \gls{s:periodo}, é de se esperar que exista uma frequência inerente no espectro \gls{s:freq-amostra}, o que introduz no espectro de frequências uma periodicidade \gls{s:freq-amostra} \cite{dimarogonas:1995}.
@@ -212,7 +212,7 @@
 	a transformada de Fourier (direta e inversa) torna-se \cite{randall:1987}
 	\begin{align}
 		G_k &= \frac{1}{\gls{s:numero-amostras}}\sum_{n=0}^{\gls{s:numero-amostras}-1}g_n e^{-i 2\pi k n/\gls{s:numero-amostras}} \label{eqn:fourier:dft}\\
-		g_n &= \sum_{k=0}^{\gls{s:numero-amostras}-1}G_k e^{i 2\pi k n/\gls{s:numero-amostras}} \label{eqn:fourier:dft-inv}
+		g_n &= \sum_{k=0}^{\gls{s:numero-amostras}-1}G_k e^{i 2\pi k n/\gls{s:numero-amostras}} \label{eqn:fourier:dft-inv},
 	\end{align}
 	que é chamada de \gls{sig:DFT} e, por substituir as integrais contínuas e infinitas das Equações \ref{eqn:fourier:transform} e \ref{eqn:fourier:transform-inv} por somas finitas, é muito mais adaptada à computação digital \cite{randall:1987}.
 	Adicionalmente, a Equação \ref{eqn:fourier:dft} pode ser representada como \cite{dimarogonas:1995}
@@ -221,7 +221,7 @@
 	\end{equation}
 	onde $ \vec{G} $ é um vetor contendo as \gls{s:numero-amostras} componentes complexas de frequência $ G_k $ , $ \vec{g} $ é um vetor contendo as \gls{s:numero-amostras} amostras coletadas no tempo, e \gls{s:matriz-unitarios-dft} é uma matriz quadrada $ \gls{s:numero-amostras}\! \times\!	\gls{s:numero-amostras} $ contendo os vetores unitários \gls{s:vetor-matriz-unit-dft} que dependem unicamente do número de amostras e são calculados por
 	\begin{equation}
-		\textbf{a}_{kn} = e^{-i2\pi kn/\gls{s:numero-amostras}}
+		\textbf{a}_{kn} = e^{-i2\pi kn/\gls{s:numero-amostras}}.
 	\end{equation}
 	
 	\subsubsection{Transformada Rápida de Fourier}
@@ -263,9 +263,9 @@
 			k_{21} & k_{22} & k_{23} & \dots & k_{2n}\\
 			\vdots\\
 			k_{n1} & k_{n2} & k_{n3} & \dots & k_{nn}\\
-		\end{bmatrix}
+		\end{bmatrix},
 	\end{gather}
-	onde \gls{s:coef-massa}, \gls{s:coef-amortecimento} e \gls{s:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{s:vetor-desloc}, \gls{s:vetor-vel}, \gls{s:vetor-acel} e \gls{s:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por \cite{rao:2008}
+	sendo \gls{s:coef-massa}, \gls{s:coef-amortecimento} e \gls{s:coef-rigidez} são os coeficientes de massa, amortecimento e rigidez da matriz correspondente.	Além destes, os termos \gls{s:vetor-desloc}, \gls{s:vetor-vel}, \gls{s:vetor-acel} e \gls{s:vetor-forcas} são os vetores de deslocamento, velocidade, aceleração e força, definidos por \cite{rao:2008}
 	\begin{align} \label{eqn:vetores}
 		\vec{x} =
 		\begin{Bmatrix}
@@ -282,7 +282,7 @@
 		\vec{F} = 
 		\begin{Bmatrix}
 			F_1(t)\\ F_2(t)\\ \vdots\\ F_n(t)\\
-		\end{Bmatrix}
+		\end{Bmatrix}.
 	\end{align}
 	
 	\section{Vibração de sistemas contínuos}
@@ -349,7 +349,7 @@
 		\frac{1}{\gls{s:raio-equiv-x}} = \frac{1}{r_{ax}} +
 		\frac{1}{r_{bx}} \label{eqn:seco:r-equiv-x} \\
 		\frac{1}{\gls{s:raio-equiv-y}} = \frac{1}{r_{ay}} +
-		\frac{1}{r_{by}} \label{eqn:seco:r-equiv-y}
+		\frac{1}{r_{by}} \label{eqn:seco:r-equiv-y},
 	\end{gather}
 	que redefinem o problema do contato entre dois elipsoides -- como mostrado na Figura \ref{fig:contato-elipses} -- para o contato de um elipsoide de raios de curvatura \gls{s:raio-equiv-x} e \gls{s:raio-equiv-y} com uma superfície plana \cite{hamrock:1991}.
 	
@@ -362,7 +362,7 @@
 	\begin{equation} \label{eqn:seco:curv-diferenca}
 		\gls{s:curvatura-diferenca} = \gls{s:curvatura-soma}
 		\left( \frac{1}{\gls{s:raio-equiv-x}} - 
-		\frac{1}{\gls{s:raio-equiv-y}} \right)
+		\frac{1}{\gls{s:raio-equiv-y}} \right).
 	\end{equation}
 	
 	Cabe ressaltar que, diferentemente da soma de curvatura, a diferença de curvatura é adimensional.
@@ -376,7 +376,7 @@
 		\right]^{-1/2}d\phi \label{eqn:seco:int-elip-1} \\
 		\gls{s:int-eliptica-2} &= \int_{0}^{\pi/2} \left[ 1 - \left(
 		1-\frac{1}{\gls{s:param-elipticidade}^2}\right)\sin^2\phi
-		\right]^{1/2}d\phi \label{eqn:seco:int-elip-2}
+		\right]^{1/2}d\phi \label{eqn:seco:int-elip-2},
 	\end{align}
 	e relaciona estes valores com \gls{s:param-elipticidade} e \gls{s:curvatura-diferenca} através de uma equação transcendental
 	\begin{equation} \label{eqn:seco:param-elip}
@@ -384,7 +384,7 @@
 		2\gls{s:int-eliptica-1} - \gls{s:int-eliptica-2}(
 		1+\gls{s:curvatura-diferenca})}{
 		\gls{s:int-eliptica-2}(1-\gls{s:curvatura-diferenca})}
-		\right]^{1/2}
+		\right]^{1/2}.
 	\end{equation}
 	
 	Sendo os valores das Equações \ref{eqn:seco:int-elip-1}, \ref{eqn:seco:int-elip-2} e \ref{eqn:seco:param-elip} interdependentes, o método propõe a iteração destes cálculos até a convergência de \gls{s:param-elipticidade}, determinando em seguida os valores finais para \gls{s:int-eliptica-1} e \gls{s:int-eliptica-2}.
@@ -393,7 +393,7 @@
 	Pela teoria de Hertz, a carga aplicada ao contato \gls{s:carga-radial} e a deformação máxima \gls{s:deformacao-maxima} são relacionadas por \cite{tandon:1997,hamrock:1991}
 	\begin{equation} \label{eqn:seco:def-hertz-curta}
 		\gls{s:carga-radial} = \gls{s:rigidez-hertz}\,
-		\gls{s:deformacao-maxima}^{\gls{s:exp-naolin}}
+		\gls{s:deformacao-maxima}^{\gls{s:exp-naolin}}.
 	\end{equation}
 	
 	Para o caso de rolamentos de esferas, o expoente \gls{s:exp-naolin} vale $ 1,5 $ e \gls{s:rigidez-hertz} é a rigidez não-linear, que vale \cite{hamrock:1991}
@@ -401,14 +401,14 @@
 		\gls{s:rigidez-hertz} = \pi\gls{s:param-elipticidade}\,
 		\gls{s:modulo-elast-efetivo}\left( \frac{
 		2\gls{s:int-eliptica-2}\gls{s:curvatura-soma}}{
-		9\gls{s:int-eliptica-1}^3} \right)^{1/2}
+		9\gls{s:int-eliptica-1}^3} \right)^{1/2}.
 	\end{equation}
 	
 	Nesta equação, o termo \gls{s:modulo-elast-efetivo} é o módulo de elasticidade efetivo, que combina o módulo de elasticidade \gls{s:modulo-elast} e o coeficiente de Poisson \gls{s:coef-poisson} de cada um dos dois sólidos a e b em contato através da fórmula \cite{wijnant:1998}
 	\begin{equation}
 		\frac{2}{\gls{s:modulo-elast-efetivo}} = 
 		\frac{1-\gls{s:coef-poisson}_a}{\gls{s:modulo-elast}_a} + 
-		\frac{1-\gls{s:coef-poisson}_b}{\gls{s:modulo-elast}_b}
+		\frac{1-\gls{s:coef-poisson}_b}{\gls{s:modulo-elast}_b}.
 	\end{equation}
 	
 	Para o cálculo específico da deformação máxima \gls{s:deformacao-maxima}, as Equações \ref{eqn:seco:def-hertz-curta} e \ref{eqn:seco:rig-hertz} podem ser combinadas e rearranjadas para \cite{hamrock:1991}
@@ -416,7 +416,7 @@
 		\gls{s:deformacao-maxima} = \gls{s:int-eliptica-1} \left[
 		\left( \frac{9}{2\gls{s:int-eliptica-2} \gls{s:curvatura-soma}} \right) \left(
 		\frac{\gls{s:carga-radial}}{\pi\gls{s:param-elipticidade}\,
-		\gls{s:modulo-elast-efetivo}} \right)^2 \right]^{1/3}
+		\gls{s:modulo-elast-efetivo}} \right)^2 \right]^{1/3}.
 	\end{equation}
 	
 	\section{Contato lubrificado}
@@ -661,7 +661,7 @@
 	Nesta, a extensão angular \gls{s:rol-extensao-carregamento} da distribuição de carga é obtida por
 	\begin{equation} \label{eqn:rol:extensao-carregamento}
 		\gls{s:rol-extensao-carregamento} = \arccos \frac{
-		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}}
+		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}},
 	\end{equation}
 	utilizando o valor de deformação máxima calculado pela Equação \ref{eqn:seco:deformacao-max}.
 	
@@ -669,7 +669,7 @@
 	\begin{equation} \label{eqn:rol:carga-elemento}
 		\gls{s:rol-carga-elemento} = \gls{s:rigidez-hertz} \left(
 		\gls{s:deformacao-maxima}\cos\gls{s:rol-angulo-carregamento}
-		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^{\gls{s:exp-naolin}}
+		 - \frac{\gls{s:rol-folga-diam}}{2} \right)^{\gls{s:exp-naolin}}.
 	\end{equation}
 	
 	Ainda conforme \cite{hamrock:1991}, a carga total aplicada \gls{s:carga-radial} deve ser igual ao somatório da carga distribuída entre todos os elementos rolantes solicitados:
@@ -687,7 +687,7 @@
 		\left( \cos\gls{s:rol-angulo-carregamento} - \frac{
 		\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^{
 		3/2} \cos\gls{s:rol-angulo-carregamento}\ 
-		d\gls{s:rol-angulo-carregamento}
+		d\gls{s:rol-angulo-carregamento}.
 	\end{equation}
 	
 	É possível ainda obter uma expressão que relacione a carga radial aplicada \gls{s:carga-radial} com a carga na esfera mais solicitada \gls{s:rol-carga-maxima-elemento}.
@@ -695,14 +695,14 @@
 	\begin{equation}
 		\gls{s:rol-carga-maxima-elemento} = \gls{s:rigidez-hertz}
 		\left( 1 - \frac{\gls{s:rol-folga-diam}}{
-		2\gls{s:deformacao-maxima}} \right)^{\gls{s:exp-naolin}}
+		2\gls{s:deformacao-maxima}} \right)^{\gls{s:exp-naolin}}.
 	\end{equation}
 	
 	Em um segundo passo, essa expressão pode ser dividida pela Equação \ref{eqn:rol:dist-carga-esf}.
 	Rearranjando os termos, chega-se a
 	\begin{equation} \label{eqn:rol:carga-radial-com-maxima}
 		\gls{s:carga-radial} = \frac{\gls{s:rol-num-esferas}\,
-		\gls{s:rol-carga-maxima-elemento}}{Z_w}
+		\gls{s:rol-carga-maxima-elemento}}{Z_w},
 	\end{equation}
 	onde $ Z_w $ representa
 	\begin{equation} \label{eqn:rol:zw-carga-radial}
@@ -713,7 +713,7 @@
 		\left( \cos\gls{s:rol-angulo-carregamento} - \frac
 		{\gls{s:rol-folga-diam}}{2\gls{s:deformacao-maxima}} \right)^
 		{3/2} \cos\gls{s:rol-angulo-carregamento}\ 
-		d\gls{s:rol-angulo-carregamento}}
+		d\gls{s:rol-angulo-carregamento}}.
 	\end{equation}
 	
 	\subsection{Determinação de propriedades}
@@ -740,7 +740,7 @@
 		\gls{s:rol-rig-anel}_i &= \gls{s:rol-massa-anel}_i\,
 			(\gls{s:freq-natural}_i)^2 \label{eqn:rol:rig-anel-int}\\
 		\gls{s:rol-rig-anel}_o &= \gls{s:rol-massa-anel}_o\,
-			(\gls{s:freq-natural}_o)^2 \label{eqn:rol:rig-anel-ext}
+			(\gls{s:freq-natural}_o)^2 \label{eqn:rol:rig-anel-ext}.
 	\end{align}
 	
 	\subsubsection{Esferas}
@@ -814,7 +814,7 @@
 	Considerando o giro do eixo com o rolamento em regime permanente, a função $ p(t) $ que define a influência dos impactos pode ser modelada com uma série infinita de impulsos de igual amplitude $ p_0 $, separados por um período $ \gls{s:periodo}_d $, que é o recíproco da frequência de incidência de um elemento rolante sobre o defeito.
 	Um exemplo da função $ p(t) $ está representado na Figura \ref{fig:funcao-impulso} e ela pode ser definida como \cite{mcfadden:1984}
 	\begin{equation} \label{eqn:rol:impulsos}
-		p(t) = p_0\sum_{k=-\infty}^{\infty}\gls{s:func-impulso}(t-k\,\gls{s:periodo}_d)
+		p(t) = p_0\sum_{k=-\infty}^{\infty}\gls{s:func-impulso}(t-k\,\gls{s:periodo}_d).
 	\end{equation}
 	\begin{figure}[b]
 		\incluirimagem{FuncaoImpulso.png}{Função com impulsos periódicos}{adaptado de \citeauthoronline{cong:2013} (\citeyear{cong:2013})}
@@ -834,7 +834,7 @@
 	
 	Dessa maneira, pode-se determinar a amplitude de vibração \gls{s:rol-amplitude-sensor} medida pelo transdutor em função da amplitude máxima $ \gls{s:rol-amplitude-sensor}_{max} $ e do ângulo $ \theta $ entre esse valor limite e o eixo de medição do acelerômetro, sendo definida por \cite{sassi:2007}
 	\begin{equation}
-		\gls{s:rol-amplitude-sensor}(\theta) = \gls{s:raio} - \left( \frac{\sin^2\theta}{[\gls{s:raio}-\gls{s:rol-amplitude-sensor}_{max}]^2} + \frac{\cos^2\theta}{[\gls{s:raio}+\gls{s:rol-amplitude-sensor}_{max}]^2} \right)^{-1/2}
+		\gls{s:rol-amplitude-sensor}(\theta) = \gls{s:raio} - \left( \frac{\sin^2\theta}{[\gls{s:raio}-\gls{s:rol-amplitude-sensor}_{max}]^2} + \frac{\cos^2\theta}{[\gls{s:raio}+\gls{s:rol-amplitude-sensor}_{max}]^2} \right)^{-1/2}.
 	\end{equation}
 	
 	Nessa equação, \gls{s:raio} denota o raio do anel não-deformado.
@@ -865,7 +865,7 @@
 	\end{enumerate}
 	pode-se obter o sinal efetivo recebido pelo transdutor ao realizar a convolução entre este produto e a função \gls{s:func-decaimento} \cite{mcfadden:1984,cong:2013}
 	\begin{equation}
-		g(t) = [\gls{s:rol-forca-tot-impacto}(t)\cdot \gls{s:func-impulso}(t)\cdot \gls{s:rol-amplitude-sensor}(t)]\ast\gls{s:func-decaimento}(t)
+		g(t) = [\gls{s:rol-forca-tot-impacto}(t)\cdot \gls{s:func-impulso}(t)\cdot \gls{s:rol-amplitude-sensor}(t)]\ast\gls{s:func-decaimento}(t).
 	\end{equation}
 	
 	\chapter{Materiais e métodos}
