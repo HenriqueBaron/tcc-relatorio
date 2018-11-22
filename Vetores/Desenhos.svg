@@ -40,11 +40,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="1821.1596"
-     inkscape:cy="-490.04191"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="1716.9414"
+     inkscape:cy="-84.764156"
      inkscape:document-units="mm"
-     inkscape:current-layer="ltx-render-layer"
+     inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:window-width="1853"
      inkscape:window-height="1025"
@@ -54,7 +54,7 @@
      inkscape:pagecheckerboard="false"
      inkscape:snap-midpoints="true"
      showguides="false"
-     inkscape:snap-nodes="false" />
+     inkscape:snap-nodes="true" />
   <defs
      id="defs2">
     <marker
@@ -4464,34 +4464,38 @@
        inkscape:export-ydpi="230.06456"
        inkscape:export-xdpi="230.06456"
        inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 447.26045,354.65506 h 41.5572"
+       style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 448.46483,354.65506 40.35282,0"
        id="path11850"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        inkscape:export-ydpi="230.06456"
        inkscape:export-xdpi="230.06456"
        inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
        inkscape:connector-curvature="0"
        id="path11852"
-       d="m 447.26045,277.55687 h 41.5572"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       d="m 448.46483,277.55687 h 40.35282"
+       style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
     <path
        inkscape:export-ydpi="230.06456"
        inkscape:export-xdpi="230.06456"
        inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 447.26045,334.61756 h 18.40616"
+       style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 448.46483,334.61756 h 17.20178"
        id="path11862"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
     <path
        inkscape:export-ydpi="230.06456"
        inkscape:export-xdpi="230.06456"
        inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
        inkscape:connector-curvature="0"
        id="path11864"
-       d="m 447.26045,298.63883 h 18.40616"
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+       d="m 448.46484,298.63883 h 18.00859"
+       style="fill:none;stroke:#000000;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       sodipodi:nodetypes="cc" />
     <path
        inkscape:export-ydpi="230.06456"
        inkscape:export-xdpi="230.06456"
@@ -15583,7 +15587,10 @@
     </g>
     <g
        id="lx-text8254"
-       transform="matrix(0.352778,0,0,0.352778,448.65661,268.10843)">
+       transform="matrix(0.352778,0,0,0.352778,448.65661,268.10843)"
+       inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
+       inkscape:export-xdpi="230"
+       inkscape:export-ydpi="230">
       <defs
          id="defs21254">
         <g
@@ -15646,7 +15653,10 @@
     </g>
     <g
        id="lx-text8258"
-       transform="matrix(0,-0.352778,0.352778,0,415.24577,287.9822)">
+       transform="matrix(0,-0.352778,0.352778,0,415.24577,287.9822)"
+       inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
+       inkscape:export-xdpi="230"
+       inkscape:export-ydpi="230">
       <defs
          id="defs21280">
         <g
@@ -15709,7 +15719,10 @@
     </g>
     <g
        id="lx-text8262"
-       transform="matrix(0,-0.352778,0.352778,0,414.77573,347.64177)">
+       transform="matrix(0,-0.352778,0.352778,0,414.77573,347.64177)"
+       inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
+       inkscape:export-xdpi="230"
+       inkscape:export-ydpi="230">
       <defs
          id="defs21306">
         <g
@@ -15772,7 +15785,10 @@
     </g>
     <g
        id="lx-text8266"
-       transform="matrix(0,-0.352778,0.352778,0,459.7457,318.67765)">
+       transform="matrix(0,-0.352778,0.352778,0,459.7457,318.67765)"
+       inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
+       inkscape:export-xdpi="230"
+       inkscape:export-ydpi="230">
       <defs
          id="defs21332">
         <g
@@ -15835,7 +15851,10 @@
     </g>
     <g
        id="lx-text8270"
-       transform="matrix(0,-0.352778,0.352778,0,483.11502,318.93121)">
+       transform="matrix(0,-0.352778,0.352778,0,483.11502,318.93121)"
+       inkscape:export-filename="/home/henrique/repos/tcc-relatorio/Imagens/MedidasRolamento.png"
+       inkscape:export-xdpi="230"
+       inkscape:export-ydpi="230">
       <defs
          id="defs21358">
         <g
