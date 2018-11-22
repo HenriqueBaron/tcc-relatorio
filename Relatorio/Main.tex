@@ -803,7 +803,7 @@
 	\subsubsection{Impactos modulados pela força}
 	A incidência de um elemento rolante sobre o defeito em uma das frequências calculadas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf} resultará em um impacto, cuja amplitude será dependente da força total de impacto naquele ângulo de rotação \cite{mcfadden:1984}.
 	Esta aplicação de força em um período curto de tempo é tratada em alguns dos modelos como um impulso unitário \cite{mcfadden:1984,sassi:2007,cong:2013}, que é também chamado de função delta de Kronecker e obedece à seguinte definição \cite{rao:2008}
-	\begin{equation}
+	\begin{equation} \label{eqn:delta-kron}
 		\gls{s:func-impulso}(t) = 
 		\begin{cases}
 			1,& t=0\\
@@ -1128,7 +1128,7 @@
 	Cada impacto tem a força equivalente a \gls{s:rol-carga-maxima-elemento} e os impactos ocorrem na frequência em que as esferas passam pelo defeito no anel externo, isto é, \gls{s:freq-rol-def-out}.
 	Os impactos ao longo do tempo são modelados, conforme as referências \cite{mcfadden:1984,tandon:1997}, como uma série infinita de impulsos ou de pulsos, em três formas diferentes:
 	\begin{enumerate}
-		\item impulso infinitesimal com o delta de Kronecker, conforme mostrado na Equação \ref{eqn:rol:impulsos}, exibido na \figurename\ \ref{fig:modelo-imp-kron};
+		\item impulso infinitesimal com o delta de Kronecker, conforme mostrado na Equação \ref{eqn:delta-kron}, exibido na \figurename\ \ref{fig:modelo-imp-kron};
 		\item pulso triangular simétrico, com duração de $250\ \mu\text{s}$, exibido na \figurename\ \ref{fig:modelo-imp-tri};
 		\item pulso retangular com duração de $0,5\%$ do período correspondente à frequência \gls{s:freq-rol-def-out} (aproximadamente $47\ \mu\text{s}$), exibido na \figurename\ \ref{fig:modelo-imp-rect}.
 	\end{enumerate}
