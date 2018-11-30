@@ -1118,7 +1118,7 @@
 	O novo valor calculado para $Z_w$ deve então ser realimentado na Equação \ref{eqn:mdl:carga-maxima}, possibilitando repetir os passos do procedimento.
 	O processo iterativo continua, obedecendo um critério de parada semelhante ao da Equação \ref{eqn:mdl:cond-parada-k}
 	\begin{equation}
-		| (Z_w)_n - (Z_w)_{n+1} | \leq 10^{-7}.
+		| (Z_w)_n - (Z_w)_{n-1} | \leq 10^{-7}.
 	\end{equation}
 	
 	O valor final de $Z_w$ obtido é utilizado uma última vez na Equação \ref{eqn:mdl:carga-maxima} para obter a força sobre o elemento rolante no momento do impacto.
