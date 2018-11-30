@@ -544,7 +544,7 @@
 	A referência \cite{nonato:2014} empregou o modelo utilizado em \cite{nonato:2010} para obter as propriedades de rigidez não-linear, força de sustentação e amortecimento linear para um filme de lubrificante ISO VG 32 em um rolamento radial rígido de esferas tipo 6006.
 	No experimento, os resultados foram ajustados, e os valores para \gls{s:rig-naolin-filme} e \gls{s:forca-sust-filme} para diversas velocidades de rotação e carga radial constante são apresentados na \tablename\ \ref{tbl:rig-filme}.
 	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.
-	Nas outras colunas, \gls{s:veloc-rotacao} indica a velocidade de rotação do rolamento em \gls{sig:RPM} e, de maneira semelhante às seções anteriores, \gls{s:carga-radial} representa a carga radial aplicada ao rolamento.	
+	Nas outras colunas, \gls{s:veloc-rotacao} indica a velocidade de rotação do rolamento em \gls{sig:rpm} e, de maneira semelhante às seções anteriores, \gls{s:carga-radial} representa a carga radial aplicada ao rolamento.	
 	
 	\begin{table}[ht]
 	\caption{Rigidez não-linear do filme de fluido para um rolamento 6006}
@@ -552,7 +552,7 @@
 	\centering
 	\begin{tabular}{l|l|l|l|l|l}
 	\toprule
-	$\bm{N_r\ [RPM]}$ & 
+	$\bm{N_r\ [rpm]}$ & 
 	$\bm{w_z\ [N]}$ &
 	$\bm{k_{EHD}} \cdot \bm{10^8\ [N/m^j]}$ &
 	$\bm{j}$ &
@@ -579,7 +579,7 @@
 	\centering
 	\begin{tabular}{l|c|c}
 	\toprule
-	$\bm{N_r\ [RPM]}$ &
+	$\bm{N_r\ [rpm]}$ &
 	$\bm{c_{EHD}\ [N.s/m]}$ &
 	$\bm{1}-\bm{R^2}$ \\ \midrule
 	$ 600 $ & $ 31,602 $ & $ 0,307 $ \\
@@ -887,7 +887,7 @@
 	Embora os dados se apliquem ao modelo de um rolamento 6006, a diferença dimensional entre os dois elementos será desconsiderada, aplicando-se os mesmos valores.
 	
 	\section{Dados de entrada} \label{sec:dados-entrada}
-	O modelo desenvolvido assume como velocidade de rotação do eixo um valor de 1800 \gls{sig:RPM} e uma carga radial de 100 N.
+	O modelo desenvolvido assume como velocidade de rotação do eixo um valor de 1800 \gls{sig:rpm} e uma carga radial de 100 N.
 	Conforme determinado no item \ref{sec:proposta-condicoes}, a carga encontra-se alinhada ao defeito.
 	Os dados gerais do rolamento 6004-2RSH utilizados no modelo são mostrados na \tablename\ \ref{tbl:6004-gerais}.
 	Na \tablename\ \ref{tbl:6004-aneis} são detalhadas propridades específicas dos anéis do rolamento.
@@ -935,7 +935,7 @@
 	As propriedades utilizadas no óleo hidráulico ISO VG 32 empregado no modelo são $32\cdot 10^{-6}\ \text{m\textsuperscript{2}/s}$ para a viscosidade cinemática \gls{s:visc-cin} e massa específica \gls{s:massa-espec} de $861\ \text{kg/m\textsuperscript{3}}$ \cite{iso-vg32}.
 	O índice de viscosidade-pressão empregado foi o valor constante encontrado em \cite{roelands:1966} para óleos minerais, de $0,74$.
 	Os valores de rigidez e amortecimento também foram obtidos diretamente a partir de \cite{nonato:2014}.
-	O modelo utiliza os valores das Tabelas \ref{tbl:rig-filme} e \ref{tbl:amort-filme} para a velocidade de $1800\ \text{RPM}$.
+	O modelo utiliza os valores das Tabelas \ref{tbl:rig-filme} e \ref{tbl:amort-filme} para a velocidade de $1800\ \text{rpm}$.
 
 	\begin{figure}[t]
 		\incluirimagem[0.7]{Modelo3DRolamento.png}{Modelo 3D do rolamento 6004}{SKF.}
@@ -964,7 +964,7 @@
 	\setlength\jot{2ex plus 1ex minus 1ex}
 	\begin{align}
 		\gls{s:freq-rad}_o &= 0 \\
-		\gls{s:freq-rad}_i &= \frac{1800\ \text{RPM}\cdot\pi}{30} = 188,5\ \text{rad/s}.
+		\gls{s:freq-rad}_i &= \frac{1800\ \text{rpm}\cdot\pi}{30} = 188,5\ \text{rad/s}.
 	\end{align}
 	
 	Com estas velocidades angulares, é possível determinar as frequências características do rolamento, descritas nas Equações \ref{eqn:rol:ftf} a \ref{eqn:rol:bsf}.
@@ -1386,7 +1386,7 @@
 	O modelo desenvolvido neste trabalho prevê uma condição mais simples, com o defeito localizado no anel externo, fixo, e uma aplicação de carga constante.
 	
 	É visível também que, nos resultados exibidos na \figurename\ \ref{fig:modelo-ext-tempo}, a posição do anel externo não atinge a posição zero até a ocorrência do impacto seguinte, diferentemente do modelo desenvolvido em \cite{sassi:2007}.
-	Entre as possíveis causas dessa diferença pode-se citar a diferente velocidade de rotação empregada ($720$ \gls{sig:RPM} na referência contra $1800$ \gls{sig:RPM} no modelo desenvolvido);
+	Entre as possíveis causas dessa diferença pode-se citar a diferente velocidade de rotação empregada ($720$ \gls{sig:rpm} na referência contra $1800$ \gls{sig:rpm} no modelo desenvolvido);
 	e diferentes métodos para obtenção dos valores de amortecimento para os filmes de lubrificante.
 	Em \cite{sassi:2007}, um conjunto de parâmetros para a lubrificação hidrodinâmica de mancais de deslizamento é utilizado, em vez da teoria \gls{sig:EHL}, para a obtenção desta propriedade.
 	
@@ -1424,7 +1424,7 @@
 	Ao observar as linhas de espectro nas frequências múltiplas de \gls{s:freq-rol-def-out} na \figurename\ \ref{fig:modelo-ext-envspec-600hz}, seria razoável afirmar que as bandas laterais mencionadas nas referências não foram evidenciadas.
 	Uma ampliação posterior do espectro, mostrada na \figurename\ \ref{fig:modelo-ext-envspec-sidebands}, indica que estas linhas foram geradas, mas possuem uma amplitude quase desprezível.
 	Além da baixa amplitude, a frequência em que aparecem destoa da frequência de rotação do eixo.
-	Enquanto a rotação de 1800 \gls{sig:RPM} impressa corresponde a uma frequência de rotação de $30\ \text{Hz}$, a linha isolada aparece em $23,5\ \text{Hz}$.
+	Enquanto a rotação de 1800 \gls{sig:rpm} impressa corresponde a uma frequência de rotação de $30\ \text{Hz}$, a linha isolada aparece em $23,5\ \text{Hz}$.
 	O padrão de distância, no entanto, acabou preservado: as bandas laterais distam da linha principal os mesmos $23,5\ \text{Hz}$.
 	A causa para o aparecimento destas linhas em uma frequência diferente daquela de rotação do eixo não foi identificada.
 
