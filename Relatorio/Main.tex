@@ -233,6 +233,12 @@
 	\section{Vibração de sistemas discretos} \label{sec:disc}
 	Denominam-se sistemas discretos aqueles que são descritos por um número finito de graus de liberdade.
 	Embora grande parte das estruturas e máquinas possuam elementos elásticos e tenham, portanto, infinitos graus de liberdade, é comum discretizá-los através da divisão dos corpos rígidos em um número conhecido e distribuído de massas pontuais, para simplificação do problema \cite{rao:2008}.
+	Essas massas são unidas por molas e amortecedores que definem o comportamento do sistema, como mostra o sistema de vários graus de liberdade da \figurename\ \ref{fig:sistema-varios-dof}.
+	
+	\begin{figure}[t]
+		\incluirimagem[0.65]{SistemaVariosGrausLiberdade.png}{Sistema com vários graus de liberdade}{\citeauthoronline{rao:2008} (\citeyear{rao:2008})}
+		\label{fig:sistema-varios-dof}
+	\end{figure}
 	
 	\subsection{Equação de movimento}
 	O movimento linear de um sistema massa-mola-amortecedor qualquer é expresso por \cite{rao:2008}
@@ -546,7 +552,7 @@
 	A tabela também indica o expoente \gls{s:exp-naolin} que deve ser utilizado para cada rigidez e o resíduo do ajuste de da curva.
 	Nas outras colunas, \gls{s:veloc-rotacao} indica a velocidade de rotação do rolamento em \gls{sig:rpm} e, de maneira semelhante às seções anteriores, \gls{s:carga-radial} representa a carga radial aplicada ao rolamento.	
 	
-	\begin{table}[ht]
+	\begin{table}[t]
 	\caption{Rigidez não-linear do filme de fluido para um rolamento 6006}
 	\def\arraystretch{1.2}
 	\centering
@@ -573,7 +579,7 @@
 	Da mesma forma, na \tablename\ \ref{tbl:amort-filme} são apresentados os resultados da referência \cite{nonato:2014} para o amortecimento elastohidrodinâmico \gls{s:amort-filme} do filme de fluido para o rolamento 6006, junto com o resíduo do ajuste de curva realizado.
 	Naquela pesquisa, identificou-se que o amortecimento, diferentemente da rigidez, não depende da carga \cite{nonato:2014}.
 	
-	\begin{table}[ht]
+	\begin{table}[b]
 	\caption{Amortecimento linear do filme de fluido para um rolamento 6006}
 	\def\arraystretch{1.2}
 	\centering
