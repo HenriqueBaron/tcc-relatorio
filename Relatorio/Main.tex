@@ -1372,12 +1372,17 @@
 	
 	\subsection{Análise de tempo} \label{sec:res:analise-tempo}
 	A \figurename\ \ref{fig:modelo-ext-tempo} apresenta a resposta de deslocamento do anel externo à vibração do sistema.
-	É possível observar um comportamento repetitivo de picos de deslocamento, causados pelos sucessivos impactos de uma esfera do rolamento com o defeito modelado.
-	O intervalo de tempo entre cada pico corresponde ao período de \gls{s:freq-rol-def-out}, indo ao encontro da observação experimental em \cite{cong:2013}, de que os picos do gráfico ao longo do tempo se apresentam na frequência característica do defeito presente no rolamento.
+	É possível observar um comportamento repetitivo de picos de deslocamento, causados pelos sucessivos impactos das esferas do rolamento com o defeito modelado.
+	Ao ampliar o gráfico de vibração como mostrado na \figurename\ \ref{fig:modelo-ext-tempo-01-seg}, observa-se que o intervalo de tempo entre cada pico corresponde ao período de \gls{s:freq-rol-def-out}, indo ao encontro da observação experimental em \cite{cong:2013}, de que os valores de máximo do sinal se repetem na frequência característica do defeito.
 	
-	\begin{figure}[t]
-		\incluirimagem[0.75]{ModeloExtPosTempo.png}{Deslocamento do anel externo ao longo do tempo}{o autor (\thedate)}
+	\begin{figure}[h]
+		\incluirimagem[0.6]{ModeloExtPosTempo.png}{Deslocamento do anel externo ao longo do tempo}{o autor (\thedate)}
 		\label{fig:modelo-ext-tempo}
+	\end{figure}
+
+	\begin{figure}[h]
+		\incluirimagem[0.6]{ModeloExtPosTempo01Segundo.png}{Tempo entre impactos no anel externo}{o autor (\thedate)}
+		\label{fig:modelo-ext-tempo-01-seg}
 	\end{figure}
 	
 	Enquanto os picos deste sinal têm uma variação senoidal nos resultados das referências \cite{mcfadden:1984,sassi:2007,cong:2013,patil:2010}, a resposta de vibração deste modelo possui valores de pico praticamente constantes.
@@ -1385,10 +1390,15 @@
 	No caso das referências consultadas, os modelos previam um defeito no anel interno do rolamento com uma aplicação constante de carga; ou um defeito no anel externo com uma carga oriunda de um rotor desbalanceado, cujo vetor de força rotaciona na mesma velocidade angular do eixo.
 	O modelo desenvolvido neste trabalho prevê uma condição mais simples, com o defeito localizado no anel externo, fixo, e uma aplicação de carga constante.
 	
-	É visível também que, nos resultados exibidos na \figurename\ \ref{fig:modelo-ext-tempo}, a posição do anel externo não atinge a posição zero até a ocorrência do impacto seguinte, diferentemente do modelo desenvolvido em \cite{sassi:2007}.
+	Em comparação com o resultado de um modelo com carga de impacto constante, proposto na referência \cite{sassi:2007} e exibido na \figurename\ \ref{fig:resposta-tempo-sassi}, é perceptível que a atenuação de vibração no sinal simulado por este modelo é menor.
 	Entre as possíveis causas dessa diferença pode-se citar a diferente velocidade de rotação empregada ($720$ \gls{sig:rpm} na referência contra $1800$ \gls{sig:rpm} no modelo desenvolvido);
 	e diferentes métodos para obtenção dos valores de amortecimento para os filmes de lubrificante.
 	Em \cite{sassi:2007}, um conjunto de parâmetros para a lubrificação hidrodinâmica de mancais de deslizamento é utilizado, em vez da teoria \gls{sig:EHL}, para a obtenção desta propriedade.
+	
+	\begin{figure}[t]
+		\incluirimagem[0.6]{ResultadoTempoSassi.png}{Resposta de vibração com maior atenuação}{\citeauthoronline{sassi:2007} (\citeyear{sassi:2007})}
+		\label{fig:resposta-tempo-sassi}
+	\end{figure}
 	
 	\subsection{Análise de frequência}
 	Como um panorama, o espectro de amplitude exibido na \figurename\ \ref{fig:modelo-ext-ampspec} decompõe as frequências presentes no sinal de aceleração do anel externo.
