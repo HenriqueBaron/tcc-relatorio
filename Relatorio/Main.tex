@@ -1349,16 +1349,19 @@
 	A resposta de vibração do anel externo para os outros dois perfis de força de impacto pôde ser calculada e os resultados apresentaram-se diferentes, como pode ser observado na \figurename\ \ref{fig:modelo-comp-pulsos}.
 	A diferença entre os dois resultados se justifica pela diferença de forma e de largura entre as funções de força de impacto.
 	Ao comparar o comportamento dos pulsos entre as {\figurename s} \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect}, é perceptível a maior largura do pulso triangular.
-	A diferença nessa medida implica uma área maior sob o gráfico da função \gls{s:fun-forca-impacto} o que, por integração da definição da força como $F = m\cdot a$, indica maior crescimento da velocidade do corpo em que a força foi aplicada.
-	Por conseguinte, o deslocamento tem um aumento momentâneo em apenas uma direção vertical do gráfico.
+	A diferença nessa medida implica uma área maior sob o gráfico da função \gls{s:fun-forca-impacto}.
+	Considerando a definição de força como $F = m\cdot a$ e sabendo que a massa do corpo é constante, pode-se integrar para obter \[ \int m.a\ dt = m\,\int a\ dt = m.v \]
+	o que representa o impulso (ganho de quantidade de movimento) sobre o anel externo que sofre o impacto.
+	Integrando os pulsos das {\figurename s} \ref{fig:modelo-imp-tri} e \ref{fig:modelo-imp-rect} numericamente foram obtidos os valores de impulso de $0,00992\ \text{kg.m/s}$ para a forma triangular e $0,00370\ \text{kg.m/s}$ para a forma retangular.
+	Como em ambos os casos a massa é igual, isso denota maior ganho de velocidade no anel externo, imprimindo também deslocamento superior na direção da força.
 	
-	\begin{figure}[b]
+	\begin{figure}[h]
 		\incluirimagem[0.42]{ModeloResultadosPulsos.png}{Deslocamento do anel externo para diferentes forças de impacto}{o autor (\thedate)}
 		\label{fig:modelo-comp-pulsos}
 	\end{figure}
 
 	Já a forma do pulso é a resposta para a maior amplitude e simetria observadas no deslocamento provocado pelo pulso retangular.
-	A variação instantânea da força nesse perfil indica um valor muito alto -- teoricamente, infinito -- da derivada da aceleração, chamada de impulso ou \foreignlanguage{english}{jerk} \cite{norton:2010}.
+	A variação instantânea da força nesse perfil indica um valor muito alto -- teoricamente, infinito -- da derivada da aceleração, chamada de \foreignlanguage{english}{jerk} \cite{norton:2010}.
 	Essa variação abrupta de aceleração provocou um deslocamento maior, visto que o conjunto dos parâmetros de rigidez e amortecimento (que são os mesmos entre os dois testes) definem o tempo de resposta de um sistema dinâmico \cite{lutz:2005}.
 	
 	Além da diferença na resposta de vibração, houve uma variação expressiva no custo computacional da solução entre as diferentes formas de força de impacto.
